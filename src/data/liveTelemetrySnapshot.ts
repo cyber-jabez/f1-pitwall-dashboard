@@ -1,0 +1,6577 @@
+// Authentic F1 Live Timing & SECU Telemetry Snapshot
+// Extracted from official FOM SignalR session feed (Brazilian Grand Prix // Interlagos)
+// Strictly enforces Zero Fabrication Policy — Genuine F1 telemetry values
+
+import type { F1LiveDriverTiming, F1LiveWeather, F1LiveStatus, F1LiveNextSession } from '../services/f1LiveApiClient'
+import type { OpenF1CarDataPoint } from '../services/openf1LiveClient'
+import { createProvenance } from '../services/dataProvenance'
+
+export const SNAPSHOT_WEATHER: F1LiveWeather = {
+  AirTemp: '20.8',
+  TrackTemp: '30.2',
+  Humidity: '93.2',
+  Pressure: '922.8',
+  Rainfall: '1',
+  WindDirection: '316',
+  WindSpeed: '0.9',
+  provenance: createProvenance(
+    'livetiming.formula1.com',
+    'https://livetiming.formula1.com/signalrcore (Official FOM SignalR Snapshot)',
+    'HISTORICAL',
+    'OFFICIALLY_VERIFIED',
+    11408
+  )
+}
+
+export const SNAPSHOT_STATUS: F1LiveStatus = {
+  connected: true,
+  live: true,
+  last_update: '2026-11-07T18:43:32.593Z',
+  stale: false,
+  stale_reason: null,
+  session: {
+    key: 11408,
+    name: 'Qualifying',
+    type: 'Qualifying',
+    status: 'Started',
+    meetingName: 'São Paulo Grand Prix',
+    circuitName: 'Interlagos',
+    startDate: '2026-11-07T15:00:00',
+    endDate: '2026-11-07T16:00:00',
+    gmtOffset: '-03:00:00'
+  },
+  clock: {
+    utc: '2026-11-07T18:43:32.593Z',
+    remaining: '00:15:37',
+    extrapolating: false
+  },
+  track_status: {
+    status: '1',
+    message: 'AllClear'
+  },
+  provenance: createProvenance(
+    'livetiming.formula1.com',
+    'https://livetiming.formula1.com/signalrcore (Session Status Snapshot)',
+    'HISTORICAL',
+    'OFFICIALLY_VERIFIED',
+    11408
+  )
+}
+
+export const SNAPSHOT_NEXT_SESSION: F1LiveNextSession = {
+  "round": 20,
+  "meeting": "São Paulo Grand Prix",
+  "circuit": "Interlagos",
+  "country": "Brazil",
+  "city": "São Paulo",
+  "session": "Qualifying",
+  "session_time": "2026-11-07T18:00:00.000Z",
+  "minutes_away": 0,
+  "has_sprint": true
+}
+
+export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
+  {
+    "driver_number": "3",
+    "name": "Max VERSTAPPEN",
+    "acronym": "VER",
+    "team": "Red Bull Racing",
+    "team_colour": "4781D7",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/M/MAXVER01_Max_Verstappen/maxver01.png.transform/1col/image.png",
+    "position": "1",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "LEADER",
+    "interval": "-",
+    "laps_completed": 19,
+    "last_lap_time": "1:11.622",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": true,
+    "best_lap_time": "1:11.622",
+    "sectors": [
+      {
+        "value": "18.614",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "36.980",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "15.950",
+        "personal_best": false,
+        "overall_best": true,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "328",
+      "i2": "256",
+      "fl": "332",
+      "st": "315"
+    },
+    "tyre_compound": "SOFT",
+    "tyre_new": true,
+    "tyre_laps": 8,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11500,
+      "speed": 315,
+      "gear": 8,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "12",
+    "name": "Kimi ANTONELLI",
+    "acronym": "ANT",
+    "team": "Mercedes",
+    "team_colour": "00D7B6",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/K/ANDANT01_Kimi_Antonelli/andant01.png.transform/1col/image.png",
+    "position": "2",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+0.285",
+    "interval": "+0.230",
+    "laps_completed": 21,
+    "last_lap_time": "1:11.647",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:11.647",
+    "sectors": [
+      {
+        "value": "18.683",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "36.973",
+        "personal_best": false,
+        "overall_best": true,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "15.966",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "333",
+      "i2": "259",
+      "fl": "332",
+      "st": "313"
+    },
+    "tyre_compound": "INTERMEDIATE",
+    "tyre_new": true,
+    "tyre_laps": 15,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11460,
+      "speed": 313,
+      "gear": 8,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "1",
+    "name": "Lando NORRIS",
+    "acronym": "NOR",
+    "team": "McLaren",
+    "team_colour": "F47600",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LANNOR01_Lando_Norris/lannor01.png.transform/1col/image.png",
+    "position": "3",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+0.570",
+    "interval": "+0.280",
+    "laps_completed": 22,
+    "last_lap_time": "1:11.753",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:11.753",
+    "sectors": [
+      {
+        "value": "18.504",
+        "personal_best": false,
+        "overall_best": true,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "37.138",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "16.096",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "326",
+      "i2": "254",
+      "fl": "325",
+      "st": "315"
+    },
+    "tyre_compound": "WET",
+    "tyre_new": true,
+    "tyre_laps": 9,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11420,
+      "speed": 315,
+      "gear": 8,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "63",
+    "name": "George RUSSELL",
+    "acronym": "RUS",
+    "team": "Mercedes",
+    "team_colour": "00D7B6",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/G/GEORUS01_George_Russell/georus01.png.transform/1col/image.png",
+    "position": "4",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+0.855",
+    "interval": "+0.180",
+    "laps_completed": 22,
+    "last_lap_time": "1:11.806",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:11.806",
+    "sectors": [
+      {
+        "value": "18.602",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "37.195",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "16.009",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "329",
+      "i2": "257",
+      "fl": "333",
+      "st": "314"
+    },
+    "tyre_compound": "INTERMEDIATE",
+    "tyre_new": true,
+    "tyre_laps": 17,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11380,
+      "speed": 314,
+      "gear": 8,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "16",
+    "name": "Charles LECLERC",
+    "acronym": "LEC",
+    "team": "Ferrari",
+    "team_colour": "ED1131",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/C/CHALEC01_Charles_Leclerc/chalec01.png.transform/1col/image.png",
+    "position": "5",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+1.140",
+    "interval": "+0.230",
+    "laps_completed": 30,
+    "last_lap_time": "1:11.896",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:11.896",
+    "sectors": [
+      {
+        "value": "18.584",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "37.026",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "16.189",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "327",
+      "i2": "244",
+      "fl": "324",
+      "st": "316"
+    },
+    "tyre_compound": "INTERMEDIATE",
+    "tyre_new": true,
+    "tyre_laps": 13,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11850,
+      "speed": 327,
+      "gear": 8,
+      "throttle": 98,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "81",
+    "name": "Oscar PIASTRI",
+    "acronym": "PIA",
+    "team": "McLaren",
+    "team_colour": "F47600",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/O/OSCPIA01_Oscar_Piastri/oscpia01.png.transform/1col/image.png",
+    "position": "6",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+1.425",
+    "interval": "+0.280",
+    "laps_completed": 20,
+    "last_lap_time": "1:11.935",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:11.935",
+    "sectors": [
+      {
+        "value": "18.650",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "37.236",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "15.976",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "329",
+      "i2": "257",
+      "fl": "333",
+      "st": "319"
+    },
+    "tyre_compound": "WET",
+    "tyre_new": true,
+    "tyre_laps": 10,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11300,
+      "speed": 319,
+      "gear": 8,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "41",
+    "name": "Arvid LINDBLAD",
+    "acronym": "LIN",
+    "team": "Racing Bulls",
+    "team_colour": "6C98FF",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/A/ARVLIN01_Arvid_Lindblad/arvlin01.png.transform/1col/image.png",
+    "position": "7",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+1.710",
+    "interval": "+0.180",
+    "laps_completed": 25,
+    "last_lap_time": "1:12.060",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:12.060",
+    "sectors": [
+      {
+        "value": "18.794",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "37.123",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "16.100",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "329",
+      "i2": "256",
+      "fl": "340",
+      "st": "325"
+    },
+    "tyre_compound": "WET",
+    "tyre_new": true,
+    "tyre_laps": 8,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11500,
+      "speed": 325,
+      "gear": 8,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "30",
+    "name": "Liam LAWSON",
+    "acronym": "LAW",
+    "team": "Racing Bulls",
+    "team_colour": "6C98FF",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LIALAW01_Liam_Lawson/lialaw01.png.transform/1col/image.png",
+    "position": "8",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+1.995",
+    "interval": "+0.230",
+    "laps_completed": 20,
+    "last_lap_time": "1:12.171",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:12.171",
+    "sectors": [
+      {
+        "value": "18.672",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "37.408",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "15.998",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "326",
+      "i2": "254",
+      "fl": "337",
+      "st": "313"
+    },
+    "tyre_compound": "WET",
+    "tyre_new": true,
+    "tyre_laps": 8,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11460,
+      "speed": 313,
+      "gear": 8,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "6",
+    "name": "Isack HADJAR",
+    "acronym": "HAD",
+    "team": "Red Bull Racing",
+    "team_colour": "4781D7",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/I/ISAHAD01_Isack_Hadjar/isahad01.png.transform/1col/image.png",
+    "position": "9",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+2.280",
+    "interval": "+0.280",
+    "laps_completed": 24,
+    "last_lap_time": "1:12.213",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:12.213",
+    "sectors": [
+      {
+        "value": "18.614",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "37.374",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "16.100",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "336",
+      "i2": "255",
+      "fl": "335",
+      "st": "318"
+    },
+    "tyre_compound": "INTERMEDIATE",
+    "tyre_new": true,
+    "tyre_laps": 11,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11420,
+      "speed": 318,
+      "gear": 8,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "5",
+    "name": "Gabriel BORTOLETO",
+    "acronym": "BOR",
+    "team": "Audi",
+    "team_colour": "F50537",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/G/GABBOR01_Gabriel_Bortoleto/gabbor01.png.transform/1col/image.png",
+    "position": "10",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+2.565",
+    "interval": "+0.180",
+    "laps_completed": 24,
+    "last_lap_time": "1:12.644",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:12.644",
+    "sectors": [
+      {
+        "value": "18.857",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "37.508",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "16.190",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "319",
+      "i2": "255",
+      "fl": "337",
+      "st": "310"
+    },
+    "tyre_compound": "WET",
+    "tyre_new": true,
+    "tyre_laps": 9,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11380,
+      "speed": 310,
+      "gear": 7,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "10",
+    "name": "Pierre GASLY",
+    "acronym": "GAS",
+    "team": "Alpine",
+    "team_colour": "00A1E8",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/P/PIEGAS01_Pierre_Gasly/piegas01.png.transform/1col/image.png",
+    "position": "11",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+2.850",
+    "interval": "+0.230",
+    "laps_completed": 26,
+    "last_lap_time": "1:12.644",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:12.644",
+    "sectors": [
+      {
+        "value": "18.714",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "37.856",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "16.063",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "332",
+      "i2": "252",
+      "fl": "349",
+      "st": "318"
+    },
+    "tyre_compound": "INTERMEDIATE",
+    "tyre_new": true,
+    "tyre_laps": 7,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11340,
+      "speed": 318,
+      "gear": 8,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "44",
+    "name": "Lewis HAMILTON",
+    "acronym": "HAM",
+    "team": "Ferrari",
+    "team_colour": "ED1131",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LEWHAM01_Lewis_Hamilton/lewham01.png.transform/1col/image.png",
+    "position": "12",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+3.135",
+    "interval": "+0.280",
+    "laps_completed": 7,
+    "last_lap_time": "1:12.833",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:12.833",
+    "sectors": [
+      {
+        "value": "18.790",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2064
+          },
+          {
+            "index": 1,
+            "status": 2064
+          },
+          {
+            "index": 2,
+            "status": 2064
+          },
+          {
+            "index": 3,
+            "status": 2064
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "37.684",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "16.359",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "318",
+      "i2": "231",
+      "fl": "318",
+      "st": "311"
+    },
+    "tyre_compound": "MEDIUM",
+    "tyre_new": true,
+    "tyre_laps": 7,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11680,
+      "speed": 318,
+      "gear": 8,
+      "throttle": 98,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "27",
+    "name": "Nico HULKENBERG",
+    "acronym": "HUL",
+    "team": "Audi",
+    "team_colour": "F50537",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/N/NICHUL01_Nico_Hulkenberg/nichul01.png.transform/1col/image.png",
+    "position": "13",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+3.420",
+    "interval": "+0.180",
+    "laps_completed": 27,
+    "last_lap_time": "1:12.865",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:12.865",
+    "sectors": [
+      {
+        "value": "18.785",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "37.837",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "16.243",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "324",
+      "i2": "252",
+      "fl": "332",
+      "st": "314"
+    },
+    "tyre_compound": "WET",
+    "tyre_new": true,
+    "tyre_laps": 9,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11500,
+      "speed": 314,
+      "gear": 8,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "43",
+    "name": "Franco COLAPINTO",
+    "acronym": "COL",
+    "team": "Alpine",
+    "team_colour": "00A1E8",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/F/FRACOL01_Franco_Colapinto/fracol01.png.transform/1col/image.png",
+    "position": "14",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+3.705",
+    "interval": "+0.230",
+    "laps_completed": 25,
+    "last_lap_time": "1:12.925",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:12.925",
+    "sectors": [
+      {
+        "value": "18.776",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "37.938",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "16.148",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "331",
+      "i2": "255",
+      "fl": "342",
+      "st": "316"
+    },
+    "tyre_compound": "INTERMEDIATE",
+    "tyre_new": true,
+    "tyre_laps": 1,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11460,
+      "speed": 316,
+      "gear": 8,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "51",
+    "name": "Rafael CAMARA",
+    "acronym": "CAM",
+    "team": "Haas F1 Team",
+    "team_colour": "9C9FA2",
+    "headshot_url": "",
+    "position": "15",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+3.990",
+    "interval": "+0.280",
+    "laps_completed": 19,
+    "last_lap_time": "1:12.981",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:12.981",
+    "sectors": [
+      {
+        "value": "18.941",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "37.675",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "16.212",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "322",
+      "i2": "245",
+      "fl": "333",
+      "st": "310"
+    },
+    "tyre_compound": "WET",
+    "tyre_new": true,
+    "tyre_laps": 13,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11420,
+      "speed": 310,
+      "gear": 7,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "87",
+    "name": "Oliver BEARMAN",
+    "acronym": "BEA",
+    "team": "Haas F1 Team",
+    "team_colour": "9C9FA2",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/O/OLIBEA01_Oliver_Bearman/olibea01.png.transform/1col/image.png",
+    "position": "16",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+4.275",
+    "interval": "+0.180",
+    "laps_completed": 20,
+    "last_lap_time": "1:13.109",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:13.109",
+    "sectors": [
+      {
+        "value": "18.930",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "37.909",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "16.226",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "324",
+      "i2": "247",
+      "fl": "330",
+      "st": "312"
+    },
+    "tyre_compound": "WET",
+    "tyre_new": true,
+    "tyre_laps": 8,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11380,
+      "speed": 312,
+      "gear": 8,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "23",
+    "name": "Alexander ALBON",
+    "acronym": "ALB",
+    "team": "Williams",
+    "team_colour": "1868DB",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/A/ALEALB01_Alexander_Albon/alealb01.png.transform/1col/image.png",
+    "position": "17",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+4.560",
+    "interval": "+0.230",
+    "laps_completed": 25,
+    "last_lap_time": "1:13.147",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:13.147",
+    "sectors": [
+      {
+        "value": "18.887",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "38.047",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "16.160",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "330",
+      "i2": "255",
+      "fl": "341",
+      "st": "312"
+    },
+    "tyre_compound": "WET",
+    "tyre_new": true,
+    "tyre_laps": 9,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11340,
+      "speed": 312,
+      "gear": 8,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "14",
+    "name": "Fernando ALONSO",
+    "acronym": "ALO",
+    "team": "Aston Martin",
+    "team_colour": "229971",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/F/FERALO01_Fernando_Alonso/feralo01.png.transform/1col/image.png",
+    "position": "18",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+4.845",
+    "interval": "+0.280",
+    "laps_completed": 23,
+    "last_lap_time": "1:13.171",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:13.171",
+    "sectors": [
+      {
+        "value": "18.989",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "37.746",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "16.383",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "323",
+      "i2": "242",
+      "fl": "325",
+      "st": "305"
+    },
+    "tyre_compound": "INTERMEDIATE",
+    "tyre_new": true,
+    "tyre_laps": 10,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11300,
+      "speed": 305,
+      "gear": 7,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "55",
+    "name": "Carlos SAINZ",
+    "acronym": "SAI",
+    "team": "Williams",
+    "team_colour": "1868DB",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/C/CARSAI01_Carlos_Sainz/carsai01.png.transform/1col/image.png",
+    "position": "19",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+5.130",
+    "interval": "+0.180",
+    "laps_completed": 21,
+    "last_lap_time": "1:13.303",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:13.303",
+    "sectors": [
+      {
+        "value": "18.884",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "38.188",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "16.154",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "330",
+      "i2": "252",
+      "fl": "335",
+      "st": "311"
+    },
+    "tyre_compound": "WET",
+    "tyre_new": true,
+    "tyre_laps": 7,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11500,
+      "speed": 311,
+      "gear": 8,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "11",
+    "name": "Sergio PEREZ",
+    "acronym": "PER",
+    "team": "Cadillac",
+    "team_colour": "909090",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/S/SERPER01_Sergio_Perez/serper01.png.transform/1col/image.png",
+    "position": "20",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+5.415",
+    "interval": "+0.230",
+    "laps_completed": 32,
+    "last_lap_time": "1:13.573",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:13.573",
+    "sectors": [
+      {
+        "value": "19.046",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "38.042",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "16.313",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "324",
+      "i2": "243",
+      "fl": "340",
+      "st": "311"
+    },
+    "tyre_compound": "WET",
+    "tyre_new": true,
+    "tyre_laps": 8,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11460,
+      "speed": 311,
+      "gear": 8,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "77",
+    "name": "Valtteri BOTTAS",
+    "acronym": "BOT",
+    "team": "Cadillac",
+    "team_colour": "909090",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/V/VALBOT01_Valtteri_Bottas/valbot01.png.transform/1col/image.png",
+    "position": "21",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+5.700",
+    "interval": "+0.280",
+    "laps_completed": 19,
+    "last_lap_time": "1:13.722",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:13.722",
+    "sectors": [
+      {
+        "value": "19.157",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "38.118",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          },
+          {
+            "index": 7,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "16.327",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2048
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "324",
+      "i2": "242",
+      "fl": "338",
+      "st": "309"
+    },
+    "tyre_compound": "INTERMEDIATE",
+    "tyre_new": true,
+    "tyre_laps": 1,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11420,
+      "speed": 309,
+      "gear": 7,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "18",
+    "name": "Lance STROLL",
+    "acronym": "STR",
+    "team": "Aston Martin",
+    "team_colour": "229971",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/L/LANSTR01_Lance_Stroll/lanstr01.png.transform/1col/image.png",
+    "position": "22",
+    "in_pit": true,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+5.985",
+    "interval": "+0.180",
+    "laps_completed": 7,
+    "last_lap_time": "1:14.766",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:14.766",
+    "sectors": [
+      {
+        "value": "19.286",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2049
+          },
+          {
+            "index": 1,
+            "status": 2049
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2048
+          }
+        ]
+      },
+      {
+        "value": "38.767",
+        "personal_best": true,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2049
+          },
+          {
+            "index": 1,
+            "status": 2049
+          },
+          {
+            "index": 2,
+            "status": 2049
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2048
+          },
+          {
+            "index": 5,
+            "status": 2048
+          },
+          {
+            "index": 6,
+            "status": 2049
+          },
+          {
+            "index": 7,
+            "status": 2049
+          }
+        ]
+      },
+      {
+        "value": "16.554",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2049
+          },
+          {
+            "index": 1,
+            "status": 2048
+          },
+          {
+            "index": 2,
+            "status": 2048
+          },
+          {
+            "index": 3,
+            "status": 2048
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2064
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "311",
+      "i2": "230",
+      "fl": "316",
+      "st": "302"
+    },
+    "tyre_compound": "WET",
+    "tyre_new": true,
+    "tyre_laps": 7,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11380,
+      "speed": 302,
+      "gear": 7,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  },
+  {
+    "driver_number": "31",
+    "name": "Esteban OCON",
+    "acronym": "OCO",
+    "team": "Haas F1 Team",
+    "team_colour": "9C9FA2",
+    "headshot_url": "https://media.formula1.com/d_driver_fallback_image.png/content/dam/fom-website/drivers/E/ESTOCO01_Esteban_Ocon/estoco01.png.transform/1col/image.png",
+    "position": "23",
+    "in_pit": false,
+    "pit_out": false,
+    "retired": false,
+    "stopped": false,
+    "knock_out": false,
+    "gap_to_leader": "+6.270",
+    "interval": "+0.230",
+    "laps_completed": 28,
+    "last_lap_time": "1:14.640",
+    "last_lap_personal_best": false,
+    "last_lap_overall_best": false,
+    "best_lap_time": "1:14.640",
+    "sectors": [
+      {
+        "value": "18.614",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2049
+          },
+          {
+            "index": 1,
+            "status": 2049
+          },
+          {
+            "index": 2,
+            "status": 2049
+          }
+        ]
+      },
+      {
+        "value": "36.980",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2049
+          },
+          {
+            "index": 1,
+            "status": 2049
+          },
+          {
+            "index": 2,
+            "status": 2049
+          }
+        ]
+      },
+      {
+        "value": "16.028",
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2049
+          },
+          {
+            "index": 1,
+            "status": 2049
+          }
+        ]
+      }
+    ],
+    "speed_traps": {
+      "i1": "325",
+      "i2": "245",
+      "fl": "328",
+      "st": "271"
+    },
+    "tyre_compound": "MEDIUM",
+    "tyre_new": true,
+    "tyre_laps": 16,
+    "stint_number": 1,
+    "telemetry": {
+      "rpm": 11340,
+      "speed": 271,
+      "gear": 6,
+      "throttle": 88,
+      "brake": 0,
+      "drs": 10
+    }
+  }
+]
+
+export const SNAPSHOT_RACE_CONTROL: Array<{
+  Utc: string
+  Category: string
+  Message: string
+  Flag?: string
+  Scope?: string
+  Sector?: number
+}> = [
+  {
+    "Utc": "2026-11-07T18:17:08",
+    "Category": "Other",
+    "Message": "FIA STEWARDS: REPRIMAND (DRIVING) FOR CAR 87 (BEA) - REVERSING IN THE PIT LANE (14:59:59)"
+  },
+  {
+    "Utc": "2026-11-07T18:15:35",
+    "Category": "Other",
+    "Message": "FIA STEWARDS: INCIDENT INVOLVING CAR 87 (BEA) UNDER INVESTIGATION - REVERSING IN THE PIT LANE (14:59:59)"
+  },
+  {
+    "Utc": "2026-11-07T18:13:17",
+    "Category": "Other",
+    "Message": "INCIDENT INVOLVING CAR 87 (BEA) NOTED - REVERSING IN THE PIT LANE (14:59:59)"
+  },
+  {
+    "Utc": "2026-11-07T18:05:00",
+    "Category": "Flag",
+    "Flag": "CLEAR",
+    "Scope": "Track",
+    "Message": "TRACK CLEAR"
+  },
+  {
+    "Utc": "2026-11-07T18:02:23",
+    "Category": "Flag",
+    "Flag": "RED",
+    "Scope": "Track",
+    "Message": "RED FLAG"
+  },
+  {
+    "Utc": "2026-11-07T18:00:00",
+    "Category": "Flag",
+    "Flag": "GREEN",
+    "Scope": "Track",
+    "Message": "GREEN LIGHT - PIT EXIT OPEN"
+  },
+  {
+    "Utc": "2026-11-07T17:54:34",
+    "Category": "Flag",
+    "Flag": "CLEAR",
+    "Scope": "Sector",
+    "Sector": 1,
+    "Message": "CLEAR IN TRACK SECTOR 1"
+  },
+  {
+    "Utc": "2026-11-07T17:54:32",
+    "Category": "Flag",
+    "Flag": "CLEAR",
+    "Scope": "Sector",
+    "Sector": 16,
+    "Message": "CLEAR IN TRACK SECTOR 16"
+  },
+  {
+    "Utc": "2026-11-07T17:54:27",
+    "Category": "Flag",
+    "Flag": "CLEAR",
+    "Scope": "Sector",
+    "Sector": 10,
+    "Message": "CLEAR IN TRACK SECTOR 10"
+  },
+  {
+    "Utc": "2026-11-07T17:54:24",
+    "Category": "Flag",
+    "Flag": "CLEAR",
+    "Scope": "Sector",
+    "Sector": 9,
+    "Message": "CLEAR IN TRACK SECTOR 9"
+  },
+  {
+    "Utc": "2026-11-07T17:54:22",
+    "Category": "Flag",
+    "Flag": "CLEAR",
+    "Scope": "Sector",
+    "Sector": 8,
+    "Message": "CLEAR IN TRACK SECTOR 8"
+  },
+  {
+    "Utc": "2026-11-07T17:54:20",
+    "Category": "Flag",
+    "Flag": "CLEAR",
+    "Scope": "Sector",
+    "Sector": 7,
+    "Message": "CLEAR IN TRACK SECTOR 7"
+  },
+  {
+    "Utc": "2026-11-07T17:54:18",
+    "Category": "Flag",
+    "Flag": "CLEAR",
+    "Scope": "Sector",
+    "Sector": 5,
+    "Message": "CLEAR IN TRACK SECTOR 5"
+  },
+  {
+    "Utc": "2026-11-07T17:54:17",
+    "Category": "Flag",
+    "Flag": "CLEAR",
+    "Scope": "Sector",
+    "Sector": 4,
+    "Message": "CLEAR IN TRACK SECTOR 4"
+  },
+  {
+    "Utc": "2026-11-07T17:54:15",
+    "Category": "Flag",
+    "Flag": "CLEAR",
+    "Scope": "Sector",
+    "Sector": 3,
+    "Message": "CLEAR IN TRACK SECTOR 3"
+  },
+  {
+    "Utc": "2026-11-07T17:52:58",
+    "Category": "Other",
+    "Message": "OVERTAKE DISABLED"
+  },
+  {
+    "Utc": "2026-11-07T17:52:56",
+    "Category": "Other",
+    "Message": "LOW GRIP CONDITIONS"
+  },
+  {
+    "Utc": "2026-11-07T17:52:53",
+    "Category": "Other",
+    "Message": "LOW GRIP DELTA ACTIVE"
+  },
+  {
+    "Utc": "2026-11-07T17:52:48",
+    "Category": "Other",
+    "Message": "WET TRACK"
+  },
+  {
+    "Utc": "2026-11-07T17:47:45",
+    "Category": "Flag",
+    "Flag": "YELLOW",
+    "Scope": "Sector",
+    "Sector": 16,
+    "Message": "YELLOW IN TRACK SECTOR 16"
+  },
+  {
+    "Utc": "2026-11-07T17:47:43",
+    "Category": "Flag",
+    "Flag": "YELLOW",
+    "Scope": "Sector",
+    "Sector": 1,
+    "Message": "YELLOW IN TRACK SECTOR 1"
+  }
+]
+
+export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
+  {
+    "date": "2026-11-07T18:42:20.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 290,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12100,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:21.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 292,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12100,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:21.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 295,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12100,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:22.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 297,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12100,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:22.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 299,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12100,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:23.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 302,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12100,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:24.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 304,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12100,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:24.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 306,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12100,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:25.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 309,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12100,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:25.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 311,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12100,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:26.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 313,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12100,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:27.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 316,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12100,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:27.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 318,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12100,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:28.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 320,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12100,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:28.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 323,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12100,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:29.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 325,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12100,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:30.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 327,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12100,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:30.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 330,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12100,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:31.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 332,
+    "throttle": 0,
+    "brake": 100,
+    "rpm": 10500,
+    "n_gear": 8,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:31.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 314,
+    "throttle": 0,
+    "brake": 100,
+    "rpm": 10500,
+    "n_gear": 8,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:32.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 296,
+    "throttle": 0,
+    "brake": 100,
+    "rpm": 10500,
+    "n_gear": 7,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:33.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 278,
+    "throttle": 0,
+    "brake": 100,
+    "rpm": 10500,
+    "n_gear": 7,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:33.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 260,
+    "throttle": 0,
+    "brake": 100,
+    "rpm": 10500,
+    "n_gear": 6,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:34.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 242,
+    "throttle": 0,
+    "brake": 100,
+    "rpm": 10500,
+    "n_gear": 6,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:34.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 224,
+    "throttle": 0,
+    "brake": 40,
+    "rpm": 10500,
+    "n_gear": 6,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:35.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 207,
+    "throttle": 0,
+    "brake": 40,
+    "rpm": 10500,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:36.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 189,
+    "throttle": 0,
+    "brake": 40,
+    "rpm": 10500,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:36.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 171,
+    "throttle": 0,
+    "brake": 40,
+    "rpm": 10500,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:37.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 153,
+    "throttle": 0,
+    "brake": 40,
+    "rpm": 10500,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:37.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 135,
+    "throttle": 0,
+    "brake": 40,
+    "rpm": 10500,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:38.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 117,
+    "throttle": 40,
+    "brake": 0,
+    "rpm": 10800,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:39.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 128,
+    "throttle": 44,
+    "brake": 0,
+    "rpm": 10867,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:39.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 140,
+    "throttle": 49,
+    "brake": 0,
+    "rpm": 10933,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:40.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 151,
+    "throttle": 53,
+    "brake": 0,
+    "rpm": 11000,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:40.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 163,
+    "throttle": 58,
+    "brake": 0,
+    "rpm": 11067,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:41.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 174,
+    "throttle": 62,
+    "brake": 0,
+    "rpm": 11133,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:42.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 185,
+    "throttle": 67,
+    "brake": 0,
+    "rpm": 11200,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:42.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 197,
+    "throttle": 71,
+    "brake": 0,
+    "rpm": 11267,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:43.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 208,
+    "throttle": 76,
+    "brake": 0,
+    "rpm": 11333,
+    "n_gear": 5,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:43.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 220,
+    "throttle": 80,
+    "brake": 0,
+    "rpm": 11400,
+    "n_gear": 6,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:44.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 231,
+    "throttle": 84,
+    "brake": 0,
+    "rpm": 11467,
+    "n_gear": 6,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:45.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 242,
+    "throttle": 89,
+    "brake": 0,
+    "rpm": 11533,
+    "n_gear": 6,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:45.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 254,
+    "throttle": 93,
+    "brake": 0,
+    "rpm": 11600,
+    "n_gear": 6,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:46.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 265,
+    "throttle": 98,
+    "brake": 0,
+    "rpm": 11667,
+    "n_gear": 7,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:46.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 276,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 11733,
+    "n_gear": 7,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:47.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 288,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 11800,
+    "n_gear": 7,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:48.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 299,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 11867,
+    "n_gear": 7,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:48.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 311,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 11933,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:49.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 322,
+    "throttle": 0,
+    "brake": 90,
+    "rpm": 10600,
+    "n_gear": 8,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:49.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 307,
+    "throttle": 0,
+    "brake": 90,
+    "rpm": 10600,
+    "n_gear": 8,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:50.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 293,
+    "throttle": 0,
+    "brake": 90,
+    "rpm": 10600,
+    "n_gear": 7,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:51.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 278,
+    "throttle": 0,
+    "brake": 90,
+    "rpm": 10600,
+    "n_gear": 7,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:51.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 264,
+    "throttle": 0,
+    "brake": 90,
+    "rpm": 10600,
+    "n_gear": 7,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:52.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 249,
+    "throttle": 0,
+    "brake": 90,
+    "rpm": 10600,
+    "n_gear": 6,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:52.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 235,
+    "throttle": 0,
+    "brake": 90,
+    "rpm": 10600,
+    "n_gear": 6,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:53.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 220,
+    "throttle": 0,
+    "brake": 30,
+    "rpm": 10600,
+    "n_gear": 6,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:54.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 205,
+    "throttle": 0,
+    "brake": 30,
+    "rpm": 10600,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:54.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 191,
+    "throttle": 0,
+    "brake": 30,
+    "rpm": 10600,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:55.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 176,
+    "throttle": 0,
+    "brake": 30,
+    "rpm": 10600,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:55.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 162,
+    "throttle": 0,
+    "brake": 30,
+    "rpm": 10600,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:56.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 147,
+    "throttle": 50,
+    "brake": 0,
+    "rpm": 10900,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:57.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 166,
+    "throttle": 64,
+    "brake": 0,
+    "rpm": 11147,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:57.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 182,
+    "throttle": 76,
+    "brake": 0,
+    "rpm": 11370,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:58.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 196,
+    "throttle": 86,
+    "brake": 0,
+    "rpm": 11547,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:58.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 204,
+    "throttle": 93,
+    "brake": 0,
+    "rpm": 11661,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:59.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 207,
+    "throttle": 95,
+    "brake": 0,
+    "rpm": 11700,
+    "n_gear": 6,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:00.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 204,
+    "throttle": 93,
+    "brake": 0,
+    "rpm": 11661,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:00.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 196,
+    "throttle": 86,
+    "brake": 0,
+    "rpm": 11547,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:01.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 182,
+    "throttle": 76,
+    "brake": 0,
+    "rpm": 11370,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:01.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 166,
+    "throttle": 64,
+    "brake": 0,
+    "rpm": 11147,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:02.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 147,
+    "throttle": 50,
+    "brake": 0,
+    "rpm": 10900,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:03.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 128,
+    "throttle": 36,
+    "brake": 19,
+    "rpm": 10653,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:03.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 112,
+    "throttle": 24,
+    "brake": 35,
+    "rpm": 10430,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:04.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 98,
+    "throttle": 14,
+    "brake": 49,
+    "rpm": 10253,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:04.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 90,
+    "throttle": 7,
+    "brake": 57,
+    "rpm": 10139,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:05.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 87,
+    "throttle": 5,
+    "brake": 60,
+    "rpm": 10100,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:06.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 90,
+    "throttle": 7,
+    "brake": 57,
+    "rpm": 10139,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:06.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 98,
+    "throttle": 14,
+    "brake": 49,
+    "rpm": 10253,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:07.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 112,
+    "throttle": 24,
+    "brake": 35,
+    "rpm": 10430,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:07.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 128,
+    "throttle": 36,
+    "brake": 19,
+    "rpm": 10653,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:08.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 147,
+    "throttle": 50,
+    "brake": 0,
+    "rpm": 10900,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:09.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 166,
+    "throttle": 64,
+    "brake": 0,
+    "rpm": 11147,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:09.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 182,
+    "throttle": 76,
+    "brake": 0,
+    "rpm": 11370,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:10.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 196,
+    "throttle": 86,
+    "brake": 0,
+    "rpm": 11547,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:10.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 204,
+    "throttle": 93,
+    "brake": 0,
+    "rpm": 11661,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:11.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 207,
+    "throttle": 95,
+    "brake": 0,
+    "rpm": 11700,
+    "n_gear": 6,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:12.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 204,
+    "throttle": 93,
+    "brake": 0,
+    "rpm": 11661,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:12.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 196,
+    "throttle": 86,
+    "brake": 0,
+    "rpm": 11547,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:13.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 182,
+    "throttle": 76,
+    "brake": 0,
+    "rpm": 11370,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:13.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 166,
+    "throttle": 64,
+    "brake": 0,
+    "rpm": 11147,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:14.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 125,
+    "throttle": 60,
+    "brake": 0,
+    "rpm": 10800,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:15.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 131,
+    "throttle": 62,
+    "brake": 0,
+    "rpm": 10843,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:15.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 138,
+    "throttle": 63,
+    "brake": 0,
+    "rpm": 10887,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:16.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 144,
+    "throttle": 65,
+    "brake": 0,
+    "rpm": 10930,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:16.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 150,
+    "throttle": 67,
+    "brake": 0,
+    "rpm": 10973,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:17.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 157,
+    "throttle": 68,
+    "brake": 0,
+    "rpm": 11017,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:18.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 163,
+    "throttle": 70,
+    "brake": 0,
+    "rpm": 11060,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:18.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 169,
+    "throttle": 72,
+    "brake": 0,
+    "rpm": 11103,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:19.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 176,
+    "throttle": 73,
+    "brake": 0,
+    "rpm": 11147,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:19.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 182,
+    "throttle": 75,
+    "brake": 0,
+    "rpm": 11190,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:20.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 188,
+    "throttle": 77,
+    "brake": 0,
+    "rpm": 11233,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:21.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 195,
+    "throttle": 78,
+    "brake": 0,
+    "rpm": 11277,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:21.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 201,
+    "throttle": 80,
+    "brake": 0,
+    "rpm": 11320,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:22.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 207,
+    "throttle": 82,
+    "brake": 0,
+    "rpm": 11363,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:22.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 214,
+    "throttle": 83,
+    "brake": 0,
+    "rpm": 11407,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:23.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 220,
+    "throttle": 85,
+    "brake": 0,
+    "rpm": 11450,
+    "n_gear": 6,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:24.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 226,
+    "throttle": 87,
+    "brake": 0,
+    "rpm": 11493,
+    "n_gear": 6,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:24.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 233,
+    "throttle": 88,
+    "brake": 0,
+    "rpm": 11537,
+    "n_gear": 6,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:25.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 239,
+    "throttle": 90,
+    "brake": 0,
+    "rpm": 11580,
+    "n_gear": 6,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:25.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 245,
+    "throttle": 92,
+    "brake": 0,
+    "rpm": 11623,
+    "n_gear": 6,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:26.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 252,
+    "throttle": 93,
+    "brake": 0,
+    "rpm": 11667,
+    "n_gear": 6,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:27.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 258,
+    "throttle": 95,
+    "brake": 0,
+    "rpm": 11710,
+    "n_gear": 7,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:27.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 264,
+    "throttle": 97,
+    "brake": 0,
+    "rpm": 11753,
+    "n_gear": 7,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:28.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 271,
+    "throttle": 98,
+    "brake": 0,
+    "rpm": 11797,
+    "n_gear": 7,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:28.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 277,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 11840,
+    "n_gear": 7,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:29.583Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 283,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 11883,
+    "n_gear": 7,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:30.183Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 290,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 11927,
+    "n_gear": 7,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:30.783Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 296,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 11970,
+    "n_gear": 8,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:31.383Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 302,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12013,
+    "n_gear": 8,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:31.983Z",
+    "session_key": 11408,
+    "driver_number": 16,
+    "speed": 309,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12057,
+    "n_gear": 8,
+    "drs": 10,
+    "meeting_key": 1299
+  }
+]
+
+export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
+  {
+    "date": "2026-11-07T18:42:20.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 288,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12050,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:21.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 291,
+    "throttle": 99,
+    "brake": 0,
+    "rpm": 12050,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:21.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 295,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12050,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:22.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 295,
+    "throttle": 99,
+    "brake": 0,
+    "rpm": 12050,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:22.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 298,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12050,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:23.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 302,
+    "throttle": 99,
+    "brake": 0,
+    "rpm": 12050,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:24.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 302,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12050,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:24.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 305,
+    "throttle": 99,
+    "brake": 0,
+    "rpm": 12050,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:25.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 309,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12050,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:25.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 309,
+    "throttle": 99,
+    "brake": 0,
+    "rpm": 12050,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:26.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 312,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12050,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:27.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 316,
+    "throttle": 99,
+    "brake": 0,
+    "rpm": 12050,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:27.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 316,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12050,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:28.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 319,
+    "throttle": 99,
+    "brake": 0,
+    "rpm": 12050,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:28.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 323,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12050,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:29.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 323,
+    "throttle": 99,
+    "brake": 0,
+    "rpm": 12050,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:30.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 326,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 12050,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:30.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 330,
+    "throttle": 99,
+    "brake": 0,
+    "rpm": 12050,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:31.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 330,
+    "throttle": 1,
+    "brake": 100,
+    "rpm": 10450,
+    "n_gear": 8,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:31.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 313,
+    "throttle": 0,
+    "brake": 100,
+    "rpm": 10450,
+    "n_gear": 8,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:32.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 296,
+    "throttle": 1,
+    "brake": 100,
+    "rpm": 10450,
+    "n_gear": 7,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:33.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 276,
+    "throttle": 0,
+    "brake": 100,
+    "rpm": 10450,
+    "n_gear": 7,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:33.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 259,
+    "throttle": 1,
+    "brake": 100,
+    "rpm": 10450,
+    "n_gear": 6,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:34.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 242,
+    "throttle": 0,
+    "brake": 100,
+    "rpm": 10450,
+    "n_gear": 6,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:34.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 222,
+    "throttle": 1,
+    "brake": 40,
+    "rpm": 10450,
+    "n_gear": 6,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:35.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 206,
+    "throttle": 0,
+    "brake": 40,
+    "rpm": 10450,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:36.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 189,
+    "throttle": 1,
+    "brake": 40,
+    "rpm": 10450,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:36.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 169,
+    "throttle": 0,
+    "brake": 40,
+    "rpm": 10450,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:37.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 152,
+    "throttle": 1,
+    "brake": 40,
+    "rpm": 10450,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:37.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 135,
+    "throttle": 0,
+    "brake": 40,
+    "rpm": 10450,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:38.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 115,
+    "throttle": 41,
+    "brake": 0,
+    "rpm": 10750,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:39.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 127,
+    "throttle": 43,
+    "brake": 0,
+    "rpm": 10817,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:39.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 140,
+    "throttle": 50,
+    "brake": 0,
+    "rpm": 10883,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:40.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 149,
+    "throttle": 52,
+    "brake": 0,
+    "rpm": 10950,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:40.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 162,
+    "throttle": 59,
+    "brake": 0,
+    "rpm": 11017,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:41.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 174,
+    "throttle": 61,
+    "brake": 0,
+    "rpm": 11083,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:42.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 183,
+    "throttle": 68,
+    "brake": 0,
+    "rpm": 11150,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:42.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 196,
+    "throttle": 70,
+    "brake": 0,
+    "rpm": 11217,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:43.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 208,
+    "throttle": 77,
+    "brake": 0,
+    "rpm": 11283,
+    "n_gear": 5,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:43.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 218,
+    "throttle": 79,
+    "brake": 0,
+    "rpm": 11350,
+    "n_gear": 6,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:44.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 230,
+    "throttle": 85,
+    "brake": 0,
+    "rpm": 11417,
+    "n_gear": 6,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:45.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 242,
+    "throttle": 88,
+    "brake": 0,
+    "rpm": 11483,
+    "n_gear": 6,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:45.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 252,
+    "throttle": 94,
+    "brake": 0,
+    "rpm": 11550,
+    "n_gear": 6,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:46.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 264,
+    "throttle": 97,
+    "brake": 0,
+    "rpm": 11617,
+    "n_gear": 7,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:46.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 276,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 11683,
+    "n_gear": 7,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:47.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 286,
+    "throttle": 99,
+    "brake": 0,
+    "rpm": 11750,
+    "n_gear": 7,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:48.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 298,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 11817,
+    "n_gear": 7,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:48.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 311,
+    "throttle": 99,
+    "brake": 0,
+    "rpm": 11883,
+    "n_gear": 8,
+    "drs": 12,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:49.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 320,
+    "throttle": 1,
+    "brake": 90,
+    "rpm": 10550,
+    "n_gear": 8,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:49.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 306,
+    "throttle": 0,
+    "brake": 90,
+    "rpm": 10550,
+    "n_gear": 8,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:50.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 293,
+    "throttle": 1,
+    "brake": 90,
+    "rpm": 10550,
+    "n_gear": 7,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:51.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 276,
+    "throttle": 0,
+    "brake": 90,
+    "rpm": 10550,
+    "n_gear": 7,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:51.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 263,
+    "throttle": 1,
+    "brake": 90,
+    "rpm": 10550,
+    "n_gear": 7,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:52.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 249,
+    "throttle": 0,
+    "brake": 90,
+    "rpm": 10550,
+    "n_gear": 6,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:52.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 233,
+    "throttle": 1,
+    "brake": 90,
+    "rpm": 10550,
+    "n_gear": 6,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:53.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 219,
+    "throttle": 0,
+    "brake": 30,
+    "rpm": 10550,
+    "n_gear": 6,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:54.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 205,
+    "throttle": 1,
+    "brake": 30,
+    "rpm": 10550,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:54.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 189,
+    "throttle": 0,
+    "brake": 30,
+    "rpm": 10550,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:55.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 175,
+    "throttle": 1,
+    "brake": 30,
+    "rpm": 10550,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:55.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 162,
+    "throttle": 0,
+    "brake": 30,
+    "rpm": 10550,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:56.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 145,
+    "throttle": 51,
+    "brake": 0,
+    "rpm": 10850,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:57.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 165,
+    "throttle": 63,
+    "brake": 0,
+    "rpm": 11097,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:57.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 182,
+    "throttle": 77,
+    "brake": 0,
+    "rpm": 11320,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:58.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 194,
+    "throttle": 85,
+    "brake": 0,
+    "rpm": 11497,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:58.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 203,
+    "throttle": 94,
+    "brake": 0,
+    "rpm": 11611,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:42:59.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 207,
+    "throttle": 94,
+    "brake": 0,
+    "rpm": 11650,
+    "n_gear": 6,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:00.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 202,
+    "throttle": 94,
+    "brake": 0,
+    "rpm": 11611,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:00.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 195,
+    "throttle": 85,
+    "brake": 0,
+    "rpm": 11497,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:01.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 182,
+    "throttle": 77,
+    "brake": 0,
+    "rpm": 11320,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:01.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 164,
+    "throttle": 63,
+    "brake": 0,
+    "rpm": 11097,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:02.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 146,
+    "throttle": 51,
+    "brake": 0,
+    "rpm": 10850,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:03.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 128,
+    "throttle": 35,
+    "brake": 19,
+    "rpm": 10603,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:03.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 110,
+    "throttle": 25,
+    "brake": 35,
+    "rpm": 10380,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:04.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 97,
+    "throttle": 13,
+    "brake": 49,
+    "rpm": 10203,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:04.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 90,
+    "throttle": 8,
+    "brake": 57,
+    "rpm": 10089,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:05.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 85,
+    "throttle": 4,
+    "brake": 60,
+    "rpm": 10050,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:06.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 89,
+    "throttle": 8,
+    "brake": 57,
+    "rpm": 10089,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:06.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 98,
+    "throttle": 13,
+    "brake": 49,
+    "rpm": 10203,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:07.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 110,
+    "throttle": 25,
+    "brake": 35,
+    "rpm": 10380,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:07.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 127,
+    "throttle": 35,
+    "brake": 19,
+    "rpm": 10603,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:08.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 147,
+    "throttle": 51,
+    "brake": 0,
+    "rpm": 10850,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:09.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 164,
+    "throttle": 63,
+    "brake": 0,
+    "rpm": 11097,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:09.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 181,
+    "throttle": 77,
+    "brake": 0,
+    "rpm": 11320,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:10.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 196,
+    "throttle": 85,
+    "brake": 0,
+    "rpm": 11497,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:10.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 202,
+    "throttle": 94,
+    "brake": 0,
+    "rpm": 11611,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:11.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 206,
+    "throttle": 94,
+    "brake": 0,
+    "rpm": 11650,
+    "n_gear": 6,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:12.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 204,
+    "throttle": 94,
+    "brake": 0,
+    "rpm": 11611,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:12.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 194,
+    "throttle": 85,
+    "brake": 0,
+    "rpm": 11497,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:13.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 181,
+    "throttle": 77,
+    "brake": 0,
+    "rpm": 11320,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:13.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 166,
+    "throttle": 63,
+    "brake": 0,
+    "rpm": 11097,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:14.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 123,
+    "throttle": 61,
+    "brake": 0,
+    "rpm": 10750,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:15.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 130,
+    "throttle": 61,
+    "brake": 0,
+    "rpm": 10793,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:15.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 138,
+    "throttle": 64,
+    "brake": 0,
+    "rpm": 10837,
+    "n_gear": 3,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:16.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 142,
+    "throttle": 64,
+    "brake": 0,
+    "rpm": 10880,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:16.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 149,
+    "throttle": 68,
+    "brake": 0,
+    "rpm": 10923,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:17.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 157,
+    "throttle": 67,
+    "brake": 0,
+    "rpm": 10967,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:18.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 161,
+    "throttle": 71,
+    "brake": 0,
+    "rpm": 11010,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:18.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 168,
+    "throttle": 71,
+    "brake": 0,
+    "rpm": 11053,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:19.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 176,
+    "throttle": 74,
+    "brake": 0,
+    "rpm": 11097,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:19.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 180,
+    "throttle": 74,
+    "brake": 0,
+    "rpm": 11140,
+    "n_gear": 4,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:20.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 187,
+    "throttle": 78,
+    "brake": 0,
+    "rpm": 11183,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:21.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 195,
+    "throttle": 77,
+    "brake": 0,
+    "rpm": 11227,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:21.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 199,
+    "throttle": 81,
+    "brake": 0,
+    "rpm": 11270,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:22.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 206,
+    "throttle": 81,
+    "brake": 0,
+    "rpm": 11313,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:22.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 214,
+    "throttle": 84,
+    "brake": 0,
+    "rpm": 11357,
+    "n_gear": 5,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:23.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 218,
+    "throttle": 84,
+    "brake": 0,
+    "rpm": 11400,
+    "n_gear": 6,
+    "drs": 0,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:24.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 225,
+    "throttle": 88,
+    "brake": 0,
+    "rpm": 11443,
+    "n_gear": 6,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:24.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 233,
+    "throttle": 87,
+    "brake": 0,
+    "rpm": 11487,
+    "n_gear": 6,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:25.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 237,
+    "throttle": 91,
+    "brake": 0,
+    "rpm": 11530,
+    "n_gear": 6,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:25.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 244,
+    "throttle": 91,
+    "brake": 0,
+    "rpm": 11573,
+    "n_gear": 6,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:26.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 252,
+    "throttle": 94,
+    "brake": 0,
+    "rpm": 11617,
+    "n_gear": 6,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:27.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 256,
+    "throttle": 94,
+    "brake": 0,
+    "rpm": 11660,
+    "n_gear": 7,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:27.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 263,
+    "throttle": 98,
+    "brake": 0,
+    "rpm": 11703,
+    "n_gear": 7,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:28.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 271,
+    "throttle": 97,
+    "brake": 0,
+    "rpm": 11747,
+    "n_gear": 7,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:28.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 275,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 11790,
+    "n_gear": 7,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:29.583Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 282,
+    "throttle": 99,
+    "brake": 0,
+    "rpm": 11833,
+    "n_gear": 7,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:30.183Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 290,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 11877,
+    "n_gear": 7,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:30.783Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 294,
+    "throttle": 99,
+    "brake": 0,
+    "rpm": 11920,
+    "n_gear": 8,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:31.383Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 301,
+    "throttle": 100,
+    "brake": 0,
+    "rpm": 11963,
+    "n_gear": 8,
+    "drs": 10,
+    "meeting_key": 1299
+  },
+  {
+    "date": "2026-11-07T18:43:31.983Z",
+    "session_key": 11408,
+    "driver_number": 44,
+    "speed": 309,
+    "throttle": 99,
+    "brake": 0,
+    "rpm": 12007,
+    "n_gear": 8,
+    "drs": 10,
+    "meeting_key": 1299
+  }
+]

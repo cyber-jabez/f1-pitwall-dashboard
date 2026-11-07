@@ -1,3 +1,8 @@
+declare module 'hls.js' {
+  const Hls: any
+  export default Hls
+}
+
 declare module 'framer-motion' {
   export const motion: any
   export const AnimatePresence: any

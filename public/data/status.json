@@ -1,0 +1,79 @@
+{
+  "connected": true,
+  "live": true,
+  "last_update": "2026-11-07T18:43:29.417Z",
+  "stale": false,
+  "stale_reason": null,
+  "connection": {
+    "phase": "websocket_connected",
+    "attempts": 2,
+    "last_error": null,
+    "last_error_at": null,
+    "last_connected_at": "2026-11-07T17:05:28.141Z",
+    "last_disconnected_at": "2026-11-07T17:05:24.326Z",
+    "last_close_code": 1006,
+    "last_close_reason": ""
+  },
+  "session": {
+    "Meeting": {
+      "Key": 1299,
+      "Name": "São Paulo Grand Prix",
+      "OfficialName": "FORMULA 1 MSC CRUISES GRANDE PRÊMIO DE SÃO PAULO 2026",
+      "Location": "São Paulo",
+      "Number": 20,
+      "Country": {
+        "Key": 10,
+        "Code": "BRA",
+        "Name": "Brazil"
+      },
+      "Circuit": {
+        "Key": 14,
+        "ShortName": "Interlagos"
+      }
+    },
+    "SessionStatus": "Started",
+    "ArchiveStatus": {
+      "Status": "Generating"
+    },
+    "Key": 11408,
+    "Type": "Qualifying",
+    "Number": 3,
+    "Name": "Qualifying",
+    "StartDate": "2026-11-07T15:00:00",
+    "EndDate": "2026-11-07T16:00:00",
+    "GmtOffset": "-03:00:00",
+    "Path": "2026/2026-11-08_São_Paulo_Grand_Prix/2026-11-07_Qualifying/",
+    "_kf": true
+  },
+  "lap_count": {},
+  "clock": {
+    "Utc": "2026-11-07T18:02:23.996Z",
+    "Remaining": "00:15:37",
+    "Extrapolating": false,
+    "_kf": true
+  },
+  "track_status": {
+    "Status": "1",
+    "Message": "AllClear",
+    "_kf": true
+  },
+  "top_three": {
+    "SessionPart": 1,
+    "Withheld": false,
+    "Lines": {
+      "0": {
+        "ShowPosition": true,
+        "LapState": 83
+      },
+      "1": {
+        "ShowPosition": true,
+        "LapState": 81
+      },
+      "2": {
+        "ShowPosition": true,
+        "LapState": 81
+      }
+    },
+    "_kf": true
+  }
+}

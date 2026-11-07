@@ -26,6 +26,13 @@ import {
   type F1LiveClock,
   type F1LiveNextSession,
 } from '../../services/f1LiveApiClient'
+import {
+  SNAPSHOT_TIMING_DRIVERS,
+  SNAPSHOT_WEATHER,
+  SNAPSHOT_STATUS,
+  SNAPSHOT_NEXT_SESSION,
+  SNAPSHOT_RACE_CONTROL,
+} from '../../data/liveTelemetrySnapshot'
 import { LiveRaceVideoPlayer } from '../video/LiveRaceVideoPlayer'
 import { LiveTrackMapTracker } from '../telemetry/LiveTrackMapTracker'
 import { MicroSectorsMatrix } from '../telemetry/MicroSectorsMatrix'
@@ -74,20 +81,27 @@ export const LiveRaceView: React.FC = () => {
   const [isTelemetryGated, setIsTelemetryGated] = useState<boolean>(true)
   const [weatherData, setWeatherData] = useState<OpenF1WeatherPoint | null>(null)
   const [raceControlLogs, setRaceControlLogs] = useState<OpenF1RaceControlMessage[]>([])
-  const [f1LiveTiming, setF1LiveTiming] = useState<F1LiveDriverTiming[]>([])
-  const [f1LiveSessionName, setF1LiveSessionName] = useState<string>('Practice 3')
+  const [f1LiveTiming, setF1LiveTiming] = useState<F1LiveDriverTiming[]>(SNAPSHOT_TIMING_DRIVERS)
+  const [f1LiveSessionName, setF1LiveSessionName] = useState<string>('Qualifying')
   const [f1LiveActive, setF1LiveActive] = useState<boolean>(true)
-  const [f1LiveWeather, setF1LiveWeather] = useState<F1LiveWeather | null>(null)
+  const [f1LiveWeather, setF1LiveWeather] = useState<F1LiveWeather | null>(SNAPSHOT_WEATHER)
   const [f1LiveRaceControl, setF1LiveRaceControl] = useState<Array<{
     time: string
     category: string
     message: string
     flag?: string
-  }>>([])
-  const [f1LiveClock, setF1LiveClock] = useState<F1LiveClock | null>(null)
-  const [f1LiveNextSession, setF1LiveNextSession] = useState<F1LiveNextSession | null>(null)
-  const [f1LiveStatus, setF1LiveStatus] = useState<F1LiveStatus | null>(null)
-  const [liveTimeRemainingDisplay, setLiveTimeRemainingDisplay] = useState<string>('--:--:--')
+  }>>(
+    SNAPSHOT_RACE_CONTROL.map((r) => ({
+      time: r.Utc,
+      category: r.Category,
+      message: r.Message,
+      flag: r.Flag,
+    }))
+  )
+  const [f1LiveClock, setF1LiveClock] = useState<F1LiveClock | null>(SNAPSHOT_STATUS.clock || null)
+  const [f1LiveNextSession, setF1LiveNextSession] = useState<F1LiveNextSession | null>(SNAPSHOT_NEXT_SESSION)
+  const [f1LiveStatus, setF1LiveStatus] = useState<F1LiveStatus | null>(SNAPSHOT_STATUS)
+  const [liveTimeRemainingDisplay, setLiveTimeRemainingDisplay] = useState<string>('00:15:37')
   const [sessionEnded, setSessionEnded] = useState<boolean>(false)
   const [showPoleBenchmark, setShowPoleBenchmark] = useState<boolean>(false)
   const [loading, setLoading] = useState(true)

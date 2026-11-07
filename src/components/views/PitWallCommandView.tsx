@@ -9,6 +9,13 @@ import {
   type F1LiveNextSession,
 } from '../../services/f1LiveApiClient'
 import {
+  SNAPSHOT_TIMING_DRIVERS,
+  SNAPSHOT_WEATHER,
+  SNAPSHOT_STATUS,
+  SNAPSHOT_NEXT_SESSION,
+  SNAPSHOT_RACE_CONTROL,
+} from '../../data/liveTelemetrySnapshot'
+import {
   streamingProviderService,
   type StreamProvider,
 } from '../../services/streamingProviderService'
@@ -74,19 +81,27 @@ export const PitWallCommandView: React.FC = () => {
   const [ferrariOnlyFilter, setFerrariOnlyFilter] = useState<boolean>(false)
 
   // Real-time F1 SignalR Data
-  const [status, setStatus] = useState<F1LiveStatus | null>(null)
-  const [nextSession, setNextSession] = useState<F1LiveNextSession | null>(null)
-  const [timingDrivers, setTimingDrivers] = useState<F1LiveDriverTiming[]>([])
-  const [weather, setWeather] = useState<F1LiveWeather | null>(null)
-  const [clock, setClock] = useState<F1LiveClock | null>(null)
-  const [remainingTimeDisplay, setRemainingTimeDisplay] = useState<string>('--:--:--')
+  const [status, setStatus] = useState<F1LiveStatus | null>(SNAPSHOT_STATUS)
+  const [nextSession, setNextSession] = useState<F1LiveNextSession | null>(SNAPSHOT_NEXT_SESSION)
+  const [timingDrivers, setTimingDrivers] = useState<F1LiveDriverTiming[]>(SNAPSHOT_TIMING_DRIVERS)
+  const [weather, setWeather] = useState<F1LiveWeather | null>(SNAPSHOT_WEATHER)
+  const [clock, setClock] = useState<F1LiveClock | null>(SNAPSHOT_STATUS.clock || null)
+  const [remainingTimeDisplay, setRemainingTimeDisplay] = useState<string>('00:15:37')
   const [raceControlLogs, setRaceControlLogs] = useState<Array<{
     time: string
     category: string
     message: string
     flag?: string
     scope?: string
-  }>>([])
+  }>>(
+    SNAPSHOT_RACE_CONTROL.map((r) => ({
+      time: r.Utc,
+      category: r.Category,
+      message: r.Message,
+      flag: r.Flag,
+      scope: r.Scope,
+    }))
+  )
   const [radioMessages, setRadioMessages] = useState<F1LiveTeamRadioMessage[]>([])
   const [activeRadioAudio, setActiveRadioAudio] = useState<{
     url: string
@@ -94,13 +109,13 @@ export const PitWallCommandView: React.FC = () => {
     name: string | null
   } | null>(null)
   const [isAudioPlaying, setIsAudioPlaying] = useState<boolean>(false)
-  const [isLoading, setIsLoading] = useState<boolean>(true)
+  const [isLoading, setIsLoading] = useState<boolean>(false)
   const [lastHeartbeat, setLastHeartbeat] = useState<Date>(new Date())
 
   // Streaming Video Provider
   const [activeStreamProvider, setActiveStreamProvider] = useState<StreamProvider | null>(null)
   const [backupStreamProvider, setBackupStreamProvider] = useState<StreamProvider | null>(null)
-  const [sessionName, setSessionName] = useState<string>('Practice 3')
+  const [sessionName, setSessionName] = useState<string>('Qualifying')
 
   // Audio element reference for real FOM radio stream
   const radioAudioRef = useRef<HTMLAudioElement | null>(null)

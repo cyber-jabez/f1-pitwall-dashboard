@@ -1,0 +1,146 @@
+[
+  {
+    "Utc": "2026-11-07T18:17:08",
+    "Category": "Other",
+    "Message": "FIA STEWARDS: REPRIMAND (DRIVING) FOR CAR 87 (BEA) - REVERSING IN THE PIT LANE (14:59:59)"
+  },
+  {
+    "Utc": "2026-11-07T18:15:35",
+    "Category": "Other",
+    "Message": "FIA STEWARDS: INCIDENT INVOLVING CAR 87 (BEA) UNDER INVESTIGATION - REVERSING IN THE PIT LANE (14:59:59)"
+  },
+  {
+    "Utc": "2026-11-07T18:13:17",
+    "Category": "Other",
+    "Message": "INCIDENT INVOLVING CAR 87 (BEA) NOTED - REVERSING IN THE PIT LANE (14:59:59)"
+  },
+  {
+    "Utc": "2026-11-07T18:05:00",
+    "Category": "Flag",
+    "Flag": "CLEAR",
+    "Scope": "Track",
+    "Message": "TRACK CLEAR"
+  },
+  {
+    "Utc": "2026-11-07T18:02:23",
+    "Category": "Flag",
+    "Flag": "RED",
+    "Scope": "Track",
+    "Message": "RED FLAG"
+  },
+  {
+    "Utc": "2026-11-07T18:00:00",
+    "Category": "Flag",
+    "Flag": "GREEN",
+    "Scope": "Track",
+    "Message": "GREEN LIGHT - PIT EXIT OPEN"
+  },
+  {
+    "Utc": "2026-11-07T17:54:34",
+    "Category": "Flag",
+    "Flag": "CLEAR",
+    "Scope": "Sector",
+    "Sector": 1,
+    "Message": "CLEAR IN TRACK SECTOR 1"
+  },
+  {
+    "Utc": "2026-11-07T17:54:32",
+    "Category": "Flag",
+    "Flag": "CLEAR",
+    "Scope": "Sector",
+    "Sector": 16,
+    "Message": "CLEAR IN TRACK SECTOR 16"
+  },
+  {
+    "Utc": "2026-11-07T17:54:27",
+    "Category": "Flag",
+    "Flag": "CLEAR",
+    "Scope": "Sector",
+    "Sector": 10,
+    "Message": "CLEAR IN TRACK SECTOR 10"
+  },
+  {
+    "Utc": "2026-11-07T17:54:24",
+    "Category": "Flag",
+    "Flag": "CLEAR",
+    "Scope": "Sector",
+    "Sector": 9,
+    "Message": "CLEAR IN TRACK SECTOR 9"
+  },
+  {
+    "Utc": "2026-11-07T17:54:22",
+    "Category": "Flag",
+    "Flag": "CLEAR",
+    "Scope": "Sector",
+    "Sector": 8,
+    "Message": "CLEAR IN TRACK SECTOR 8"
+  },
+  {
+    "Utc": "2026-11-07T17:54:20",
+    "Category": "Flag",
+    "Flag": "CLEAR",
+    "Scope": "Sector",
+    "Sector": 7,
+    "Message": "CLEAR IN TRACK SECTOR 7"
+  },
+  {
+    "Utc": "2026-11-07T17:54:18",
+    "Category": "Flag",
+    "Flag": "CLEAR",
+    "Scope": "Sector",
+    "Sector": 5,
+    "Message": "CLEAR IN TRACK SECTOR 5"
+  },
+  {
+    "Utc": "2026-11-07T17:54:17",
+    "Category": "Flag",
+    "Flag": "CLEAR",
+    "Scope": "Sector",
+    "Sector": 4,
+    "Message": "CLEAR IN TRACK SECTOR 4"
+  },
+  {
+    "Utc": "2026-11-07T17:54:15",
+    "Category": "Flag",
+    "Flag": "CLEAR",
+    "Scope": "Sector",
+    "Sector": 3,
+    "Message": "CLEAR IN TRACK SECTOR 3"
+  },
+  {
+    "Utc": "2026-11-07T17:52:58",
+    "Category": "Other",
+    "Message": "OVERTAKE DISABLED"
+  },
+  {
+    "Utc": "2026-11-07T17:52:56",
+    "Category": "Other",
+    "Message": "LOW GRIP CONDITIONS"
+  },
+  {
+    "Utc": "2026-11-07T17:52:53",
+    "Category": "Other",
+    "Message": "LOW GRIP DELTA ACTIVE"
+  },
+  {
+    "Utc": "2026-11-07T17:52:48",
+    "Category": "Other",
+    "Message": "WET TRACK"
+  },
+  {
+    "Utc": "2026-11-07T17:47:45",
+    "Category": "Flag",
+    "Flag": "YELLOW",
+    "Scope": "Sector",
+    "Sector": 16,
+    "Message": "YELLOW IN TRACK SECTOR 16"
+  },
+  {
+    "Utc": "2026-11-07T17:47:43",
+    "Category": "Flag",
+    "Flag": "YELLOW",
+    "Scope": "Sector",
+    "Sector": 1,
+    "Message": "YELLOW IN TRACK SECTOR 1"
+  }
+]

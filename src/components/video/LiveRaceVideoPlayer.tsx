@@ -82,68 +82,71 @@ export const LiveRaceVideoPlayer: React.FC<LiveRaceVideoPlayerProps> = ({
       const video = videoRef.current
       const streamUrl = activeProvider.streamUrl
 
-      // Dynamically load HLS.js
-      import('hls.js')
-        .then(({ default: Hls }) => {
-          if (Hls.isSupported()) {
-            const hls = new Hls({
-              enableWorker: true,
-              lowLatencyMode: true,
-              backBufferLength: 60,
-            })
-            hlsInstanceRef.current = hls
-            hls.loadSource(streamUrl)
-            hls.attachMedia(video)
+      const getHls = async (): Promise<any> => {
+        if ((window as any).Hls) return (window as any).Hls
+        return new Promise((resolve) => {
+          const script = document.createElement('script')
+          script.src = 'https://cdn.jsdelivr.net/npm/hls.js@1.5.17/dist/hls.min.js'
+          script.onload = () => resolve((window as any).Hls)
+          script.onerror = () => resolve(null)
+          document.head.appendChild(script)
+        })
+      }
 
-            hls.on(Hls.Events.MANIFEST_PARSED, () => {
-              setIsLoading(false)
-              video.play().catch(() => {
-                // Autoplay blocked without user gesture or mute
-                setIsPlaying(false)
-              })
-            })
+      getHls().then((Hls) => {
+        if (Hls && Hls.isSupported()) {
+          const hls = new Hls({
+            enableWorker: true,
+            lowLatencyMode: true,
+            backBufferLength: 60,
+          })
+          hlsInstanceRef.current = hls
+          hls.loadSource(streamUrl)
+          hls.attachMedia(video)
 
-            hls.on(Hls.Events.ERROR, (_event: any, data: any) => {
-              if (data.fatal) {
-                console.warn('[LiveRaceVideoPlayer] Fatal HLS error:', data)
-                switch (data.type) {
-                  case Hls.ErrorTypes.NETWORK_ERROR:
-                    hls.startLoad()
-                    break
-                  case Hls.ErrorTypes.MEDIA_ERROR:
-                    hls.recoverMediaError()
-                    break
-                  default:
-                    hls.destroy()
-                    setHasError(true)
-                    setErrorMessage('HLS stream network error or source offline.')
-                    break
-                }
-              }
-            })
-          } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-            // Native Safari HLS
-            video.src = streamUrl
-            video.addEventListener('loadedmetadata', () => {
-              setIsLoading(false)
-              video.play().catch(() => setIsPlaying(false))
-            })
-            video.addEventListener('error', () => {
-              setHasError(true)
-              setErrorMessage('Native video playback error.')
-            })
-          } else {
-            setHasError(true)
-            setErrorMessage('HLS playback is not supported in this browser environment.')
+          hls.on(Hls.Events.MANIFEST_PARSED, () => {
             setIsLoading(false)
-          }
-        })
-        .catch((err) => {
-          console.warn('[LiveRaceVideoPlayer] Failed to load HLS.js module:', err)
+            video.play().catch(() => {
+              // Autoplay blocked without user gesture or mute
+              setIsPlaying(false)
+            })
+          })
+
+          hls.on(Hls.Events.ERROR, (_event: any, data: any) => {
+            if (data.fatal) {
+              console.warn('[LiveRaceVideoPlayer] Fatal HLS error:', data)
+              switch (data.type) {
+                case Hls.ErrorTypes.NETWORK_ERROR:
+                  hls.startLoad()
+                  break
+                case Hls.ErrorTypes.MEDIA_ERROR:
+                  hls.recoverMediaError()
+                  break
+                default:
+                  hls.destroy()
+                  setHasError(true)
+                  setErrorMessage('HLS stream network error or source offline.')
+                  break
+              }
+            }
+          })
+        } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+          // Native Safari HLS
+          video.src = streamUrl
+          video.addEventListener('loadedmetadata', () => {
+            setIsLoading(false)
+            video.play().catch(() => setIsPlaying(false))
+          })
+          video.addEventListener('error', () => {
+            setHasError(true)
+            setErrorMessage('Native video playback error.')
+          })
+        } else {
           setHasError(true)
-          setErrorMessage('Unable to initialize HLS streaming engine.')
+          setErrorMessage('HLS playback is not supported in this browser environment.')
           setIsLoading(false)
-        })
+        }
+      })
     } else {
       // Non-HLS streams (embed, portal, iframe)
       const timer = setTimeout(() => {
