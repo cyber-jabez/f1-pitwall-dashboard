@@ -1,0 +1,209 @@
+const fs = require('fs');
+const path = require('path');
+const https = require('https');
+const calendarService = require('../data/calendarService');
+const { saveSessionResult } = require('./persistence');
+
+const RESULTS_DIR = process.env.DATA_DIR
+  ? path.join(process.env.DATA_DIR, 'results')
+  : path.join(__dirname, '../data/results');
+
+const STATIC_BASE = 'https://livetiming.formula1.com/static';
+const ARCHIVE_YEAR = '2026';
+
+function fetchJSON(url) {
+  return new Promise((resolve, reject) => {
+    const req = https.get(url, { timeout: 15000 }, res => {
+      if (res.statusCode !== 200) {
+        res.resume();
+        return reject(new Error(`HTTP ${res.statusCode}`));
+      }
+
+      let body = '';
+      res.on('data', c => (body += c));
+      res.on('end', () => {
+        try {
+          const clean = body.charCodeAt(0) === 0xFEFF ? body.slice(1) : body;
+          resolve(JSON.parse(clean));
+        } catch (e) {
+          reject(e);
+        }
+      });
+    });
+
+    req.on('error', reject);
+    req.on('timeout', () => {
+      req.destroy();
+      reject(new Error('timeout'));
+    });
+  });
+}
+
+function normalizeName(value) {
+  return String(value || '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '');
+}
+
+function filenamePart(value) {
+  return String(value || '')
+    .trim()
+    .replace(/[^a-zA-Z0-9]+/g, '_')
+    .replace(/^_+|_+$/g, '');
+}
+
+function resultMatchesSession(result, round, sessionName) {
+  return normalizeName(result?.meta?.meeting) === normalizeName(round.name)
+    && normalizeName(result?.meta?.session_name) === normalizeName(sessionName);
+}
+
+function hasArchivedTimingDetail(result) {
+  return Array.isArray(result?.results)
+    && result.results.length > 0
+    && result.results.every(driver =>
+      Object.prototype.hasOwnProperty.call(driver, 'interval')
+      && Array.isArray(driver.sectors)
+      && driver.sectors.length === 3
+    );
+}
+
+function resolveBackfillFilename(round, archiveRound, sessionName) {
+  const roundStr = String(archiveRound).padStart(2, '0');
+  const sessionPart = filenamePart(sessionName);
+  const canonical = `${ARCHIVE_YEAR}_R${roundStr}_${sessionPart}.json`;
+  const canonicalPath = path.join(RESULTS_DIR, canonical);
+  if (!fs.existsSync(canonicalPath)) return canonical;
+
+  try {
+    const existing = JSON.parse(fs.readFileSync(canonicalPath, 'utf8'));
+    if (resultMatchesSession(existing, round, sessionName)) return canonical;
+  } catch {
+    return canonical;
+  }
+
+  return `${ARCHIVE_YEAR}_R${roundStr}_${filenamePart(round.name)}_${sessionPart}.json`;
+}
+
+function getArchiveMeeting(index, round) {
+  const meetings = index?.Meetings || [];
+  const exactName = normalizeName(round.name);
+  const city = normalizeName(round.city);
+
+  return meetings.find(m => normalizeName(m.Name) === exactName)
+    || meetings.find(m => normalizeName(m.Location) === city)
+    || meetings.find(m => normalizeName(m.Name).includes(exactName) || exactName.includes(normalizeName(m.Name)))
+    || meetings.find(m => normalizeName(m.Location).includes(city) || city.includes(normalizeName(m.Location)))
+    || null;
+}
+
+function getArchiveSession(meeting, sessionName) {
+  const sessions = meeting?.Sessions || [];
+  const target = normalizeName(sessionName);
+  // Match by Name only — Type is ambiguous (Sprint has Type="Race", Sprint Qualifying has
+  // Type="Qualifying"), which caused Race/Qualifying to resolve to Sprint/Sprint Qualifying.
+  return sessions.find(s => normalizeName(s.Name) === target) || null;
+}
+
+async function fetchArchiveTopic(sessionPath, topic, { optional = false } = {}) {
+  try {
+    return await fetchJSON(`${STATIC_BASE}/${sessionPath}${topic}.json`);
+  } catch (err) {
+    if (optional) return {};
+    throw err;
+  }
+}
+
+async function backfillArchiveSession(round, archiveIndex, sessionName) {
+  const archiveRound = Number(round.apiRound || round.officialRound || round.round || 0) || round.round;
+  const roundStr = String(archiveRound).padStart(2, '0');
+  const filename = resolveBackfillFilename(round, archiveRound, sessionName);
+  const filepath = path.join(RESULTS_DIR, filename);
+  if (fs.existsSync(filepath)) {
+    try {
+      const existing = JSON.parse(fs.readFileSync(filepath, 'utf8'));
+      if (
+        resultMatchesSession(existing, round, sessionName)
+        && existing?.meta?.source !== 'ergast-backfill'
+        && hasArchivedTimingDetail(existing)
+      ) return;
+      console.log(`[BACKFILL] Replacing legacy ${filename} with F1 archive data`);
+    } catch {
+      // If the existing file is unreadable, attempt to rebuild it from archive.
+    }
+  }
+
+  const meeting = getArchiveMeeting(archiveIndex, round);
+  if (!meeting) {
+    console.warn(`[BACKFILL] Archive meeting not found for R${roundStr}: ${round.name}`);
+    return;
+  }
+
+  const session = getArchiveSession(meeting, sessionName);
+  if (!session?.Path) {
+    console.warn(`[BACKFILL] Archive session not found for R${roundStr}: ${sessionName}`);
+    return;
+  }
+
+  try {
+    const [
+      sessionInfo,
+      timingData,
+      timingAppData,
+      timingStats,
+      weatherData,
+      lapCount,
+      driverList,
+    ] = await Promise.all([
+      fetchArchiveTopic(session.Path, 'SessionInfo'),
+      fetchArchiveTopic(session.Path, 'TimingData'),
+      fetchArchiveTopic(session.Path, 'TimingAppData', { optional: true }),
+      fetchArchiveTopic(session.Path, 'TimingStats', { optional: true }),
+      fetchArchiveTopic(session.Path, 'WeatherData', { optional: true }),
+      fetchArchiveTopic(session.Path, 'LapCount', { optional: true }),
+      fetchArchiveTopic(session.Path, 'DriverList', { optional: true }),
+    ]);
+
+    const saved = saveSessionResult(
+      sessionInfo,
+      timingData,
+      timingAppData,
+      timingStats,
+      weatherData,
+      lapCount,
+      driverList,
+      { filename, archive_path: session.Path },
+    );
+
+    if (saved) console.log(`[BACKFILL] Saved ${saved} from archive`);
+  } catch (e) {
+    console.warn(`[BACKFILL] Failed to fetch ${sessionName} R${roundStr}:`, e.message);
+  }
+}
+
+async function ensureArchiveSession(round, archiveIndex, sessionName, sessionDate) {
+  if (!sessionDate || new Date(sessionDate) > new Date()) return;
+  await backfillArchiveSession(round, archiveIndex, sessionName);
+}
+
+/**
+ * Backfill missing results for completed sessions using only F1's archive.
+ * Runs once on startup and only fetches sessions whose scheduled date has passed
+ * and whose result file does not already exist.
+ */
+async function backfillResults() {
+  const now = new Date();
+  const archiveIndex = await fetchJSON(`${STATIC_BASE}/${ARCHIVE_YEAR}/Index.json`);
+  const calendar = calendarService.getCalendar();
+
+  for (const round of calendar) {
+    await ensureArchiveSession(round, archiveIndex, 'Qualifying', round.sessions.qualifying || round.sessions.quali);
+    await ensureArchiveSession(round, archiveIndex, 'Race', round.sessions.race);
+
+    if (round.hasSprint) {
+      await ensureArchiveSession(round, archiveIndex, 'Sprint Qualifying', round.sessions.sprint_qualifying || round.sessions.sprintQuali);
+      await ensureArchiveSession(round, archiveIndex, 'Sprint', round.sessions.sprint);
+    }
+  }
+}
+
+module.exports = { backfillResults };
