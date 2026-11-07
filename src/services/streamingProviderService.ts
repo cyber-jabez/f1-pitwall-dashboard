@@ -40,7 +40,7 @@ const STORAGE_KEY = 'f1_streaming_config_v1'
 const DEFAULT_TEST_HLS_URL = 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8'
 
 const DEFAULT_CONFIG: StreamingConfigState = {
-  currentSession: 'Grand Prix (Race Session)',
+  currentSession: 'Qualifying',
   allowUnverifiedEmbeds: false,
   lastUpdated: new Date().toISOString(),
   providers: [
@@ -109,7 +109,13 @@ export class StreamingProviderService {
       if (stored) {
         const parsed = JSON.parse(stored)
         if (parsed.providers && Array.isArray(parsed.providers)) {
-          return parsed
+          return {
+            ...parsed,
+            currentSession:
+              parsed.currentSession === 'Grand Prix (Race Session)'
+                ? 'Qualifying'
+                : (parsed.currentSession || 'Qualifying'),
+          }
         }
       }
     } catch (e) {

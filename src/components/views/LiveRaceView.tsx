@@ -110,7 +110,7 @@ export const LiveRaceView: React.FC = () => {
   const [activeProvider, setActiveProvider] = useState<StreamProvider | null>(null)
   const [backupProvider, setBackupProvider] = useState<StreamProvider | null>(null)
   const [allProviders, setAllProviders] = useState<StreamProvider[]>([])
-  const [currentSessionName, setCurrentSessionName] = useState<string>('Grand Prix (Race Session)')
+  const [currentSessionName, setCurrentSessionName] = useState<string>('Qualifying')
 
   // Load streaming configuration from service
   const reloadStreamingConfig = () => {

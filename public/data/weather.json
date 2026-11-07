@@ -1,10 +1,10 @@
 {
-  "AirTemp": "20.8",
-  "Humidity": "93.2",
-  "Pressure": "922.8",
+  "AirTemp": "20.7",
+  "Humidity": "92.5",
+  "Pressure": "922.2",
   "Rainfall": "1",
-  "TrackTemp": "30.2",
-  "WindDirection": "316",
-  "WindSpeed": "0.9",
+  "TrackTemp": "28.5",
+  "WindDirection": "13",
+  "WindSpeed": "3.6",
   "_kf": true
 }

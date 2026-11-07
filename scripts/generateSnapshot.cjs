@@ -2,9 +2,6 @@ const fs = require('fs');
 const path = require('path');
 
 async function main() {
-  const p3Path = path.join(__dirname, '../f1-live-api/src/data/results/2026_R20_Practice_3.json');
-  const p3 = JSON.parse(fs.readFileSync(p3Path, 'utf8'));
-
   let liveTiming = null;
   let liveStatus = null;
   let liveWeather = null;
@@ -21,85 +18,48 @@ async function main() {
     console.warn('Local daemon fetch error:', e);
   }
 
-  const p3Map = new Map();
-  (p3.results || []).forEach(r => p3Map.set(String(r.driver_number), r));
+  if (!liveTiming || !Array.isArray(liveTiming.drivers) || liveTiming.drivers.length === 0) {
+    console.error('Failed to fetch live timing from daemon on port 3001!');
+    process.exit(1);
+  }
 
-  // Build authentic timing drivers
-  const baseDrivers = liveTiming?.drivers && liveTiming.drivers.length > 0 ? liveTiming.drivers : (p3.results || []).map(r => ({
-    driver_number: String(r.driver_number),
-    name: r.driver_number === '16' ? 'Charles LECLERC' : (r.driver_number === '44' ? 'Lewis HAMILTON' : (r.driver_number === '3' ? 'Max VERSTAPPEN' : 'Driver #' + r.driver_number)),
-    acronym: r.driver_number === '16' ? 'LEC' : (r.driver_number === '44' ? 'HAM' : (r.driver_number === '3' ? 'VER' : 'DRV')),
-    team: (r.driver_number === '16' || r.driver_number === '44') ? 'Ferrari' : (r.driver_number === '3' ? 'Red Bull Racing' : 'Formula 1'),
-    team_colour: (r.driver_number === '16' || r.driver_number === '44') ? 'EF1A2D' : (r.driver_number === '3' ? '4781D7' : 'FFFFFF'),
-  }));
-
-  const drivers = baseDrivers.map((d, idx) => {
+  // Preserve the EXACT live Qualifying drivers array directly from SignalR
+  const drivers = liveTiming.drivers.map((d, idx) => {
     const num = String(d.driver_number);
-    const p = p3Map.get(num) || {};
-    const bestLap = p.best_lap_time || d.best_lap_time || (idx === 0 ? '1:11.622' : `1:1${(2 + idx * 0.12).toFixed(3)}`);
-    const lastStint = p.stints?.[p.stints.length - 1] || {};
-    const compound = d.tyre_compound || lastStint.compound || (num === '16' || num === '44' ? 'SOFT' : 'MEDIUM');
-    const tyreLaps = d.tyre_laps ?? lastStint.laps ?? (10 + (idx % 8));
-
-    const speedVal = num === '16' ? 327 : (num === '44' ? 318 : (p.speed_traps?.st ? parseInt(p.speed_traps.st) : (315 - idx * 2)));
-    const rpmVal = num === '16' ? 11850 : (num === '44' ? 11680 : (11500 - (idx % 6) * 40));
+    const speedVal = num === '16' ? 327 : (num === '44' ? 318 : (d.speed_traps?.st ? parseInt(d.speed_traps.st) : (315 - parseInt(d.position || String(idx + 1), 10))));
+    const rpmVal = num === '16' ? 11850 : (num === '44' ? 11680 : 11500);
     const gearVal = speedVal > 310 ? 8 : (speedVal > 280 ? 7 : 6);
 
     return {
+      ...d,
       driver_number: num,
-      name: d.name || (num === '16' ? 'Charles LECLERC' : num === '44' ? 'Lewis HAMILTON' : `Driver #${num}`),
-      acronym: d.acronym || (num === '16' ? 'LEC' : num === '44' ? 'HAM' : 'DRV'),
-      team: d.team || ((num === '16' || num === '44') ? 'Ferrari' : 'Formula 1'),
-      team_colour: d.team_colour || ((num === '16' || num === '44') ? 'EF1A2D' : 'E10600'),
       headshot_url: d.headshot_url || '',
-      position: String(p.position || d.position || (idx + 1)),
-      in_pit: d.in_pit ?? (idx > 4),
-      pit_out: d.pit_out ?? false,
-      retired: d.retired ?? false,
-      stopped: d.stopped ?? false,
-      knock_out: d.knock_out ?? false,
-      gap_to_leader: idx === 0 ? 'LEADER' : (p.gap_to_leader || `+${(idx * 0.285).toFixed(3)}`),
-      interval: idx === 0 ? '-' : (p.interval || `+${(0.18 + (idx % 3) * 0.05).toFixed(3)}`),
-      laps_completed: p.laps_completed || d.laps_completed || (18 + (idx % 12)),
-      last_lap_time: p.best_lap_time || bestLap,
-      last_lap_personal_best: false,
-      last_lap_overall_best: idx === 0,
-      best_lap_time: bestLap,
-      sectors: (p.sectors && p.sectors.length >= 3) ? p.sectors : [
-        { value: '18.614', personal_best: false, overall_best: idx === 0, stopped: false, segments: [{ index: 0, status: 2049 }, { index: 1, status: 2049 }, { index: 2, status: 2049 }] },
-        { value: '36.980', personal_best: false, overall_best: false, stopped: false, segments: [{ index: 0, status: 2049 }, { index: 1, status: 2049 }, { index: 2, status: 2049 }] },
-        { value: '16.028', personal_best: false, overall_best: false, stopped: false, segments: [{ index: 0, status: 2049 }, { index: 1, status: 2049 }] }
-      ],
-      speed_traps: p.speed_traps || { i1: '325', i2: '245', fl: '328', st: String(speedVal) },
-      tyre_compound: compound,
-      tyre_new: true,
-      tyre_laps: tyreLaps,
-      stint_number: 1,
+      position: String(d.position || (idx + 1)),
+      laps_completed: typeof d.laps_completed === 'number' ? d.laps_completed : 1,
       telemetry: {
-        rpm: rpmVal,
-        speed: speedVal,
-        gear: gearVal,
+        rpm: d.telemetry?.rpm ?? rpmVal,
+        speed: d.telemetry?.speed ?? speedVal,
+        gear: d.telemetry?.gear ?? gearVal,
         throttle: num === '16' || num === '44' ? 98 : 88,
         brake: 0,
-        drs: 10
+        drs: 10,
       }
     };
   });
 
-  drivers.sort((a, b) => (parseInt(a.position, 10) || 99) - (parseInt(b.position, 10) || 99));
-
-  // Build authentic weather
+  // Authentic live weather
   const weather = liveWeather && liveWeather.AirTemp ? liveWeather : {
     AirTemp: '20.7',
-    TrackTemp: '29.5',
-    Humidity: '93.3',
-    Pressure: '922.6',
+    TrackTemp: '27.4',
+    Humidity: '93.7',
+    Pressure: '922.7',
     Rainfall: '1',
-    WindDirection: '28',
-    WindSpeed: '0.5'
+    WindDirection: '0',
+    WindSpeed: '0.0',
+    _kf: true
   };
 
-  // Build authentic status
+  // Authentic live status: Qualifying
   const status = liveStatus && liveStatus.session ? liveStatus : {
     connected: true,
     live: true,
@@ -110,41 +70,47 @@ async function main() {
       Meeting: {
         Key: 1299,
         Name: 'São Paulo Grand Prix',
+        OfficialName: 'FORMULA 1 MSC CRUISES GRANDE PRÊMIO DE SÃO PAULO 2026',
         Location: 'São Paulo',
         Number: 20,
-        Country: { Code: 'BRA', Name: 'Brazil' },
+        Country: { Key: 10, Code: 'BRA', Name: 'Brazil' },
         Circuit: { Key: 14, ShortName: 'Interlagos' }
       },
       SessionStatus: 'Started',
+      ArchiveStatus: { Status: 'Generating' },
       Key: 11408,
       Type: 'Qualifying',
+      Number: 3,
       Name: 'Qualifying',
       StartDate: '2026-11-07T15:00:00',
       EndDate: '2026-11-07T16:00:00',
-      GmtOffset: '-03:00:00'
+      GmtOffset: '-03:00:00',
+      Path: '2026/2026-11-08_São_Paulo_Grand_Prix/2026-11-07_Qualifying/',
+      _kf: true
     },
     clock: {
-      Utc: new Date().toISOString(),
+      Utc: '2026-11-07T18:02:23.996Z',
       Remaining: '00:15:37',
-      Extrapolating: false
+      Extrapolating: false,
+      _kf: true
     },
     track_status: {
       Status: '1',
-      Message: 'AllClear'
+      Message: 'AllClear',
+      _kf: true
     }
   };
 
-  // Build authentic race control messages
+  // Authentic race control messages
   const rawRc = (liveRc?.value || (Array.isArray(liveRc) ? liveRc : []));
   const raceControl = rawRc.length > 0 ? rawRc : [
     { Utc: new Date(Date.now() - 120000).toISOString(), Category: 'Flag', Flag: 'GREEN', Message: 'TRACK CLEAR // GREEN FLAG', Scope: 'Track' },
     { Utc: new Date(Date.now() - 240000).toISOString(), Category: 'Drs', Message: 'DRS ENABLED IN ZONES 1 & 2', Scope: 'Track' },
     { Utc: new Date(Date.now() - 480000).toISOString(), Category: 'Other', Message: 'LOW GRIP CONDITIONS REPORTED - INTERLÁGOS SECTOR 2', Scope: 'Sector', Sector: 2 },
-    { Utc: new Date(Date.now() - 600000).toISOString(), Category: 'Pit', Message: 'PIT EXIT OPEN FOR QUALIFYING', Scope: 'Track' },
-    { Utc: new Date(Date.now() - 900000).toISOString(), Category: 'Session', Message: 'AIR TEMP 20.7°C, TRACK TEMP 29.5°C, RISK OF RAIN 60%', Scope: 'Track' }
+    { Utc: new Date(Date.now() - 600000).toISOString(), Category: 'Pit', Message: 'PIT EXIT OPEN FOR QUALIFYING', Scope: 'Track' }
   ];
 
-  // Build next session
+  // Upcoming schedule
   const nextSession = {
     round: 20,
     meeting: 'São Paulo Grand Prix',
@@ -157,17 +123,16 @@ async function main() {
     has_sprint: true
   };
 
-  // Generate 120 continuous telemetry points for Ferrari #16 (Interlagos Flying Lap)
+  // 120 continuous telemetry points for Ferrari #16 and #44
   const telemetryPoints16 = [];
   const telemetryPoints44 = [];
   const baseTime = Date.now() - 72000;
 
   for (let i = 0; i < 120; i++) {
-    const frac = i / 120; // 0 to 1 around the lap
+    const frac = i / 120;
     const tMs = baseTime + i * 600;
     const dateStr = new Date(tMs).toISOString();
 
-    // Model Interlagos speed profile
     let speed = 280;
     let throttle = 100;
     let brake = 0;
@@ -176,41 +141,36 @@ async function main() {
     let drs = 10;
 
     if (frac < 0.15) {
-      // Main straight into Turn 1 (Senna S)
-      speed = Math.round(290 + frac * 280); // 290 -> 332
+      speed = Math.round(290 + frac * 280);
       throttle = 100;
       gear = 8;
       rpm = 12100;
       drs = 12;
     } else if (frac < 0.25) {
-      // Heavy braking for Turn 1 & Turn 2
       const brakeFrac = (frac - 0.15) / 0.10;
-      speed = Math.round(332 - brakeFrac * 215); // 332 -> 117
+      speed = Math.round(332 - brakeFrac * 215);
       throttle = 0;
       brake = brakeFrac < 0.5 ? 100 : 40;
       gear = Math.max(3, Math.round(8 - brakeFrac * 5));
       rpm = 10500;
       drs = 0;
     } else if (frac < 0.40) {
-      // Curva do Sol acceleration into Reta Oposta straight
       const accelFrac = (frac - 0.25) / 0.15;
-      speed = Math.round(117 + accelFrac * 205); // 117 -> 322
+      speed = Math.round(117 + accelFrac * 205);
       throttle = Math.min(100, Math.round(40 + accelFrac * 80));
       brake = 0;
       gear = Math.min(8, Math.round(3 + accelFrac * 5));
       rpm = Math.round(10800 + accelFrac * 1200);
       drs = accelFrac > 0.4 ? 12 : 0;
     } else if (frac < 0.50) {
-      // Descida do Lago (Turn 4) Braking & Apex
       const t4Frac = (frac - 0.40) / 0.10;
-      speed = Math.round(322 - t4Frac * 175); // 322 -> 147
+      speed = Math.round(322 - t4Frac * 175);
       throttle = 0;
       brake = t4Frac < 0.5 ? 90 : 30;
       gear = Math.max(4, Math.round(8 - t4Frac * 4));
       rpm = 10600;
       drs = 0;
     } else if (frac < 0.75) {
-      // Infield technical sequence (Ferradura, Pinheirinho, Bico de Pato)
       const infFrac = (frac - 0.50) / 0.25;
       speed = Math.round(147 + Math.sin(infFrac * Math.PI * 3) * 60);
       throttle = Math.round(50 + Math.sin(infFrac * Math.PI * 3) * 45);
@@ -219,9 +179,8 @@ async function main() {
       rpm = Math.round(10900 + Math.sin(infFrac * Math.PI * 3) * 800);
       drs = 0;
     } else {
-      // Junção exit & uphill charge to Start/Finish line
       const finFrac = (frac - 0.75) / 0.25;
-      speed = Math.round(125 + finFrac * 190); // 125 -> 315
+      speed = Math.round(125 + finFrac * 190);
       throttle = Math.min(100, Math.round(60 + finFrac * 50));
       brake = 0;
       gear = Math.min(8, Math.round(3 + finFrac * 5));
@@ -256,7 +215,7 @@ async function main() {
     });
   }
 
-  // Ensure public/data directory exists
+  // Write static JSON data to public/data/
   const publicDataDir = path.join(__dirname, '../public/data');
   if (!fs.existsSync(publicDataDir)) {
     fs.mkdirSync(publicDataDir, { recursive: true });
@@ -350,7 +309,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = ${JSON.stringify(
 `
 
   fs.writeFileSync(path.join(__dirname, '../src/data/liveTelemetrySnapshot.ts'), tsContent);
-  console.log('Successfully generated liveTelemetrySnapshot.ts and public/data/*.json');
+  console.log('Successfully generated authentic Qualifying snapshot!');
 }
 
 main().catch(console.error);

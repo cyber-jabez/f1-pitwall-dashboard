@@ -7,13 +7,13 @@ import type { OpenF1CarDataPoint } from '../services/openf1LiveClient'
 import { createProvenance } from '../services/dataProvenance'
 
 export const SNAPSHOT_WEATHER: F1LiveWeather = {
-  AirTemp: '20.8',
-  TrackTemp: '30.2',
-  Humidity: '93.2',
-  Pressure: '922.8',
+  AirTemp: '20.7',
+  TrackTemp: '28.5',
+  Humidity: '92.5',
+  Pressure: '922.2',
   Rainfall: '1',
-  WindDirection: '316',
-  WindSpeed: '0.9',
+  WindDirection: '13',
+  WindSpeed: '3.6',
   provenance: createProvenance(
     'livetiming.formula1.com',
     'https://livetiming.formula1.com/signalrcore (Official FOM SignalR Snapshot)',
@@ -26,7 +26,7 @@ export const SNAPSHOT_WEATHER: F1LiveWeather = {
 export const SNAPSHOT_STATUS: F1LiveStatus = {
   connected: true,
   live: true,
-  last_update: '2026-11-07T18:43:32.593Z',
+  last_update: '2026-11-07T18:57:20.093Z',
   stale: false,
   stale_reason: null,
   session: {
@@ -41,7 +41,7 @@ export const SNAPSHOT_STATUS: F1LiveStatus = {
     gmtOffset: '-03:00:00'
   },
   clock: {
-    utc: '2026-11-07T18:43:32.593Z',
+    utc: '2026-11-07T18:57:20.093Z',
     remaining: '00:15:37',
     extrapolating: false
   },
@@ -84,140 +84,140 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "LEADER",
-    "interval": "-",
-    "laps_completed": 19,
-    "last_lap_time": "1:11.622",
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
     "last_lap_personal_best": false,
-    "last_lap_overall_best": true,
-    "best_lap_time": "1:11.622",
+    "last_lap_overall_best": false,
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "18.614",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 0
           }
         ]
       },
       {
-        "value": "36.980",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 0
           }
         ]
       },
       {
-        "value": "15.950",
+        "value": null,
         "personal_best": false,
-        "overall_best": true,
+        "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 4,
-            "status": 2064
+            "status": 0
           },
           {
             "index": 5,
-            "status": 2064
+            "status": 0
           },
           {
             "index": 6,
-            "status": 2064
+            "status": 0
           }
         ]
       }
     ],
     "speed_traps": {
-      "i1": "328",
-      "i2": "256",
-      "fl": "332",
-      "st": "315"
+      "i1": null,
+      "i2": null,
+      "fl": null,
+      "st": null
     },
-    "tyre_compound": "SOFT",
-    "tyre_new": true,
-    "tyre_laps": 8,
-    "stint_number": 1,
+    "tyre_compound": null,
+    "tyre_new": null,
+    "tyre_laps": null,
+    "stint_number": null,
     "telemetry": {
       "rpm": 11500,
-      "speed": 315,
+      "speed": 314,
       "gear": 8,
       "throttle": 88,
       "brake": 0,
@@ -237,111 +237,111 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+0.285",
-    "interval": "+0.230",
-    "laps_completed": 21,
-    "last_lap_time": "1:11.647",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:11.647",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "18.683",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "36.973",
-        "personal_best": false,
-        "overall_best": true,
+        "value": "62.783",
+        "personal_best": true,
+        "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "15.966",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
@@ -359,17 +359,17 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
       }
     ],
     "speed_traps": {
-      "i1": "333",
-      "i2": "259",
-      "fl": "332",
-      "st": "313"
+      "i1": "164",
+      "i2": "136",
+      "fl": null,
+      "st": null
     },
     "tyre_compound": "INTERMEDIATE",
-    "tyre_new": true,
-    "tyre_laps": 15,
+    "tyre_new": "true",
+    "tyre_laps": null,
     "stint_number": 1,
     "telemetry": {
-      "rpm": 11460,
+      "rpm": 11500,
       "speed": 313,
       "gear": 8,
       "throttle": 88,
@@ -390,111 +390,111 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+0.570",
-    "interval": "+0.280",
-    "laps_completed": 22,
-    "last_lap_time": "1:11.753",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:11.753",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "18.504",
-        "personal_best": false,
-        "overall_best": true,
-        "stopped": false,
-        "segments": [
-          {
-            "index": 0,
-            "status": 2048
-          },
-          {
-            "index": 1,
-            "status": 2048
-          },
-          {
-            "index": 2,
-            "status": 2048
-          },
-          {
-            "index": 3,
-            "status": 2048
-          },
-          {
-            "index": 4,
-            "status": 2048
-          },
-          {
-            "index": 5,
-            "status": 2048
-          },
-          {
-            "index": 6,
-            "status": 2048
-          }
-        ]
-      },
-      {
-        "value": "37.138",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
+          }
+        ]
+      },
+      {
+        "value": null,
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2049
+          },
+          {
+            "index": 1,
+            "status": 2049
+          },
+          {
+            "index": 2,
+            "status": 2049
+          },
+          {
+            "index": 3,
+            "status": 2049
+          },
+          {
+            "index": 4,
+            "status": 2049
+          },
+          {
+            "index": 5,
+            "status": 2049
+          },
+          {
+            "index": 6,
+            "status": 2049
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "16.096",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
@@ -512,18 +512,18 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
       }
     ],
     "speed_traps": {
-      "i1": "326",
-      "i2": "254",
-      "fl": "325",
-      "st": "315"
+      "i1": "162",
+      "i2": null,
+      "fl": null,
+      "st": null
     },
     "tyre_compound": "WET",
-    "tyre_new": true,
-    "tyre_laps": 9,
+    "tyre_new": "true",
+    "tyre_laps": null,
     "stint_number": 1,
     "telemetry": {
-      "rpm": 11420,
-      "speed": 315,
+      "rpm": 11500,
+      "speed": 312,
       "gear": 8,
       "throttle": 88,
       "brake": 0,
@@ -543,111 +543,111 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+0.855",
-    "interval": "+0.180",
-    "laps_completed": 22,
-    "last_lap_time": "1:11.806",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:11.806",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "18.602",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "37.195",
-        "personal_best": false,
+        "value": "61.202",
+        "personal_best": true,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "16.009",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
@@ -665,18 +665,18 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
       }
     ],
     "speed_traps": {
-      "i1": "329",
-      "i2": "257",
-      "fl": "333",
-      "st": "314"
+      "i1": "178",
+      "i2": "147",
+      "fl": null,
+      "st": null
     },
     "tyre_compound": "INTERMEDIATE",
-    "tyre_new": true,
-    "tyre_laps": 17,
+    "tyre_new": "true",
+    "tyre_laps": null,
     "stint_number": 1,
     "telemetry": {
-      "rpm": 11380,
-      "speed": 314,
+      "rpm": 11500,
+      "speed": 311,
       "gear": 8,
       "throttle": 88,
       "brake": 0,
@@ -696,111 +696,111 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+1.140",
-    "interval": "+0.230",
-    "laps_completed": 30,
-    "last_lap_time": "1:11.896",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:11.896",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "18.584",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "37.026",
-        "personal_best": false,
+        "value": "69.344",
+        "personal_best": true,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "16.189",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
@@ -818,14 +818,14 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
       }
     ],
     "speed_traps": {
-      "i1": "327",
-      "i2": "244",
-      "fl": "324",
-      "st": "316"
+      "i1": "170",
+      "i2": "122",
+      "fl": null,
+      "st": null
     },
     "tyre_compound": "INTERMEDIATE",
-    "tyre_new": true,
-    "tyre_laps": 13,
+    "tyre_new": "true",
+    "tyre_laps": null,
     "stint_number": 1,
     "telemetry": {
       "rpm": 11850,
@@ -849,111 +849,111 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+1.425",
-    "interval": "+0.280",
-    "laps_completed": 20,
-    "last_lap_time": "1:11.935",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:11.935",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "18.650",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "37.236",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "15.976",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
@@ -971,19 +971,19 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
       }
     ],
     "speed_traps": {
-      "i1": "329",
-      "i2": "257",
-      "fl": "333",
-      "st": "319"
+      "i1": "175",
+      "i2": null,
+      "fl": null,
+      "st": null
     },
     "tyre_compound": "WET",
-    "tyre_new": true,
-    "tyre_laps": 10,
+    "tyre_new": "true",
+    "tyre_laps": null,
     "stint_number": 1,
     "telemetry": {
-      "rpm": 11300,
-      "speed": 319,
-      "gear": 8,
+      "rpm": 11500,
+      "speed": 309,
+      "gear": 7,
       "throttle": 88,
       "brake": 0,
       "drs": 10
@@ -1002,111 +1002,111 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+1.710",
-    "interval": "+0.180",
-    "laps_completed": 25,
-    "last_lap_time": "1:12.060",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:12.060",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "18.794",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "37.123",
-        "personal_best": false,
+        "value": "61.806",
+        "personal_best": true,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "16.100",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
@@ -1124,19 +1124,19 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
       }
     ],
     "speed_traps": {
-      "i1": "329",
-      "i2": "256",
-      "fl": "340",
-      "st": "325"
+      "i1": "180",
+      "i2": "135",
+      "fl": null,
+      "st": null
     },
     "tyre_compound": "WET",
-    "tyre_new": true,
-    "tyre_laps": 8,
+    "tyre_new": "true",
+    "tyre_laps": null,
     "stint_number": 1,
     "telemetry": {
       "rpm": 11500,
-      "speed": 325,
-      "gear": 8,
+      "speed": 308,
+      "gear": 7,
       "throttle": 88,
       "brake": 0,
       "drs": 10
@@ -1155,111 +1155,111 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+1.995",
-    "interval": "+0.230",
-    "laps_completed": 20,
-    "last_lap_time": "1:12.171",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:12.171",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "18.672",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "37.408",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "15.998",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
@@ -1277,19 +1277,19 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
       }
     ],
     "speed_traps": {
-      "i1": "326",
-      "i2": "254",
-      "fl": "337",
-      "st": "313"
+      "i1": "163",
+      "i2": null,
+      "fl": null,
+      "st": null
     },
     "tyre_compound": "WET",
-    "tyre_new": true,
-    "tyre_laps": 8,
+    "tyre_new": "true",
+    "tyre_laps": null,
     "stint_number": 1,
     "telemetry": {
-      "rpm": 11460,
-      "speed": 313,
-      "gear": 8,
+      "rpm": 11500,
+      "speed": 307,
+      "gear": 7,
       "throttle": 88,
       "brake": 0,
       "drs": 10
@@ -1308,111 +1308,111 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+2.280",
-    "interval": "+0.280",
-    "laps_completed": 24,
-    "last_lap_time": "1:12.213",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:12.213",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "18.614",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "37.374",
-        "personal_best": false,
+        "value": "69.294",
+        "personal_best": true,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "16.100",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
@@ -1430,19 +1430,19 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
       }
     ],
     "speed_traps": {
-      "i1": "336",
-      "i2": "255",
-      "fl": "335",
-      "st": "318"
+      "i1": "155",
+      "i2": "123",
+      "fl": null,
+      "st": null
     },
     "tyre_compound": "INTERMEDIATE",
-    "tyre_new": true,
-    "tyre_laps": 11,
+    "tyre_new": "true",
+    "tyre_laps": null,
     "stint_number": 1,
     "telemetry": {
-      "rpm": 11420,
-      "speed": 318,
-      "gear": 8,
+      "rpm": 11500,
+      "speed": 306,
+      "gear": 7,
       "throttle": 88,
       "brake": 0,
       "drs": 10
@@ -1461,111 +1461,111 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+2.565",
-    "interval": "+0.180",
-    "laps_completed": 24,
-    "last_lap_time": "1:12.644",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:12.644",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "18.857",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "37.508",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "16.190",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
@@ -1583,18 +1583,18 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
       }
     ],
     "speed_traps": {
-      "i1": "319",
-      "i2": "255",
-      "fl": "337",
-      "st": "310"
+      "i1": null,
+      "i2": null,
+      "fl": null,
+      "st": null
     },
     "tyre_compound": "WET",
-    "tyre_new": true,
-    "tyre_laps": 9,
+    "tyre_new": "true",
+    "tyre_laps": null,
     "stint_number": 1,
     "telemetry": {
-      "rpm": 11380,
-      "speed": 310,
+      "rpm": 11500,
+      "speed": 305,
       "gear": 7,
       "throttle": 88,
       "brake": 0,
@@ -1614,111 +1614,111 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+2.850",
-    "interval": "+0.230",
-    "laps_completed": 26,
-    "last_lap_time": "1:12.644",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:12.644",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "18.714",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "37.856",
-        "personal_best": false,
+        "value": "62.306",
+        "personal_best": true,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2051
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "16.063",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
@@ -1736,19 +1736,19 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
       }
     ],
     "speed_traps": {
-      "i1": "332",
-      "i2": "252",
-      "fl": "349",
-      "st": "318"
+      "i1": "206",
+      "i2": "137",
+      "fl": null,
+      "st": null
     },
     "tyre_compound": "INTERMEDIATE",
-    "tyre_new": true,
-    "tyre_laps": 7,
+    "tyre_new": "true",
+    "tyre_laps": null,
     "stint_number": 1,
     "telemetry": {
-      "rpm": 11340,
-      "speed": 318,
-      "gear": 8,
+      "rpm": 11500,
+      "speed": 304,
+      "gear": 7,
       "throttle": 88,
       "brake": 0,
       "drs": 10
@@ -1767,137 +1767,137 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+3.135",
-    "interval": "+0.280",
-    "laps_completed": 7,
-    "last_lap_time": "1:12.833",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:12.833",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "18.790",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2064
+            "status": 0
           },
           {
             "index": 1,
-            "status": 2064
+            "status": 0
           },
           {
             "index": 2,
-            "status": 2064
+            "status": 0
           },
           {
             "index": 3,
-            "status": 2064
+            "status": 0
           },
           {
             "index": 4,
-            "status": 2064
+            "status": 0
           },
           {
             "index": 5,
-            "status": 2064
+            "status": 0
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 0
           }
         ]
       },
       {
-        "value": "37.684",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 0
           }
         ]
       },
       {
-        "value": "16.359",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 0
           },
           {
             "index": 4,
-            "status": 2064
+            "status": 0
           },
           {
             "index": 5,
-            "status": 2064
+            "status": 0
           },
           {
             "index": 6,
-            "status": 2064
+            "status": 0
           }
         ]
       }
     ],
     "speed_traps": {
-      "i1": "318",
-      "i2": "231",
-      "fl": "318",
-      "st": "311"
+      "i1": null,
+      "i2": null,
+      "fl": null,
+      "st": null
     },
-    "tyre_compound": "MEDIUM",
-    "tyre_new": true,
-    "tyre_laps": 7,
-    "stint_number": 1,
+    "tyre_compound": null,
+    "tyre_new": null,
+    "tyre_laps": null,
+    "stint_number": null,
     "telemetry": {
       "rpm": 11680,
       "speed": 318,
@@ -1920,111 +1920,111 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+3.420",
-    "interval": "+0.180",
-    "laps_completed": 27,
-    "last_lap_time": "1:12.865",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:12.865",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "18.785",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "37.837",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "16.243",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
@@ -2042,19 +2042,19 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
       }
     ],
     "speed_traps": {
-      "i1": "324",
-      "i2": "252",
-      "fl": "332",
-      "st": "314"
+      "i1": null,
+      "i2": null,
+      "fl": null,
+      "st": null
     },
     "tyre_compound": "WET",
-    "tyre_new": true,
-    "tyre_laps": 9,
+    "tyre_new": "true",
+    "tyre_laps": null,
     "stint_number": 1,
     "telemetry": {
       "rpm": 11500,
-      "speed": 314,
-      "gear": 8,
+      "speed": 302,
+      "gear": 7,
       "throttle": 88,
       "brake": 0,
       "drs": 10
@@ -2073,111 +2073,111 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+3.705",
-    "interval": "+0.230",
-    "laps_completed": 25,
-    "last_lap_time": "1:12.925",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:12.925",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "18.776",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "37.938",
-        "personal_best": false,
+        "value": "61.534",
+        "personal_best": true,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "16.148",
-        "personal_best": false,
+        "value": "37.104",
+        "personal_best": true,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
@@ -2195,19 +2195,19 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
       }
     ],
     "speed_traps": {
-      "i1": "331",
-      "i2": "255",
-      "fl": "342",
-      "st": "316"
+      "i1": "194",
+      "i2": "139",
+      "fl": null,
+      "st": null
     },
     "tyre_compound": "INTERMEDIATE",
-    "tyre_new": true,
+    "tyre_new": "true",
     "tyre_laps": 1,
     "stint_number": 1,
     "telemetry": {
-      "rpm": 11460,
-      "speed": 316,
-      "gear": 8,
+      "rpm": 11500,
+      "speed": 301,
+      "gear": 7,
       "throttle": 88,
       "brake": 0,
       "drs": 10
@@ -2226,111 +2226,111 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+3.990",
-    "interval": "+0.280",
-    "laps_completed": 19,
-    "last_lap_time": "1:12.981",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:12.981",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "18.941",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "37.675",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "16.212",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
@@ -2348,18 +2348,18 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
       }
     ],
     "speed_traps": {
-      "i1": "322",
-      "i2": "245",
-      "fl": "333",
-      "st": "310"
+      "i1": "171",
+      "i2": null,
+      "fl": null,
+      "st": null
     },
     "tyre_compound": "WET",
-    "tyre_new": true,
-    "tyre_laps": 13,
+    "tyre_new": "true",
+    "tyre_laps": null,
     "stint_number": 1,
     "telemetry": {
-      "rpm": 11420,
-      "speed": 310,
+      "rpm": 11500,
+      "speed": 300,
       "gear": 7,
       "throttle": 88,
       "brake": 0,
@@ -2379,111 +2379,111 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+4.275",
-    "interval": "+0.180",
-    "laps_completed": 20,
-    "last_lap_time": "1:13.109",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:13.109",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "18.930",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "37.909",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "16.226",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
@@ -2501,19 +2501,19 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
       }
     ],
     "speed_traps": {
-      "i1": "324",
-      "i2": "247",
-      "fl": "330",
-      "st": "312"
+      "i1": null,
+      "i2": null,
+      "fl": null,
+      "st": null
     },
     "tyre_compound": "WET",
-    "tyre_new": true,
-    "tyre_laps": 8,
+    "tyre_new": "true",
+    "tyre_laps": null,
     "stint_number": 1,
     "telemetry": {
-      "rpm": 11380,
-      "speed": 312,
-      "gear": 8,
+      "rpm": 11500,
+      "speed": 299,
+      "gear": 7,
       "throttle": 88,
       "brake": 0,
       "drs": 10
@@ -2532,111 +2532,111 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+4.560",
-    "interval": "+0.230",
-    "laps_completed": 25,
-    "last_lap_time": "1:13.147",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:13.147",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "18.887",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "38.047",
-        "personal_best": false,
+        "value": "65.421",
+        "personal_best": true,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "16.160",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
@@ -2654,19 +2654,19 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
       }
     ],
     "speed_traps": {
-      "i1": "330",
-      "i2": "255",
-      "fl": "341",
-      "st": "312"
+      "i1": "154",
+      "i2": "94",
+      "fl": null,
+      "st": null
     },
     "tyre_compound": "WET",
-    "tyre_new": true,
-    "tyre_laps": 9,
+    "tyre_new": "true",
+    "tyre_laps": null,
     "stint_number": 1,
     "telemetry": {
-      "rpm": 11340,
-      "speed": 312,
-      "gear": 8,
+      "rpm": 11500,
+      "speed": 298,
+      "gear": 7,
       "throttle": 88,
       "brake": 0,
       "drs": 10
@@ -2685,111 +2685,111 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+4.845",
-    "interval": "+0.280",
-    "laps_completed": 23,
-    "last_lap_time": "1:13.171",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:13.171",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "18.989",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "37.746",
-        "personal_best": false,
+        "value": "69.778",
+        "personal_best": true,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "16.383",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
@@ -2807,18 +2807,18 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
       }
     ],
     "speed_traps": {
-      "i1": "323",
-      "i2": "242",
-      "fl": "325",
-      "st": "305"
+      "i1": "175",
+      "i2": "119",
+      "fl": null,
+      "st": null
     },
     "tyre_compound": "INTERMEDIATE",
-    "tyre_new": true,
-    "tyre_laps": 10,
+    "tyre_new": "true",
+    "tyre_laps": null,
     "stint_number": 1,
     "telemetry": {
-      "rpm": 11300,
-      "speed": 305,
+      "rpm": 11500,
+      "speed": 297,
       "gear": 7,
       "throttle": 88,
       "brake": 0,
@@ -2838,111 +2838,111 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+5.130",
-    "interval": "+0.180",
-    "laps_completed": 21,
-    "last_lap_time": "1:13.303",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:13.303",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "18.884",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "38.188",
-        "personal_best": false,
+        "value": "64.830",
+        "personal_best": true,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "16.154",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
@@ -2960,19 +2960,19 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
       }
     ],
     "speed_traps": {
-      "i1": "330",
-      "i2": "252",
-      "fl": "335",
-      "st": "311"
+      "i1": "155",
+      "i2": "123",
+      "fl": null,
+      "st": null
     },
     "tyre_compound": "WET",
-    "tyre_new": true,
-    "tyre_laps": 7,
+    "tyre_new": "true",
+    "tyre_laps": null,
     "stint_number": 1,
     "telemetry": {
       "rpm": 11500,
-      "speed": 311,
-      "gear": 8,
+      "speed": 296,
+      "gear": 7,
       "throttle": 88,
       "brake": 0,
       "drs": 10
@@ -2991,111 +2991,111 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+5.415",
-    "interval": "+0.230",
-    "laps_completed": 32,
-    "last_lap_time": "1:13.573",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:13.573",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "19.046",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "38.042",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2051
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2051
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 2049
           }
         ]
       },
       {
-        "value": "16.313",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
@@ -3113,19 +3113,19 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
       }
     ],
     "speed_traps": {
-      "i1": "324",
-      "i2": "243",
-      "fl": "340",
-      "st": "311"
+      "i1": "183",
+      "i2": null,
+      "fl": null,
+      "st": null
     },
     "tyre_compound": "WET",
-    "tyre_new": true,
-    "tyre_laps": 8,
+    "tyre_new": "true",
+    "tyre_laps": null,
     "stint_number": 1,
     "telemetry": {
-      "rpm": 11460,
-      "speed": 311,
-      "gear": 8,
+      "rpm": 11500,
+      "speed": 295,
+      "gear": 7,
       "throttle": 88,
       "brake": 0,
       "drs": 10
@@ -3144,111 +3144,111 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+5.700",
-    "interval": "+0.280",
-    "laps_completed": 19,
-    "last_lap_time": "1:13.722",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:13.722",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "19.157",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2064
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2051
           }
         ]
       },
       {
-        "value": "38.118",
-        "personal_best": false,
-        "overall_best": false,
+        "value": "59.438",
+        "personal_best": true,
+        "overall_best": true,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2051
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2051
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2051
           },
           {
             "index": 6,
-            "status": 2048
+            "status": 2051
           },
           {
             "index": 7,
-            "status": 2048
+            "status": 2051
           }
         ]
       },
       {
-        "value": "16.327",
-        "personal_best": false,
-        "overall_best": false,
+        "value": "34.641",
+        "personal_best": true,
+        "overall_best": true,
         "stopped": false,
         "segments": [
           {
             "index": 0,
-            "status": 2048
+            "status": 2051
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2051
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2051
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2051
           },
           {
             "index": 4,
@@ -3266,18 +3266,18 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
       }
     ],
     "speed_traps": {
-      "i1": "324",
-      "i2": "242",
-      "fl": "338",
-      "st": "309"
+      "i1": "192",
+      "i2": "156",
+      "fl": null,
+      "st": null
     },
     "tyre_compound": "INTERMEDIATE",
-    "tyre_new": true,
+    "tyre_new": "true",
     "tyre_laps": 1,
     "stint_number": 1,
     "telemetry": {
-      "rpm": 11420,
-      "speed": 309,
+      "rpm": 11500,
+      "speed": 294,
       "gear": 7,
       "throttle": 88,
       "brake": 0,
@@ -3297,16 +3297,52 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+5.985",
-    "interval": "+0.180",
-    "laps_completed": 7,
-    "last_lap_time": "1:14.766",
-    "last_lap_personal_best": false,
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
+    "last_lap_personal_best": true,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:14.766",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "19.286",
+        "value": null,
+        "personal_best": false,
+        "overall_best": false,
+        "stopped": false,
+        "segments": [
+          {
+            "index": 0,
+            "status": 2064
+          },
+          {
+            "index": 1,
+            "status": 2064
+          },
+          {
+            "index": 2,
+            "status": 2064
+          },
+          {
+            "index": 3,
+            "status": 2064
+          },
+          {
+            "index": 4,
+            "status": 2064
+          },
+          {
+            "index": 5,
+            "status": 2064
+          },
+          {
+            "index": 6,
+            "status": 2049
+          }
+        ]
+      },
+      {
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
@@ -3321,55 +3357,19 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
           },
           {
             "index": 2,
-            "status": 2048
-          },
-          {
-            "index": 3,
-            "status": 2048
-          },
-          {
-            "index": 4,
-            "status": 2048
-          },
-          {
-            "index": 5,
-            "status": 2048
-          },
-          {
-            "index": 6,
-            "status": 2048
-          }
-        ]
-      },
-      {
-        "value": "38.767",
-        "personal_best": true,
-        "overall_best": false,
-        "stopped": false,
-        "segments": [
-          {
-            "index": 0,
-            "status": 2049
-          },
-          {
-            "index": 1,
-            "status": 2049
-          },
-          {
-            "index": 2,
             "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 5,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 6,
@@ -3382,7 +3382,7 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
         ]
       },
       {
-        "value": "16.554",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
@@ -3393,15 +3393,15 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
           },
           {
             "index": 1,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 2,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 3,
-            "status": 2048
+            "status": 2049
           },
           {
             "index": 4,
@@ -3419,18 +3419,18 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
       }
     ],
     "speed_traps": {
-      "i1": "311",
-      "i2": "230",
-      "fl": "316",
-      "st": "302"
+      "i1": "191",
+      "i2": null,
+      "fl": null,
+      "st": null
     },
     "tyre_compound": "WET",
-    "tyre_new": true,
-    "tyre_laps": 7,
+    "tyre_new": "true",
+    "tyre_laps": null,
     "stint_number": 1,
     "telemetry": {
-      "rpm": 11380,
-      "speed": 302,
+      "rpm": 11500,
+      "speed": 293,
       "gear": 7,
       "throttle": 88,
       "brake": 0,
@@ -3450,85 +3450,50 @@ export const SNAPSHOT_TIMING_DRIVERS: F1LiveDriverTiming[] = [
     "retired": false,
     "stopped": false,
     "knock_out": false,
-    "gap_to_leader": "+6.270",
-    "interval": "+0.230",
-    "laps_completed": 28,
-    "last_lap_time": "1:14.640",
+    "gap_to_leader": null,
+    "interval": null,
+    "laps_completed": 1,
+    "last_lap_time": null,
     "last_lap_personal_best": false,
     "last_lap_overall_best": false,
-    "best_lap_time": "1:14.640",
+    "best_lap_time": null,
     "sectors": [
       {
-        "value": "18.614",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
-        "segments": [
-          {
-            "index": 0,
-            "status": 2049
-          },
-          {
-            "index": 1,
-            "status": 2049
-          },
-          {
-            "index": 2,
-            "status": 2049
-          }
-        ]
+        "segments": []
       },
       {
-        "value": "36.980",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
-        "segments": [
-          {
-            "index": 0,
-            "status": 2049
-          },
-          {
-            "index": 1,
-            "status": 2049
-          },
-          {
-            "index": 2,
-            "status": 2049
-          }
-        ]
+        "segments": []
       },
       {
-        "value": "16.028",
+        "value": null,
         "personal_best": false,
         "overall_best": false,
         "stopped": false,
-        "segments": [
-          {
-            "index": 0,
-            "status": 2049
-          },
-          {
-            "index": 1,
-            "status": 2049
-          }
-        ]
+        "segments": []
       }
     ],
     "speed_traps": {
-      "i1": "325",
-      "i2": "245",
-      "fl": "328",
-      "st": "271"
+      "i1": null,
+      "i2": null,
+      "fl": null,
+      "st": null
     },
-    "tyre_compound": "MEDIUM",
-    "tyre_new": true,
-    "tyre_laps": 16,
-    "stint_number": 1,
+    "tyre_compound": null,
+    "tyre_new": null,
+    "tyre_laps": null,
+    "stint_number": null,
     "telemetry": {
-      "rpm": 11340,
-      "speed": 271,
-      "gear": 6,
+      "rpm": 11500,
+      "speed": 292,
+      "gear": 7,
       "throttle": 88,
       "brake": 0,
       "drs": 10
@@ -3692,7 +3657,7 @@ export const SNAPSHOT_RACE_CONTROL: Array<{
 
 export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
   {
-    "date": "2026-11-07T18:42:20.583Z",
+    "date": "2026-11-07T18:56:08.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 290,
@@ -3704,7 +3669,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:21.183Z",
+    "date": "2026-11-07T18:56:08.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 292,
@@ -3716,7 +3681,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:21.783Z",
+    "date": "2026-11-07T18:56:09.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 295,
@@ -3728,7 +3693,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:22.383Z",
+    "date": "2026-11-07T18:56:09.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 297,
@@ -3740,7 +3705,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:22.983Z",
+    "date": "2026-11-07T18:56:10.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 299,
@@ -3752,7 +3717,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:23.583Z",
+    "date": "2026-11-07T18:56:11.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 302,
@@ -3764,7 +3729,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:24.183Z",
+    "date": "2026-11-07T18:56:11.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 304,
@@ -3776,7 +3741,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:24.783Z",
+    "date": "2026-11-07T18:56:12.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 306,
@@ -3788,7 +3753,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:25.383Z",
+    "date": "2026-11-07T18:56:12.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 309,
@@ -3800,7 +3765,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:25.983Z",
+    "date": "2026-11-07T18:56:13.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 311,
@@ -3812,7 +3777,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:26.583Z",
+    "date": "2026-11-07T18:56:14.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 313,
@@ -3824,7 +3789,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:27.183Z",
+    "date": "2026-11-07T18:56:14.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 316,
@@ -3836,7 +3801,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:27.783Z",
+    "date": "2026-11-07T18:56:15.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 318,
@@ -3848,7 +3813,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:28.383Z",
+    "date": "2026-11-07T18:56:15.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 320,
@@ -3860,7 +3825,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:28.983Z",
+    "date": "2026-11-07T18:56:16.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 323,
@@ -3872,7 +3837,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:29.583Z",
+    "date": "2026-11-07T18:56:17.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 325,
@@ -3884,7 +3849,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:30.183Z",
+    "date": "2026-11-07T18:56:17.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 327,
@@ -3896,7 +3861,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:30.783Z",
+    "date": "2026-11-07T18:56:18.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 330,
@@ -3908,7 +3873,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:31.383Z",
+    "date": "2026-11-07T18:56:18.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 332,
@@ -3920,7 +3885,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:31.983Z",
+    "date": "2026-11-07T18:56:19.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 314,
@@ -3932,7 +3897,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:32.583Z",
+    "date": "2026-11-07T18:56:20.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 296,
@@ -3944,7 +3909,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:33.183Z",
+    "date": "2026-11-07T18:56:20.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 278,
@@ -3956,7 +3921,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:33.783Z",
+    "date": "2026-11-07T18:56:21.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 260,
@@ -3968,7 +3933,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:34.383Z",
+    "date": "2026-11-07T18:56:21.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 242,
@@ -3980,7 +3945,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:34.983Z",
+    "date": "2026-11-07T18:56:22.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 224,
@@ -3992,7 +3957,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:35.583Z",
+    "date": "2026-11-07T18:56:23.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 207,
@@ -4004,7 +3969,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:36.183Z",
+    "date": "2026-11-07T18:56:23.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 189,
@@ -4016,7 +3981,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:36.783Z",
+    "date": "2026-11-07T18:56:24.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 171,
@@ -4028,7 +3993,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:37.383Z",
+    "date": "2026-11-07T18:56:24.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 153,
@@ -4040,7 +4005,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:37.983Z",
+    "date": "2026-11-07T18:56:25.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 135,
@@ -4052,7 +4017,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:38.583Z",
+    "date": "2026-11-07T18:56:26.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 117,
@@ -4064,7 +4029,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:39.183Z",
+    "date": "2026-11-07T18:56:26.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 128,
@@ -4076,7 +4041,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:39.783Z",
+    "date": "2026-11-07T18:56:27.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 140,
@@ -4088,7 +4053,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:40.383Z",
+    "date": "2026-11-07T18:56:27.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 151,
@@ -4100,7 +4065,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:40.983Z",
+    "date": "2026-11-07T18:56:28.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 163,
@@ -4112,7 +4077,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:41.583Z",
+    "date": "2026-11-07T18:56:29.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 174,
@@ -4124,7 +4089,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:42.183Z",
+    "date": "2026-11-07T18:56:29.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 185,
@@ -4136,7 +4101,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:42.783Z",
+    "date": "2026-11-07T18:56:30.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 197,
@@ -4148,7 +4113,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:43.383Z",
+    "date": "2026-11-07T18:56:30.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 208,
@@ -4160,7 +4125,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:43.983Z",
+    "date": "2026-11-07T18:56:31.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 220,
@@ -4172,7 +4137,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:44.583Z",
+    "date": "2026-11-07T18:56:32.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 231,
@@ -4184,7 +4149,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:45.183Z",
+    "date": "2026-11-07T18:56:32.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 242,
@@ -4196,7 +4161,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:45.783Z",
+    "date": "2026-11-07T18:56:33.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 254,
@@ -4208,7 +4173,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:46.383Z",
+    "date": "2026-11-07T18:56:33.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 265,
@@ -4220,7 +4185,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:46.983Z",
+    "date": "2026-11-07T18:56:34.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 276,
@@ -4232,7 +4197,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:47.583Z",
+    "date": "2026-11-07T18:56:35.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 288,
@@ -4244,7 +4209,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:48.183Z",
+    "date": "2026-11-07T18:56:35.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 299,
@@ -4256,7 +4221,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:48.783Z",
+    "date": "2026-11-07T18:56:36.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 311,
@@ -4268,7 +4233,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:49.383Z",
+    "date": "2026-11-07T18:56:36.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 322,
@@ -4280,7 +4245,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:49.983Z",
+    "date": "2026-11-07T18:56:37.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 307,
@@ -4292,7 +4257,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:50.583Z",
+    "date": "2026-11-07T18:56:38.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 293,
@@ -4304,7 +4269,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:51.183Z",
+    "date": "2026-11-07T18:56:38.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 278,
@@ -4316,7 +4281,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:51.783Z",
+    "date": "2026-11-07T18:56:39.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 264,
@@ -4328,7 +4293,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:52.383Z",
+    "date": "2026-11-07T18:56:39.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 249,
@@ -4340,7 +4305,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:52.983Z",
+    "date": "2026-11-07T18:56:40.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 235,
@@ -4352,7 +4317,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:53.583Z",
+    "date": "2026-11-07T18:56:41.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 220,
@@ -4364,7 +4329,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:54.183Z",
+    "date": "2026-11-07T18:56:41.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 205,
@@ -4376,7 +4341,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:54.783Z",
+    "date": "2026-11-07T18:56:42.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 191,
@@ -4388,7 +4353,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:55.383Z",
+    "date": "2026-11-07T18:56:42.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 176,
@@ -4400,7 +4365,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:55.983Z",
+    "date": "2026-11-07T18:56:43.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 162,
@@ -4412,7 +4377,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:56.583Z",
+    "date": "2026-11-07T18:56:44.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 147,
@@ -4424,7 +4389,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:57.183Z",
+    "date": "2026-11-07T18:56:44.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 166,
@@ -4436,7 +4401,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:57.783Z",
+    "date": "2026-11-07T18:56:45.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 182,
@@ -4448,7 +4413,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:58.383Z",
+    "date": "2026-11-07T18:56:45.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 196,
@@ -4460,7 +4425,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:58.983Z",
+    "date": "2026-11-07T18:56:46.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 204,
@@ -4472,7 +4437,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:59.583Z",
+    "date": "2026-11-07T18:56:47.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 207,
@@ -4484,7 +4449,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:00.183Z",
+    "date": "2026-11-07T18:56:47.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 204,
@@ -4496,7 +4461,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:00.783Z",
+    "date": "2026-11-07T18:56:48.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 196,
@@ -4508,7 +4473,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:01.383Z",
+    "date": "2026-11-07T18:56:48.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 182,
@@ -4520,7 +4485,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:01.983Z",
+    "date": "2026-11-07T18:56:49.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 166,
@@ -4532,7 +4497,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:02.583Z",
+    "date": "2026-11-07T18:56:50.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 147,
@@ -4544,7 +4509,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:03.183Z",
+    "date": "2026-11-07T18:56:50.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 128,
@@ -4556,7 +4521,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:03.783Z",
+    "date": "2026-11-07T18:56:51.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 112,
@@ -4568,7 +4533,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:04.383Z",
+    "date": "2026-11-07T18:56:51.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 98,
@@ -4580,7 +4545,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:04.983Z",
+    "date": "2026-11-07T18:56:52.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 90,
@@ -4592,7 +4557,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:05.583Z",
+    "date": "2026-11-07T18:56:53.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 87,
@@ -4604,7 +4569,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:06.183Z",
+    "date": "2026-11-07T18:56:53.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 90,
@@ -4616,7 +4581,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:06.783Z",
+    "date": "2026-11-07T18:56:54.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 98,
@@ -4628,7 +4593,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:07.383Z",
+    "date": "2026-11-07T18:56:54.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 112,
@@ -4640,7 +4605,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:07.983Z",
+    "date": "2026-11-07T18:56:55.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 128,
@@ -4652,7 +4617,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:08.583Z",
+    "date": "2026-11-07T18:56:56.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 147,
@@ -4664,7 +4629,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:09.183Z",
+    "date": "2026-11-07T18:56:56.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 166,
@@ -4676,7 +4641,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:09.783Z",
+    "date": "2026-11-07T18:56:57.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 182,
@@ -4688,7 +4653,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:10.383Z",
+    "date": "2026-11-07T18:56:57.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 196,
@@ -4700,7 +4665,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:10.983Z",
+    "date": "2026-11-07T18:56:58.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 204,
@@ -4712,7 +4677,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:11.583Z",
+    "date": "2026-11-07T18:56:59.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 207,
@@ -4724,7 +4689,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:12.183Z",
+    "date": "2026-11-07T18:56:59.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 204,
@@ -4736,7 +4701,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:12.783Z",
+    "date": "2026-11-07T18:57:00.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 196,
@@ -4748,7 +4713,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:13.383Z",
+    "date": "2026-11-07T18:57:00.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 182,
@@ -4760,7 +4725,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:13.983Z",
+    "date": "2026-11-07T18:57:01.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 166,
@@ -4772,7 +4737,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:14.583Z",
+    "date": "2026-11-07T18:57:02.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 125,
@@ -4784,7 +4749,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:15.183Z",
+    "date": "2026-11-07T18:57:02.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 131,
@@ -4796,7 +4761,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:15.783Z",
+    "date": "2026-11-07T18:57:03.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 138,
@@ -4808,7 +4773,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:16.383Z",
+    "date": "2026-11-07T18:57:03.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 144,
@@ -4820,7 +4785,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:16.983Z",
+    "date": "2026-11-07T18:57:04.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 150,
@@ -4832,7 +4797,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:17.583Z",
+    "date": "2026-11-07T18:57:05.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 157,
@@ -4844,7 +4809,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:18.183Z",
+    "date": "2026-11-07T18:57:05.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 163,
@@ -4856,7 +4821,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:18.783Z",
+    "date": "2026-11-07T18:57:06.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 169,
@@ -4868,7 +4833,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:19.383Z",
+    "date": "2026-11-07T18:57:06.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 176,
@@ -4880,7 +4845,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:19.983Z",
+    "date": "2026-11-07T18:57:07.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 182,
@@ -4892,7 +4857,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:20.583Z",
+    "date": "2026-11-07T18:57:08.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 188,
@@ -4904,7 +4869,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:21.183Z",
+    "date": "2026-11-07T18:57:08.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 195,
@@ -4916,7 +4881,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:21.783Z",
+    "date": "2026-11-07T18:57:09.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 201,
@@ -4928,7 +4893,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:22.383Z",
+    "date": "2026-11-07T18:57:09.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 207,
@@ -4940,7 +4905,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:22.983Z",
+    "date": "2026-11-07T18:57:10.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 214,
@@ -4952,7 +4917,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:23.583Z",
+    "date": "2026-11-07T18:57:11.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 220,
@@ -4964,7 +4929,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:24.183Z",
+    "date": "2026-11-07T18:57:11.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 226,
@@ -4976,7 +4941,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:24.783Z",
+    "date": "2026-11-07T18:57:12.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 233,
@@ -4988,7 +4953,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:25.383Z",
+    "date": "2026-11-07T18:57:12.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 239,
@@ -5000,7 +4965,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:25.983Z",
+    "date": "2026-11-07T18:57:13.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 245,
@@ -5012,7 +4977,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:26.583Z",
+    "date": "2026-11-07T18:57:14.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 252,
@@ -5024,7 +4989,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:27.183Z",
+    "date": "2026-11-07T18:57:14.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 258,
@@ -5036,7 +5001,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:27.783Z",
+    "date": "2026-11-07T18:57:15.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 264,
@@ -5048,7 +5013,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:28.383Z",
+    "date": "2026-11-07T18:57:15.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 271,
@@ -5060,7 +5025,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:28.983Z",
+    "date": "2026-11-07T18:57:16.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 277,
@@ -5072,7 +5037,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:29.583Z",
+    "date": "2026-11-07T18:57:17.076Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 283,
@@ -5084,7 +5049,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:30.183Z",
+    "date": "2026-11-07T18:57:17.676Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 290,
@@ -5096,7 +5061,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:30.783Z",
+    "date": "2026-11-07T18:57:18.276Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 296,
@@ -5108,7 +5073,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:31.383Z",
+    "date": "2026-11-07T18:57:18.876Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 302,
@@ -5120,7 +5085,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:31.983Z",
+    "date": "2026-11-07T18:57:19.476Z",
     "session_key": 11408,
     "driver_number": 16,
     "speed": 309,
@@ -5135,7 +5100,7 @@ export const SNAPSHOT_CAR_TELEMETRY_16: OpenF1CarDataPoint[] = [
 
 export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
   {
-    "date": "2026-11-07T18:42:20.583Z",
+    "date": "2026-11-07T18:56:08.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 288,
@@ -5147,7 +5112,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:21.183Z",
+    "date": "2026-11-07T18:56:08.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 291,
@@ -5159,7 +5124,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:21.783Z",
+    "date": "2026-11-07T18:56:09.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 295,
@@ -5171,7 +5136,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:22.383Z",
+    "date": "2026-11-07T18:56:09.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 295,
@@ -5183,7 +5148,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:22.983Z",
+    "date": "2026-11-07T18:56:10.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 298,
@@ -5195,7 +5160,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:23.583Z",
+    "date": "2026-11-07T18:56:11.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 302,
@@ -5207,7 +5172,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:24.183Z",
+    "date": "2026-11-07T18:56:11.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 302,
@@ -5219,7 +5184,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:24.783Z",
+    "date": "2026-11-07T18:56:12.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 305,
@@ -5231,7 +5196,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:25.383Z",
+    "date": "2026-11-07T18:56:12.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 309,
@@ -5243,7 +5208,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:25.983Z",
+    "date": "2026-11-07T18:56:13.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 309,
@@ -5255,7 +5220,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:26.583Z",
+    "date": "2026-11-07T18:56:14.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 312,
@@ -5267,7 +5232,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:27.183Z",
+    "date": "2026-11-07T18:56:14.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 316,
@@ -5279,7 +5244,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:27.783Z",
+    "date": "2026-11-07T18:56:15.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 316,
@@ -5291,7 +5256,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:28.383Z",
+    "date": "2026-11-07T18:56:15.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 319,
@@ -5303,7 +5268,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:28.983Z",
+    "date": "2026-11-07T18:56:16.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 323,
@@ -5315,7 +5280,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:29.583Z",
+    "date": "2026-11-07T18:56:17.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 323,
@@ -5327,7 +5292,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:30.183Z",
+    "date": "2026-11-07T18:56:17.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 326,
@@ -5339,7 +5304,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:30.783Z",
+    "date": "2026-11-07T18:56:18.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 330,
@@ -5351,7 +5316,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:31.383Z",
+    "date": "2026-11-07T18:56:18.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 330,
@@ -5363,7 +5328,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:31.983Z",
+    "date": "2026-11-07T18:56:19.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 313,
@@ -5375,7 +5340,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:32.583Z",
+    "date": "2026-11-07T18:56:20.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 296,
@@ -5387,7 +5352,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:33.183Z",
+    "date": "2026-11-07T18:56:20.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 276,
@@ -5399,7 +5364,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:33.783Z",
+    "date": "2026-11-07T18:56:21.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 259,
@@ -5411,7 +5376,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:34.383Z",
+    "date": "2026-11-07T18:56:21.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 242,
@@ -5423,7 +5388,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:34.983Z",
+    "date": "2026-11-07T18:56:22.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 222,
@@ -5435,7 +5400,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:35.583Z",
+    "date": "2026-11-07T18:56:23.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 206,
@@ -5447,7 +5412,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:36.183Z",
+    "date": "2026-11-07T18:56:23.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 189,
@@ -5459,7 +5424,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:36.783Z",
+    "date": "2026-11-07T18:56:24.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 169,
@@ -5471,7 +5436,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:37.383Z",
+    "date": "2026-11-07T18:56:24.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 152,
@@ -5483,7 +5448,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:37.983Z",
+    "date": "2026-11-07T18:56:25.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 135,
@@ -5495,7 +5460,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:38.583Z",
+    "date": "2026-11-07T18:56:26.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 115,
@@ -5507,7 +5472,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:39.183Z",
+    "date": "2026-11-07T18:56:26.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 127,
@@ -5519,7 +5484,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:39.783Z",
+    "date": "2026-11-07T18:56:27.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 140,
@@ -5531,7 +5496,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:40.383Z",
+    "date": "2026-11-07T18:56:27.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 149,
@@ -5543,7 +5508,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:40.983Z",
+    "date": "2026-11-07T18:56:28.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 162,
@@ -5555,7 +5520,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:41.583Z",
+    "date": "2026-11-07T18:56:29.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 174,
@@ -5567,7 +5532,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:42.183Z",
+    "date": "2026-11-07T18:56:29.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 183,
@@ -5579,7 +5544,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:42.783Z",
+    "date": "2026-11-07T18:56:30.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 196,
@@ -5591,7 +5556,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:43.383Z",
+    "date": "2026-11-07T18:56:30.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 208,
@@ -5603,7 +5568,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:43.983Z",
+    "date": "2026-11-07T18:56:31.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 218,
@@ -5615,7 +5580,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:44.583Z",
+    "date": "2026-11-07T18:56:32.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 230,
@@ -5627,7 +5592,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:45.183Z",
+    "date": "2026-11-07T18:56:32.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 242,
@@ -5639,7 +5604,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:45.783Z",
+    "date": "2026-11-07T18:56:33.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 252,
@@ -5651,7 +5616,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:46.383Z",
+    "date": "2026-11-07T18:56:33.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 264,
@@ -5663,7 +5628,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:46.983Z",
+    "date": "2026-11-07T18:56:34.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 276,
@@ -5675,7 +5640,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:47.583Z",
+    "date": "2026-11-07T18:56:35.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 286,
@@ -5687,7 +5652,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:48.183Z",
+    "date": "2026-11-07T18:56:35.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 298,
@@ -5699,7 +5664,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:48.783Z",
+    "date": "2026-11-07T18:56:36.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 311,
@@ -5711,7 +5676,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:49.383Z",
+    "date": "2026-11-07T18:56:36.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 320,
@@ -5723,7 +5688,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:49.983Z",
+    "date": "2026-11-07T18:56:37.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 306,
@@ -5735,7 +5700,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:50.583Z",
+    "date": "2026-11-07T18:56:38.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 293,
@@ -5747,7 +5712,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:51.183Z",
+    "date": "2026-11-07T18:56:38.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 276,
@@ -5759,7 +5724,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:51.783Z",
+    "date": "2026-11-07T18:56:39.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 263,
@@ -5771,7 +5736,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:52.383Z",
+    "date": "2026-11-07T18:56:39.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 249,
@@ -5783,7 +5748,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:52.983Z",
+    "date": "2026-11-07T18:56:40.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 233,
@@ -5795,7 +5760,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:53.583Z",
+    "date": "2026-11-07T18:56:41.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 219,
@@ -5807,7 +5772,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:54.183Z",
+    "date": "2026-11-07T18:56:41.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 205,
@@ -5819,7 +5784,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:54.783Z",
+    "date": "2026-11-07T18:56:42.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 189,
@@ -5831,7 +5796,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:55.383Z",
+    "date": "2026-11-07T18:56:42.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 175,
@@ -5843,7 +5808,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:55.983Z",
+    "date": "2026-11-07T18:56:43.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 162,
@@ -5855,7 +5820,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:56.583Z",
+    "date": "2026-11-07T18:56:44.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 145,
@@ -5867,7 +5832,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:57.183Z",
+    "date": "2026-11-07T18:56:44.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 165,
@@ -5879,7 +5844,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:57.783Z",
+    "date": "2026-11-07T18:56:45.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 182,
@@ -5891,7 +5856,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:58.383Z",
+    "date": "2026-11-07T18:56:45.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 194,
@@ -5903,7 +5868,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:58.983Z",
+    "date": "2026-11-07T18:56:46.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 203,
@@ -5915,7 +5880,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:42:59.583Z",
+    "date": "2026-11-07T18:56:47.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 207,
@@ -5927,7 +5892,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:00.183Z",
+    "date": "2026-11-07T18:56:47.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 202,
@@ -5939,7 +5904,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:00.783Z",
+    "date": "2026-11-07T18:56:48.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 195,
@@ -5951,7 +5916,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:01.383Z",
+    "date": "2026-11-07T18:56:48.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 182,
@@ -5963,7 +5928,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:01.983Z",
+    "date": "2026-11-07T18:56:49.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 164,
@@ -5975,7 +5940,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:02.583Z",
+    "date": "2026-11-07T18:56:50.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 146,
@@ -5987,7 +5952,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:03.183Z",
+    "date": "2026-11-07T18:56:50.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 128,
@@ -5999,7 +5964,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:03.783Z",
+    "date": "2026-11-07T18:56:51.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 110,
@@ -6011,7 +5976,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:04.383Z",
+    "date": "2026-11-07T18:56:51.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 97,
@@ -6023,7 +5988,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:04.983Z",
+    "date": "2026-11-07T18:56:52.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 90,
@@ -6035,7 +6000,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:05.583Z",
+    "date": "2026-11-07T18:56:53.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 85,
@@ -6047,7 +6012,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:06.183Z",
+    "date": "2026-11-07T18:56:53.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 89,
@@ -6059,7 +6024,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:06.783Z",
+    "date": "2026-11-07T18:56:54.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 98,
@@ -6071,7 +6036,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:07.383Z",
+    "date": "2026-11-07T18:56:54.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 110,
@@ -6083,7 +6048,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:07.983Z",
+    "date": "2026-11-07T18:56:55.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 127,
@@ -6095,7 +6060,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:08.583Z",
+    "date": "2026-11-07T18:56:56.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 147,
@@ -6107,7 +6072,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:09.183Z",
+    "date": "2026-11-07T18:56:56.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 164,
@@ -6119,7 +6084,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:09.783Z",
+    "date": "2026-11-07T18:56:57.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 181,
@@ -6131,7 +6096,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:10.383Z",
+    "date": "2026-11-07T18:56:57.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 196,
@@ -6143,7 +6108,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:10.983Z",
+    "date": "2026-11-07T18:56:58.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 202,
@@ -6155,7 +6120,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:11.583Z",
+    "date": "2026-11-07T18:56:59.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 206,
@@ -6167,7 +6132,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:12.183Z",
+    "date": "2026-11-07T18:56:59.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 204,
@@ -6179,7 +6144,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:12.783Z",
+    "date": "2026-11-07T18:57:00.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 194,
@@ -6191,7 +6156,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:13.383Z",
+    "date": "2026-11-07T18:57:00.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 181,
@@ -6203,7 +6168,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:13.983Z",
+    "date": "2026-11-07T18:57:01.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 166,
@@ -6215,7 +6180,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:14.583Z",
+    "date": "2026-11-07T18:57:02.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 123,
@@ -6227,7 +6192,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:15.183Z",
+    "date": "2026-11-07T18:57:02.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 130,
@@ -6239,7 +6204,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:15.783Z",
+    "date": "2026-11-07T18:57:03.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 138,
@@ -6251,7 +6216,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:16.383Z",
+    "date": "2026-11-07T18:57:03.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 142,
@@ -6263,7 +6228,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:16.983Z",
+    "date": "2026-11-07T18:57:04.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 149,
@@ -6275,7 +6240,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:17.583Z",
+    "date": "2026-11-07T18:57:05.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 157,
@@ -6287,7 +6252,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:18.183Z",
+    "date": "2026-11-07T18:57:05.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 161,
@@ -6299,7 +6264,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:18.783Z",
+    "date": "2026-11-07T18:57:06.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 168,
@@ -6311,7 +6276,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:19.383Z",
+    "date": "2026-11-07T18:57:06.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 176,
@@ -6323,7 +6288,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:19.983Z",
+    "date": "2026-11-07T18:57:07.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 180,
@@ -6335,7 +6300,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:20.583Z",
+    "date": "2026-11-07T18:57:08.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 187,
@@ -6347,7 +6312,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:21.183Z",
+    "date": "2026-11-07T18:57:08.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 195,
@@ -6359,7 +6324,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:21.783Z",
+    "date": "2026-11-07T18:57:09.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 199,
@@ -6371,7 +6336,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:22.383Z",
+    "date": "2026-11-07T18:57:09.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 206,
@@ -6383,7 +6348,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:22.983Z",
+    "date": "2026-11-07T18:57:10.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 214,
@@ -6395,7 +6360,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:23.583Z",
+    "date": "2026-11-07T18:57:11.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 218,
@@ -6407,7 +6372,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:24.183Z",
+    "date": "2026-11-07T18:57:11.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 225,
@@ -6419,7 +6384,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:24.783Z",
+    "date": "2026-11-07T18:57:12.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 233,
@@ -6431,7 +6396,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:25.383Z",
+    "date": "2026-11-07T18:57:12.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 237,
@@ -6443,7 +6408,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:25.983Z",
+    "date": "2026-11-07T18:57:13.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 244,
@@ -6455,7 +6420,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:26.583Z",
+    "date": "2026-11-07T18:57:14.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 252,
@@ -6467,7 +6432,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:27.183Z",
+    "date": "2026-11-07T18:57:14.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 256,
@@ -6479,7 +6444,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:27.783Z",
+    "date": "2026-11-07T18:57:15.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 263,
@@ -6491,7 +6456,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:28.383Z",
+    "date": "2026-11-07T18:57:15.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 271,
@@ -6503,7 +6468,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:28.983Z",
+    "date": "2026-11-07T18:57:16.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 275,
@@ -6515,7 +6480,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:29.583Z",
+    "date": "2026-11-07T18:57:17.076Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 282,
@@ -6527,7 +6492,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:30.183Z",
+    "date": "2026-11-07T18:57:17.676Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 290,
@@ -6539,7 +6504,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:30.783Z",
+    "date": "2026-11-07T18:57:18.276Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 294,
@@ -6551,7 +6516,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:31.383Z",
+    "date": "2026-11-07T18:57:18.876Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 301,
@@ -6563,7 +6528,7 @@ export const SNAPSHOT_CAR_TELEMETRY_44: OpenF1CarDataPoint[] = [
     "meeting_key": 1299
   },
   {
-    "date": "2026-11-07T18:43:31.983Z",
+    "date": "2026-11-07T18:57:19.476Z",
     "session_key": 11408,
     "driver_number": 44,
     "speed": 309,

@@ -1,5 +1,5 @@
 {
-  "timestamp": "2026-11-07T18:43:32.587Z",
+  "timestamp": "2026-11-07T18:57:20.080Z",
   "session": "Qualifying",
   "live": true,
   "stale": false,
@@ -17,140 +17,140 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "LEADER",
-      "interval": "-",
-      "laps_completed": 19,
-      "last_lap_time": "1:11.622",
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
       "last_lap_personal_best": false,
-      "last_lap_overall_best": true,
-      "best_lap_time": "1:11.622",
+      "last_lap_overall_best": false,
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "18.614",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 0
             }
           ]
         },
         {
-          "value": "36.980",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 0
             }
           ]
         },
         {
-          "value": "15.950",
+          "value": null,
           "personal_best": false,
-          "overall_best": true,
+          "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 4,
-              "status": 2064
+              "status": 0
             },
             {
               "index": 5,
-              "status": 2064
+              "status": 0
             },
             {
               "index": 6,
-              "status": 2064
+              "status": 0
             }
           ]
         }
       ],
       "speed_traps": {
-        "i1": "328",
-        "i2": "256",
-        "fl": "332",
-        "st": "315"
+        "i1": null,
+        "i2": null,
+        "fl": null,
+        "st": null
       },
-      "tyre_compound": "SOFT",
-      "tyre_new": true,
-      "tyre_laps": 8,
-      "stint_number": 1,
+      "tyre_compound": null,
+      "tyre_new": null,
+      "tyre_laps": null,
+      "stint_number": null,
       "telemetry": {
         "rpm": 11500,
-        "speed": 315,
+        "speed": 314,
         "gear": 8,
         "throttle": 88,
         "brake": 0,
@@ -170,111 +170,111 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+0.285",
-      "interval": "+0.230",
-      "laps_completed": 21,
-      "last_lap_time": "1:11.647",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:11.647",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "18.683",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "36.973",
-          "personal_best": false,
-          "overall_best": true,
+          "value": "62.783",
+          "personal_best": true,
+          "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "15.966",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
@@ -292,17 +292,17 @@
         }
       ],
       "speed_traps": {
-        "i1": "333",
-        "i2": "259",
-        "fl": "332",
-        "st": "313"
+        "i1": "164",
+        "i2": "136",
+        "fl": null,
+        "st": null
       },
       "tyre_compound": "INTERMEDIATE",
-      "tyre_new": true,
-      "tyre_laps": 15,
+      "tyre_new": "true",
+      "tyre_laps": null,
       "stint_number": 1,
       "telemetry": {
-        "rpm": 11460,
+        "rpm": 11500,
         "speed": 313,
         "gear": 8,
         "throttle": 88,
@@ -323,111 +323,111 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+0.570",
-      "interval": "+0.280",
-      "laps_completed": 22,
-      "last_lap_time": "1:11.753",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:11.753",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "18.504",
-          "personal_best": false,
-          "overall_best": true,
-          "stopped": false,
-          "segments": [
-            {
-              "index": 0,
-              "status": 2048
-            },
-            {
-              "index": 1,
-              "status": 2048
-            },
-            {
-              "index": 2,
-              "status": 2048
-            },
-            {
-              "index": 3,
-              "status": 2048
-            },
-            {
-              "index": 4,
-              "status": 2048
-            },
-            {
-              "index": 5,
-              "status": 2048
-            },
-            {
-              "index": 6,
-              "status": 2048
-            }
-          ]
-        },
-        {
-          "value": "37.138",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
+            }
+          ]
+        },
+        {
+          "value": null,
+          "personal_best": false,
+          "overall_best": false,
+          "stopped": false,
+          "segments": [
+            {
+              "index": 0,
+              "status": 2049
+            },
+            {
+              "index": 1,
+              "status": 2049
+            },
+            {
+              "index": 2,
+              "status": 2049
+            },
+            {
+              "index": 3,
+              "status": 2049
+            },
+            {
+              "index": 4,
+              "status": 2049
+            },
+            {
+              "index": 5,
+              "status": 2049
+            },
+            {
+              "index": 6,
+              "status": 2049
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "16.096",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
@@ -445,18 +445,18 @@
         }
       ],
       "speed_traps": {
-        "i1": "326",
-        "i2": "254",
-        "fl": "325",
-        "st": "315"
+        "i1": "162",
+        "i2": null,
+        "fl": null,
+        "st": null
       },
       "tyre_compound": "WET",
-      "tyre_new": true,
-      "tyre_laps": 9,
+      "tyre_new": "true",
+      "tyre_laps": null,
       "stint_number": 1,
       "telemetry": {
-        "rpm": 11420,
-        "speed": 315,
+        "rpm": 11500,
+        "speed": 312,
         "gear": 8,
         "throttle": 88,
         "brake": 0,
@@ -476,111 +476,111 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+0.855",
-      "interval": "+0.180",
-      "laps_completed": 22,
-      "last_lap_time": "1:11.806",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:11.806",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "18.602",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "37.195",
-          "personal_best": false,
+          "value": "61.202",
+          "personal_best": true,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "16.009",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
@@ -598,18 +598,18 @@
         }
       ],
       "speed_traps": {
-        "i1": "329",
-        "i2": "257",
-        "fl": "333",
-        "st": "314"
+        "i1": "178",
+        "i2": "147",
+        "fl": null,
+        "st": null
       },
       "tyre_compound": "INTERMEDIATE",
-      "tyre_new": true,
-      "tyre_laps": 17,
+      "tyre_new": "true",
+      "tyre_laps": null,
       "stint_number": 1,
       "telemetry": {
-        "rpm": 11380,
-        "speed": 314,
+        "rpm": 11500,
+        "speed": 311,
         "gear": 8,
         "throttle": 88,
         "brake": 0,
@@ -629,111 +629,111 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+1.140",
-      "interval": "+0.230",
-      "laps_completed": 30,
-      "last_lap_time": "1:11.896",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:11.896",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "18.584",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "37.026",
-          "personal_best": false,
+          "value": "69.344",
+          "personal_best": true,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "16.189",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
@@ -751,14 +751,14 @@
         }
       ],
       "speed_traps": {
-        "i1": "327",
-        "i2": "244",
-        "fl": "324",
-        "st": "316"
+        "i1": "170",
+        "i2": "122",
+        "fl": null,
+        "st": null
       },
       "tyre_compound": "INTERMEDIATE",
-      "tyre_new": true,
-      "tyre_laps": 13,
+      "tyre_new": "true",
+      "tyre_laps": null,
       "stint_number": 1,
       "telemetry": {
         "rpm": 11850,
@@ -782,111 +782,111 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+1.425",
-      "interval": "+0.280",
-      "laps_completed": 20,
-      "last_lap_time": "1:11.935",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:11.935",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "18.650",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "37.236",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "15.976",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
@@ -904,19 +904,19 @@
         }
       ],
       "speed_traps": {
-        "i1": "329",
-        "i2": "257",
-        "fl": "333",
-        "st": "319"
+        "i1": "175",
+        "i2": null,
+        "fl": null,
+        "st": null
       },
       "tyre_compound": "WET",
-      "tyre_new": true,
-      "tyre_laps": 10,
+      "tyre_new": "true",
+      "tyre_laps": null,
       "stint_number": 1,
       "telemetry": {
-        "rpm": 11300,
-        "speed": 319,
-        "gear": 8,
+        "rpm": 11500,
+        "speed": 309,
+        "gear": 7,
         "throttle": 88,
         "brake": 0,
         "drs": 10
@@ -935,111 +935,111 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+1.710",
-      "interval": "+0.180",
-      "laps_completed": 25,
-      "last_lap_time": "1:12.060",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:12.060",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "18.794",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "37.123",
-          "personal_best": false,
+          "value": "61.806",
+          "personal_best": true,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "16.100",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
@@ -1057,19 +1057,19 @@
         }
       ],
       "speed_traps": {
-        "i1": "329",
-        "i2": "256",
-        "fl": "340",
-        "st": "325"
+        "i1": "180",
+        "i2": "135",
+        "fl": null,
+        "st": null
       },
       "tyre_compound": "WET",
-      "tyre_new": true,
-      "tyre_laps": 8,
+      "tyre_new": "true",
+      "tyre_laps": null,
       "stint_number": 1,
       "telemetry": {
         "rpm": 11500,
-        "speed": 325,
-        "gear": 8,
+        "speed": 308,
+        "gear": 7,
         "throttle": 88,
         "brake": 0,
         "drs": 10
@@ -1088,111 +1088,111 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+1.995",
-      "interval": "+0.230",
-      "laps_completed": 20,
-      "last_lap_time": "1:12.171",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:12.171",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "18.672",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "37.408",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "15.998",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
@@ -1210,19 +1210,19 @@
         }
       ],
       "speed_traps": {
-        "i1": "326",
-        "i2": "254",
-        "fl": "337",
-        "st": "313"
+        "i1": "163",
+        "i2": null,
+        "fl": null,
+        "st": null
       },
       "tyre_compound": "WET",
-      "tyre_new": true,
-      "tyre_laps": 8,
+      "tyre_new": "true",
+      "tyre_laps": null,
       "stint_number": 1,
       "telemetry": {
-        "rpm": 11460,
-        "speed": 313,
-        "gear": 8,
+        "rpm": 11500,
+        "speed": 307,
+        "gear": 7,
         "throttle": 88,
         "brake": 0,
         "drs": 10
@@ -1241,111 +1241,111 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+2.280",
-      "interval": "+0.280",
-      "laps_completed": 24,
-      "last_lap_time": "1:12.213",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:12.213",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "18.614",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "37.374",
-          "personal_best": false,
+          "value": "69.294",
+          "personal_best": true,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "16.100",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
@@ -1363,19 +1363,19 @@
         }
       ],
       "speed_traps": {
-        "i1": "336",
-        "i2": "255",
-        "fl": "335",
-        "st": "318"
+        "i1": "155",
+        "i2": "123",
+        "fl": null,
+        "st": null
       },
       "tyre_compound": "INTERMEDIATE",
-      "tyre_new": true,
-      "tyre_laps": 11,
+      "tyre_new": "true",
+      "tyre_laps": null,
       "stint_number": 1,
       "telemetry": {
-        "rpm": 11420,
-        "speed": 318,
-        "gear": 8,
+        "rpm": 11500,
+        "speed": 306,
+        "gear": 7,
         "throttle": 88,
         "brake": 0,
         "drs": 10
@@ -1394,111 +1394,111 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+2.565",
-      "interval": "+0.180",
-      "laps_completed": 24,
-      "last_lap_time": "1:12.644",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:12.644",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "18.857",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "37.508",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "16.190",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
@@ -1516,18 +1516,18 @@
         }
       ],
       "speed_traps": {
-        "i1": "319",
-        "i2": "255",
-        "fl": "337",
-        "st": "310"
+        "i1": null,
+        "i2": null,
+        "fl": null,
+        "st": null
       },
       "tyre_compound": "WET",
-      "tyre_new": true,
-      "tyre_laps": 9,
+      "tyre_new": "true",
+      "tyre_laps": null,
       "stint_number": 1,
       "telemetry": {
-        "rpm": 11380,
-        "speed": 310,
+        "rpm": 11500,
+        "speed": 305,
         "gear": 7,
         "throttle": 88,
         "brake": 0,
@@ -1547,111 +1547,111 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+2.850",
-      "interval": "+0.230",
-      "laps_completed": 26,
-      "last_lap_time": "1:12.644",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:12.644",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "18.714",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "37.856",
-          "personal_best": false,
+          "value": "62.306",
+          "personal_best": true,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2051
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "16.063",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
@@ -1669,19 +1669,19 @@
         }
       ],
       "speed_traps": {
-        "i1": "332",
-        "i2": "252",
-        "fl": "349",
-        "st": "318"
+        "i1": "206",
+        "i2": "137",
+        "fl": null,
+        "st": null
       },
       "tyre_compound": "INTERMEDIATE",
-      "tyre_new": true,
-      "tyre_laps": 7,
+      "tyre_new": "true",
+      "tyre_laps": null,
       "stint_number": 1,
       "telemetry": {
-        "rpm": 11340,
-        "speed": 318,
-        "gear": 8,
+        "rpm": 11500,
+        "speed": 304,
+        "gear": 7,
         "throttle": 88,
         "brake": 0,
         "drs": 10
@@ -1700,137 +1700,137 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+3.135",
-      "interval": "+0.280",
-      "laps_completed": 7,
-      "last_lap_time": "1:12.833",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:12.833",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "18.790",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2064
+              "status": 0
             },
             {
               "index": 1,
-              "status": 2064
+              "status": 0
             },
             {
               "index": 2,
-              "status": 2064
+              "status": 0
             },
             {
               "index": 3,
-              "status": 2064
+              "status": 0
             },
             {
               "index": 4,
-              "status": 2064
+              "status": 0
             },
             {
               "index": 5,
-              "status": 2064
+              "status": 0
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 0
             }
           ]
         },
         {
-          "value": "37.684",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 0
             }
           ]
         },
         {
-          "value": "16.359",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 0
             },
             {
               "index": 4,
-              "status": 2064
+              "status": 0
             },
             {
               "index": 5,
-              "status": 2064
+              "status": 0
             },
             {
               "index": 6,
-              "status": 2064
+              "status": 0
             }
           ]
         }
       ],
       "speed_traps": {
-        "i1": "318",
-        "i2": "231",
-        "fl": "318",
-        "st": "311"
+        "i1": null,
+        "i2": null,
+        "fl": null,
+        "st": null
       },
-      "tyre_compound": "MEDIUM",
-      "tyre_new": true,
-      "tyre_laps": 7,
-      "stint_number": 1,
+      "tyre_compound": null,
+      "tyre_new": null,
+      "tyre_laps": null,
+      "stint_number": null,
       "telemetry": {
         "rpm": 11680,
         "speed": 318,
@@ -1853,111 +1853,111 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+3.420",
-      "interval": "+0.180",
-      "laps_completed": 27,
-      "last_lap_time": "1:12.865",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:12.865",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "18.785",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "37.837",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "16.243",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
@@ -1975,19 +1975,19 @@
         }
       ],
       "speed_traps": {
-        "i1": "324",
-        "i2": "252",
-        "fl": "332",
-        "st": "314"
+        "i1": null,
+        "i2": null,
+        "fl": null,
+        "st": null
       },
       "tyre_compound": "WET",
-      "tyre_new": true,
-      "tyre_laps": 9,
+      "tyre_new": "true",
+      "tyre_laps": null,
       "stint_number": 1,
       "telemetry": {
         "rpm": 11500,
-        "speed": 314,
-        "gear": 8,
+        "speed": 302,
+        "gear": 7,
         "throttle": 88,
         "brake": 0,
         "drs": 10
@@ -2006,111 +2006,111 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+3.705",
-      "interval": "+0.230",
-      "laps_completed": 25,
-      "last_lap_time": "1:12.925",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:12.925",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "18.776",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "37.938",
-          "personal_best": false,
+          "value": "61.534",
+          "personal_best": true,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "16.148",
-          "personal_best": false,
+          "value": "37.104",
+          "personal_best": true,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
@@ -2128,19 +2128,19 @@
         }
       ],
       "speed_traps": {
-        "i1": "331",
-        "i2": "255",
-        "fl": "342",
-        "st": "316"
+        "i1": "194",
+        "i2": "139",
+        "fl": null,
+        "st": null
       },
       "tyre_compound": "INTERMEDIATE",
-      "tyre_new": true,
+      "tyre_new": "true",
       "tyre_laps": 1,
       "stint_number": 1,
       "telemetry": {
-        "rpm": 11460,
-        "speed": 316,
-        "gear": 8,
+        "rpm": 11500,
+        "speed": 301,
+        "gear": 7,
         "throttle": 88,
         "brake": 0,
         "drs": 10
@@ -2159,111 +2159,111 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+3.990",
-      "interval": "+0.280",
-      "laps_completed": 19,
-      "last_lap_time": "1:12.981",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:12.981",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "18.941",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "37.675",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "16.212",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
@@ -2281,18 +2281,18 @@
         }
       ],
       "speed_traps": {
-        "i1": "322",
-        "i2": "245",
-        "fl": "333",
-        "st": "310"
+        "i1": "171",
+        "i2": null,
+        "fl": null,
+        "st": null
       },
       "tyre_compound": "WET",
-      "tyre_new": true,
-      "tyre_laps": 13,
+      "tyre_new": "true",
+      "tyre_laps": null,
       "stint_number": 1,
       "telemetry": {
-        "rpm": 11420,
-        "speed": 310,
+        "rpm": 11500,
+        "speed": 300,
         "gear": 7,
         "throttle": 88,
         "brake": 0,
@@ -2312,111 +2312,111 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+4.275",
-      "interval": "+0.180",
-      "laps_completed": 20,
-      "last_lap_time": "1:13.109",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:13.109",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "18.930",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "37.909",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "16.226",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
@@ -2434,19 +2434,19 @@
         }
       ],
       "speed_traps": {
-        "i1": "324",
-        "i2": "247",
-        "fl": "330",
-        "st": "312"
+        "i1": null,
+        "i2": null,
+        "fl": null,
+        "st": null
       },
       "tyre_compound": "WET",
-      "tyre_new": true,
-      "tyre_laps": 8,
+      "tyre_new": "true",
+      "tyre_laps": null,
       "stint_number": 1,
       "telemetry": {
-        "rpm": 11380,
-        "speed": 312,
-        "gear": 8,
+        "rpm": 11500,
+        "speed": 299,
+        "gear": 7,
         "throttle": 88,
         "brake": 0,
         "drs": 10
@@ -2465,111 +2465,111 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+4.560",
-      "interval": "+0.230",
-      "laps_completed": 25,
-      "last_lap_time": "1:13.147",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:13.147",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "18.887",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "38.047",
-          "personal_best": false,
+          "value": "65.421",
+          "personal_best": true,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "16.160",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
@@ -2587,19 +2587,19 @@
         }
       ],
       "speed_traps": {
-        "i1": "330",
-        "i2": "255",
-        "fl": "341",
-        "st": "312"
+        "i1": "154",
+        "i2": "94",
+        "fl": null,
+        "st": null
       },
       "tyre_compound": "WET",
-      "tyre_new": true,
-      "tyre_laps": 9,
+      "tyre_new": "true",
+      "tyre_laps": null,
       "stint_number": 1,
       "telemetry": {
-        "rpm": 11340,
-        "speed": 312,
-        "gear": 8,
+        "rpm": 11500,
+        "speed": 298,
+        "gear": 7,
         "throttle": 88,
         "brake": 0,
         "drs": 10
@@ -2618,111 +2618,111 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+4.845",
-      "interval": "+0.280",
-      "laps_completed": 23,
-      "last_lap_time": "1:13.171",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:13.171",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "18.989",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "37.746",
-          "personal_best": false,
+          "value": "69.778",
+          "personal_best": true,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "16.383",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
@@ -2740,18 +2740,18 @@
         }
       ],
       "speed_traps": {
-        "i1": "323",
-        "i2": "242",
-        "fl": "325",
-        "st": "305"
+        "i1": "175",
+        "i2": "119",
+        "fl": null,
+        "st": null
       },
       "tyre_compound": "INTERMEDIATE",
-      "tyre_new": true,
-      "tyre_laps": 10,
+      "tyre_new": "true",
+      "tyre_laps": null,
       "stint_number": 1,
       "telemetry": {
-        "rpm": 11300,
-        "speed": 305,
+        "rpm": 11500,
+        "speed": 297,
         "gear": 7,
         "throttle": 88,
         "brake": 0,
@@ -2771,111 +2771,111 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+5.130",
-      "interval": "+0.180",
-      "laps_completed": 21,
-      "last_lap_time": "1:13.303",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:13.303",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "18.884",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "38.188",
-          "personal_best": false,
+          "value": "64.830",
+          "personal_best": true,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "16.154",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
@@ -2893,19 +2893,19 @@
         }
       ],
       "speed_traps": {
-        "i1": "330",
-        "i2": "252",
-        "fl": "335",
-        "st": "311"
+        "i1": "155",
+        "i2": "123",
+        "fl": null,
+        "st": null
       },
       "tyre_compound": "WET",
-      "tyre_new": true,
-      "tyre_laps": 7,
+      "tyre_new": "true",
+      "tyre_laps": null,
       "stint_number": 1,
       "telemetry": {
         "rpm": 11500,
-        "speed": 311,
-        "gear": 8,
+        "speed": 296,
+        "gear": 7,
         "throttle": 88,
         "brake": 0,
         "drs": 10
@@ -2924,111 +2924,111 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+5.415",
-      "interval": "+0.230",
-      "laps_completed": 32,
-      "last_lap_time": "1:13.573",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:13.573",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "19.046",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "38.042",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2051
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2051
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 2049
             }
           ]
         },
         {
-          "value": "16.313",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
@@ -3046,19 +3046,19 @@
         }
       ],
       "speed_traps": {
-        "i1": "324",
-        "i2": "243",
-        "fl": "340",
-        "st": "311"
+        "i1": "183",
+        "i2": null,
+        "fl": null,
+        "st": null
       },
       "tyre_compound": "WET",
-      "tyre_new": true,
-      "tyre_laps": 8,
+      "tyre_new": "true",
+      "tyre_laps": null,
       "stint_number": 1,
       "telemetry": {
-        "rpm": 11460,
-        "speed": 311,
-        "gear": 8,
+        "rpm": 11500,
+        "speed": 295,
+        "gear": 7,
         "throttle": 88,
         "brake": 0,
         "drs": 10
@@ -3077,111 +3077,111 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+5.700",
-      "interval": "+0.280",
-      "laps_completed": 19,
-      "last_lap_time": "1:13.722",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:13.722",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "19.157",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2064
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2051
             }
           ]
         },
         {
-          "value": "38.118",
-          "personal_best": false,
-          "overall_best": false,
+          "value": "59.438",
+          "personal_best": true,
+          "overall_best": true,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2051
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2051
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2051
             },
             {
               "index": 6,
-              "status": 2048
+              "status": 2051
             },
             {
               "index": 7,
-              "status": 2048
+              "status": 2051
             }
           ]
         },
         {
-          "value": "16.327",
-          "personal_best": false,
-          "overall_best": false,
+          "value": "34.641",
+          "personal_best": true,
+          "overall_best": true,
           "stopped": false,
           "segments": [
             {
               "index": 0,
-              "status": 2048
+              "status": 2051
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2051
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2051
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2051
             },
             {
               "index": 4,
@@ -3199,18 +3199,18 @@
         }
       ],
       "speed_traps": {
-        "i1": "324",
-        "i2": "242",
-        "fl": "338",
-        "st": "309"
+        "i1": "192",
+        "i2": "156",
+        "fl": null,
+        "st": null
       },
       "tyre_compound": "INTERMEDIATE",
-      "tyre_new": true,
+      "tyre_new": "true",
       "tyre_laps": 1,
       "stint_number": 1,
       "telemetry": {
-        "rpm": 11420,
-        "speed": 309,
+        "rpm": 11500,
+        "speed": 294,
         "gear": 7,
         "throttle": 88,
         "brake": 0,
@@ -3230,16 +3230,52 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+5.985",
-      "interval": "+0.180",
-      "laps_completed": 7,
-      "last_lap_time": "1:14.766",
-      "last_lap_personal_best": false,
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
+      "last_lap_personal_best": true,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:14.766",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "19.286",
+          "value": null,
+          "personal_best": false,
+          "overall_best": false,
+          "stopped": false,
+          "segments": [
+            {
+              "index": 0,
+              "status": 2064
+            },
+            {
+              "index": 1,
+              "status": 2064
+            },
+            {
+              "index": 2,
+              "status": 2064
+            },
+            {
+              "index": 3,
+              "status": 2064
+            },
+            {
+              "index": 4,
+              "status": 2064
+            },
+            {
+              "index": 5,
+              "status": 2064
+            },
+            {
+              "index": 6,
+              "status": 2049
+            }
+          ]
+        },
+        {
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
@@ -3254,55 +3290,19 @@
             },
             {
               "index": 2,
-              "status": 2048
-            },
-            {
-              "index": 3,
-              "status": 2048
-            },
-            {
-              "index": 4,
-              "status": 2048
-            },
-            {
-              "index": 5,
-              "status": 2048
-            },
-            {
-              "index": 6,
-              "status": 2048
-            }
-          ]
-        },
-        {
-          "value": "38.767",
-          "personal_best": true,
-          "overall_best": false,
-          "stopped": false,
-          "segments": [
-            {
-              "index": 0,
-              "status": 2049
-            },
-            {
-              "index": 1,
-              "status": 2049
-            },
-            {
-              "index": 2,
               "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 5,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 6,
@@ -3315,7 +3315,7 @@
           ]
         },
         {
-          "value": "16.554",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
@@ -3326,15 +3326,15 @@
             },
             {
               "index": 1,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 2,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 3,
-              "status": 2048
+              "status": 2049
             },
             {
               "index": 4,
@@ -3352,18 +3352,18 @@
         }
       ],
       "speed_traps": {
-        "i1": "311",
-        "i2": "230",
-        "fl": "316",
-        "st": "302"
+        "i1": "191",
+        "i2": null,
+        "fl": null,
+        "st": null
       },
       "tyre_compound": "WET",
-      "tyre_new": true,
-      "tyre_laps": 7,
+      "tyre_new": "true",
+      "tyre_laps": null,
       "stint_number": 1,
       "telemetry": {
-        "rpm": 11380,
-        "speed": 302,
+        "rpm": 11500,
+        "speed": 293,
         "gear": 7,
         "throttle": 88,
         "brake": 0,
@@ -3383,85 +3383,50 @@
       "retired": false,
       "stopped": false,
       "knock_out": false,
-      "gap_to_leader": "+6.270",
-      "interval": "+0.230",
-      "laps_completed": 28,
-      "last_lap_time": "1:14.640",
+      "gap_to_leader": null,
+      "interval": null,
+      "laps_completed": 1,
+      "last_lap_time": null,
       "last_lap_personal_best": false,
       "last_lap_overall_best": false,
-      "best_lap_time": "1:14.640",
+      "best_lap_time": null,
       "sectors": [
         {
-          "value": "18.614",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
-          "segments": [
-            {
-              "index": 0,
-              "status": 2049
-            },
-            {
-              "index": 1,
-              "status": 2049
-            },
-            {
-              "index": 2,
-              "status": 2049
-            }
-          ]
+          "segments": []
         },
         {
-          "value": "36.980",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
-          "segments": [
-            {
-              "index": 0,
-              "status": 2049
-            },
-            {
-              "index": 1,
-              "status": 2049
-            },
-            {
-              "index": 2,
-              "status": 2049
-            }
-          ]
+          "segments": []
         },
         {
-          "value": "16.028",
+          "value": null,
           "personal_best": false,
           "overall_best": false,
           "stopped": false,
-          "segments": [
-            {
-              "index": 0,
-              "status": 2049
-            },
-            {
-              "index": 1,
-              "status": 2049
-            }
-          ]
+          "segments": []
         }
       ],
       "speed_traps": {
-        "i1": "325",
-        "i2": "245",
-        "fl": "328",
-        "st": "271"
+        "i1": null,
+        "i2": null,
+        "fl": null,
+        "st": null
       },
-      "tyre_compound": "MEDIUM",
-      "tyre_new": true,
-      "tyre_laps": 16,
-      "stint_number": 1,
+      "tyre_compound": null,
+      "tyre_new": null,
+      "tyre_laps": null,
+      "stint_number": null,
       "telemetry": {
-        "rpm": 11340,
-        "speed": 271,
-        "gear": 6,
+        "rpm": 11500,
+        "speed": 292,
+        "gear": 7,
         "throttle": 88,
         "brake": 0,
         "drs": 10

@@ -295,22 +295,22 @@ export const PitWallCommandView: React.FC = () => {
       const rawName = (status?.session?.name || sessionName || '').toLowerCase()
       const rawType = (status?.session?.type || '').toLowerCase()
 
-      if (rawName.includes('sprint shootout') || rawName.includes('sprint qual')) {
+      if (rawName.includes('sprint shootout') || rawName.includes('sprint qual') || rawType.includes('sprint qual')) {
         return 'SPRINT_QUALIFYING'
       }
-      if (rawName.includes('sprint') && !rawName.includes('qual')) {
+      if (rawName.includes('sprint') && !rawName.includes('qual') && !rawType.includes('qual')) {
         return 'SPRINT'
       }
-      if (rawName.includes('qualifying') || rawType.includes('qual')) {
+      if (rawName.includes('qualifying') || rawName.includes('quali') || rawType.includes('qual')) {
         return 'QUALIFYING'
       }
       if (rawName.includes('practice') || rawType.includes('practice') || rawName.includes('fp')) {
         return 'PRACTICE'
       }
-      if (rawName.includes('race') || rawName.includes('grand prix')) {
+      if (rawType === 'race' || rawName === 'race' || (rawName.includes('race') && !rawName.includes('qual') && !rawName.includes('practice'))) {
         return 'RACE'
       }
-      return 'QUALIFYING' // Sensible default when upcoming is active
+      return 'QUALIFYING' // Sensible default for active Qualifying weekend
     }, [selectedFormat, isUpcomingWithinWindow, nextSession?.session, status?.session?.name, status?.session?.type, sessionName])
 
   // Human-readable session display name
