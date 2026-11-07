@@ -25,7 +25,7 @@ import { FerrariAudioEngine } from './components/audio/WebAudioEngine'
 export function App() {
   const [currentRoute, setCurrentRoute] = useState<string>('home')
   const [isSearchOpen, setIsSearchOpen] = useState(false)
-  const [isMuted, setIsMuted] = useState(false)
+  const [isMuted, setIsMuted] = useState(true)
   const [audioStarted, setAudioStarted] = useState(false)
   const audioEngine = useMemo(() => new FerrariAudioEngine(), [])
 
@@ -73,14 +73,6 @@ export function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
-  // Start sound on first user gesture
-  const handleUserGestureStartAudio = () => {
-    if (!audioStarted) {
-      audioEngine.start()
-      setAudioStarted(true)
-    }
-  }
-
   const handleToggleSound = () => {
     if (!audioStarted) {
       audioEngine.start()
@@ -104,7 +96,7 @@ export function App() {
       ring={true}
       className="bg-[#07080C] min-h-screen text-white"
     >
-      <div onClick={handleUserGestureStartAudio} className="w-full min-h-screen flex flex-col">
+      <div className="w-full min-h-screen flex flex-col">
         {/* Navigation Command Header */}
         <Navbar
           currentRoute={currentRoute}
