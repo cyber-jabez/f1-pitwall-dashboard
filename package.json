@@ -1,7 +1,10 @@
 {
-  "name": "absolute-best",
+  "name": "f1-pitwall-dashboard",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "Scuderia Ferrari // F1 Pit Wall Command Cockpit",
+  "main": "electron/main.cjs",
+  "author": "Scuderia Ferrari Corse Clienti",
   "type": "module",
   "scripts": {
     "start": "start-dashboard.bat",
@@ -10,11 +13,14 @@
     "build": "tsc -b && vite build",
     "test": "npx tsx --test tests/f1-audit-hardening.test.mjs",
     "lint": "oxlint",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "electron:dev": "electron .",
+    "electron:build": "npm run build && electron-builder --win nsis",
+    "dist:win": "npm run build && electron-builder --win"
   },
   "dependencies": {
-    "clsx": "^2.1.1",
     "canvas-confetti": "^1.9.4",
+    "clsx": "^2.1.1",
     "framer-motion": "^12.4.7",
     "lucide-react": "^1.16.0",
     "react": "^19.3.1",
@@ -30,10 +36,40 @@
     "@types/three": "^0.174.0",
     "@vitejs/plugin-react": "^6.1.2",
     "autoprefixer": "^10.6.2",
+    "electron": "^45.2.3",
+    "electron-builder": "^26.18.0",
     "oxlint": "^1.90.0",
     "postcss": "^8.5.32",
     "tailwindcss": "^3.4.17",
     "typescript": "~7.0.2",
     "vite": "^8.3.6"
+  },
+  "build": {
+    "appId": "com.ferrari.f1pitwall",
+    "productName": "F1 Pit Wall Dashboard",
+    "directories": {
+      "output": "release"
+    },
+    "asar": false,
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "f1-live-api/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": false,
+      "createDesktopShortcut": "always",
+      "createStartMenuShortcut": true,
+      "shortcutName": "F1 Pit Wall Dashboard",
+      "uninstallDisplayName": "F1 Pit Wall Dashboard"
+    }
   }
 }

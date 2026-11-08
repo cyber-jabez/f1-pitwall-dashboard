@@ -144,6 +144,7 @@ export class F1LiveApiClient {
 
   public isStaticDeployment(): boolean {
     if (typeof window === 'undefined') return false
+    if ((window as any).isElectron || window.location.protocol === 'file:') return false
     const host = window.location.hostname
     return (
       host.includes('github.io') ||
@@ -155,6 +156,9 @@ export class F1LiveApiClient {
     try {
       const custom = localStorage.getItem('f1_live_api_url')
       if (custom && custom.trim()) return custom.trim().replace(/\/+$/, '')
+      if (typeof window !== 'undefined' && ((window as any).isElectron || window.location.protocol === 'file:')) {
+        return 'http://127.0.0.1:3001'
+      }
     } catch {
       // ignore
     }

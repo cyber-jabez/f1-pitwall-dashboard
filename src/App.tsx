@@ -20,10 +20,12 @@ import CircuitsView from './components/views/CircuitsView'
 import AdminDashboardView from './components/views/AdminDashboardView'
 import FerrariNotFoundView from './components/views/FerrariNotFoundView'
 import GlobalSearchModal from './components/ui/GlobalSearchModal'
+import { MotorsportSplashScreen } from './components/ui/MotorsportSplashScreen'
 
 import { FerrariAudioEngine } from './components/audio/WebAudioEngine'
 
 export function App() {
+  const [showSplash, setShowSplash] = useState<boolean>(true)
   const [currentRoute, setCurrentRoute] = useState<string>('home')
   const [isSearchOpen, setIsSearchOpen] = useState(false)
   const [isMuted, setIsMuted] = useState(true)
@@ -98,6 +100,11 @@ export function App() {
       ring={true}
       className="bg-[#07080C] min-h-screen text-white"
     >
+      {/* High-Tech Diagnostic Boot / Loading Screen */}
+      {showSplash && (
+        <MotorsportSplashScreen onComplete={() => setShowSplash(false)} />
+      )}
+
       <div className="w-full min-h-screen flex flex-col">
         {/* Navigation Command Header */}
         <Navbar
