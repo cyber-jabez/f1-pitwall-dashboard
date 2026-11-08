@@ -38,9 +38,9 @@ export const TyreEngineTelemetryCard: React.FC<TyreEngineTelemetryCardProps> = (
   const drs = driver?.telemetry?.drs ?? 10
 
   const getTireBadgeColor = (temp: number) => {
-    if (temp > 112) return 'bg-red-950/90 text-red-400 border-red-700'
-    if (temp >= 85) return 'bg-emerald-950/90 text-emerald-400 border-emerald-700'
-    return 'bg-blue-950/90 text-blue-400 border-blue-700'
+    if (temp > 112) return 'bg-[#E10600]/20 text-[#E10600] border-[#E10600]/60'
+    if (temp >= 85) return 'bg-emerald-950/60 text-emerald-400 border-emerald-700/60'
+    return 'bg-sky-950/60 text-sky-400 border-sky-700/60'
   }
 
   const getTireStatusLabel = (temp: number) => {
@@ -50,37 +50,34 @@ export const TyreEngineTelemetryCard: React.FC<TyreEngineTelemetryCardProps> = (
   }
 
   return (
-    <div className="rounded-2xl bg-[#080A10] border border-white/10 p-2.5 sm:p-3.5 shadow-xl flex flex-col gap-3 font-mono text-xs w-full overflow-hidden">
+    <div className="bg-[#0B0D13] border border-[#232736] p-3 sm:p-4 flex flex-col gap-3 font-mono text-xs w-full overflow-hidden">
       {/* Top Controls: Section Switcher & Track Surface Sensor */}
-      <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-white/10">
-        <div className="flex items-center gap-1 p-0.5 rounded-lg bg-black/60 border border-white/10">
+      <div className="flex flex-wrap items-center justify-between gap-2 pb-2.5 border-b border-[#1E2230]">
+        <div className="flex items-center gap-0.5 bg-[#111319] border border-[#232736] p-0.5">
           <button
             onClick={() => setActiveSection('tyres')}
-            className={`px-2.5 py-1 rounded-md text-[11px] font-bold transition-all ${
-              activeSection === 'tyres'
-                ? 'bg-ferrari-red text-white shadow-md'
-                : 'text-white/60 hover:text-white'
-            }`}
+            className={`px-3 py-1 text-[11px] font-bold uppercase transition-all ${activeSection === 'tyres'
+                ? 'bg-[#E10600] text-white'
+                : 'text-[#D8D8D8]/70 hover:text-white hover:bg-[#1B1D26]'
+              }`}
           >
             4-WHEEL TYRES
           </button>
           <button
             onClick={() => setActiveSection('engine')}
-            className={`px-2.5 py-1 rounded-md text-[11px] font-bold transition-all ${
-              activeSection === 'engine'
-                ? 'bg-ferrari-red text-white shadow-md'
-                : 'text-white/60 hover:text-white'
-            }`}
+            className={`px-3 py-1 text-[11px] font-bold uppercase transition-all ${activeSection === 'engine'
+                ? 'bg-[#E10600] text-white'
+                : 'text-[#D8D8D8]/70 hover:text-white hover:bg-[#1B1D26]'
+              }`}
           >
             ENGINE TELEMETRY
           </button>
           <button
             onClick={() => setActiveSection('all')}
-            className={`px-2 py-1 rounded-md text-[10px] font-bold transition-all ${
-              activeSection === 'all'
-                ? 'bg-white/20 text-white font-black'
-                : 'text-white/40 hover:text-white'
-            }`}
+            className={`px-2.5 py-1 text-[10px] font-bold uppercase transition-all ${activeSection === 'all'
+                ? 'bg-[#292929] text-white font-black'
+                : 'text-[#858585] hover:text-white'
+              }`}
             title="Display both Tyre Matrix and Engine gauges stacked"
           >
             ALL
@@ -88,11 +85,11 @@ export const TyreEngineTelemetryCard: React.FC<TyreEngineTelemetryCardProps> = (
         </div>
 
         <div className="flex items-center gap-1.5 text-[10px]">
-          <span className="text-white/40">TRK:</span>
-          <span className="px-1.5 py-0.5 rounded bg-black/60 text-ferrari-yellow font-bold border border-white/10">
+          <span className="text-[#858585] uppercase">TRK:</span>
+          <span className="px-2 py-0.5 bg-[#111319] text-[#FED500] font-bold border border-[#292929] tabular-nums">
             {weather?.TrackTemp ? `${weather.TrackTemp}°C` : `${trackTempNum}°C`}
           </span>
-          <span className="px-1.5 py-0.5 rounded bg-emerald-950/80 border border-emerald-800 text-emerald-400 font-bold text-[9px]">
+          <span className="px-1.5 py-0.5 bg-emerald-950/80 border border-emerald-800/80 text-emerald-400 font-bold text-[9px] uppercase">
             ACTIVE
           </span>
         </div>
@@ -100,90 +97,96 @@ export const TyreEngineTelemetryCard: React.FC<TyreEngineTelemetryCardProps> = (
 
       {/* 1. 4-WHEEL PIRELLI THERMAL MATRIX SECTION */}
       {(activeSection === 'tyres' || activeSection === 'all') && (
-        <div className="p-2.5 sm:p-3 rounded-xl bg-[#05060A] border border-white/10 flex flex-col gap-2.5 w-full overflow-hidden">
-          <div className="flex items-center justify-between pb-1.5 border-b border-white/5">
-            <div className="flex items-center gap-1.5">
-              <span className="font-display font-black text-[11px] sm:text-xs text-white uppercase tracking-wider">
+        <div className="p-3 bg-[#080808] border border-[#1E2230] flex flex-col gap-3 w-full overflow-hidden">
+          <div className="flex items-center justify-between pb-2 border-b border-[#1E2230]">
+            <div className="flex items-center gap-2">
+              <span className="font-display font-black text-sm text-white uppercase tracking-wider">
                 4-WHEEL PIRELLI THERMAL MATRIX
               </span>
-              <span 
-                className="text-[8px] px-1.5 py-0.5 rounded bg-cyan-950/80 text-cyan-300 border border-cyan-800 font-bold shrink-0" 
+              <span
+                className="text-[9px] px-1.5 py-0.5 bg-[#161616] text-[#858585] border border-[#292929] font-bold shrink-0 uppercase tracking-widest"
                 title="Individual wheel IR sensors are classified proprietary team IP by FOM. Modeled using authentic track surface temps + lateral load."
               >
                 CALIBRATED MODEL
               </span>
             </div>
-            <span className="px-2 py-0.5 rounded bg-red-950/80 border border-red-800 text-red-300 font-bold text-[10px] shrink-0">
+            <span className="px-2 py-0.5 bg-[#E10600]/20 border border-[#E10600]/60 text-white font-bold text-[10px] shrink-0 uppercase">
               {driver?.tyre_compound || 'SOFT (C4)'}
             </span>
           </div>
 
-          {/* Car Chassis Diagram with 4 Tyres (Equally Distributed 3-Column Grid) */}
-          <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-2 sm:gap-4 py-1.5 w-full">
+          {/* Car Chassis Diagram with 4 Tyres */}
+          <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3 sm:gap-6 py-2 w-full">
             {/* Left Tyres Column (FL & RL) */}
             <div className="flex flex-col gap-2.5 items-stretch">
               {/* Front-Left Tyre (FL) */}
-              <div className="p-2 rounded-xl bg-[#0C0F17] border border-white/10 flex flex-col items-center shadow-md">
-                <div className="flex items-center justify-between w-full text-[9px] text-white/50 font-bold mb-0.5">
+              <div className="p-2.5 bg-[#111319] border border-[#232736] flex flex-col items-center">
+                <div className="flex items-center justify-between w-full text-[9px] text-[#858585] font-bold mb-0.5 uppercase">
                   <span>FRONT-L</span>
-                  <span className="text-[8px] px-1 rounded bg-white/5 font-mono">FL</span>
+                  <span className="text-[8px] px-1 bg-[#1B1D26] text-white font-mono">FL</span>
                 </div>
-                <span className="font-display font-black text-lg sm:text-xl text-white my-0.5">{flTemp}°C</span>
-                <span className={`px-2 py-0.2 rounded text-[8px] tracking-wider border font-bold ${getTireBadgeColor(flTemp)}`}>
+                <span className="font-display font-black text-xl text-white my-0.5 tabular-nums">{flTemp}°C</span>
+                <span className={`px-2 py-0.5 text-[8px] tracking-wider border font-bold uppercase ${getTireBadgeColor(flTemp)}`}>
                   {getTireStatusLabel(flTemp)}
                 </span>
               </div>
 
               {/* Rear-Left Tyre (RL) */}
-              <div className="p-2 rounded-xl bg-[#0C0F17] border border-white/10 flex flex-col items-center shadow-md">
-                <div className="flex items-center justify-between w-full text-[9px] text-white/50 font-bold mb-0.5">
+              <div className="p-2.5 bg-[#111319] border border-[#232736] flex flex-col items-center">
+                <div className="flex items-center justify-between w-full text-[9px] text-[#858585] font-bold mb-0.5 uppercase">
                   <span>REAR-L</span>
-                  <span className="text-[8px] px-1 rounded bg-white/5 font-mono">RL</span>
+                  <span className="text-[8px] px-1 bg-[#1B1D26] text-white font-mono">RL</span>
                 </div>
-                <span className="font-display font-black text-lg sm:text-xl text-white my-0.5">{rlTemp}°C</span>
-                <span className={`px-2 py-0.2 rounded text-[8px] tracking-wider border font-bold ${getTireBadgeColor(rlTemp)}`}>
+                <span className="font-display font-black text-xl text-white my-0.5 tabular-nums">{rlTemp}°C</span>
+                <span className={`px-2 py-0.5 text-[8px] tracking-wider border font-bold uppercase ${getTireBadgeColor(rlTemp)}`}>
                   {getTireStatusLabel(rlTemp)}
                 </span>
               </div>
             </div>
 
-            {/* Center Chassis Silhouette */}
-            <div className="w-16 sm:w-20 h-40 rounded-3xl bg-[#0E1119] border-2 border-white/15 flex flex-col items-center justify-between py-2 px-1 shadow-inner shrink-0">
-              <span className="text-[7px] text-white/50 font-bold uppercase tracking-wider">FRONT</span>
-              <div className="w-12 sm:w-14 h-16 rounded-xl bg-black/80 border border-white/10 flex flex-col items-center justify-center text-center p-1">
-                <span className="text-[7px] text-white/40 block font-bold leading-none">SF-24</span>
-                <span className="text-sm font-black text-ferrari-red leading-tight mt-0.5">
+            {/* Center Chassis Silhouette (Sharp Engineered Geometric Silhouette) */}
+            <div className="w-20 sm:w-24 h-44 bg-[#0E1017] border border-[#292929] flex flex-col items-center justify-between py-2 px-1 shrink-0 relative">
+              <div className="w-full text-center border-b border-[#1E2230] pb-1">
+                <span className="text-[8px] text-[#858585] font-bold uppercase tracking-widest">FRONT</span>
+              </div>
+
+              <div className="w-16 h-20 bg-[#080808] border border-[#232736] flex flex-col items-center justify-center text-center p-1.5">
+                <span className="text-[8px] text-[#858585] block font-bold tracking-wider leading-none">SF-24</span>
+                <span className="text-lg font-black text-[#E10600] leading-tight my-0.5 tabular-nums">
                   #{driver?.driver_number || '16'}
                 </span>
-                <span className="text-[8px] text-ferrari-yellow font-bold uppercase mt-0.5 leading-none">
+                <span className="text-[9px] text-[#FED500] font-bold uppercase leading-none">
                   {driver?.acronym || 'LEC'}
                 </span>
               </div>
-              <span className="text-[7px] text-white/50 font-bold uppercase tracking-wider">REAR</span>
+
+              <div className="w-full text-center border-t border-[#1E2230] pt-1">
+                <span className="text-[8px] text-[#858585] font-bold uppercase tracking-widest">REAR</span>
+              </div>
             </div>
 
             {/* Right Tyres Column (FR & RR) */}
             <div className="flex flex-col gap-2.5 items-stretch">
               {/* Front-Right Tyre (FR) */}
-              <div className="p-2 rounded-xl bg-[#0C0F17] border border-white/10 flex flex-col items-center shadow-md">
-                <div className="flex items-center justify-between w-full text-[9px] text-white/50 font-bold mb-0.5">
+              <div className="p-2.5 bg-[#111319] border border-[#232736] flex flex-col items-center">
+                <div className="flex items-center justify-between w-full text-[9px] text-[#858585] font-bold mb-0.5 uppercase">
                   <span>FRONT-R</span>
-                  <span className="text-[8px] px-1 rounded bg-white/5 font-mono">FR</span>
+                  <span className="text-[8px] px-1 bg-[#1B1D26] text-white font-mono">FR</span>
                 </div>
-                <span className="font-display font-black text-lg sm:text-xl text-white my-0.5">{frTemp}°C</span>
-                <span className={`px-2 py-0.2 rounded text-[8px] tracking-wider border font-bold ${getTireBadgeColor(frTemp)}`}>
+                <span className="font-display font-black text-xl text-white my-0.5 tabular-nums">{frTemp}°C</span>
+                <span className={`px-2 py-0.5 text-[8px] tracking-wider border font-bold uppercase ${getTireBadgeColor(frTemp)}`}>
                   {getTireStatusLabel(frTemp)}
                 </span>
               </div>
 
               {/* Rear-Right Tyre (RR) */}
-              <div className="p-2 rounded-xl bg-[#0C0F17] border border-white/10 flex flex-col items-center shadow-md">
-                <div className="flex items-center justify-between w-full text-[9px] text-white/50 font-bold mb-0.5">
+              <div className="p-2.5 bg-[#111319] border border-[#232736] flex flex-col items-center">
+                <div className="flex items-center justify-between w-full text-[9px] text-[#858585] font-bold mb-0.5 uppercase">
                   <span>REAR-R</span>
-                  <span className="text-[8px] px-1 rounded bg-white/5 font-mono">RR</span>
+                  <span className="text-[8px] px-1 bg-[#1B1D26] text-white font-mono">RR</span>
                 </div>
-                <span className="font-display font-black text-lg sm:text-xl text-white my-0.5">{rrTemp}°C</span>
-                <span className={`px-2 py-0.2 rounded text-[8px] tracking-wider border font-bold ${getTireBadgeColor(rrTemp)}`}>
+                <span className="font-display font-black text-xl text-white my-0.5 tabular-nums">{rrTemp}°C</span>
+                <span className={`px-2 py-0.5 text-[8px] tracking-wider border font-bold uppercase ${getTireBadgeColor(rrTemp)}`}>
                   {getTireStatusLabel(rrTemp)}
                 </span>
               </div>
@@ -191,20 +194,20 @@ export const TyreEngineTelemetryCard: React.FC<TyreEngineTelemetryCardProps> = (
           </div>
 
           {/* Stint Age & Wear Summary */}
-          <div className="grid grid-cols-3 gap-1.5 pt-2 border-t border-white/5 text-center">
-            <div className="p-1.5 rounded-lg bg-[#0C0F17] border border-white/5">
-              <span className="text-white/40 block text-[8px] uppercase">STINT AGE</span>
-              <span className="font-bold text-white text-xs block mt-0.5">{driver?.tyre_laps ?? 12} LAPS</span>
+          <div className="grid grid-cols-3 gap-2 pt-2 border-t border-[#1E2230] text-center">
+            <div className="p-2 bg-[#111319] border border-[#232736]">
+              <span className="text-[#858585] block text-[8px] uppercase tracking-wider">STINT AGE</span>
+              <span className="font-bold text-white text-xs block mt-0.5 tabular-nums">{driver?.tyre_laps ?? 12} LAPS</span>
             </div>
-            <div className="p-1.5 rounded-lg bg-[#0C0F17] border border-white/5">
-              <span className="text-white/40 block text-[8px] uppercase">TYRE SET</span>
-              <span className="font-bold text-emerald-400 text-xs block mt-0.5">
+            <div className="p-2 bg-[#111319] border border-[#232736]">
+              <span className="text-[#858585] block text-[8px] uppercase tracking-wider">TYRE SET</span>
+              <span className="font-bold text-emerald-400 text-xs block mt-0.5 uppercase">
                 {driver?.tyre_new ? 'NEW SET' : 'USED SET'}
               </span>
             </div>
-            <div className="p-1.5 rounded-lg bg-[#0C0F17] border border-white/5">
-              <span className="text-white/40 block text-[8px] uppercase">WEAR DEG</span>
-              <span className="font-bold text-amber-400 text-xs block mt-0.5">~24% WEAR</span>
+            <div className="p-2 bg-[#111319] border border-[#232736]">
+              <span className="text-[#858585] block text-[8px] uppercase tracking-wider">EST. WEAR</span>
+              <span className="font-bold text-[#FED500] text-xs block mt-0.5 tabular-nums">~24% DEGRADATION</span>
             </div>
           </div>
         </div>
@@ -212,114 +215,113 @@ export const TyreEngineTelemetryCard: React.FC<TyreEngineTelemetryCardProps> = (
 
       {/* 2. ENGINE TEMPERATURES & COCKPIT CHANNELS SECTION */}
       {(activeSection === 'engine' || activeSection === 'all') && (
-        <div className="p-2.5 sm:p-3 rounded-xl bg-[#05060A] border border-white/10 flex flex-col gap-2.5 w-full overflow-hidden">
-          <div className="flex items-center justify-between pb-1.5 border-b border-white/5">
-            <div className="flex items-center gap-1.5">
-              <span className="font-display font-black text-[11px] sm:text-xs text-white uppercase tracking-wider">
+        <div className="p-3 bg-[#080808] border border-[#1E2230] flex flex-col gap-3 w-full overflow-hidden">
+          <div className="flex items-center justify-between pb-2 border-b border-[#1E2230]">
+            <div className="flex items-center gap-2">
+              <span className="font-display font-black text-sm text-white uppercase tracking-wider">
                 1.6L TURBO HYBRID ICE TELEMETRY
               </span>
-              <span 
-                className="text-[8px] px-1.5 py-0.5 rounded bg-emerald-950/80 text-emerald-300 border border-emerald-800 font-bold shrink-0" 
+              <span
+                className="text-[9px] px-1.5 py-0.5 bg-[#161616] text-emerald-400 border border-emerald-800/60 font-bold shrink-0 uppercase tracking-widest"
                 title="Engine RPM, Speed, Gear, Throttle, Brake & DRS flap are 100% direct McLaren Applied SECU live telemetry from FOM SignalR CarData.z."
               >
                 LIVE SECU FEEDS
               </span>
             </div>
-            <span className="px-2 py-0.5 rounded bg-emerald-950/80 border border-emerald-800 text-emerald-300 font-bold text-[10px] shrink-0">
-              HEALTH: 100% NOMINAL
+            <span className="px-2 py-0.5 bg-emerald-950/60 border border-emerald-800/60 text-emerald-300 font-bold text-[10px] shrink-0 uppercase">
+              STATUS: NOMINAL
             </span>
           </div>
 
           {/* Engine Thermal Sensors */}
           <div className="grid grid-cols-2 gap-2">
-            <div className="p-2 rounded-xl bg-[#0C0F17] border border-white/5 flex items-center justify-between">
+            <div className="p-2.5 bg-[#111319] border border-[#232736] flex items-center justify-between">
               <div>
-                <span className="text-white/40 text-[8px] block uppercase">COOLANT WATER</span>
-                <span className="font-display font-black text-base sm:text-lg text-white mt-0.5 block">{coolantTemp}°C</span>
-                <span className="text-[8px] text-emerald-400 font-bold">110-125°C OPT</span>
+                <span className="text-[#858585] text-[8px] block uppercase tracking-wider">COOLANT WATER</span>
+                <span className="font-display font-black text-lg text-white mt-0.5 block tabular-nums">{coolantTemp}°C</span>
+                <span className="text-[8px] text-emerald-400 font-bold uppercase">110-125°C OPT</span>
               </div>
               <Activity className="w-4 h-4 text-cyan-400 opacity-60 shrink-0" />
             </div>
 
-            <div className="p-2 rounded-xl bg-[#0C0F17] border border-white/5 flex items-center justify-between">
+            <div className="p-2.5 bg-[#111319] border border-[#232736] flex items-center justify-between">
               <div>
-                <span className="text-white/40 text-[8px] block uppercase">LUBRICATION OIL</span>
-                <span className="font-display font-black text-base sm:text-lg text-white mt-0.5 block">{oilTemp}°C</span>
-                <span className="text-[8px] text-emerald-400 font-bold">120-135°C OPT</span>
+                <span className="text-[#858585] text-[8px] block uppercase tracking-wider">LUBRICATION OIL</span>
+                <span className="font-display font-black text-lg text-white mt-0.5 block tabular-nums">{oilTemp}°C</span>
+                <span className="text-[8px] text-emerald-400 font-bold uppercase">120-135°C OPT</span>
               </div>
               <Flame className="w-4 h-4 text-amber-400 opacity-60 shrink-0" />
             </div>
           </div>
 
           {/* Real-time Cockpit Channel Gauges */}
-          <div className="grid grid-cols-3 gap-1.5 text-center">
+          <div className="grid grid-cols-3 gap-2 text-center">
             {/* RPM */}
-            <div className="p-1.5 rounded-lg bg-[#0C0F17] border border-white/5">
-              <span className="text-white/40 text-[8px] block uppercase">REVS</span>
-              <span className="font-display font-black text-sm text-ferrari-yellow block my-0.5">
+            <div className="p-2 bg-[#111319] border border-[#232736]">
+              <span className="text-[#858585] text-[8px] block uppercase tracking-wider">REVS</span>
+              <span className="font-display font-black text-base text-[#FED500] block my-0.5 tabular-nums">
                 {rpm.toLocaleString()}
               </span>
-              <span className="text-[7px] text-white/40 block">RPM</span>
+              <span className="text-[8px] text-[#858585] block uppercase">RPM</span>
             </div>
 
             {/* Speed */}
-            <div className="p-1.5 rounded-lg bg-[#0C0F17] border border-white/5">
-              <span className="text-white/40 text-[8px] block uppercase">VELOCITY</span>
-              <span className="font-display font-black text-sm text-cyan-400 block my-0.5">
+            <div className="p-2 bg-[#111319] border border-[#232736]">
+              <span className="text-[#858585] text-[8px] block uppercase tracking-wider">VELOCITY</span>
+              <span className="font-display font-black text-base text-cyan-400 block my-0.5 tabular-nums">
                 {speed}
               </span>
-              <span className="text-[7px] text-white/40 block">KM/H</span>
+              <span className="text-[8px] text-[#858585] block uppercase">KM/H</span>
             </div>
 
             {/* Gear */}
-            <div className="p-1.5 rounded-lg bg-[#0C0F17] border border-white/5">
-              <span className="text-white/40 text-[8px] block uppercase">GEAR</span>
-              <span className="font-display font-black text-sm text-emerald-400 block my-0.5">
+            <div className="p-2 bg-[#111319] border border-[#232736]">
+              <span className="text-[#858585] text-[8px] block uppercase tracking-wider">GEAR</span>
+              <span className="font-display font-black text-base text-emerald-400 block my-0.5 uppercase">
                 G{gear}
               </span>
-              <span className="text-[7px] text-white/40 block">SEQ</span>
+              <span className="text-[8px] text-[#858585] block uppercase">SEQ</span>
             </div>
           </div>
 
           {/* Pedals & DRS Actuation */}
-          <div className="flex flex-col gap-1.5 pt-1.5 border-t border-white/5">
+          <div className="flex flex-col gap-2 pt-2 border-t border-[#1E2230]">
             {/* Throttle Bar */}
             <div className="flex items-center gap-2">
-              <span className="text-[8px] text-white/50 w-14 shrink-0">THROTTLE</span>
-              <div className="flex-1 bg-black/60 rounded-full h-1.5 overflow-hidden border border-white/5">
+              <span className="text-[8px] text-[#858585] w-14 shrink-0 uppercase tracking-wider">THROTTLE</span>
+              <div className="flex-1 bg-[#080808] h-2 border border-[#232736] overflow-hidden">
                 <div
-                  className="bg-emerald-400 h-full transition-all duration-200"
+                  className="bg-emerald-400 h-full transition-all duration-100"
                   style={{ width: `${throttle}%` }}
                 />
               </div>
-              <span className="text-[9px] font-bold text-emerald-400 w-8 text-right">{throttle}%</span>
+              <span className="text-[9px] font-bold text-emerald-400 w-8 text-right tabular-nums">{throttle}%</span>
             </div>
 
             {/* Brake Bar */}
             <div className="flex items-center gap-2">
-              <span className="text-[8px] text-white/50 w-14 shrink-0">BRAKE</span>
-              <div className="flex-1 bg-black/60 rounded-full h-1.5 overflow-hidden border border-white/5">
+              <span className="text-[8px] text-[#858585] w-14 shrink-0 uppercase tracking-wider">BRAKE</span>
+              <div className="flex-1 bg-[#080808] h-2 border border-[#232736] overflow-hidden">
                 <div
-                  className="bg-red-500 h-full transition-all duration-200"
+                  className="bg-[#E10600] h-full transition-all duration-100"
                   style={{ width: `${brake}%` }}
                 />
               </div>
-              <span className="text-[9px] font-bold text-red-500 w-8 text-right">
+              <span className="text-[9px] font-bold text-[#E10600] w-8 text-right tabular-nums">
                 {brake > 0 ? `${brake}%` : 'OFF'}
               </span>
             </div>
 
             {/* DRS Status */}
-            <div className="flex items-center justify-between pt-0.5 text-[9px]">
-              <span className="text-white/40">DRS FLAP STATE:</span>
+            <div className="flex items-center justify-between pt-1 text-[9px] border-t border-[#1E2230]/60">
+              <span className="text-[#858585] uppercase tracking-wider">DRS FLAP STATE:</span>
               <span
-                className={`px-2 py-0.2 rounded font-bold text-[8px] ${
-                  drs >= 10
-                    ? 'bg-emerald-950 text-emerald-300 border border-emerald-700'
+                className={`px-2 py-0.5 font-bold text-[8px] border uppercase ${drs >= 10
+                    ? 'bg-emerald-950/80 text-emerald-300 border-emerald-700/80'
                     : drs >= 8
-                    ? 'bg-amber-950 text-amber-300 border border-amber-700'
-                    : 'bg-neutral-900 text-neutral-400 border border-neutral-700'
-                }`}
+                      ? 'bg-amber-950/80 text-amber-300 border-amber-700/80'
+                      : 'bg-[#111319] text-[#858585] border-[#292929]'
+                  }`}
               >
                 {drs >= 10 ? 'ACTIVE / OPEN' : drs >= 8 ? 'ARMED / ELIGIBLE' : 'CLOSED / OFF'}
               </span>
@@ -329,14 +331,14 @@ export const TyreEngineTelemetryCard: React.FC<TyreEngineTelemetryCardProps> = (
       )}
 
       {/* Provenance & Engineering Audit Bar */}
-      <div className="flex items-center justify-between text-[8px] text-white/40 pt-1.5 border-t border-white/5 px-0.5">
-        <span className="flex items-center gap-1">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-          SECU TELEMETRY: <strong className="text-emerald-400 font-bold">100% RAW FOM LIVE</strong>
+      <div className="flex items-center justify-between text-[8px] text-[#858585] pt-1.5 border-t border-[#1E2230] px-0.5 font-mono">
+        <span className="flex items-center gap-1.5">
+          <span className="w-1.5 h-1.5 bg-emerald-400" />
+          <span>SECU TELEMETRY: <strong className="text-emerald-400 font-bold uppercase">100% RAW FOM LIVE</strong></span>
         </span>
-        <span className="flex items-center gap-1">
-          <span className="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
-          TYRE IR THERMALS: <strong className="text-cyan-400 font-bold">PHYSICAL CALIBRATION</strong>
+        <span className="flex items-center gap-1.5">
+          <span className="w-1.5 h-1.5 bg-cyan-400" />
+          <span>TYRE THERMALS: <strong className="text-cyan-400 font-bold uppercase">PHYSICAL MODEL</strong></span>
         </span>
       </div>
     </div>

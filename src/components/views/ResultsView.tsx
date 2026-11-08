@@ -3,7 +3,7 @@ import { jolpicaClient, RaceResultItem } from '../../services/jolpicaClient'
 import { DataProvenanceBadge } from '../ui/DataProvenanceBadge'
 import type { ProvenanceMetadata } from '../../services/dataProvenance'
 import ShinyText from '../reactbits/ShinyText'
-import { Trophy, RefreshCw, Clock, Award } from 'lucide-react'
+import { RefreshCw } from 'lucide-react'
 
 export const ResultsView: React.FC = () => {
   const [season, setSeason] = useState('2024')
@@ -20,7 +20,7 @@ export const ResultsView: React.FC = () => {
       const res = await jolpicaClient.getRaceResults(targetSeason, targetRound)
       setResults(res.data)
       setProvenance(res.provenance)
-    } catch (e: any) {
+    } catch {
       setError('Unable to fetch official FIA Grand Prix classifications from Jolpica/Ergast.')
     } finally {
       setLoading(false)
@@ -32,24 +32,27 @@ export const ResultsView: React.FC = () => {
   }, [season, round])
 
   return (
-    <div className="min-h-screen bg-[#06070A] text-white pt-20 pb-16 px-4 sm:px-6 lg:px-8">
-      {/* Header */}
-      <div className="max-w-7xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-4 border-b border-ferrari-border/70 pb-4">
+    <div className="min-h-screen bg-[#080808] text-[#F5F5F5] pt-20 pb-16 px-4 sm:px-6 lg:px-8 font-mono">
+      {/* Editorial Header */}
+      <div className="max-w-7xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-4 border-b border-[#292929] pb-4">
         <div>
-          <span className="font-mono text-xs text-white/50 uppercase tracking-widest block mb-1">
-            OFFICIAL FIA GRAND PRIX CLASSIFICATIONS // JOLPICA ERGAST ARCHIVE
-          </span>
-          <h1 className="font-display font-black text-2xl sm:text-4xl uppercase tracking-tight text-white flex items-center gap-3">
-            RACE <ShinyText text="RESULTS & CLASSIFICATIONS" speed={2.5} className="text-ferrari-yellow" />
+          <div className="flex items-center gap-2 mb-1">
+            <span className="w-2 h-2 bg-[#E10600]" />
+            <span className="font-mono text-[10px] text-[#858585] uppercase tracking-widest block">
+              OFFICIAL FIA GRAND PRIX CLASSIFICATIONS // JOLPICA ERGAST ARCHIVE
+            </span>
+          </div>
+          <h1 className="font-display font-black text-3xl sm:text-4xl uppercase tracking-tight text-white flex items-center gap-3">
+            RACE <ShinyText text="RESULTS & CLASSIFICATIONS" speed={2.5} className="text-[#FED500]" />
           </h1>
         </div>
 
         {/* Filters: Season and Grand Prix Round */}
-        <div className="flex flex-wrap items-center gap-3">
+        <div className="flex flex-wrap items-center gap-2.5">
           <select
             value={season}
             onChange={(e) => setSeason(e.target.value)}
-            className="bg-[#0E1118] border border-white/20 rounded-xl px-3 py-2 text-white font-mono text-xs focus:outline-none focus:border-ferrari-red cursor-pointer"
+            className="bg-[#111111] border border-[#292929] rounded-none px-3 py-1.5 text-white font-mono text-xs focus:outline-none focus:border-[#E10600] cursor-pointer"
           >
             <option value="2024">2024 SEASON</option>
             <option value="2023">2023 SEASON</option>
@@ -59,7 +62,7 @@ export const ResultsView: React.FC = () => {
           <select
             value={round}
             onChange={(e) => setRound(e.target.value)}
-            className="bg-[#0E1118] border border-white/20 rounded-xl px-3 py-2 text-white font-mono text-xs focus:outline-none focus:border-ferrari-red cursor-pointer"
+            className="bg-[#111111] border border-[#292929] rounded-none px-3 py-1.5 text-white font-mono text-xs focus:outline-none focus:border-[#E10600] cursor-pointer"
           >
             <option value="16">ROUND 16 - ITALIAN GP (MONZA - FERRARI WIN)</option>
             <option value="8">ROUND 8 - MONACO GP (MONTE CARLO - LECLERC WIN)</option>
@@ -72,10 +75,10 @@ export const ResultsView: React.FC = () => {
 
           <button
             onClick={() => loadResults(season, round)}
-            className="p-2 rounded-xl bg-[#0E1118] border border-white/10 text-white/60 hover:text-white transition"
+            className="p-2 rounded-none bg-[#111111] border border-[#292929] text-[#858585] hover:text-white hover:border-[#E10600] transition"
             title="Refresh Results"
           >
-            <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
+            <RefreshCw className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} />
           </button>
         </div>
       </div>
@@ -93,77 +96,88 @@ export const ResultsView: React.FC = () => {
       {/* Main Table */}
       <div className="max-w-7xl mx-auto">
         {loading ? (
-          <div className="rounded-3xl bg-[#0B0D14] border border-ferrari-border/80 p-12 text-center font-mono">
-            <div className="w-8 h-8 border-2 border-ferrari-red border-t-transparent rounded-full animate-spin mx-auto mb-3" />
-            <p className="text-white/70 text-sm">RETRIEVING OFFICIAL FIA TIMING CLASSIFICATION...</p>
+          <div className="rounded-none bg-[#0D0D0D] border border-[#222222] p-12 text-center font-mono">
+            <div className="w-6 h-6 border-2 border-[#E10600] border-t-transparent animate-spin mx-auto mb-3" />
+            <p className="text-[#858585] text-xs uppercase tracking-wider">
+              RETRIEVING OFFICIAL FIA TIMING CLASSIFICATION...
+            </p>
           </div>
         ) : error ? (
-          <div className="rounded-3xl bg-[#140808] border border-rose-800/80 p-8 text-center font-mono text-rose-400">
+          <div className="rounded-none bg-[#140808] border border-[#E10600] p-6 text-center font-mono text-[#E10600] text-xs uppercase">
             <p>{error}</p>
           </div>
         ) : results.length === 0 ? (
-          <div className="rounded-3xl bg-[#0B0D14] border border-white/10 p-12 text-center font-mono text-neutral-400">
-            <p>DATA UNAVAILABLE FOR THIS ROUND</p>
+          <div className="rounded-none bg-[#0D0D0D] border border-[#222222] p-12 text-center font-mono text-[#858585]">
+            <p className="font-bold text-white mb-1 uppercase">DATA UNAVAILABLE FOR THIS ROUND</p>
+            <p className="text-xs text-[#666666]">No classification records returned for the requested session.</p>
           </div>
         ) : (
-          <div className="rounded-3xl bg-[#0B0D14] border border-ferrari-border/80 p-6 shadow-2xl overflow-x-auto">
-            <table className="w-full text-left font-mono text-xs">
+          <div className="rounded-none bg-[#0B0D14] border border-[#292929] shadow-2xl overflow-x-auto">
+            <table className="w-full text-left font-mono text-xs border-collapse">
               <thead>
-                <tr className="border-b border-white/10 text-white/40 text-[10px] uppercase pb-3">
-                  <th className="pb-3 px-3">POS</th>
-                  <th className="pb-3 px-3">DRIVER</th>
-                  <th className="pb-3 px-3">CONSTRUCTOR</th>
-                  <th className="pb-3 px-3 text-center">GRID</th>
-                  <th className="pb-3 px-3 text-center">LAPS</th>
-                  <th className="pb-3 px-3">TIME / STATUS</th>
-                  <th className="pb-3 px-3 text-center">FASTEST LAP</th>
-                  <th className="pb-3 px-3 text-right">POINTS</th>
+                <tr className="bg-[#111111] border-b border-[#292929] text-[#858585] text-[10px] uppercase">
+                  <th className="py-3 px-4 w-16">POS</th>
+                  <th className="py-3 px-4">DRIVER</th>
+                  <th className="py-3 px-4">CONSTRUCTOR</th>
+                  <th className="py-3 px-4 text-center">GRID</th>
+                  <th className="py-3 px-4 text-center">LAPS</th>
+                  <th className="py-3 px-4">TIME / STATUS</th>
+                  <th className="py-3 px-4 text-center">FASTEST LAP</th>
+                  <th className="py-3 px-4 text-right">POINTS</th>
                 </tr>
               </thead>
-              <tbody className="divide-y divide-white/5">
+              <tbody className="divide-y divide-[#1C1F2B]">
                 {results.map((r) => {
                   const isFerrari = r.Constructor.constructorId.toLowerCase() === 'ferrari'
                   const hasFastestLap = r.FastestLap?.rank === '1'
                   return (
                     <tr
                       key={r.position + r.Driver.driverId}
-                      className={`hover:bg-white/5 transition-colors ${
-                        isFerrari ? 'bg-ferrari-red/15 font-semibold border-l-2 border-ferrari-red' : ''
+                      className={`hover:bg-[#131622] transition-colors ${
+                        isFerrari ? 'bg-[#150D10] border-l-2 border-l-[#E10600]' : ''
                       }`}
                     >
-                      <td className="py-4 px-3 font-display font-black text-base text-white">
+                      <td className="py-3 px-4 font-mono font-bold text-sm text-white tabular-nums">
                         P{r.positionText}
                       </td>
-                      <td className="py-4 px-3">
-                        <span className="font-display font-black text-sm text-white block">
-                          {r.Driver.givenName} {r.Driver.familyName}
-                        </span>
-                        <span className="text-[10px] text-white/40">
-                          #{r.number} • {r.Driver.nationality}
-                        </span>
+                      <td className="py-3 px-4">
+                        <div className="flex items-center gap-2">
+                          <span
+                            className="w-2.5 h-2.5 rounded-none shrink-0"
+                            style={{ backgroundColor: isFerrari ? '#E10600' : '#4A5568' }}
+                          />
+                          <div>
+                            <span className="font-display font-bold text-sm text-white uppercase block">
+                              {r.Driver.givenName} {r.Driver.familyName}
+                            </span>
+                            <span className="text-[10px] text-[#858585]">
+                              #{r.number} // {r.Driver.nationality.toUpperCase()}
+                            </span>
+                          </div>
+                        </div>
                       </td>
-                      <td className="py-4 px-3 text-white/70">{r.Constructor.name}</td>
-                      <td className="py-4 px-3 text-center text-white/60">P{r.grid}</td>
-                      <td className="py-4 px-3 text-center text-white/80">{r.laps}</td>
-                      <td className="py-4 px-3 font-bold text-white">
+                      <td className="py-3 px-4 text-[#D8D8D8] uppercase">{r.Constructor.name}</td>
+                      <td className="py-3 px-4 text-center text-[#858585] tabular-nums">P{r.grid}</td>
+                      <td className="py-3 px-4 text-center text-[#D8D8D8] tabular-nums">{r.laps}</td>
+                      <td className="py-3 px-4 font-mono font-bold text-white tabular-nums">
                         {r.Time?.time || r.status}
                       </td>
-                      <td className="py-4 px-3 text-center">
+                      <td className="py-3 px-4 text-center">
                         {r.FastestLap ? (
                           <span
-                            className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
+                            className={`px-1.5 py-0.5 rounded-none text-[10px] font-mono tabular-nums ${
                               hasFastestLap
-                                ? 'bg-purple-500/20 text-purple-400 border border-purple-500/40'
-                                : 'text-neutral-400'
+                                ? 'bg-[#C084FC]/15 text-[#C084FC] border border-[#C084FC]/40 font-bold'
+                                : 'text-[#858585]'
                             }`}
                           >
                             {r.FastestLap.Time.time} (L{r.FastestLap.lap})
                           </span>
                         ) : (
-                          <span className="text-neutral-600">N/A</span>
+                          <span className="text-[#555555]">--</span>
                         )}
                       </td>
-                      <td className="py-4 px-3 text-right font-display font-black text-base text-emerald-400">
+                      <td className="py-3 px-4 text-right font-mono font-black text-sm text-emerald-400 tabular-nums">
                         +{r.points} PTS
                       </td>
                     </tr>

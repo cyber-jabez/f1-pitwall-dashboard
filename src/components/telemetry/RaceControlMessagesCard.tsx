@@ -111,31 +111,31 @@ export const RaceControlMessagesCard: React.FC<RaceControlMessagesCardProps> = (
 
   return (
     <div
-      className={`rounded-2xl border border-white/10 bg-[#0B0F19] p-3 flex flex-col font-mono text-xs overflow-hidden shadow-xl ${className}`}
+      className={`border border-[#292929] bg-[#0B0D13] p-3 flex flex-col font-mono text-xs overflow-hidden rounded-none select-none ${className}`}
     >
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-white/10">
+      <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-[#292929]">
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-amber-400 animate-pulse" />
-          <AlertTriangle className="w-4 h-4 text-ferrari-yellow" />
-          <h3 className="font-mono text-xs font-black tracking-wider uppercase text-white">
+          <div className="w-2 h-2 rounded-none bg-[#FED500] animate-pulse" />
+          <AlertTriangle className="w-4 h-4 text-[#FED500]" />
+          <h3 className="font-mono text-xs font-black tracking-wider uppercase text-[#F5F5F5]">
             FIA RACE CONTROL DIRECTIVES
           </h3>
-          <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 font-bold">
+          <span className="text-[10px] font-mono px-2 py-0.5 border border-[#FED500]/40 bg-[#FED500]/15 text-[#FED500] font-bold rounded-none tabular-nums">
             {safeList.length} LOGS
           </span>
         </div>
 
         {/* Filter Pills */}
-        <div className="flex items-center gap-1 bg-black/50 p-0.5 rounded-lg border border-white/10 text-[9px]">
+        <div className="flex items-center gap-1 bg-[#111111] p-0.5 border border-[#292929] text-[9px] rounded-none">
           {(['ALL', 'FLAG', 'SAFETY_CAR'] as const).map((cat) => (
             <button
               key={cat}
               onClick={() => setFilterCategory(cat)}
-              className={`px-2 py-0.5 rounded font-bold transition-all ${
+              className={`px-2 py-0.5 font-bold transition-colors rounded-none border ${
                 filterCategory === cat
-                  ? 'bg-ferrari-red text-white'
-                  : 'text-white/50 hover:text-white'
+                  ? 'bg-[#E10600] text-white border-[#E10600]'
+                  : 'border-transparent text-[#858585] hover:text-[#F5F5F5]'
               }`}
             >
               {cat === 'SAFETY_CAR' ? 'SC / VSC' : cat}
@@ -147,14 +147,14 @@ export const RaceControlMessagesCard: React.FC<RaceControlMessagesCardProps> = (
       {/* Messages Scrollable List */}
       <div className={`mt-2 space-y-1.5 overflow-y-auto pr-1 ${maxHeight}`}>
         {filteredMessages.length === 0 ? (
-          <div className="p-4 text-center text-white/40 text-[11px] font-mono flex flex-col items-center gap-1.5">
-            <svg className="w-4 h-4 text-white/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+          <div className="p-4 text-center text-[#858585] text-[11px] font-mono flex flex-col items-center gap-1.5">
+            <svg className="w-4 h-4 text-[#858585]/40" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               <circle cx="12" cy="12" r="10" />
               <line x1="12" y1="16" x2="12" y2="12" />
               <line x1="12" y1="8" x2="12.01" y2="8" />
             </svg>
             <span>NO ACTIVE RACE CONTROL DIRECTIVES</span>
-            <span className="text-[9px] text-white/30">Track status normal • All sectors clear</span>
+            <span className="text-[9px] text-[#858585]/40">Track status normal • All sectors clear</span>
           </div>
         ) : (
           filteredMessages.map((item, idx) => {
@@ -167,26 +167,26 @@ export const RaceControlMessagesCard: React.FC<RaceControlMessagesCardProps> = (
             return (
               <div
                 key={idx}
-                className="p-2 rounded-xl border border-white/5 bg-black/40 hover:bg-black/60 transition-all flex items-start justify-between gap-2.5 text-[11px]"
+                className="p-2 border border-[#292929] bg-[#111111] hover:bg-[#1B1B1B] transition-colors flex items-start justify-between gap-2.5 text-[11px] rounded-none"
               >
                 {/* Left: Time & Content */}
                 <div className="flex items-start gap-2 min-w-0 flex-1">
-                  <div className="flex items-center gap-1 text-[10px] text-white/40 font-bold shrink-0 mt-0.5">
-                    <Clock className="w-3 h-3 text-white/30" />
+                  <div className="flex items-center gap-1 text-[10px] text-[#858585] font-bold shrink-0 mt-0.5 tabular-nums">
+                    <Clock className="w-3 h-3 text-[#858585]" />
                     <span>{timeDisplay}</span>
                   </div>
 
                   <div className="flex flex-col min-w-0 flex-1">
                     <div className="flex items-center gap-1.5 flex-wrap">
-                      <span className="text-white font-bold leading-tight break-words">
+                      <span className="text-[#F5F5F5] font-bold leading-tight break-words">
                         {safeMsg}
                       </span>
                     </div>
 
                     {(safeScope || safeSector) && (
-                      <div className="flex items-center gap-2 mt-0.5 text-[9px] text-white/40">
+                      <div className="flex items-center gap-2 mt-0.5 text-[9px] text-[#858585]">
                         {safeScope && <span>SCOPE: <strong className="text-white/60">{safeScope}</strong></span>}
-                        {safeSector && <span>SECTOR: <strong className="text-ferrari-yellow">{safeSector}</strong></span>}
+                        {safeSector && <span>SECTOR: <strong className="text-[#FED500]">{safeSector}</strong></span>}
                       </div>
                     )}
                   </div>
@@ -195,7 +195,7 @@ export const RaceControlMessagesCard: React.FC<RaceControlMessagesCardProps> = (
                 {/* Right: Flag or Status Badge */}
                 {badge && (
                   <span
-                    className={`px-2 py-0.5 rounded border text-[9px] font-black uppercase tracking-wider shrink-0 ${badge.bg} ${
+                    className={`px-2 py-0.5 border text-[9px] font-black uppercase tracking-wider shrink-0 rounded-none ${badge.bg} ${
                       badge.animate ? 'animate-pulse' : ''
                     }`}
                   >
@@ -209,7 +209,7 @@ export const RaceControlMessagesCard: React.FC<RaceControlMessagesCardProps> = (
       </div>
 
       {/* Footer Provenance Note */}
-      <div className="pt-1.5 border-t border-white/5 flex items-center justify-between text-[8px] text-white/40">
+      <div className="pt-1.5 border-t border-[#292929] flex items-center justify-between text-[8px] text-[#858585]">
         <span>SOURCE: FOM SIGNALR RACE CONTROL CORE</span>
         <span className="text-emerald-400 font-bold">100% UNFABRICATED</span>
       </div>

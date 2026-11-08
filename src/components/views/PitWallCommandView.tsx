@@ -428,26 +428,26 @@ export const PitWallCommandView: React.FC = () => {
 
   // Tyre badge helper
   const renderTyreBadge = (compound: string | null | undefined, laps: number | null | undefined, isNew?: boolean | string | null) => {
-    if (!compound) return <span className="text-white/30 text-[10px]">--</span>
+    if (!compound) return <span className="text-white/30 text-[10px] font-mono">--</span>
     const c = compound.toUpperCase()
-    let bg = 'bg-neutral-700 text-white border-neutral-600'
+    let bg = 'bg-[#1B1B1B] text-[#F5F5F5] border-[#292929]'
     let letter = c[0] || '?'
-    if (c.includes('SOFT')) bg = 'bg-red-600/20 text-red-400 border-red-500/60'
-    else if (c.includes('MEDIUM')) bg = 'bg-yellow-500/20 text-yellow-300 border-yellow-500/60'
-    else if (c.includes('HARD')) bg = 'bg-neutral-100/10 text-white border-neutral-300/60'
-    else if (c.includes('INTER')) bg = 'bg-emerald-500/20 text-emerald-400 border-emerald-500/60'
-    else if (c.includes('WET')) bg = 'bg-blue-500/20 text-blue-400 border-blue-500/60'
+    if (c.includes('SOFT')) bg = 'bg-[#E10600]/15 text-[#E10600] border-[#E10600]/60'
+    else if (c.includes('MEDIUM')) bg = 'bg-[#FED500]/15 text-[#FED500] border-[#FED500]/60'
+    else if (c.includes('HARD')) bg = 'bg-white/10 text-white border-white/60'
+    else if (c.includes('INTER')) bg = 'bg-emerald-500/15 text-emerald-400 border-emerald-500/60'
+    else if (c.includes('WET')) bg = 'bg-blue-500/15 text-blue-400 border-blue-500/60'
 
     return (
-      <div className="flex items-center gap-1">
-        <span className={`w-5 h-5 rounded-full border text-[10px] font-black flex items-center justify-center ${bg}`}>
+      <div className="flex items-center gap-1.5 font-mono">
+        <span className={`w-5 h-5 border text-[10px] font-black flex items-center justify-center rounded-none ${bg}`}>
           {letter}
         </span>
-        <span className="text-[10px] font-mono text-white/70">
+        <span className="text-[10px] font-mono text-white/70 tabular-nums">
           {laps !== null && laps !== undefined ? `${laps}L` : ''}
         </span>
         {isNew === true && (
-          <span className="text-[8px] font-mono px-1 rounded bg-emerald-500/20 text-emerald-400 uppercase">
+          <span className="text-[8px] font-mono px-1 rounded-none border border-emerald-500/40 bg-emerald-500/20 text-emerald-400 uppercase tracking-tighter">
             N
           </span>
         )}
@@ -466,26 +466,26 @@ export const PitWallCommandView: React.FC = () => {
       />
 
       {/* Top Mission Control Masthead */}
-      <header className="border-b border-white/10 bg-[#090C14]/90 backdrop-blur-xl px-4 py-2.5 z-40 sticky top-16">
+      <header className="border-b border-[#292929] bg-[#0B0D13] px-4 py-2.5 z-40 sticky top-16">
         <div className="max-w-[1920px] mx-auto flex flex-wrap items-center justify-between gap-3">
           {/* Left: Branding & Session Name */}
           <div className="flex items-center gap-3">
             <div
-              className={`flex items-center gap-2 px-2.5 py-1 rounded-lg font-mono text-xs font-bold tracking-widest border ${
+              className={`flex items-center gap-2 px-2.5 py-1 font-mono text-[11px] font-bold tracking-widest border rounded-none ${
                 status?.live
-                  ? 'bg-red-600/20 border-red-500/40 text-red-400'
+                  ? 'bg-[#E10600]/15 border-[#E10600]/60 text-[#E10600]'
                   : isUpcomingWithinWindow
-                  ? 'bg-amber-500/20 border-amber-500/40 text-amber-300'
-                  : 'bg-neutral-800/40 border-neutral-700/60 text-neutral-300'
+                  ? 'bg-[#FED500]/15 border-[#FED500]/60 text-[#FED500]'
+                  : 'bg-[#1B1B1B] border-[#292929] text-[#858585]'
               }`}
             >
               <span
-                className={`w-2 h-2 rounded-full ${
+                className={`w-2 h-2 rounded-none ${
                   status?.live
-                    ? 'bg-red-500 animate-ping'
+                    ? 'bg-[#E10600] animate-pulse'
                     : isUpcomingWithinWindow
-                    ? 'bg-amber-400 animate-pulse'
-                    : 'bg-neutral-400'
+                    ? 'bg-[#FED500] animate-pulse'
+                    : 'bg-[#858585]'
                 }`}
               />
               <span>
@@ -498,14 +498,14 @@ export const PitWallCommandView: React.FC = () => {
             </div>
 
             <div>
-              <div className="flex items-center gap-2">
-                <h1 className="text-base font-black tracking-wider uppercase font-display text-white">
+              <div className="flex items-center gap-2.5">
+                <h1 className="text-base font-black tracking-wider uppercase font-display text-[#F5F5F5]">
                   {status?.session?.meetingName || 'Formula 1 Grand Prix'}
                 </h1>
-                <span className="text-xs px-2 py-0.5 rounded bg-white/10 text-white/80 font-mono">
+                <span className="text-[11px] px-2 py-0.5 border border-[#292929] bg-[#111111] text-[#D8D8D8] font-mono rounded-none">
                   {effectiveSessionDisplayName}
                 </span>
-                <span className="text-[11px] font-mono text-emerald-400 border border-emerald-500/30 px-1.5 py-0.5 rounded bg-emerald-500/10">
+                <span className="text-[11px] font-mono text-emerald-400 border border-emerald-500/30 px-1.5 py-0.5 bg-emerald-500/10 rounded-none">
                   {status?.session?.circuitName || 'Interlagos Autódromo'}
                 </span>
               </div>
@@ -513,13 +513,13 @@ export const PitWallCommandView: React.FC = () => {
           </div>
 
           {/* Center: Session Adaptive Format Switcher */}
-          <div className="flex items-center gap-1 p-1 rounded-xl bg-black/40 border border-white/10 overflow-x-auto">
+          <div className="flex items-center bg-[#111111] border border-[#292929] p-0.5 overflow-x-auto rounded-none">
             <button
               onClick={() => setSelectedFormat('AUTO')}
-              className={`px-2.5 py-1 rounded-lg font-mono text-[11px] font-bold tracking-wider transition-all ${
+              className={`px-3 py-1 font-mono text-[11px] font-bold tracking-wider transition-colors border rounded-none ${
                 selectedFormat === 'AUTO'
-                  ? 'bg-ferrari-red text-white shadow-[0_0_12px_rgba(239,26,45,0.6)]'
-                  : 'text-white/60 hover:text-white'
+                  ? 'bg-[#E10600] text-white border-[#E10600]'
+                  : 'border-transparent text-[#858585] hover:text-[#F5F5F5] hover:bg-[#1B1B1B]'
               }`}
               title="Automatically detect session format from official FOM feed"
             >
@@ -527,50 +527,50 @@ export const PitWallCommandView: React.FC = () => {
             </button>
             <button
               onClick={() => setSelectedFormat('RACE')}
-              className={`px-2.5 py-1 rounded-lg font-mono text-[11px] font-bold tracking-wider transition-all ${
+              className={`px-3 py-1 font-mono text-[11px] font-bold tracking-wider transition-colors border rounded-none ${
                 effectiveSessionFormat === 'RACE' && selectedFormat !== 'AUTO'
-                  ? 'bg-ferrari-red text-white shadow-[0_0_12px_rgba(239,26,45,0.6)]'
-                  : 'text-white/60 hover:text-white'
+                  ? 'bg-[#E10600] text-white border-[#E10600]'
+                  : 'border-transparent text-[#858585] hover:text-[#F5F5F5] hover:bg-[#1B1B1B]'
               }`}
             >
               RACE
             </button>
             <button
               onClick={() => setSelectedFormat('QUALIFYING')}
-              className={`px-2.5 py-1 rounded-lg font-mono text-[11px] font-bold tracking-wider transition-all ${
+              className={`px-3 py-1 font-mono text-[11px] font-bold tracking-wider transition-colors border rounded-none ${
                 effectiveSessionFormat === 'QUALIFYING' && selectedFormat !== 'AUTO'
-                  ? 'bg-ferrari-red text-white shadow-[0_0_12px_rgba(239,26,45,0.6)]'
-                  : 'text-white/60 hover:text-white'
+                  ? 'bg-[#E10600] text-white border-[#E10600]'
+                  : 'border-transparent text-[#858585] hover:text-[#F5F5F5] hover:bg-[#1B1B1B]'
               }`}
             >
               QUALIFYING (Q1/2/3)
             </button>
             <button
               onClick={() => setSelectedFormat('PRACTICE')}
-              className={`px-2.5 py-1 rounded-lg font-mono text-[11px] font-bold tracking-wider transition-all ${
+              className={`px-3 py-1 font-mono text-[11px] font-bold tracking-wider transition-colors border rounded-none ${
                 effectiveSessionFormat === 'PRACTICE' && selectedFormat !== 'AUTO'
-                  ? 'bg-ferrari-red text-white shadow-[0_0_12px_rgba(239,26,45,0.6)]'
-                  : 'text-white/60 hover:text-white'
+                  ? 'bg-[#E10600] text-white border-[#E10600]'
+                  : 'border-transparent text-[#858585] hover:text-[#F5F5F5] hover:bg-[#1B1B1B]'
               }`}
             >
               PRACTICE (FP1/2/3)
             </button>
             <button
               onClick={() => setSelectedFormat('SPRINT')}
-              className={`px-2.5 py-1 rounded-lg font-mono text-[11px] font-bold tracking-wider transition-all ${
+              className={`px-3 py-1 font-mono text-[11px] font-bold tracking-wider transition-colors border rounded-none ${
                 effectiveSessionFormat === 'SPRINT' && selectedFormat !== 'AUTO'
-                  ? 'bg-ferrari-red text-white shadow-[0_0_12px_rgba(239,26,45,0.6)]'
-                  : 'text-white/60 hover:text-white'
+                  ? 'bg-[#E10600] text-white border-[#E10600]'
+                  : 'border-transparent text-[#858585] hover:text-[#F5F5F5] hover:bg-[#1B1B1B]'
               }`}
             >
               SPRINT (100KM)
             </button>
             <button
               onClick={() => setSelectedFormat('SPRINT_QUALIFYING')}
-              className={`px-2.5 py-1 rounded-lg font-mono text-[11px] font-bold tracking-wider transition-all ${
+              className={`px-3 py-1 font-mono text-[11px] font-bold tracking-wider transition-colors border rounded-none ${
                 effectiveSessionFormat === 'SPRINT_QUALIFYING' && selectedFormat !== 'AUTO'
-                  ? 'bg-ferrari-red text-white shadow-[0_0_12px_rgba(239,26,45,0.6)]'
-                  : 'text-white/60 hover:text-white'
+                  ? 'bg-[#E10600] text-white border-[#E10600]'
+                  : 'border-transparent text-[#858585] hover:text-[#F5F5F5] hover:bg-[#1B1B1B]'
               }`}
             >
               SPRINT QUALI
@@ -580,52 +580,52 @@ export const PitWallCommandView: React.FC = () => {
           {/* Right: Countdown Clock, Weather Sensors & Layout Modes */}
           <div className="flex items-center gap-3">
             {/* Session Countdown Clock */}
-            <div className="flex items-center gap-2 px-3 py-1 rounded-lg bg-black/50 border border-white/10 font-mono">
-              <Clock className="w-3.5 h-3.5 text-ferrari-yellow animate-spin-slow" />
+            <div className="flex items-center gap-2.5 px-3 py-1 bg-[#111111] border border-[#292929] font-mono rounded-none">
+              <Clock className="w-3.5 h-3.5 text-[#FED500]" />
               <div className="flex flex-col">
-                <span className="text-[9px] text-white/50 tracking-widest uppercase">
+                <span className="text-[9px] text-[#858585] tracking-widest uppercase">
                   {isUpcomingWithinWindow
                     ? `COUNTDOWN TO ${effectiveSessionFormat} (11:30 PM IST)`
                     : clock?.extrapolating
                     ? 'SESSION REMAINING'
                     : 'SESSION CLOCK'}
                 </span>
-                <span className="text-sm font-bold text-ferrari-yellow tracking-wider">
+                <span className="text-sm font-bold text-[#FED500] tracking-wider tabular-nums">
                   {remainingTimeDisplay}
                 </span>
               </div>
             </div>
 
-            {/* Weather Sensor Mini Pill */}
+            {/* Weather Sensor Technical Block */}
             {weather && (
-              <div className="hidden lg:flex items-center gap-3 px-3 py-1 rounded-lg bg-black/40 border border-white/10 text-xs font-mono">
-                <div className="flex items-center gap-1 text-white/80">
+              <div className="hidden lg:flex items-center gap-3 px-3 py-1.5 bg-[#111111] border border-[#292929] text-xs font-mono rounded-none">
+                <div className="flex items-center gap-1.5 text-[#D8D8D8]">
                   <Flame className="w-3.5 h-3.5 text-orange-400" />
-                  <span>TRK: <strong className="text-white">{weather.TrackTemp}°C</strong></span>
+                  <span>TRK: <strong className="text-white tabular-nums">{weather.TrackTemp}°C</strong></span>
                 </div>
-                <div className="flex items-center gap-1 text-white/80">
+                <div className="flex items-center gap-1.5 text-[#D8D8D8]">
                   <Activity className="w-3.5 h-3.5 text-sky-400" />
-                  <span>AIR: <strong className="text-white">{weather.AirTemp}°C</strong></span>
+                  <span>AIR: <strong className="text-white tabular-nums">{weather.AirTemp}°C</strong></span>
                 </div>
-                <div className="flex items-center gap-1 text-white/80">
+                <div className="flex items-center gap-1.5 text-[#D8D8D8]">
                   <Compass className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>WIND: <strong className="text-white">{weather.WindSpeed}km/h</strong></span>
+                  <span>WIND: <strong className="text-white tabular-nums">{weather.WindSpeed}km/h</strong></span>
                 </div>
               </div>
             )}
 
             {/* Layout Mode Switcher */}
-            <div className="flex items-center gap-1 p-0.5 rounded-lg bg-black/40 border border-white/10">
+            <div className="flex items-center bg-[#111111] border border-[#292929] p-0.5 rounded-none">
               <button
                 onClick={() => {
                   setLayoutMode('SPLIT')
                   setVideoMode('big')
                 }}
                 title="Big Video & Timing Split (7 cols / 5 cols)"
-                className={`p-1.5 rounded ${
+                className={`p-1.5 transition-colors rounded-none ${
                   layoutMode === 'SPLIT' && videoMode !== 'theater'
-                    ? 'bg-white/20 text-white font-bold'
-                    : 'text-white/40 hover:text-white'
+                    ? 'bg-[#292929] text-white font-bold'
+                    : 'text-[#858585] hover:text-white'
                 }`}
               >
                 <Layers className="w-4 h-4" />
@@ -636,19 +636,19 @@ export const PitWallCommandView: React.FC = () => {
                   setVideoMode('theater')
                 }}
                 title="Cinematic Big Video (Full 12 Columns Across Top)"
-                className={`p-1.5 rounded ${
+                className={`p-1.5 transition-colors rounded-none ${
                   layoutMode === 'CINEMA' || videoMode === 'theater'
-                    ? 'bg-amber-500/30 text-amber-300 font-bold border border-amber-500/50'
-                    : 'text-white/40 hover:text-white'
+                    ? 'bg-[#FED500] text-black font-bold'
+                    : 'text-[#858585] hover:text-white'
                 }`}
               >
-                <Tv className="w-4 h-4 text-ferrari-yellow" />
+                <Tv className="w-4 h-4" />
               </button>
               <button
                 onClick={() => setLayoutMode('TOWER_FOCUS')}
                 title="Timing Tower Expanded"
-                className={`p-1.5 rounded ${
-                  layoutMode === 'TOWER_FOCUS' ? 'bg-white/20 text-white' : 'text-white/40 hover:text-white'
+                className={`p-1.5 transition-colors rounded-none ${
+                  layoutMode === 'TOWER_FOCUS' ? 'bg-[#292929] text-white' : 'text-[#858585] hover:text-white'
                 }`}
               >
                 <Sliders className="w-4 h-4" />
@@ -656,8 +656,8 @@ export const PitWallCommandView: React.FC = () => {
               <button
                 onClick={() => setLayoutMode('COCKPIT_HUD')}
                 title="Single Driver Cockpit HUD"
-                className={`p-1.5 rounded ${
-                  layoutMode === 'COCKPIT_HUD' ? 'bg-white/20 text-white' : 'text-white/40 hover:text-white'
+                className={`p-1.5 transition-colors rounded-none ${
+                  layoutMode === 'COCKPIT_HUD' ? 'bg-[#292929] text-white' : 'text-[#858585] hover:text-white'
                 }`}
               >
                 <Gauge className="w-4 h-4" />
@@ -667,18 +667,18 @@ export const PitWallCommandView: React.FC = () => {
         </div>
 
         {/* Real-time Track Status & Active Audio Banner */}
-        <div className="max-w-[1920px] mx-auto mt-2 pt-2 border-t border-white/5 flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
+        <div className="max-w-[1920px] mx-auto mt-2 pt-2 border-t border-[#292929] flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
           <div className="flex items-center gap-2">
-            <div className={`px-2.5 py-0.5 rounded border text-[11px] font-bold tracking-wider ${trackStatusBadge.bg}`}>
+            <div className={`px-2.5 py-1 border text-[11px] font-bold tracking-wider rounded-none ${trackStatusBadge.bg}`}>
               {trackStatusBadge.label}
             </div>
             {raceControlLogs.length > 0 && (
-              <div className="text-white/70 flex items-center gap-1.5 truncate max-w-xl">
-                <AlertTriangle className="w-3.5 h-3.5 text-yellow-400 shrink-0" />
-                <span className="text-white/40">
+              <div className="text-[#D8D8D8] flex items-center gap-2 truncate max-w-xl">
+                <AlertTriangle className="w-3.5 h-3.5 text-[#FED500] shrink-0" />
+                <span className="text-[#858585] font-mono">
                   [{raceControlLogs[0]?.time ? (raceControlLogs[0].time.includes('T') ? raceControlLogs[0].time.split('T')[1]?.slice(0, 8) : raceControlLogs[0].time.slice(0, 8)) : 'LIVE'}]:
                 </span>
-                <span className="text-white/90 truncate">{raceControlLogs[0]?.message}</span>
+                <span className="text-[#F5F5F5] truncate">{raceControlLogs[0]?.message}</span>
               </div>
             )}
           </div>
@@ -686,7 +686,7 @@ export const PitWallCommandView: React.FC = () => {
           <div className="flex items-center gap-4 text-[11px]">
             {/* Live Playing Radio Indicator */}
             {activeRadioAudio && (
-              <div className="flex items-center gap-2 px-2.5 py-0.5 rounded bg-purple-500/20 border border-purple-500/40 text-purple-300">
+              <div className="flex items-center gap-2 px-2.5 py-1 bg-purple-500/15 border border-purple-500/50 text-purple-300 rounded-none">
                 <Volume2 className="w-3.5 h-3.5 animate-pulse text-purple-400" />
                 <span>
                   TRANSMITTING: #{activeRadioAudio.driverNumber} {activeRadioAudio.name}
@@ -703,7 +703,7 @@ export const PitWallCommandView: React.FC = () => {
                       }
                     }
                   }}
-                  className="ml-1 p-0.5 hover:text-white"
+                  className="ml-1 p-0.5 hover:text-white rounded-none"
                 >
                   {isAudioPlaying ? <Pause className="w-3 h-3" /> : <Play className="w-3 h-3" />}
                 </button>
@@ -744,10 +744,10 @@ export const PitWallCommandView: React.FC = () => {
             }`}
           >
             {/* Big Video Stage Controls */}
-            <div className="flex items-center justify-between p-2.5 rounded-xl bg-[#0B0F19] border border-white/10">
+            <div className="flex items-center justify-between p-2.5 bg-[#111111] border border-[#292929] rounded-none">
               <div className="flex items-center gap-2">
-                <div className="flex items-center gap-2 px-2.5 py-1 rounded-lg bg-red-600/20 border border-red-500/40 text-red-400 font-mono text-xs font-bold">
-                  <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
+                <div className="flex items-center gap-2 px-2.5 py-1 bg-[#E10600]/15 border border-[#E10600]/50 text-[#E10600] font-mono text-xs font-bold rounded-none">
+                  <span className="w-2 h-2 rounded-none bg-[#E10600] animate-pulse" />
                   <span>LIVE BROADCAST FEED</span>
                 </div>
 
@@ -756,10 +756,10 @@ export const PitWallCommandView: React.FC = () => {
                     setVideoMode('big')
                     if (layoutMode === 'CINEMA') setLayoutMode('SPLIT')
                   }}
-                  className={`px-3 py-1 rounded-lg text-xs font-mono font-bold flex items-center gap-1.5 transition-colors ${
+                  className={`px-3 py-1 text-xs font-mono font-bold flex items-center gap-1.5 transition-colors border rounded-none ${
                     videoMode === 'big' && layoutMode !== 'CINEMA'
-                      ? 'bg-ferrari-red text-white shadow-lg'
-                      : 'text-white/60 hover:text-white bg-white/5'
+                      ? 'bg-[#E10600] text-white border-[#E10600]'
+                      : 'text-[#858585] hover:text-white bg-[#1B1B1B] border-[#292929]'
                   }`}
                 >
                   <Tv className="w-3.5 h-3.5" />
@@ -771,10 +771,10 @@ export const PitWallCommandView: React.FC = () => {
                     setVideoMode('theater')
                     setLayoutMode('CINEMA')
                   }}
-                  className={`px-3 py-1 rounded-lg text-xs font-mono font-bold flex items-center gap-1.5 transition-colors ${
+                  className={`px-3 py-1 text-xs font-mono font-bold flex items-center gap-1.5 transition-colors border rounded-none ${
                     videoMode === 'theater' || layoutMode === 'CINEMA'
-                      ? 'bg-gradient-to-r from-amber-500 to-amber-600 text-black font-black shadow-lg'
-                      : 'text-white/60 hover:text-white bg-white/5'
+                      ? 'bg-[#FED500] text-black font-black border-[#FED500]'
+                      : 'text-[#858585] hover:text-white bg-[#1B1B1B] border-[#292929]'
                   }`}
                 >
                   <Maximize2 className="w-3.5 h-3.5" />
@@ -790,14 +790,14 @@ export const PitWallCommandView: React.FC = () => {
                       setActiveStreamProvider(backupStreamProvider)
                       setBackupStreamProvider(temp)
                     }}
-                    className="px-2.5 py-1 rounded-lg bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-neutral-300 transition text-[10px] flex items-center gap-1.5"
+                    className="px-2.5 py-1 bg-[#1B1B1B] hover:bg-[#292929] border border-[#292929] text-[#D8D8D8] transition text-[10px] flex items-center gap-1.5 rounded-none"
                     title="Switch to backup stream provider"
                   >
-                    <Layers className="w-3 h-3 text-ferrari-yellow" />
+                    <Layers className="w-3 h-3 text-[#FED500]" />
                     <span>BACKUP FEED</span>
                   </button>
                 )}
-                <span className="text-white/40 hidden sm:inline">
+                <span className="text-[#858585] hidden sm:inline font-mono">
                   ACTIVE DRIVER: #{selectedDriver?.driver_number || '16'} {selectedDriver?.acronym || 'LEC'}
                 </span>
               </div>
@@ -805,7 +805,7 @@ export const PitWallCommandView: React.FC = () => {
 
             {/* BIG LIVE VIDEO DISPLAY (Full Width, No 2D tracker side-by-side) */}
             <div
-              className={`rounded-2xl overflow-hidden border border-white/10 bg-black w-full shadow-2xl relative ${
+              className={`overflow-hidden border border-[#292929] bg-black w-full relative rounded-none ${
                 layoutMode === 'CINEMA' || videoMode === 'theater'
                   ? 'aspect-[21/9] min-h-[500px] lg:min-h-[640px]'
                   : 'aspect-video min-h-[460px] md:min-h-[520px] xl:min-h-[580px]'
@@ -828,22 +828,22 @@ export const PitWallCommandView: React.FC = () => {
               {/* Left Column: FOM LIVE TEAM RADIO STATION + WEATHER RADAR DIRECTLY BELOW */}
               <div className="flex flex-col gap-3">
                 {/* FOM LIVE TEAM RADIO STATION */}
-                <div className="rounded-2xl border border-white/10 bg-[#0B0F19] p-3 flex flex-col min-h-[260px]">
-                  <div className="flex items-center justify-between pb-2 border-b border-white/10">
+                <div className="border border-[#292929] bg-[#111111] p-3 flex flex-col min-h-[260px] rounded-none">
+                  <div className="flex items-center justify-between pb-2 border-b border-[#292929]">
                     <div className="flex items-center gap-2">
-                      <Radio className="w-4 h-4 text-ferrari-yellow" />
-                      <h3 className="font-mono text-xs font-black tracking-wider uppercase text-white">
+                      <Radio className="w-4 h-4 text-[#FED500]" />
+                      <h3 className="font-mono text-xs font-black tracking-wider uppercase text-[#F5F5F5]">
                         FOM LIVE TEAM RADIO COMMS
                       </h3>
                     </div>
-                    <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400">
+                    <span className="text-[10px] font-mono px-2 py-0.5 border border-emerald-500/40 bg-emerald-500/20 text-emerald-400 rounded-none tabular-nums">
                       {radioMessages.length} CAPTURES
                     </span>
                   </div>
 
                   <div className="mt-2 space-y-1.5 overflow-y-auto max-h-[260px] pr-1">
                     {radioMessages.length === 0 ? (
-                      <div className="p-6 text-center text-white/40 text-xs font-mono">
+                      <div className="p-6 text-center text-[#858585] text-xs font-mono">
                         Awaiting live team radio broadcasts from F1 race control...
                       </div>
                     ) : (
@@ -854,30 +854,30 @@ export const PitWallCommandView: React.FC = () => {
                           <div
                             key={msg.audio_url || idx}
                             onClick={() => handlePlayRadio(msg)}
-                            className={`p-2 rounded-xl border transition-all cursor-pointer flex items-center justify-between ${
+                            className={`p-2 border transition-all cursor-pointer flex items-center justify-between rounded-none ${
                               isThisPlaying
                                 ? 'bg-purple-900/30 border-purple-500/60 shadow-[0_0_12px_rgba(168,85,247,0.3)]'
-                                : 'bg-black/30 border-white/5 hover:border-white/20 hover:bg-white/5'
+                                : 'bg-[#1B1B1B]/60 border-[#292929] hover:border-[#858585]/40 hover:bg-[#1B1B1B]'
                             }`}
                           >
                             <div className="flex items-center gap-2.5">
-                              <button className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-white shrink-0">
+                              <button className="w-7 h-7 bg-[#292929] hover:bg-[#383838] flex items-center justify-center text-white shrink-0 rounded-none">
                                 {isThisPlaying ? (
                                   <Pause className="w-3.5 h-3.5 text-purple-400" />
                                 ) : (
-                                  <Play className="w-3.5 h-3.5 text-white/80" />
+                                  <Play className="w-3.5 h-3.5 text-[#F5F5F5]" />
                                 )}
                               </button>
                               <div className="flex flex-col">
                                 <div className="flex items-center gap-1.5">
-                                  <span className="font-mono font-bold text-xs text-white">
+                                  <span className="font-mono font-bold text-xs text-[#F5F5F5]">
                                     #{msg.driver_number} {msg.acronym || msg.name}
                                   </span>
-                                  <span className="text-[10px] font-mono px-1 rounded bg-white/10 text-white/60">
+                                  <span className="text-[10px] font-mono px-1 border border-[#292929] bg-[#292929]/50 text-[#858585] rounded-none">
                                     {msg.team}
                                   </span>
                                 </div>
-                                <span className="text-[10px] font-mono text-white/40">
+                                <span className="text-[10px] font-mono text-[#858585] tabular-nums">
                                   {msg.timestamp ? new Date(msg.timestamp).toLocaleTimeString() : 'RECENT'}
                                 </span>
                               </div>
@@ -885,9 +885,9 @@ export const PitWallCommandView: React.FC = () => {
 
                             {isThisPlaying && (
                               <div className="flex items-center gap-0.5">
-                                <span className="w-1 h-3 bg-purple-400 animate-pulse rounded-full" />
-                                <span className="w-1 h-5 bg-purple-400 animate-pulse delay-75 rounded-full" />
-                                <span className="w-1 h-2 bg-purple-400 animate-pulse delay-150 rounded-full" />
+                                <span className="w-1 h-3 bg-purple-400 animate-pulse rounded-none" />
+                                <span className="w-1 h-5 bg-purple-400 animate-pulse delay-75 rounded-none" />
+                                <span className="w-1 h-2 bg-purple-400 animate-pulse delay-150 rounded-none" />
                               </div>
                             )}
                           </div>
@@ -908,15 +908,15 @@ export const PitWallCommandView: React.FC = () => {
               </div>
 
               {/* 4-WHEEL TYRE THERMALS & ICE COCKPIT */}
-              <div className="rounded-2xl border border-white/10 bg-[#0B0F19] p-3 flex flex-col">
-                <div className="flex items-center justify-between pb-2 border-b border-white/10">
+              <div className="border border-[#292929] bg-[#111111] p-3 flex flex-col rounded-none">
+                <div className="flex items-center justify-between pb-2 border-b border-[#292929]">
                   <div className="flex items-center gap-2">
-                    <Activity className="w-4 h-4 text-red-500" />
-                    <h3 className="font-mono text-xs font-black tracking-wider uppercase text-white">
+                    <Activity className="w-4 h-4 text-[#E10600]" />
+                    <h3 className="font-mono text-xs font-black tracking-wider uppercase text-[#F5F5F5]">
                       DRIVER HUD // #{selectedDriver?.driver_number || '16'} {selectedDriver?.acronym || 'LEC'}
                     </h3>
                   </div>
-                  <span className="text-[10px] font-mono text-ferrari-yellow">
+                  <span className="text-[10px] font-mono text-[#FED500] font-bold">
                     {selectedDriver?.team || 'Ferrari'}
                   </span>
                 </div>
@@ -945,16 +945,16 @@ export const PitWallCommandView: React.FC = () => {
           }`}
         >
           {/* Header & Leaderboard Filters */}
-          <div className="p-3 rounded-2xl bg-[#0B0F19] border border-white/10 flex flex-wrap items-center justify-between gap-3">
+          <div className="p-3 bg-[#111111] border border-[#292929] flex flex-wrap items-center justify-between gap-3 rounded-none">
             <div className="flex items-center gap-2">
-              <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-              <h2 className="font-mono text-sm font-black tracking-wider uppercase text-white">
+              <span className="w-2 h-2 rounded-none bg-emerald-500 animate-pulse" />
+              <h2 className="font-mono text-sm font-black tracking-wider uppercase text-[#F5F5F5]">
                 OFFICIAL FIA TIMING TOWER
               </h2>
-              <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-white/10 text-white/70">
+              <span className="text-[11px] font-mono px-2 py-0.5 border border-[#292929] bg-[#1B1B1B] text-[#D8D8D8] rounded-none tabular-nums">
                 {displayedDrivers.length} CARS
               </span>
-              <span className="text-[10px] font-mono px-2 py-0.5 rounded bg-ferrari-red/20 text-ferrari-red font-bold uppercase">
+              <span className="text-[10px] font-mono px-2 py-0.5 border border-[#E10600]/40 bg-[#E10600]/15 text-[#E10600] font-bold uppercase rounded-none">
                 {effectiveSessionFormat} FORMAT
               </span>
             </div>
@@ -962,23 +962,23 @@ export const PitWallCommandView: React.FC = () => {
             <div className="flex items-center gap-2">
               {/* Search Driver */}
               <div className="relative">
-                <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-white/40" />
+                <Search className="w-3.5 h-3.5 absolute left-2.5 top-1/2 -translate-y-1/2 text-[#858585]" />
                 <input
                   type="text"
                   placeholder="Filter driver/team..."
                   value={filterQuery}
                   onChange={(e) => setFilterQuery(e.target.value)}
-                  className="pl-8 pr-3 py-1 rounded-lg bg-black/40 border border-white/10 text-xs font-mono text-white placeholder-white/40 focus:outline-none focus:border-ferrari-red"
+                  className="pl-8 pr-3 py-1 bg-[#1B1B1B] border border-[#292929] text-xs font-mono text-[#F5F5F5] placeholder-[#858585] focus:outline-none focus:border-[#E10600] rounded-none"
                 />
               </div>
 
               {/* Ferrari Tifosi Filter */}
               <button
                 onClick={() => setFerrariOnlyFilter(!ferrariOnlyFilter)}
-                className={`px-2.5 py-1 rounded-lg font-mono text-xs font-bold transition-all ${
+                className={`px-3 py-1 font-mono text-xs font-bold transition-all border rounded-none ${
                   ferrariOnlyFilter
-                    ? 'bg-ferrari-red text-white shadow-[0_0_12px_rgba(239,26,45,0.6)]'
-                    : 'bg-white/5 text-white/60 hover:text-white border border-white/10'
+                    ? 'bg-[#E10600] text-white border-[#E10600]'
+                    : 'bg-[#1B1B1B] text-[#858585] hover:text-[#F5F5F5] border-[#292929]'
                 }`}
               >
                 FERRARI ONLY
@@ -987,50 +987,50 @@ export const PitWallCommandView: React.FC = () => {
           </div>
 
           {/* ADAPTIVE TABLE WORKSTATION */}
-          <div className="rounded-2xl border border-white/10 bg-[#0A0D15] overflow-hidden shadow-2xl flex-1 flex flex-col">
+          <div className="border border-[#292929] bg-[#0E1017] overflow-hidden flex-1 flex flex-col rounded-none">
             <div className="overflow-x-auto flex-1">
               <table className="w-full text-left font-mono border-collapse text-xs">
                 <thead>
-                  <tr className="bg-[#0E1321] text-white/60 text-[10px] tracking-wider uppercase border-b border-white/10 sticky top-0 z-20">
-                    <th className="py-2.5 px-2 text-center w-12">POS</th>
-                    <th className="py-2.5 px-2">DRIVER</th>
+                  <tr className="bg-[#141824] text-[#858585] text-[10px] tracking-wider uppercase border-b border-[#292929] sticky top-0 z-20">
+                    <th className="py-2.5 px-2 text-center w-12 font-bold">POS</th>
+                    <th className="py-2.5 px-2 font-bold">DRIVER</th>
                     {effectiveSessionFormat === 'SPRINT' && (
-                      <th className="py-2.5 px-2 text-center">PTS</th>
+                      <th className="py-2.5 px-2 text-center font-bold">PTS</th>
                     )}
-                    <th className="py-2.5 px-2">TYRE</th>
+                    <th className="py-2.5 px-2 font-bold">TYRE</th>
                     {effectiveSessionFormat === 'RACE' && (
                       <>
-                        <th className="py-2.5 px-2 text-right">GAP</th>
-                        <th className="py-2.5 px-2 text-right">INT</th>
-                        <th className="py-2.5 px-2 text-right">LAST LAP</th>
+                        <th className="py-2.5 px-2 text-right font-bold">GAP</th>
+                        <th className="py-2.5 px-2 text-right font-bold">INT</th>
+                        <th className="py-2.5 px-2 text-right font-bold">LAST LAP</th>
                       </>
                     )}
                     {(effectiveSessionFormat === 'QUALIFYING' ||
                       effectiveSessionFormat === 'SPRINT_QUALIFYING') && (
                       <>
-                        <th className="py-2.5 px-2 text-right">BEST LAP</th>
-                        <th className="py-2.5 px-2 text-right">GAP TO P1</th>
-                        <th className="py-2.5 px-2 text-right">CUTOFF DELTA</th>
+                        <th className="py-2.5 px-2 text-right font-bold">BEST LAP</th>
+                        <th className="py-2.5 px-2 text-right font-bold">GAP TO P1</th>
+                        <th className="py-2.5 px-2 text-right font-bold">CUTOFF DELTA</th>
                       </>
                     )}
                     {effectiveSessionFormat === 'PRACTICE' && (
                       <>
-                        <th className="py-2.5 px-2 text-right">BEST LAP</th>
-                        <th className="py-2.5 px-2 text-right">GAP TO P1</th>
-                        <th className="py-2.5 px-2 text-center">LAPS</th>
+                        <th className="py-2.5 px-2 text-right font-bold">BEST LAP</th>
+                        <th className="py-2.5 px-2 text-right font-bold">GAP TO P1</th>
+                        <th className="py-2.5 px-2 text-center font-bold">LAPS</th>
                       </>
                     )}
-                    <th className="py-2.5 px-2 text-right">S1</th>
-                    <th className="py-2.5 px-2 text-right">S2</th>
-                    <th className="py-2.5 px-2 text-right">S3</th>
-                    <th className="py-2.5 px-2 text-center">MICRO SECTORS</th>
+                    <th className="py-2.5 px-2 text-right font-bold">S1</th>
+                    <th className="py-2.5 px-2 text-right font-bold">S2</th>
+                    <th className="py-2.5 px-2 text-right font-bold">S3</th>
+                    <th className="py-2.5 px-2 text-center font-bold">MICRO SECTORS</th>
                     {effectiveSessionFormat === 'RACE' && (
-                      <th className="py-2.5 px-2 text-center">PITS</th>
+                      <th className="py-2.5 px-2 text-center font-bold">PITS</th>
                     )}
-                    <th className="py-2.5 px-2 text-right">SPEED</th>
+                    <th className="py-2.5 px-2 text-right font-bold">SPEED</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-white/5">
+                <tbody className="divide-y divide-[#1F2433]">
                   {displayedDrivers.map((driver, index) => {
                     const posNum = parseInt(driver.position || String(index + 1), 10) || (index + 1)
                     const isSelected = driver.driver_number === selectedDriverNumber
@@ -1061,27 +1061,27 @@ export const PitWallCommandView: React.FC = () => {
                           onClick={() => setSelectedDriverNumber(driver.driver_number)}
                           className={`cursor-pointer transition-colors ${
                             isSelected
-                              ? 'bg-ferrari-red/25 border-l-4 border-l-ferrari-red shadow-[0_0_15px_rgba(239,26,45,0.4)]'
+                              ? 'bg-[#E10600]/25 border-l-2 border-l-[#E10600]'
                               : isFerrari
-                              ? 'bg-gradient-to-r from-red-600/35 via-red-950/20 to-transparent border-l-4 border-l-ferrari-red hover:bg-red-900/30 font-bold'
+                              ? 'bg-gradient-to-r from-[#E10600]/20 via-[#E10600]/5 to-transparent border-l-2 border-l-[#E10600] hover:bg-[#E10600]/25'
                               : isDangerZone
-                              ? 'bg-rose-950/10 hover:bg-rose-950/25'
-                              : 'hover:bg-white/5'
+                              ? 'bg-rose-950/15 hover:bg-rose-950/30'
+                              : 'hover:bg-[#1A1F2E]'
                           }`}
                         >
                           {/* POS */}
                           <td className="py-2.5 px-2 text-center font-bold">
                             <span
-                              className={`inline-block w-6 text-center ${
+                              className={`inline-block w-6 text-center tabular-nums ${
                                 isFerrari
                                   ? 'text-white font-black'
                                   : posNum === 1
-                                  ? 'text-ferrari-yellow font-black'
+                                  ? 'text-[#FED500] font-black'
                                   : posNum <= 3
-                                  ? 'text-white font-bold'
+                                  ? 'text-[#F5F5F5] font-bold'
                                   : isDangerZone
                                   ? 'text-red-400 font-bold'
-                                  : 'text-white/70'
+                                  : 'text-[#858585]'
                               }`}
                             >
                               {posNum}
@@ -1092,10 +1092,10 @@ export const PitWallCommandView: React.FC = () => {
                           <td className="py-2.5 px-2">
                             <div className="flex items-center gap-2">
                               <span
-                                className="w-1.5 h-4 rounded-full shrink-0"
+                                className="w-1 h-3.5 rounded-none shrink-0"
                                 style={{
                                   backgroundColor: isFerrari
-                                    ? '#EF1A2D'
+                                    ? '#E10600'
                                     : driver.team_colour
                                     ? `#${driver.team_colour}`
                                     : '#555',
@@ -1103,29 +1103,29 @@ export const PitWallCommandView: React.FC = () => {
                               />
                               <div className="flex flex-col">
                                 <div className="flex items-center gap-1.5">
-                                  <span className={`font-bold tracking-wider ${isFerrari ? 'text-white font-black' : 'text-white'}`}>
+                                  <span className={`font-bold tracking-wider ${isFerrari ? 'text-white font-black' : 'text-[#F5F5F5]'}`}>
                                     {driver.acronym || driver.name}
                                   </span>
-                                  <span className={`text-[10px] ${isFerrari ? 'text-white/90 font-mono font-bold' : 'text-white/40'}`}>
+                                  <span className={`text-[10px] tabular-nums ${isFerrari ? 'text-white/90 font-mono font-bold' : 'text-[#858585]'}`}>
                                     #{driver.driver_number}
                                   </span>
                                   {isFerrari && (
-                                    <span className="px-1.5 py-0.2 rounded bg-ferrari-red text-white text-[8px] font-mono font-black shadow-[0_0_8px_rgba(239,26,45,0.8)] tracking-wider">
+                                    <span className="px-1.5 py-0.2 border border-[#E10600] bg-[#E10600] text-white text-[8px] font-mono font-black tracking-wider rounded-none">
                                       FERRARI
                                     </span>
                                   )}
                                   {driver.in_pit && (
-                                    <span className="px-1 py-0.2 rounded bg-amber-500/20 text-amber-300 text-[9px] uppercase font-bold">
+                                    <span className="px-1 py-0.2 border border-amber-500/40 bg-amber-500/20 text-amber-300 text-[9px] uppercase font-bold rounded-none">
                                       IN PIT
                                     </span>
                                   )}
                                   {driver.retired && (
-                                    <span className="px-1 py-0.2 rounded bg-red-600/30 text-red-400 text-[9px] uppercase font-bold">
+                                    <span className="px-1 py-0.2 border border-red-500/40 bg-red-600/30 text-red-400 text-[9px] uppercase font-bold rounded-none">
                                       OUT
                                     </span>
                                   )}
                                 </div>
-                                <span className={`text-[9px] truncate max-w-[130px] ${isFerrari ? 'text-ferrari-yellow font-bold' : 'text-white/50'}`}>
+                                <span className={`text-[9px] truncate max-w-[130px] ${isFerrari ? 'text-[#FED500] font-bold' : 'text-[#858585]'}`}>
                                   {isFerrari ? 'Scuderia Ferrari' : driver.team}
                                 </span>
                               </div>
@@ -1136,11 +1136,11 @@ export const PitWallCommandView: React.FC = () => {
                           {effectiveSessionFormat === 'SPRINT' && (
                             <td className="py-2.5 px-2 text-center">
                               {sprintPoints > 0 ? (
-                                <span className="px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold text-[10px]">
+                                <span className="px-1.5 py-0.5 border border-emerald-500/40 bg-emerald-500/20 text-emerald-400 font-bold text-[10px] rounded-none tabular-nums">
                                   +{sprintPoints}
                                 </span>
                               ) : (
-                                <span className="text-white/20 text-[10px]">0</span>
+                                <span className="text-[#858585]/40 text-[10px] tabular-nums">0</span>
                               )}
                             </td>
                           )}
@@ -1157,26 +1157,26 @@ export const PitWallCommandView: React.FC = () => {
                           {/* RACE SPECIFIC METRICS */}
                           {effectiveSessionFormat === 'RACE' && (
                             <>
-                              <td className="py-2.5 px-2 text-right font-medium">
+                              <td className="py-2.5 px-2 text-right font-medium tabular-nums">
                                 {driver.gap_to_leader ? (
-                                  <span className="text-white/80">{driver.gap_to_leader}</span>
+                                  <span className="text-[#D8D8D8]">{driver.gap_to_leader}</span>
                                 ) : posNum === 1 ? (
-                                  <span className="text-ferrari-yellow font-bold">LEADER</span>
+                                  <span className="text-[#FED500] font-bold">LEADER</span>
                                 ) : (
-                                  <span className="text-white/20">--</span>
+                                  <span className="text-[#858585]/40">--</span>
                                 )}
                               </td>
-                              <td className="py-2.5 px-2 text-right text-white/60">
+                              <td className="py-2.5 px-2 text-right text-[#858585] tabular-nums">
                                 {driver.interval || '--'}
                               </td>
-                              <td className="py-2.5 px-2 text-right">
+                              <td className="py-2.5 px-2 text-right tabular-nums">
                                 <span
                                   className={
                                     driver.last_lap_overall_best
                                       ? 'text-[#D070FF] font-bold'
                                       : driver.last_lap_personal_best
                                       ? 'text-emerald-400 font-bold'
-                                      : 'text-white/80'
+                                      : 'text-[#D8D8D8]'
                                   }
                                 >
                                   {driver.last_lap_time || '--.---'}
@@ -1189,21 +1189,21 @@ export const PitWallCommandView: React.FC = () => {
                           {(effectiveSessionFormat === 'QUALIFYING' ||
                             effectiveSessionFormat === 'SPRINT_QUALIFYING') && (
                             <>
-                              <td className="py-2.5 px-2 text-right font-bold text-white">
+                              <td className="py-2.5 px-2 text-right font-bold text-white tabular-nums">
                                 {driver.best_lap_time || '--.---'}
                               </td>
-                              <td className="py-2.5 px-2 text-right text-white/70">
+                              <td className="py-2.5 px-2 text-right text-[#D8D8D8] tabular-nums">
                                 {posNum === 1 ? (
-                                  <span className="text-ferrari-yellow font-black">POLE</span>
+                                  <span className="text-[#FED500] font-black">POLE</span>
                                 ) : driver.gap_to_leader ? (
                                   driver.gap_to_leader
                                 ) : (
                                   '--'
                                 )}
                               </td>
-                              <td className="py-2.5 px-2 text-right">
+                              <td className="py-2.5 px-2 text-right font-bold text-[10px]">
                                 {isDangerZone ? (
-                                  <span className="text-red-400 font-bold">DANGER ZONE</span>
+                                  <span className="text-red-400 font-bold border border-red-500/40 px-1 bg-red-950/40 rounded-none">KNOCKOUT</span>
                                 ) : (
                                   <span className="text-emerald-400 font-medium">SAFE</span>
                                 )}
@@ -1214,26 +1214,26 @@ export const PitWallCommandView: React.FC = () => {
                           {/* PRACTICE SPECIFIC METRICS */}
                           {effectiveSessionFormat === 'PRACTICE' && (
                             <>
-                              <td className="py-2.5 px-2 text-right font-bold text-white">
+                              <td className="py-2.5 px-2 text-right font-bold text-white tabular-nums">
                                 {driver.best_lap_time || '--.---'}
                               </td>
-                              <td className="py-2.5 px-2 text-right text-white/70">
+                              <td className="py-2.5 px-2 text-right text-[#D8D8D8] tabular-nums">
                                 {posNum === 1 ? 'P1' : driver.gap_to_leader || '--'}
                               </td>
-                              <td className="py-2.5 px-2 text-center text-white/70">
+                              <td className="py-2.5 px-2 text-center text-[#858585] tabular-nums">
                                 {driver.laps_completed ?? '--'}
                               </td>
                             </>
                           )}
 
                           {/* SECTOR 1, 2, 3 */}
-                          <td className="py-2.5 px-2 text-right">
+                          <td className="py-2.5 px-2 text-right tabular-nums">
                             {renderSectorTime(driver.sectors[0])}
                           </td>
-                          <td className="py-2.5 px-2 text-right">
+                          <td className="py-2.5 px-2 text-right tabular-nums">
                             {renderSectorTime(driver.sectors[1])}
                           </td>
-                          <td className="py-2.5 px-2 text-right">
+                          <td className="py-2.5 px-2 text-right tabular-nums">
                             {renderSectorTime(driver.sectors[2])}
                           </td>
 
@@ -1242,14 +1242,14 @@ export const PitWallCommandView: React.FC = () => {
                             <div className="flex items-center justify-center gap-0.5">
                               {driver.sectors.flatMap((sec, sIdx) =>
                                 (sec?.segments || []).map((seg, segIdx) => {
-                                  let bg = 'bg-neutral-800'
+                                  let bg = 'bg-[#1F2433]'
                                   if (seg.status === 2064) bg = 'bg-[#C048FF]' // Session fastest (Purple)
                                   else if (seg.status === 2048) bg = 'bg-[#00D084]' // Personal best (Green)
                                   else if (seg.status === 2049) bg = 'bg-[#FFD000]' // Normal (Yellow)
                                   return (
                                     <span
                                       key={`${sIdx}-${segIdx}`}
-                                      className={`w-1.5 h-3 rounded-[1px] ${bg}`}
+                                      className={`w-1.5 h-3 rounded-none ${bg}`}
                                     />
                                   )
                                 })
@@ -1259,23 +1259,23 @@ export const PitWallCommandView: React.FC = () => {
 
                           {/* PITS */}
                           {effectiveSessionFormat === 'RACE' && (
-                            <td className="py-2.5 px-2 text-center text-white/70">
+                            <td className="py-2.5 px-2 text-center text-[#858585] tabular-nums">
                               {driver.stint_number ? `${driver.stint_number - 1}` : '0'}
                             </td>
                           )}
 
                           {/* SPEED TRAP */}
-                          <td className="py-2.5 px-2 text-right text-white/60">
+                          <td className="py-2.5 px-2 text-right text-[#858585] tabular-nums">
                             {driver.speed_traps?.st ? `${driver.speed_traps.st} km/h` : '--'}
                           </td>
                         </tr>
 
                         {/* QUALIFYING DANGER ZONE CUT-OFF LINE DIVIDER */}
                         {isQualiCutoffRow && (
-                          <tr className="bg-red-500/10 border-y border-red-500/40">
+                          <tr className="bg-[#E10600]/10 border-y border-[#E10600]/40">
                             <td
                               colSpan={13}
-                              className="py-1 px-4 text-center font-mono font-bold text-[10px] tracking-widest text-red-400 uppercase"
+                              className="py-1 px-4 text-center font-mono font-bold text-[10px] tracking-widest text-[#E10600] uppercase"
                             >
                               ▼ ELIMINATION CUT-OFF LINE // DRIVERS BELOW FACE KNOCKOUT ▼
                             </td>
@@ -1301,13 +1301,13 @@ export const PitWallCommandView: React.FC = () => {
             </div>
 
             {/* Micro-Sectors Matrix Component Expandable Drawer */}
-            <div className="p-3 border-t border-white/10 bg-[#080B12]">
+            <div className="p-3 border-t border-[#292929] bg-[#0A0D13] rounded-none">
               <div className="flex items-center justify-between mb-2">
-                <span className="text-[11px] font-mono font-bold text-white/70 uppercase flex items-center gap-1.5">
-                  <Activity className="w-3.5 h-3.5 text-ferrari-yellow" />
+                <span className="text-[11px] font-mono font-bold text-[#D8D8D8] uppercase flex items-center gap-1.5">
+                  <Activity className="w-3.5 h-3.5 text-[#FED500]" />
                   DETAILED MICRO-SECTOR SECTOR METRICS (PURPLE = 2064, GREEN = 2048, YELLOW = 2049)
                 </span>
-                <span className="text-[10px] font-mono text-white/40">
+                <span className="text-[10px] font-mono text-[#858585]">
                   REAL-TIME FOM DATA STREAM
                 </span>
               </div>

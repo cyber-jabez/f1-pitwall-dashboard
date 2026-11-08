@@ -9,27 +9,20 @@ import {
 } from '../../services/streamingProviderService'
 import { openf1LiveClient } from '../../services/openf1LiveClient'
 import ShinyText from '../reactbits/ShinyText'
-import Magnet from '../reactbits/Magnet'
 import {
-  Settings,
   Tv,
-  FileText,
   Check,
   Plus,
   Trash2,
-  Activity,
   ShieldCheck,
   ShieldAlert,
-  AlertTriangle,
   RefreshCw,
   ExternalLink,
-  Layers,
   Power,
   Star,
   Key,
   Eye,
   EyeOff,
-  CheckCircle2,
 } from 'lucide-react'
 
 export const AdminDashboardView: React.FC = () => {
@@ -99,25 +92,19 @@ export const AdminDashboardView: React.FC = () => {
     reloadProviders()
   }
 
-  const handleSessionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    const session = e.target.value
-    setCurrentSession(session)
-    streamingProviderService.setCurrentSession(session)
-  }
-
   const handleCreateProvider = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!newName.trim() || !newUrl.trim()) return
+    if (!newName || !newUrl) return
 
     streamingProviderService.addProvider({
-      name: newName.trim(),
+      name: newName,
       type: newType,
-      streamUrl: newUrl.trim(),
+      streamUrl: newUrl,
       authorizationStatus: newAuthStatus,
       isEnabled: true,
-      isPrimary: providers.length === 0,
-      notes: newNotes.trim() || 'Custom administrator configured stream endpoint.',
+      isPrimary: false,
       healthStatus: 'UNTESTED',
+      notes: newNotes,
     })
 
     setNewName('')
@@ -128,25 +115,30 @@ export const AdminDashboardView: React.FC = () => {
     reloadProviders()
   }
 
+  const handleSessionChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    const val = e.target.value
+    setCurrentSession(val)
+    streamingProviderService.setCurrentSession(val)
+  }
+
   const handleResetDefaults = () => {
-    if (confirm('Reset streaming provider configuration to platform defaults?')) {
+    if (confirm('Reset stream providers to official defaults?')) {
       streamingProviderService.resetToDefaults()
       reloadProviders()
     }
   }
 
-  // Articles CRUD
   const handleAddArticle = (e: React.FormEvent) => {
     e.preventDefault()
-    if (!newTitle.trim()) return
+    if (!newTitle) return
     const article: NewsArticle = {
-      id: `article-${Date.now()}`,
+      id: `admin-${Date.now()}`,
       title: newTitle,
-      summary: newSummary || 'Breaking update from the Maranello pit wall.',
-      content: newSummary || 'Full details being telemetry-verified.',
       category: newCategory,
-      author: 'Editorial Desk',
-      date: new Date().toISOString().split('T')[0],
+      summary: newSummary,
+      content: newSummary,
+      author: 'Scuderia Ferrari Press Office',
+      date: 'Just now',
       readingTime: '2 min read',
       image: 'https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?auto=format&fit=crop&w=800&q=80',
       source: 'Scuderia Ferrari Official Dispatch',
@@ -164,43 +156,43 @@ export const AdminDashboardView: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-[#06070A] text-white pt-20 pb-16 px-4 sm:px-6 lg:px-8">
-      {/* Header */}
-      <div className="max-w-7xl mx-auto mb-8 flex flex-wrap items-center justify-between gap-4 border-b border-ferrari-border/70 pb-4">
+    <div className="min-h-screen bg-[#080808] text-[#F5F5F5] pt-20 pb-16 px-4 sm:px-6 lg:px-8 font-mono">
+      {/* Editorial Header */}
+      <div className="max-w-7xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-4 border-b border-[#292929] pb-4">
         <div>
           <div className="flex items-center gap-2 mb-1">
             <ShieldCheck className="w-4 h-4 text-emerald-400" />
-            <span className="font-mono text-xs text-emerald-400 font-bold uppercase tracking-widest">
+            <span className="font-mono text-[10px] text-emerald-400 font-bold uppercase tracking-widest">
               ROLE: AUTHENTICATED ADMINISTRATOR // COMMAND CONSOLE
             </span>
           </div>
-          <h1 className="font-display font-black text-2xl sm:text-4xl uppercase tracking-tight text-white flex items-center gap-3">
-            PLATFORM <ShinyText text="ADMIN COMMAND CENTRE" speed={2.5} className="text-ferrari-red" />
+          <h1 className="font-display font-black text-3xl sm:text-4xl uppercase tracking-tight text-white flex items-center gap-3">
+            PLATFORM <ShinyText text="ADMIN COMMAND CENTRE" speed={2.5} className="text-[#E10600]" />
           </h1>
         </div>
 
         {/* Tab Switcher */}
-        <div className="flex rounded-xl bg-[#0E1118] p-1.5 border border-white/10 font-mono text-xs">
+        <div className="flex rounded-none bg-[#111111] p-1 border border-[#292929] font-mono text-xs">
           <button
             onClick={() => setActiveTab('stream')}
-            className={`px-4 py-1.5 rounded-lg font-bold transition-all ${
-              activeTab === 'stream' ? 'bg-ferrari-red text-white' : 'text-white/60 hover:text-white'
+            className={`px-4 py-1.5 rounded-none font-bold uppercase transition-all ${
+              activeTab === 'stream' ? 'bg-[#E10600] text-white' : 'text-[#858585] hover:text-white'
             }`}
           >
             BROADCAST CONFIG
           </button>
           <button
             onClick={() => setActiveTab('articles')}
-            className={`px-4 py-1.5 rounded-lg font-bold transition-all ${
-              activeTab === 'articles' ? 'bg-ferrari-red text-white' : 'text-white/60 hover:text-white'
+            className={`px-4 py-1.5 rounded-none font-bold uppercase transition-all ${
+              activeTab === 'articles' ? 'bg-[#E10600] text-white' : 'text-[#858585] hover:text-white'
             }`}
           >
             ARTICLES CRUD
           </button>
           <button
             onClick={() => setActiveTab('telemetry')}
-            className={`px-4 py-1.5 rounded-lg font-bold transition-all ${
-              activeTab === 'telemetry' ? 'bg-ferrari-red text-white' : 'text-white/60 hover:text-white'
+            className={`px-4 py-1.5 rounded-none font-bold uppercase transition-all ${
+              activeTab === 'telemetry' ? 'bg-[#E10600] text-white' : 'text-[#858585] hover:text-white'
             }`}
           >
             OPENF1 STATUS
@@ -211,23 +203,23 @@ export const AdminDashboardView: React.FC = () => {
       <div className="max-w-7xl mx-auto">
         {/* Tab 1: Live Broadcast Stream Configuration */}
         {activeTab === 'stream' && (
-          <div className="flex flex-col gap-8 max-w-5xl">
+          <div className="flex flex-col gap-6 max-w-5xl">
             {/* Header & Session Selector Card */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-[#0B0D14] border border-ferrari-border/80 shadow-2xl flex flex-col gap-6">
-              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-4">
+            <div className="p-6 rounded-none bg-[#0B0D14] border border-[#292929] shadow-2xl flex flex-col gap-5">
+              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#222222] pb-4">
                 <div>
-                  <h2 className="font-display font-black text-2xl text-white uppercase mb-1">
+                  <h2 className="font-display font-bold text-xl text-white uppercase mb-1">
                     STREAM PROVIDER & LICENSING CONTROLLER
                   </h2>
-                  <p className="font-sans text-xs text-white/60">
-                    Configure authorized live stream providers, fallback feeds, and HLS endpoints for <code>/live-race</code>.
+                  <p className="font-sans text-xs text-[#858585]">
+                    Configure authorized live stream providers, fallback feeds, and HLS endpoints for <code className="text-[#FED500]">/live-race</code>.
                   </p>
                 </div>
 
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-2">
                   <a
                     href="#live-race"
-                    className="px-4 py-2 rounded-xl bg-neutral-800 hover:bg-neutral-700 text-white font-mono text-xs font-bold uppercase transition flex items-center gap-1.5"
+                    className="px-3 py-1.5 rounded-none bg-[#111111] hover:bg-[#1A1A1A] border border-[#292929] text-white font-mono text-xs font-bold uppercase transition flex items-center gap-1.5"
                   >
                     <span>View /live-race</span>
                     <ExternalLink className="w-3.5 h-3.5" />
@@ -235,7 +227,7 @@ export const AdminDashboardView: React.FC = () => {
 
                   <button
                     onClick={handleResetDefaults}
-                    className="px-3 py-2 rounded-xl bg-rose-950/40 hover:bg-rose-900/60 border border-rose-800/60 text-rose-400 font-mono text-xs font-bold transition"
+                    className="px-3 py-1.5 rounded-none bg-rose-950/40 hover:bg-rose-900/60 border border-rose-800/60 text-rose-400 font-mono text-xs font-bold uppercase transition"
                   >
                     Reset Defaults
                   </button>
@@ -245,13 +237,13 @@ export const AdminDashboardView: React.FC = () => {
               {/* Current Track Session Setter */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 font-mono text-xs">
                 <div>
-                  <label className="text-white/50 text-[10px] uppercase font-bold block mb-1.5">
+                  <label className="text-[#858585] text-[10px] uppercase font-bold block mb-1">
                     ACTIVE RACE WEEKEND SESSION
                   </label>
                   <select
                     value={currentSession}
                     onChange={handleSessionChange}
-                    className="w-full bg-[#121520] border border-white/20 rounded-xl px-3.5 py-2.5 text-white font-mono text-xs focus:outline-none focus:border-ferrari-red"
+                    className="w-full bg-[#111111] border border-[#292929] rounded-none px-3 py-2 text-white font-mono text-xs focus:outline-none focus:border-[#E10600] cursor-pointer"
                   >
                     <option value="Practice 1 (FP1)">Practice 1 (FP1)</option>
                     <option value="Practice 2 (FP2)">Practice 2 (FP2)</option>
@@ -264,10 +256,10 @@ export const AdminDashboardView: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="text-white/50 text-[10px] uppercase font-bold block mb-1.5">
+                  <label className="text-[#858585] text-[10px] uppercase font-bold block mb-1">
                     FIRST-PARTY AD INTEGRITY GUARANTEE
                   </label>
-                  <div className="p-2.5 rounded-xl bg-emerald-950/30 border border-emerald-500/40 text-emerald-400 text-xs flex items-center gap-2">
+                  <div className="p-2 rounded-none bg-emerald-950/30 border border-emerald-500/40 text-emerald-400 text-xs flex items-center gap-2">
                     <ShieldCheck className="w-4 h-4 flex-shrink-0" />
                     <span>0 Ad Injections Policy: No tracking, pop-ups, or banners injected.</span>
                   </div>
@@ -276,49 +268,49 @@ export const AdminDashboardView: React.FC = () => {
             </div>
 
             {/* Configured Streaming Providers List */}
-            <div className="flex flex-col gap-4">
-              <h3 className="font-mono text-xs font-bold uppercase tracking-widest text-white/50">
+            <div className="flex flex-col gap-3">
+              <h3 className="font-mono text-[10px] font-bold uppercase tracking-widest text-[#858585]">
                 CONFIGURED STREAMING PROVIDERS ({providers.length})
               </h3>
 
-              <div className="grid grid-cols-1 gap-4">
+              <div className="grid grid-cols-1 gap-3">
                 {providers.map((p) => {
                   const isWeStreamRef = p.id === 'westreamf1-reference'
                   return (
                     <div
                       key={p.id}
-                      className={`p-6 rounded-2xl border transition-all flex flex-col gap-4 ${
+                      className={`p-4 rounded-none border transition-colors flex flex-col gap-3 ${
                         p.isPrimary
-                          ? 'bg-[#101420] border-ferrari-yellow/60 shadow-[0_0_20px_rgba(254,213,0,0.15)]'
+                          ? 'bg-[#150D10] border-[#FED500] border-l-4 border-l-[#FED500]'
                           : isWeStreamRef
-                          ? 'bg-[#140D0B] border-amber-800/50'
-                          : 'bg-[#0B0D14] border-white/10'
+                          ? 'bg-[#120E0D] border-amber-800/50'
+                          : 'bg-[#0B0D14] border-[#292929]'
                       }`}
                     >
                       <div className="flex flex-wrap items-start justify-between gap-4">
                         <div className="flex items-start gap-3">
                           <div
-                            className={`p-2.5 rounded-xl border ${
+                            className={`p-2 rounded-none border ${
                               p.type === 'hls'
                                 ? 'bg-cyan-950 border-cyan-500 text-cyan-400'
                                 : p.authorizationStatus === 'OFFICIALLY_AUTHORIZED'
                                 ? 'bg-emerald-950 border-emerald-500 text-emerald-400'
-                                : 'bg-neutral-900 border-neutral-700 text-neutral-400'
+                                : 'bg-[#111111] border-[#292929] text-[#858585]'
                             }`}
                           >
-                            <Tv className="w-5 h-5" />
+                            <Tv className="w-4 h-4" />
                           </div>
 
                           <div>
                             <div className="flex items-center gap-2 flex-wrap mb-1">
-                              <h4 className="font-display font-black text-lg text-white">{p.name}</h4>
+                              <h4 className="font-display font-bold text-base text-white uppercase">{p.name}</h4>
                               {p.isPrimary && (
-                                <span className="px-2 py-0.5 rounded bg-ferrari-yellow text-black font-mono font-black text-[10px] uppercase">
+                                <span className="px-1.5 py-0.2 rounded-none bg-[#FED500] text-black font-mono font-black text-[9px] uppercase">
                                   PRIMARY STREAM
                                 </span>
                               )}
                               <span
-                                className={`px-2 py-0.5 rounded font-mono text-[10px] font-bold border uppercase ${
+                                className={`px-1.5 py-0.2 rounded-none font-mono text-[9px] font-bold border uppercase ${
                                   p.authorizationStatus === 'OFFICIALLY_AUTHORIZED'
                                     ? 'bg-emerald-950/60 text-emerald-400 border-emerald-500/40'
                                     : p.authorizationStatus === 'REQUIRES_AUTHENTICATION'
@@ -328,12 +320,12 @@ export const AdminDashboardView: React.FC = () => {
                               >
                                 {p.authorizationStatus.replace(/_/g, ' ')}
                               </span>
-                              <span className="px-2 py-0.5 rounded bg-neutral-900 text-neutral-400 border border-neutral-800 font-mono text-[10px] uppercase">
+                              <span className="px-1.5 py-0.2 rounded-none bg-[#111111] text-[#858585] border border-[#292929] font-mono text-[9px] uppercase">
                                 TYPE: {p.type.toUpperCase()}
                               </span>
                             </div>
 
-                            <p className="font-mono text-xs text-neutral-400 break-all">
+                            <p className="font-mono text-xs text-[#858585] break-all">
                               URL: <code className="text-cyan-400">{p.streamUrl}</code>
                             </p>
                           </div>
@@ -343,34 +335,34 @@ export const AdminDashboardView: React.FC = () => {
                         <div className="flex items-center gap-2 font-mono text-xs">
                           <button
                             onClick={() => handleToggleProvider(p.id, p.isEnabled)}
-                            className={`px-3 py-1.5 rounded-xl font-bold uppercase transition flex items-center gap-1.5 ${
+                            className={`px-2.5 py-1 rounded-none font-bold uppercase transition flex items-center gap-1 text-[11px] ${
                               p.isEnabled
                                 ? 'bg-emerald-900/60 border border-emerald-600 text-emerald-400 hover:bg-emerald-800/80'
-                                : 'bg-neutral-900 border border-neutral-800 text-neutral-500 hover:text-white'
+                                : 'bg-[#111111] border border-[#292929] text-[#555555] hover:text-white'
                             }`}
                           >
-                            <Power className="w-3.5 h-3.5" />
+                            <Power className="w-3 h-3" />
                             <span>{p.isEnabled ? 'ENABLED' : 'DISABLED'}</span>
                           </button>
 
                           {!p.isPrimary && (
                             <button
                               onClick={() => handleSetPrimary(p.id)}
-                              className="px-3 py-1.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-neutral-300 font-bold transition flex items-center gap-1"
+                              className="px-2.5 py-1 rounded-none bg-[#111111] hover:bg-[#1A1A1A] border border-[#292929] text-[#D8D8D8] font-bold text-[11px] uppercase transition flex items-center gap-1"
                               title="Set as primary stream"
                             >
-                              <Star className="w-3.5 h-3.5 text-ferrari-yellow" />
+                              <Star className="w-3 h-3 text-[#FED500]" />
                               <span>Set Primary</span>
                             </button>
                           )}
 
                           <button
                             onClick={() => handleTestAvailability(p.id)}
-                            className="px-3 py-1.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-neutral-300 transition flex items-center gap-1"
+                            className="px-2.5 py-1 rounded-none bg-[#111111] hover:bg-[#1A1A1A] border border-[#292929] text-[#D8D8D8] text-[11px] uppercase transition flex items-center gap-1"
                             title="Ping stream endpoint"
                           >
                             <RefreshCw
-                              className={`w-3.5 h-3.5 ${testingId === p.id ? 'animate-spin' : ''}`}
+                              className={`w-3 h-3 ${testingId === p.id ? 'animate-spin' : ''}`}
                             />
                             <span>{testStatus[p.id] || p.healthStatus || 'Test'}</span>
                           </button>
@@ -378,7 +370,7 @@ export const AdminDashboardView: React.FC = () => {
                           {!isWeStreamRef && (
                             <button
                               onClick={() => handleRemoveProvider(p.id)}
-                              className="p-2 rounded-xl bg-neutral-900 hover:bg-rose-950/60 text-neutral-500 hover:text-rose-400 border border-neutral-800 transition"
+                              className="p-1.5 rounded-none bg-[#111111] hover:bg-rose-950/60 text-[#858585] hover:text-rose-400 border border-[#292929] transition"
                               title="Remove Provider"
                             >
                               <Trash2 className="w-3.5 h-3.5" />
@@ -389,20 +381,20 @@ export const AdminDashboardView: React.FC = () => {
 
                       {/* WeStreamF1 Special Compliance Card */}
                       {isWeStreamRef && (
-                        <div className="p-3.5 rounded-xl bg-amber-950/30 border border-amber-500/40 text-amber-300 font-mono text-xs flex items-start gap-2.5">
+                        <div className="p-3 rounded-none bg-amber-950/30 border border-amber-500/40 text-amber-300 font-mono text-xs flex items-start gap-2">
                           <ShieldAlert className="w-4 h-4 flex-shrink-0 mt-0.5" />
                           <div>
-                            <span className="font-bold block mb-0.5">
+                            <span className="font-bold block mb-0.5 text-[11px] uppercase">
                               UNVERIFIED THIRD-PARTY REFERENCE PRESERVED PER SPECIFICATION
                             </span>
-                            <span className="text-[11px] text-amber-400/90 leading-relaxed block">
+                            <span className="text-[10px] text-amber-400/90 leading-relaxed block">
                               URL: <code>https://westreamf1.st/westreamf1.php</code>. Automatic embedding is blocked. Verification and licensing validation are required before enabling this provider.
                             </span>
                           </div>
                         </div>
                       )}
 
-                      <p className="font-mono text-[11px] text-neutral-400">{p.notes}</p>
+                      {p.notes && <p className="font-mono text-[10px] text-[#777777]">{p.notes}</p>}
                     </div>
                   )
                 })}
@@ -410,18 +402,18 @@ export const AdminDashboardView: React.FC = () => {
             </div>
 
             {/* Add New Stream Provider Form */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-[#0B0D14] border border-ferrari-border/80 shadow-2xl font-mono text-xs">
-              <h3 className="font-display font-black text-xl text-white uppercase mb-1">
+            <div className="p-6 rounded-none bg-[#0B0D14] border border-[#292929] shadow-2xl font-mono text-xs">
+              <h3 className="font-display font-bold text-lg text-white uppercase mb-1">
                 ADD AUTHORIZED STREAMING PROVIDER
               </h3>
-              <p className="text-white/60 mb-6">
+              <p className="text-[#858585] mb-4 text-xs">
                 Register an authorized HLS feed (.m3u8), broadcaster embed URL, or authorized direct portal.
               </p>
 
-              <form onSubmit={handleCreateProvider} className="flex flex-col gap-4">
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <form onSubmit={handleCreateProvider} className="flex flex-col gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="text-white/50 text-[10px] uppercase font-bold block mb-1.5">
+                    <label className="text-[#858585] text-[10px] uppercase font-bold block mb-1">
                       PROVIDER NAME
                     </label>
                     <input
@@ -429,19 +421,19 @@ export const AdminDashboardView: React.FC = () => {
                       value={newName}
                       onChange={(e) => setNewName(e.target.value)}
                       placeholder="e.g. Authorized 4K HLS Master"
-                      className="w-full bg-[#121520] border border-white/20 rounded-xl px-3.5 py-2.5 text-white font-mono text-xs focus:outline-none focus:border-ferrari-red"
+                      className="w-full bg-[#111111] border border-[#292929] rounded-none px-3 py-2 text-white font-mono text-xs focus:outline-none focus:border-[#E10600]"
                       required
                     />
                   </div>
 
                   <div>
-                    <label className="text-white/50 text-[10px] uppercase font-bold block mb-1.5">
+                    <label className="text-[#858585] text-[10px] uppercase font-bold block mb-1">
                       STREAM TYPE
                     </label>
                     <select
                       value={newType}
                       onChange={(e) => setNewType(e.target.value as StreamType)}
-                      className="w-full bg-[#121520] border border-white/20 rounded-xl px-3.5 py-2.5 text-white font-mono text-xs focus:outline-none focus:border-ferrari-red"
+                      className="w-full bg-[#111111] border border-[#292929] rounded-none px-3 py-2 text-white font-mono text-xs focus:outline-none focus:border-[#E10600] cursor-pointer"
                     >
                       <option value="hls">HLS Master Feed (.m3u8 with HLS.js)</option>
                       <option value="embed">Authorized Iframe Embed</option>
@@ -452,28 +444,28 @@ export const AdminDashboardView: React.FC = () => {
                 </div>
 
                 <div>
-                  <label className="text-white/50 text-[10px] uppercase font-bold block mb-1.5">
+                  <label className="text-[#858585] text-[10px] uppercase font-bold block mb-1">
                     STREAM ENDPOINT URL
                   </label>
                   <input
                     type="url"
                     value={newUrl}
                     onChange={(e) => setNewUrl(e.target.value)}
-                    placeholder="https://domain.com/live/master.m3u8 or https://..."
-                    className="w-full bg-[#121520] border border-white/20 rounded-xl px-3.5 py-2.5 text-white font-mono text-xs focus:outline-none focus:border-ferrari-red"
+                    placeholder="https://domain.com/live/master.m3u8"
+                    className="w-full bg-[#111111] border border-[#292929] rounded-none px-3 py-2 text-white font-mono text-xs focus:outline-none focus:border-[#E10600]"
                     required
                   />
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div>
-                    <label className="text-white/50 text-[10px] uppercase font-bold block mb-1.5">
+                    <label className="text-[#858585] text-[10px] uppercase font-bold block mb-1">
                       AUTHORIZATION STATUS
                     </label>
                     <select
                       value={newAuthStatus}
                       onChange={(e) => setNewAuthStatus(e.target.value as AuthorizationStatus)}
-                      className="w-full bg-[#121520] border border-white/20 rounded-xl px-3.5 py-2.5 text-white font-mono text-xs focus:outline-none focus:border-ferrari-red"
+                      className="w-full bg-[#111111] border border-[#292929] rounded-none px-3 py-2 text-white font-mono text-xs focus:outline-none focus:border-[#E10600] cursor-pointer"
                     >
                       <option value="OFFICIALLY_AUTHORIZED">OFFICIALLY AUTHORIZED (Licensed)</option>
                       <option value="REQUIRES_AUTHENTICATION">REQUIRES AUTHENTICATION (Paywall / Credentials)</option>
@@ -482,7 +474,7 @@ export const AdminDashboardView: React.FC = () => {
                   </div>
 
                   <div>
-                    <label className="text-white/50 text-[10px] uppercase font-bold block mb-1.5">
+                    <label className="text-[#858585] text-[10px] uppercase font-bold block mb-1">
                       ADMINISTRATOR NOTES
                     </label>
                     <input
@@ -490,7 +482,7 @@ export const AdminDashboardView: React.FC = () => {
                       value={newNotes}
                       onChange={(e) => setNewNotes(e.target.value)}
                       placeholder="e.g. Master clean feed for Monaco Grand Prix"
-                      className="w-full bg-[#121520] border border-white/20 rounded-xl px-3.5 py-2.5 text-white font-mono text-xs focus:outline-none focus:border-ferrari-red"
+                      className="w-full bg-[#111111] border border-[#292929] rounded-none px-3 py-2 text-white font-mono text-xs focus:outline-none focus:border-[#E10600]"
                     />
                   </div>
                 </div>
@@ -498,7 +490,7 @@ export const AdminDashboardView: React.FC = () => {
                 <div className="flex justify-end pt-2">
                   <button
                     type="submit"
-                    className="px-6 py-2.5 rounded-xl bg-ferrari-red text-white font-bold uppercase tracking-wider hover:bg-red-700 transition flex items-center gap-2"
+                    className="px-5 py-2 rounded-none bg-[#E10600] text-white font-bold uppercase tracking-wider hover:bg-[#B80000] transition flex items-center gap-1.5"
                   >
                     <Plus className="w-4 h-4" />
                     <span>Save Provider Configuration</span>
@@ -507,7 +499,7 @@ export const AdminDashboardView: React.FC = () => {
               </form>
 
               {saveSuccess && (
-                <div className="mt-4 p-3 rounded-xl bg-emerald-950/60 border border-emerald-500 text-emerald-400 font-mono text-xs flex items-center gap-2">
+                <div className="mt-3 p-2.5 rounded-none bg-emerald-950/60 border border-emerald-500 text-emerald-400 font-mono text-xs flex items-center gap-2">
                   <Check className="w-4 h-4" />
                   <span>Provider successfully configured and persisted!</span>
                 </div>
@@ -518,29 +510,29 @@ export const AdminDashboardView: React.FC = () => {
 
         {/* Tab 2: Articles CRUD */}
         {activeTab === 'articles' && (
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8">
-            <div className="lg:col-span-5 p-6 rounded-3xl bg-[#0B0D14] border border-ferrari-border/80 shadow-2xl flex flex-col gap-4 font-mono text-xs">
-              <h2 className="font-display font-black text-xl text-white uppercase">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
+            <div className="lg:col-span-5 p-6 rounded-none bg-[#0B0D14] border border-[#292929] shadow-2xl flex flex-col gap-4 font-mono text-xs">
+              <h2 className="font-display font-bold text-lg text-white uppercase tracking-wider">
                 PUBLISH MARANELLO DISPATCH
               </h2>
               <form onSubmit={handleAddArticle} className="flex flex-col gap-3">
                 <div>
-                  <label className="text-white/40 text-[10px] block mb-1">HEADLINE</label>
+                  <label className="text-[#858585] text-[10px] block mb-1 uppercase">HEADLINE</label>
                   <input
                     type="text"
                     value={newTitle}
                     onChange={(e) => setNewTitle(e.target.value)}
                     placeholder="Enter official press release title..."
-                    className="w-full bg-[#121520] border border-white/20 rounded-xl px-3 py-2 text-white font-mono text-xs focus:outline-none focus:border-ferrari-red"
+                    className="w-full bg-[#111111] border border-[#292929] rounded-none px-3 py-2 text-white font-mono text-xs focus:outline-none focus:border-[#E10600]"
                     required
                   />
                 </div>
                 <div>
-                  <label className="text-white/40 text-[10px] block mb-1">CATEGORY</label>
+                  <label className="text-[#858585] text-[10px] block mb-1 uppercase">CATEGORY</label>
                   <select
                     value={newCategory}
                     onChange={(e) => setNewCategory(e.target.value as any)}
-                    className="w-full bg-[#121520] border border-white/20 rounded-xl px-3 py-2 text-white font-mono text-xs focus:outline-none focus:border-ferrari-red"
+                    className="w-full bg-[#111111] border border-[#292929] rounded-none px-3 py-2 text-white font-mono text-xs focus:outline-none focus:border-[#E10600] cursor-pointer"
                   >
                     <option value="Ferrari">Ferrari</option>
                     <option value="Breaking">Breaking</option>
@@ -548,18 +540,18 @@ export const AdminDashboardView: React.FC = () => {
                   </select>
                 </div>
                 <div>
-                  <label className="text-white/40 text-[10px] block mb-1">SUMMARY / BODY</label>
+                  <label className="text-[#858585] text-[10px] block mb-1 uppercase">SUMMARY / BODY</label>
                   <textarea
                     rows={4}
                     value={newSummary}
                     onChange={(e) => setNewSummary(e.target.value)}
                     placeholder="Enter article synopsis..."
-                    className="w-full bg-[#121520] border border-white/20 rounded-xl px-3 py-2 text-white font-mono text-xs focus:outline-none focus:border-ferrari-red resize-none"
+                    className="w-full bg-[#111111] border border-[#292929] rounded-none px-3 py-2 text-white font-mono text-xs focus:outline-none focus:border-[#E10600] resize-none"
                   />
                 </div>
                 <button
                   type="submit"
-                  className="w-full py-2.5 rounded-xl bg-ferrari-red text-white font-bold uppercase tracking-wider hover:bg-red-700 transition flex items-center justify-center gap-2"
+                  className="w-full py-2.5 rounded-none bg-[#E10600] text-white font-bold uppercase tracking-wider hover:bg-[#B80000] transition flex items-center justify-center gap-2"
                 >
                   <Plus className="w-4 h-4" />
                   <span>Publish to Paddock News</span>
@@ -568,25 +560,25 @@ export const AdminDashboardView: React.FC = () => {
             </div>
 
             <div className="lg:col-span-7 flex flex-col gap-3">
-              <h3 className="font-mono text-xs text-white/50 uppercase font-bold tracking-wider">
+              <h3 className="font-mono text-xs text-[#858585] uppercase font-bold tracking-wider">
                 PUBLISHED DISPATCHES ({articles.length})
               </h3>
               <div className="flex flex-col gap-2 max-h-[600px] overflow-y-auto pr-1">
                 {articles.map((art) => (
                   <div
                     key={art.id}
-                    className="p-4 rounded-2xl bg-[#0B0D14] border border-white/10 flex items-center justify-between gap-4 font-mono text-xs"
+                    className="p-3.5 rounded-none bg-[#0B0D14] border border-[#292929] flex items-center justify-between gap-4 font-mono text-xs"
                   >
                     <div>
-                      <span className="text-[10px] text-ferrari-red font-bold uppercase block">
+                      <span className="text-[10px] text-[#E10600] font-bold uppercase block">
                         {art.category} • {art.date}
                       </span>
-                      <h4 className="font-display font-black text-sm text-white">{art.title}</h4>
-                      <p className="text-white/50 text-[11px] line-clamp-1 mt-0.5">{art.summary}</p>
+                      <h4 className="font-display font-bold text-sm text-white uppercase">{art.title}</h4>
+                      <p className="text-[#858585] text-[11px] line-clamp-1 mt-0.5">{art.summary}</p>
                     </div>
                     <button
                       onClick={() => handleDeleteArticle(art.id)}
-                      className="p-2 rounded-xl bg-rose-950/40 text-rose-400 hover:bg-rose-900 border border-rose-800 transition"
+                      className="p-1.5 rounded-none bg-rose-950/40 text-rose-400 hover:bg-rose-900 border border-rose-800 transition"
                       title="Delete Article"
                     >
                       <Trash2 className="w-3.5 h-3.5" />
@@ -600,76 +592,76 @@ export const AdminDashboardView: React.FC = () => {
 
         {/* Tab 3: OpenF1 Status & API Key Configuration */}
         {activeTab === 'telemetry' && (
-          <div className="flex flex-col gap-6 max-w-4xl font-mono text-xs">
+          <div className="flex flex-col gap-5 max-w-4xl font-mono text-xs">
             {/* Status Overview */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-[#0B0D14] border border-ferrari-border/80 shadow-2xl flex flex-col gap-5">
-              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-4">
+            <div className="p-6 rounded-none bg-[#0B0D14] border border-[#292929] shadow-2xl flex flex-col gap-5">
+              <div className="flex flex-wrap items-center justify-between gap-4 border-b border-[#222222] pb-4">
                 <div>
-                  <h2 className="font-display font-black text-xl sm:text-2xl text-white uppercase mb-1">
+                  <h2 className="font-display font-bold text-xl text-white uppercase mb-1">
                     OPENF1 INGESTION ENGINE & API AUTHENTICATION
                   </h2>
-                  <p className="font-sans text-xs text-white/60">
+                  <p className="font-sans text-xs text-[#858585]">
                     Manage direct authentication with OpenF1 servers to unlock live Grand Prix session telemetry without 401 gates.
                   </p>
                 </div>
-                <span className="px-3 py-1 rounded-full bg-emerald-950 border border-emerald-800 text-emerald-400 font-bold text-[11px] uppercase">
+                <span className="px-2.5 py-0.5 rounded-none bg-emerald-950 border border-emerald-800 text-emerald-400 font-bold text-[10px] uppercase">
                   ZERO FABRICATION STRICT
                 </span>
               </div>
 
               {/* Status Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-                <div className="p-3.5 bg-[#121520] rounded-xl border border-white/5">
-                  <span className="text-white/40 text-[10px] block uppercase font-bold">OPENF1 API</span>
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+                <div className="p-3 bg-[#111111] rounded-none border border-[#222222]">
+                  <span className="text-[#858585] text-[9px] block uppercase font-bold">OPENF1 API</span>
                   <span className="text-emerald-400 font-black text-sm">ONLINE</span>
-                  <span className="text-[10px] text-neutral-400 block mt-0.5">api.openf1.org/v1</span>
+                  <span className="text-[9px] text-[#666666] block mt-0.5">api.openf1.org/v1</span>
                 </div>
-                <div className="p-3.5 bg-[#121520] rounded-xl border border-white/5">
-                  <span className="text-white/40 text-[10px] block uppercase font-bold">JOLPICA ERGAST</span>
+                <div className="p-3 bg-[#111111] rounded-none border border-[#222222]">
+                  <span className="text-[#858585] text-[9px] block uppercase font-bold">JOLPICA ERGAST</span>
                   <span className="text-emerald-400 font-black text-sm">ONLINE</span>
-                  <span className="text-[10px] text-neutral-400 block mt-0.5">api.jolpi.ca/ergast</span>
+                  <span className="text-[9px] text-[#666666] block mt-0.5">api.jolpi.ca/ergast</span>
                 </div>
-                <div className="p-3.5 bg-[#121520] rounded-xl border border-white/5">
-                  <span className="text-white/40 text-[10px] block uppercase font-bold">API KEY STATUS</span>
+                <div className="p-3 bg-[#111111] rounded-none border border-[#222222]">
+                  <span className="text-[#858585] text-[9px] block uppercase font-bold">API KEY STATUS</span>
                   <span className={`font-black text-sm ${openf1ApiKey ? 'text-cyan-400' : 'text-amber-400'}`}>
                     {openf1ApiKey ? 'KEY LOADED' : 'UNAUTHENTICATED'}
                   </span>
-                  <span className="text-[10px] text-neutral-400 block mt-0.5">
-                    {openf1ApiKey ? 'Bearer & Header Auth' : 'Free Tier / Archive'}
+                  <span className="text-[9px] text-[#666666] block mt-0.5">
+                    {openf1ApiKey ? 'Bearer Auth' : 'Free Tier / Archive'}
                   </span>
                 </div>
-                <div className="p-3.5 bg-[#121520] rounded-xl border border-white/5">
-                  <span className="text-white/40 text-[10px] block uppercase font-bold">BENCHMARK ENGINE</span>
-                  <span className="text-ferrari-red font-black text-sm">AUTHENTIC</span>
-                  <span className="text-[10px] text-neutral-400 block mt-0.5">Monza #9590 Verified</span>
+                <div className="p-3 bg-[#111111] rounded-none border border-[#222222]">
+                  <span className="text-[#858585] text-[9px] block uppercase font-bold">BENCHMARK ENGINE</span>
+                  <span className="text-[#E10600] font-black text-sm">AUTHENTIC</span>
+                  <span className="text-[9px] text-[#666666] block mt-0.5">Monza #9590 Verified</span>
                 </div>
               </div>
 
               {/* OpenF1 API Key Form */}
-              <div className="p-5 rounded-2xl bg-[#07080E] border border-white/10 flex flex-col gap-4 mt-2">
+              <div className="p-4 rounded-none bg-[#07080E] border border-[#222222] flex flex-col gap-3 mt-1">
                 <div className="flex items-center gap-2">
-                  <Key className="w-4 h-4 text-ferrari-yellow" />
+                  <Key className="w-3.5 h-3.5 text-[#FED500]" />
                   <span className="font-bold text-white text-xs uppercase">
                     OPENF1 API KEY CONFIGURATION
                   </span>
                 </div>
 
-                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+                <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2">
                   <div className="relative flex-1">
                     <input
                       type={showKey ? 'text' : 'password'}
                       value={openf1ApiKey}
                       onChange={(e) => setOpenf1ApiKey(e.target.value)}
                       placeholder="Paste OpenF1 API key (e.g. sk_live_...)..."
-                      className="w-full bg-[#121520] border border-white/20 rounded-xl px-4 py-2.5 text-white font-mono text-xs focus:outline-none focus:border-ferrari-red pr-10"
+                      className="w-full bg-[#111111] border border-[#292929] rounded-none px-3 py-2 text-white font-mono text-xs focus:outline-none focus:border-[#E10600] pr-8"
                     />
                     <button
                       type="button"
                       onClick={() => setShowKey(!showKey)}
-                      className="absolute right-3 top-1/2 -translate-y-1/2 text-white/40 hover:text-white"
+                      className="absolute right-2.5 top-1/2 -translate-y-1/2 text-[#858585] hover:text-white"
                       title={showKey ? 'Hide Key' : 'Show Key'}
                     >
-                      {showKey ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
+                      {showKey ? <EyeOff className="w-3.5 h-3.5" /> : <Eye className="w-3.5 h-3.5" />}
                     </button>
                   </div>
 
@@ -681,7 +673,7 @@ export const AdminDashboardView: React.FC = () => {
                         setKeySaved(true)
                         setTimeout(() => setKeySaved(false), 3000)
                       }}
-                      className="px-4 py-2.5 rounded-xl bg-ferrari-red hover:bg-red-700 text-white font-bold uppercase tracking-wider transition"
+                      className="px-3 py-2 rounded-none bg-[#E10600] hover:bg-[#B80000] text-white font-bold uppercase tracking-wider transition"
                     >
                       {keySaved ? 'Saved!' : 'Save Key'}
                     </button>
@@ -696,7 +688,7 @@ export const AdminDashboardView: React.FC = () => {
                         setIsTestingKey(false)
                       }}
                       disabled={isTestingKey}
-                      className="px-4 py-2.5 rounded-xl bg-[#141824] hover:bg-[#1C2234] border border-white/20 text-white font-bold uppercase tracking-wider transition flex items-center gap-1.5"
+                      className="px-3 py-2 rounded-none bg-[#111111] hover:bg-[#1A1A1A] border border-[#292929] text-white font-bold uppercase tracking-wider transition flex items-center gap-1.5"
                     >
                       <RefreshCw className={`w-3.5 h-3.5 ${isTestingKey ? 'animate-spin' : ''}`} />
                       <span>{isTestingKey ? 'Testing...' : 'Test Connection'}</span>
@@ -712,7 +704,7 @@ export const AdminDashboardView: React.FC = () => {
                           setKeySaved(true)
                           setTimeout(() => setKeySaved(false), 3000)
                         }}
-                        className="px-3 py-2.5 rounded-xl bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-neutral-400 font-bold transition"
+                        className="px-3 py-2 rounded-none bg-[#111111] hover:bg-[#1A1A1A] border border-[#292929] text-[#858585] font-bold uppercase transition"
                         title="Clear API Key"
                       >
                         Clear
@@ -724,7 +716,7 @@ export const AdminDashboardView: React.FC = () => {
                 {/* Test Feedback Message */}
                 {keyTestResult && (
                   <div
-                    className={`p-3.5 rounded-xl border flex items-center justify-between text-xs ${
+                    className={`p-2.5 rounded-none border flex items-center justify-between text-xs ${
                       keyTestResult.success
                         ? 'bg-emerald-950/40 border-emerald-800 text-emerald-300'
                         : 'bg-rose-950/40 border-rose-800 text-rose-300'
@@ -737,7 +729,7 @@ export const AdminDashboardView: React.FC = () => {
                       <span>{keyTestResult.message}</span>
                     </div>
                     {keyTestResult.latencyMs > 0 && (
-                      <span className="font-mono text-[10px] text-white/50">
+                      <span className="font-mono text-[10px] text-[#858585] tabular-nums">
                         {keyTestResult.latencyMs} ms
                       </span>
                     )}
@@ -745,8 +737,8 @@ export const AdminDashboardView: React.FC = () => {
                 )}
 
                 {/* OpenF1 Gating Explanation Note */}
-                <div className="p-3.5 rounded-xl bg-black/40 border border-white/5 text-[11px] text-neutral-400 space-y-1">
-                  <p className="font-bold text-white/80">
+                <div className="p-3 rounded-none bg-[#090909] border border-[#222222] text-[10px] text-[#858585] space-y-1">
+                  <p className="font-bold text-[#D8D8D8] uppercase">
                     ℹ️ OpenF1 Authentication Policy & Live Session Restrictions:
                   </p>
                   <p>
@@ -759,26 +751,26 @@ export const AdminDashboardView: React.FC = () => {
               </div>
 
               {/* Direct Navigation Links */}
-              <div className="flex flex-wrap items-center justify-between gap-3 pt-4 border-t border-white/10">
-                <span className="text-white/40 text-[11px]">
+              <div className="flex flex-wrap items-center justify-between gap-3 pt-3 border-t border-[#222222]">
+                <span className="text-[#858585] text-[10px] uppercase">
                   Explore active live telemetry channels:
                 </span>
                 <div className="flex items-center gap-2">
                   <a
                     href="#live-telemetry"
-                    className="px-3 py-1.5 rounded-xl bg-[#141824] border border-white/10 hover:border-ferrari-red text-white text-xs font-bold uppercase transition"
+                    className="px-2.5 py-1 rounded-none bg-[#111111] border border-[#292929] hover:border-[#E10600] text-white text-[11px] font-bold uppercase transition"
                   >
                     Cockpit Telemetry
                   </a>
                   <a
                     href="#live-telemetry-ferrari"
-                    className="px-3 py-1.5 rounded-xl bg-[#141824] border border-white/10 hover:border-ferrari-yellow text-white text-xs font-bold uppercase transition"
+                    className="px-2.5 py-1 rounded-none bg-[#111111] border border-[#292929] hover:border-[#FED500] text-white text-[11px] font-bold uppercase transition"
                   >
                     Dual Ferrari Pit Wall
                   </a>
                   <a
                     href="#live-race"
-                    className="px-3 py-1.5 rounded-xl bg-ferrari-red text-white text-xs font-bold uppercase transition"
+                    className="px-2.5 py-1 rounded-none bg-[#E10600] text-white text-[11px] font-bold uppercase transition"
                   >
                     Live Race Page
                   </a>

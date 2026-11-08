@@ -79,19 +79,19 @@ export const FerrariTelemetryCommandView: React.FC = () => {
     leclercPt && hamiltonPt ? leclercPt.throttle - hamiltonPt.throttle : null
 
   return (
-    <div className="min-h-screen bg-[#06070B] text-white pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#080808] text-[#F5F5F5] pt-20 pb-16 px-4 sm:px-6 lg:px-8 select-none">
       {/* Header */}
-      <div className="max-w-7xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-4 border-b border-ferrari-border/70 pb-4">
+      <div className="max-w-7xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-4 border-b border-[#292929] pb-4">
         <div>
-          <div className="flex items-center gap-2 mb-1">
-            <span className="w-2.5 h-2.5 rounded-full bg-ferrari-red animate-pulse" />
-            <span className="font-mono text-xs text-ferrari-red font-bold uppercase tracking-widest">
+          <div className="flex items-center gap-2 mb-1.5 font-mono">
+            <span className="w-2 h-2 rounded-none bg-[#E10600] animate-pulse" />
+            <span className="text-xs text-[#E10600] font-bold uppercase tracking-widest">
               CORSE CLIENTI // DUAL-CAR FERRARI PIT WALL TELEMETRY
             </span>
           </div>
           <h1 className="font-display font-black text-2xl sm:text-4xl uppercase tracking-tight text-white flex items-center gap-3">
             SCUDERIA FERRARI //{' '}
-            <ShinyText text="DUAL COMMAND CENTRE" speed={2.2} className="text-ferrari-yellow" />
+            <ShinyText text="DUAL COMMAND CENTRE" speed={2.2} className="text-[#FED500]" />
           </h1>
         </div>
 
@@ -99,7 +99,7 @@ export const FerrariTelemetryCommandView: React.FC = () => {
           <select
             value={selectedSessionKey}
             onChange={(e) => setSelectedSessionKey(Number(e.target.value))}
-            className="bg-[#0E1118] border border-white/20 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-ferrari-red cursor-pointer"
+            className="bg-[#111111] border border-[#292929] px-3 py-2 text-white focus:outline-none focus:border-[#E10600] cursor-pointer rounded-none"
           >
             <option value={11407}>SÃO PAULO GP (#11407) - QUALIFYING ARCHIVE</option>
             <option value={9590}>MONZA GP 2024 (#9590) - VICTORY LAP</option>
@@ -109,7 +109,7 @@ export const FerrariTelemetryCommandView: React.FC = () => {
 
           <a
             href="#live-telemetry"
-            className="px-4 py-2 rounded-xl bg-[#141824] border border-white/20 text-white font-bold uppercase tracking-wider hover:border-ferrari-red transition-all flex items-center gap-1.5"
+            className="px-4 py-2 bg-[#1B1B1B] border border-[#292929] text-white font-bold uppercase tracking-wider hover:border-[#E10600] transition-colors flex items-center gap-1.5 rounded-none"
           >
             <ChevronLeft className="w-4 h-4" />
             <span>FULL GRID</span>
@@ -128,14 +128,14 @@ export const FerrariTelemetryCommandView: React.FC = () => {
       )}
 
       {/* Playback Controls & Delta Bar */}
-      <div className="max-w-7xl mx-auto mb-6 p-4 rounded-2xl bg-[#090B12] border border-ferrari-border/70 font-mono text-xs flex flex-wrap items-center justify-between gap-4 shadow-xl">
-        <div className="flex items-center gap-3">
+      <div className="max-w-7xl mx-auto mb-6 p-4 bg-[#111111] border border-[#292929] font-mono text-xs flex flex-wrap items-center justify-between gap-4 rounded-none">
+        <div className="flex items-center gap-2.5">
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className={`px-4 py-2 rounded-xl font-bold uppercase tracking-wider flex items-center gap-2 transition ${
+            className={`px-4 py-2 font-bold uppercase tracking-wider flex items-center gap-2 transition-colors rounded-none border ${
               isPlaying
-                ? 'bg-amber-500/20 text-amber-400 border border-amber-500/50 hover:bg-amber-500/30'
-                : 'bg-emerald-500 text-black font-black hover:bg-emerald-400'
+                ? 'bg-[#FED500]/15 text-[#FED500] border-[#FED500]/50 hover:bg-[#FED500]/25'
+                : 'bg-emerald-500 text-black font-black hover:bg-emerald-400 border-emerald-500'
             }`}
           >
             {isPlaying ? (
@@ -156,22 +156,22 @@ export const FerrariTelemetryCommandView: React.FC = () => {
               setScrubIndex(0)
               setIsPlaying(true)
             }}
-            className="p-2 rounded-xl bg-[#121522] border border-white/10 text-neutral-400 hover:text-white transition"
+            className="p-2 bg-[#1B1B1B] border border-[#292929] text-[#858585] hover:text-white transition rounded-none"
             title="Reset to Start"
           >
             <RotateCcw className="w-4 h-4" />
           </button>
 
           {/* Speed Selectors */}
-          <div className="flex items-center gap-1 bg-[#121522] p-1 rounded-xl border border-white/10">
+          <div className="flex items-center gap-0.5 bg-[#1B1B1B] p-0.5 border border-[#292929] rounded-none">
             {[0.5, 1, 2].map((spd) => (
               <button
                 key={spd}
                 onClick={() => setPlaybackSpeed(spd)}
-                className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition ${
+                className={`px-2.5 py-1 text-[11px] font-bold transition-colors rounded-none ${
                   playbackSpeed === spd
-                    ? 'bg-ferrari-red text-white'
-                    : 'text-neutral-400 hover:text-white'
+                    ? 'bg-[#E10600] text-white'
+                    : 'text-[#858585] hover:text-white'
                 }`}
               >
                 {spd}x
@@ -183,13 +183,13 @@ export const FerrariTelemetryCommandView: React.FC = () => {
         {/* Live Delta Metrics */}
         <div className="flex items-center gap-4 text-xs font-mono">
           <div className="flex items-center gap-1.5">
-            <span className="text-white/40">DELTA SPEED:</span>
+            <span className="text-[#858585]">DELTA SPEED:</span>
             <span
-              className={`font-black ${
+              className={`font-black tabular-nums ${
                 deltaSpeed !== null && deltaSpeed > 0
-                  ? 'text-ferrari-red'
+                  ? 'text-[#E10600]'
                   : deltaSpeed !== null && deltaSpeed < 0
-                  ? 'text-ferrari-yellow'
+                  ? 'text-[#FED500]'
                   : 'text-white'
               }`}
             >
@@ -202,16 +202,16 @@ export const FerrariTelemetryCommandView: React.FC = () => {
           </div>
 
           <div className="hidden sm:flex items-center gap-1.5">
-            <span className="text-white/40">DELTA RPM:</span>
-            <span className="font-bold text-white">
+            <span className="text-[#858585]">DELTA RPM:</span>
+            <span className="font-bold text-white tabular-nums">
               {deltaRpm !== null ? (deltaRpm > 0 ? `+${deltaRpm}` : deltaRpm) : '---'}
             </span>
           </div>
         </div>
 
         {/* Scrubber */}
-        <div className="w-full flex items-center gap-3 pt-2 border-t border-white/5">
-          <span className="text-[10px] text-white/40 whitespace-nowrap">
+        <div className="w-full flex items-center gap-3 pt-2 border-t border-[#292929]">
+          <span className="text-[10px] text-[#858585] whitespace-nowrap tabular-nums">
             SAMPLE {scrubIndex + 1}/{Math.max(leclercTelemetry.length, hamiltonTelemetry.length)}
           </span>
           <input
@@ -223,82 +223,82 @@ export const FerrariTelemetryCommandView: React.FC = () => {
               setScrubIndex(Number(e.target.value))
               setIsPlaying(false)
             }}
-            className="w-full accent-ferrari-red cursor-pointer h-1.5 bg-neutral-800 rounded-lg"
+            className="w-full accent-[#E10600] cursor-pointer h-1.5 bg-[#1B1B1B] rounded-none"
           />
-          <span className="text-[10px] text-cyan-400 font-mono whitespace-nowrap">
+          <span className="text-[10px] text-cyan-400 font-mono whitespace-nowrap tabular-nums">
             {leclercPt?.date ? leclercPt.date.substring(11, 23) : '00:00:00.000'}
           </span>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto flex flex-col gap-8">
+      <div className="max-w-7xl mx-auto flex flex-col gap-6">
         {/* Dual Driver Telemetry Heads-Up Display */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Driver 1: Charles Leclerc #16 */}
-          <div className="p-6 rounded-3xl bg-gradient-to-b from-[#1C0505] to-[#0A0C12] border-2 border-ferrari-red/80 shadow-[0_15px_40px_rgba(255,40,0,0.25)] flex flex-col justify-between">
+          <div className="p-6 bg-[#111111] border-l-2 border-l-[#E10600] border border-[#292929] flex flex-col justify-between rounded-none">
             <div>
-              <div className="flex justify-between items-center mb-6 pb-4 border-b border-white/10">
+              <div className="flex justify-between items-center mb-6 pb-4 border-b border-[#292929]">
                 <div className="flex items-center gap-3">
-                  <span className="w-12 h-12 rounded-2xl bg-ferrari-red text-white font-mono font-black text-xl flex items-center justify-center shadow-lg">
+                  <span className="w-12 h-12 bg-[#E10600] text-white font-mono font-black text-xl flex items-center justify-center rounded-none">
                     16
                   </span>
                   <div>
                     <h2 className="font-display font-black text-2xl text-white uppercase">
                       CHARLES LECLERC
                     </h2>
-                    <span className="font-mono text-xs text-ferrari-red">SCUDERIA FERRARI HP</span>
+                    <span className="font-mono text-xs text-[#E10600]">SCUDERIA FERRARI HP</span>
                   </div>
                 </div>
-                <span className="font-mono font-bold text-xs text-emerald-400 bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-800">
+                <span className="font-mono font-bold text-xs text-emerald-400 bg-emerald-950/60 px-3 py-1 border border-emerald-800 rounded-none">
                   {leclercPt ? 'TELEMETRY LIVE' : 'NO DATA'}
                 </span>
               </div>
 
               {/* Gauges */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center mb-6 font-mono">
-                <div className="bg-[#05060A] p-3 rounded-2xl border border-white/10">
-                  <span className="text-[10px] text-white/40 block">SPEED</span>
-                  <span className="font-display font-black text-3xl sm:text-4xl text-white">
+                <div className="bg-[#1B1B1B] p-3 border border-[#292929] rounded-none">
+                  <span className="text-[10px] text-[#858585] block">SPEED</span>
+                  <span className="font-display font-black text-3xl sm:text-4xl text-white tabular-nums">
                     {leclercPt ? leclercPt.speed : '---'}
                   </span>
-                  <span className="text-[9px] text-ferrari-red font-bold">KM/H</span>
+                  <span className="text-[9px] text-[#E10600] font-bold">KM/H</span>
                 </div>
-                <div className="bg-[#05060A] p-3 rounded-2xl border border-white/10">
-                  <span className="text-[10px] text-white/40 block">THROTTLE</span>
-                  <span className="font-display font-black text-3xl sm:text-4xl text-emerald-400">
+                <div className="bg-[#1B1B1B] p-3 border border-[#292929] rounded-none">
+                  <span className="text-[10px] text-[#858585] block">THROTTLE</span>
+                  <span className="font-display font-black text-3xl sm:text-4xl text-emerald-400 tabular-nums">
                     {leclercPt ? `${leclercPt.throttle}%` : '---'}
                   </span>
                   <span className="text-[9px] text-emerald-400 font-bold">PEDAL</span>
                 </div>
-                <div className="bg-[#05060A] p-3 rounded-2xl border border-white/10">
-                  <span className="text-[10px] text-white/40 block">BRAKE</span>
-                  <span className="font-display font-black text-3xl sm:text-4xl text-red-500">
+                <div className="bg-[#1B1B1B] p-3 border border-[#292929] rounded-none">
+                  <span className="text-[10px] text-[#858585] block">BRAKE</span>
+                  <span className="font-display font-black text-3xl sm:text-4xl text-red-500 tabular-nums">
                     {leclercPt ? (leclercPt.brake > 0 ? `${leclercPt.brake}%` : '0%') : '---'}
                   </span>
                   <span className="text-[9px] text-red-400 font-bold">PRESSURE</span>
                 </div>
-                <div className="bg-[#05060A] p-3 rounded-2xl border border-white/10">
-                  <span className="text-[10px] text-white/40 block">GEAR</span>
-                  <span className="font-display font-black text-3xl sm:text-4xl text-ferrari-yellow">
+                <div className="bg-[#1B1B1B] p-3 border border-[#292929] rounded-none">
+                  <span className="text-[10px] text-[#858585] block">GEAR</span>
+                  <span className="font-display font-black text-3xl sm:text-4xl text-[#FED500] tabular-nums">
                     {leclercPt ? leclercPt.n_gear : '---'}
                   </span>
-                  <span className="text-[9px] text-ferrari-yellow font-bold">RATIO</span>
+                  <span className="text-[9px] text-[#FED500] font-bold">RATIO</span>
                 </div>
               </div>
 
               {/* RPM & DRS Bar */}
               <div className="grid grid-cols-2 gap-3 mb-4 font-mono text-xs">
-                <div className="p-3 rounded-xl bg-black/40 border border-white/10 flex justify-between items-center">
-                  <span className="text-white/40">ENGINE RPM</span>
-                  <span className="font-bold text-ferrari-yellow">
+                <div className="p-3 bg-[#1B1B1B] border border-[#292929] flex justify-between items-center rounded-none">
+                  <span className="text-[#858585]">ENGINE RPM</span>
+                  <span className="font-bold text-[#FED500] tabular-nums">
                     {leclercPt ? `${leclercPt.rpm} RPM` : '---'}
                   </span>
                 </div>
-                <div className="p-3 rounded-xl bg-black/40 border border-white/10 flex justify-between items-center">
-                  <span className="text-white/40">DRS REAR FLAP</span>
+                <div className="p-3 bg-[#1B1B1B] border border-[#292929] flex justify-between items-center rounded-none">
+                  <span className="text-[#858585]">DRS REAR FLAP</span>
                   <span
                     className={`font-black ${
-                      leclercPt?.drs ? 'text-emerald-400' : 'text-neutral-500'
+                      leclercPt?.drs ? 'text-emerald-400' : 'text-[#858585]'
                     }`}
                   >
                     {leclercPt?.drs ? 'DEPLOYED' : 'CLOSED'}
@@ -307,79 +307,79 @@ export const FerrariTelemetryCommandView: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-black/40 border border-white/10 flex justify-between font-mono text-xs mt-2">
-              <span className="text-white/60">CHANNEL: CAR #16 TELEMETRY</span>
-              <span className="text-cyan-400 font-bold">
+            <div className="p-2.5 bg-[#1B1B1B] border border-[#292929] flex justify-between font-mono text-xs mt-2 rounded-none">
+              <span className="text-[#858585]">CHANNEL: CAR #16 TELEMETRY</span>
+              <span className="text-cyan-400 font-bold tabular-nums">
                 {leclercPt ? leclercPt.date : 'NO DATA AVAILABLE'}
               </span>
             </div>
           </div>
 
           {/* Driver 2: Lewis Hamilton #44 */}
-          <div className="p-6 rounded-3xl bg-gradient-to-b from-[#1C1605] to-[#0A0C12] border-2 border-ferrari-yellow/80 shadow-[0_15px_40px_rgba(254,213,0,0.2)] flex flex-col justify-between">
+          <div className="p-6 bg-[#111111] border-l-2 border-l-[#FED500] border border-[#292929] flex flex-col justify-between rounded-none">
             <div>
-              <div className="flex justify-between items-center mb-6 pb-4 border-b border-white/10">
+              <div className="flex justify-between items-center mb-6 pb-4 border-b border-[#292929]">
                 <div className="flex items-center gap-3">
-                  <span className="w-12 h-12 rounded-2xl bg-ferrari-yellow text-black font-mono font-black text-xl flex items-center justify-center shadow-lg">
+                  <span className="w-12 h-12 bg-[#FED500] text-black font-mono font-black text-xl flex items-center justify-center rounded-none">
                     44
                   </span>
                   <div>
                     <h2 className="font-display font-black text-2xl text-white uppercase">
                       LEWIS HAMILTON
                     </h2>
-                    <span className="font-mono text-xs text-ferrari-yellow">SCUDERIA FERRARI HP</span>
+                    <span className="font-mono text-xs text-[#FED500]">SCUDERIA FERRARI HP</span>
                   </div>
                 </div>
-                <span className="font-mono font-bold text-xs text-emerald-400 bg-emerald-950/60 px-3 py-1 rounded-full border border-emerald-800">
+                <span className="font-mono font-bold text-xs text-emerald-400 bg-emerald-950/60 px-3 py-1 border border-emerald-800 rounded-none">
                   {hamiltonPt ? 'TELEMETRY LIVE' : 'NO DATA'}
                 </span>
               </div>
 
               {/* Gauges */}
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center mb-6 font-mono">
-                <div className="bg-[#05060A] p-3 rounded-2xl border border-white/10">
-                  <span className="text-[10px] text-white/40 block">SPEED</span>
-                  <span className="font-display font-black text-3xl sm:text-4xl text-white">
+                <div className="bg-[#1B1B1B] p-3 border border-[#292929] rounded-none">
+                  <span className="text-[10px] text-[#858585] block">SPEED</span>
+                  <span className="font-display font-black text-3xl sm:text-4xl text-white tabular-nums">
                     {hamiltonPt ? hamiltonPt.speed : '---'}
                   </span>
-                  <span className="text-[9px] text-ferrari-yellow font-bold">KM/H</span>
+                  <span className="text-[9px] text-[#FED500] font-bold">KM/H</span>
                 </div>
-                <div className="bg-[#05060A] p-3 rounded-2xl border border-white/10">
-                  <span className="text-[10px] text-white/40 block">THROTTLE</span>
-                  <span className="font-display font-black text-3xl sm:text-4xl text-emerald-400">
+                <div className="bg-[#1B1B1B] p-3 border border-[#292929] rounded-none">
+                  <span className="text-[10px] text-[#858585] block">THROTTLE</span>
+                  <span className="font-display font-black text-3xl sm:text-4xl text-emerald-400 tabular-nums">
                     {hamiltonPt ? `${hamiltonPt.throttle}%` : '---'}
                   </span>
                   <span className="text-[9px] text-emerald-400 font-bold">PEDAL</span>
                 </div>
-                <div className="bg-[#05060A] p-3 rounded-2xl border border-white/10">
-                  <span className="text-[10px] text-white/40 block">BRAKE</span>
-                  <span className="font-display font-black text-3xl sm:text-4xl text-red-500">
+                <div className="bg-[#1B1B1B] p-3 border border-[#292929] rounded-none">
+                  <span className="text-[10px] text-[#858585] block">BRAKE</span>
+                  <span className="font-display font-black text-3xl sm:text-4xl text-red-500 tabular-nums">
                     {hamiltonPt ? (hamiltonPt.brake > 0 ? `${hamiltonPt.brake}%` : '0%') : '---'}
                   </span>
                   <span className="text-[9px] text-red-400 font-bold">PRESSURE</span>
                 </div>
-                <div className="bg-[#05060A] p-3 rounded-2xl border border-white/10">
-                  <span className="text-[10px] text-white/40 block">GEAR</span>
-                  <span className="font-display font-black text-3xl sm:text-4xl text-ferrari-yellow">
+                <div className="bg-[#1B1B1B] p-3 border border-[#292929] rounded-none">
+                  <span className="text-[10px] text-[#858585] block">GEAR</span>
+                  <span className="font-display font-black text-3xl sm:text-4xl text-[#FED500] tabular-nums">
                     {hamiltonPt ? hamiltonPt.n_gear : '---'}
                   </span>
-                  <span className="text-[9px] text-ferrari-yellow font-bold">RATIO</span>
+                  <span className="text-[9px] text-[#FED500] font-bold">RATIO</span>
                 </div>
               </div>
 
               {/* RPM & DRS Bar */}
               <div className="grid grid-cols-2 gap-3 mb-4 font-mono text-xs">
-                <div className="p-3 rounded-xl bg-black/40 border border-white/10 flex justify-between items-center">
-                  <span className="text-white/40">ENGINE RPM</span>
-                  <span className="font-bold text-ferrari-yellow">
+                <div className="p-3 bg-[#1B1B1B] border border-[#292929] flex justify-between items-center rounded-none">
+                  <span className="text-[#858585]">ENGINE RPM</span>
+                  <span className="font-bold text-[#FED500] tabular-nums">
                     {hamiltonPt ? `${hamiltonPt.rpm} RPM` : '---'}
                   </span>
                 </div>
-                <div className="p-3 rounded-xl bg-black/40 border border-white/10 flex justify-between items-center">
-                  <span className="text-white/40">DRS REAR FLAP</span>
+                <div className="p-3 bg-[#1B1B1B] border border-[#292929] flex justify-between items-center rounded-none">
+                  <span className="text-[#858585]">DRS REAR FLAP</span>
                   <span
                     className={`font-black ${
-                      hamiltonPt?.drs ? 'text-emerald-400' : 'text-neutral-500'
+                      hamiltonPt?.drs ? 'text-emerald-400' : 'text-[#858585]'
                     }`}
                   >
                     {hamiltonPt?.drs ? 'DEPLOYED' : 'CLOSED'}
@@ -388,9 +388,9 @@ export const FerrariTelemetryCommandView: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-3 rounded-xl bg-black/40 border border-white/10 flex justify-between font-mono text-xs mt-2">
-              <span className="text-white/60">CHANNEL: CAR #44 TELEMETRY</span>
-              <span className="text-cyan-400 font-bold">
+            <div className="p-2.5 bg-[#1B1B1B] border border-[#292929] flex justify-between font-mono text-xs mt-2 rounded-none">
+              <span className="text-[#858585]">CHANNEL: CAR #44 TELEMETRY</span>
+              <span className="text-cyan-400 font-bold tabular-nums">
                 {hamiltonPt ? hamiltonPt.date : 'NO DATA AVAILABLE'}
               </span>
             </div>
@@ -398,10 +398,10 @@ export const FerrariTelemetryCommandView: React.FC = () => {
         </div>
 
         {/* Dual Speed Overlay Trace Graph */}
-        <div className="p-6 rounded-3xl bg-[#090B12] border border-ferrari-border/70 font-mono text-xs flex flex-col gap-4 shadow-xl">
-          <div className="flex flex-wrap items-center justify-between gap-4 pb-2 border-b border-white/10">
+        <div className="p-6 bg-[#111111] border border-[#292929] font-mono text-xs flex flex-col gap-4 rounded-none">
+          <div className="flex flex-wrap items-center justify-between gap-4 pb-2 border-b border-[#292929]">
             <div>
-              <span className="text-white/40 text-[10px] uppercase font-bold tracking-wider block">
+              <span className="text-[#858585] text-[10px] uppercase font-bold tracking-wider block">
                 DUAL SPEED OVERLAY COMPARISON TRACE
               </span>
               <span className="text-white font-bold text-sm">
@@ -411,17 +411,17 @@ export const FerrariTelemetryCommandView: React.FC = () => {
 
             <div className="flex items-center gap-4 text-xs">
               <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-ferrari-red" />
+                <span className="w-2.5 h-2.5 rounded-none bg-[#E10600]" />
                 <span className="text-white font-bold">#16 LECLERC</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="w-3 h-3 rounded-full bg-ferrari-yellow" />
+                <span className="w-2.5 h-2.5 rounded-none bg-[#FED500]" />
                 <span className="text-white font-bold">#44 HAMILTON</span>
               </div>
             </div>
           </div>
 
-          <div className="relative h-44 w-full bg-[#05060A] rounded-2xl border border-white/5 p-3 overflow-hidden flex items-end">
+          <div className="relative h-44 w-full bg-[#080808] border border-[#292929] p-3 overflow-hidden flex items-end rounded-none">
             <svg className="w-full h-full overflow-visible" preserveAspectRatio="none">
               <line x1="0" y1="25%" x2="100%" y2="25%" stroke="rgba(255,255,255,0.05)" />
               <line x1="0" y1="50%" x2="100%" y2="50%" stroke="rgba(255,255,255,0.05)" />
@@ -431,10 +431,10 @@ export const FerrariTelemetryCommandView: React.FC = () => {
               {leclercTelemetry.length > 0 && (
                 <polyline
                   fill="none"
-                  stroke="#EF1A2D"
-                  strokeWidth="2.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                  stroke="#E10600"
+                  strokeWidth="2"
+                  strokeLinecap="square"
+                  strokeLinejoin="miter"
                   points={leclercTelemetry
                     .map((pt, i) => {
                       const x = (i / (leclercTelemetry.length - 1)) * 100
@@ -450,10 +450,10 @@ export const FerrariTelemetryCommandView: React.FC = () => {
                 <polyline
                   fill="none"
                   stroke="#FED500"
-                  strokeWidth="2.5"
+                  strokeWidth="2"
                   strokeDasharray="4 2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
+                  strokeLinecap="square"
+                  strokeLinejoin="miter"
                   points={hamiltonTelemetry
                     .map((pt, i) => {
                       const x = (i / (hamiltonTelemetry.length - 1)) * 100
@@ -466,32 +466,36 @@ export const FerrariTelemetryCommandView: React.FC = () => {
 
               {/* Cursor Leclerc */}
               {leclercPt && (
-                <circle
-                  cx={`${(scrubIndex / (leclercTelemetry.length - 1)) * 100}%`}
-                  cy={`${100 - (leclercPt.speed / 360) * 100}%`}
-                  r="5"
+                <rect
+                  x={`${(scrubIndex / (leclercTelemetry.length - 1)) * 100}%`}
+                  y={`${100 - (leclercPt.speed / 360) * 100}%`}
+                  width="8"
+                  height="8"
+                  transform="translate(-4, -4)"
                   fill="#FFFFFF"
-                  stroke="#EF1A2D"
-                  strokeWidth="2.5"
+                  stroke="#E10600"
+                  strokeWidth="2"
                 />
               )}
 
               {/* Cursor Hamilton */}
               {hamiltonPt && (
-                <circle
-                  cx={`${(scrubIndex / (hamiltonTelemetry.length - 1)) * 100}%`}
-                  cy={`${100 - (hamiltonPt.speed / 360) * 100}%`}
-                  r="5"
+                <rect
+                  x={`${(scrubIndex / (hamiltonTelemetry.length - 1)) * 100}%`}
+                  y={`${100 - (hamiltonPt.speed / 360) * 100}%`}
+                  width="8"
+                  height="8"
+                  transform="translate(-4, -4)"
                   fill="#FFFFFF"
                   stroke="#FED500"
-                  strokeWidth="2.5"
+                  strokeWidth="2"
                 />
               )}
             </svg>
           </div>
 
-          <div className="flex justify-between text-[10px] text-neutral-500 font-mono">
-            <span>VARIATE DEL RETTIFILO (T1-T2)</span>
+          <div className="flex justify-between text-[10px] text-[#858585] font-mono">
+            <span>VARIANTE DEL RETTIFILO (T1-T2)</span>
             <span>CURVA GRANDE (T3)</span>
             <span>VARIANTE DELLA ROGGIA (T4-T5)</span>
             <span>CURVA DEL VIALONE (ASCARI T8-T10)</span>
@@ -501,94 +505,94 @@ export const FerrariTelemetryCommandView: React.FC = () => {
 
         {/* Head-to-Head Ferrari Telemetry Delta Analysis */}
         {leclercPt && hamiltonPt ? (
-          <div className="p-6 rounded-3xl bg-[#090B12] border border-ferrari-border/70 font-mono text-xs flex flex-col gap-4 shadow-xl">
-            <div className="flex flex-wrap items-center justify-between gap-4 pb-2 border-b border-white/10">
+          <div className="p-6 bg-[#111111] border border-[#292929] font-mono text-xs flex flex-col gap-4 rounded-none">
+            <div className="flex flex-wrap items-center justify-between gap-4 pb-2 border-b border-[#292929]">
               <div>
-                <span className="text-white/40 text-[10px] uppercase font-bold tracking-wider block">
+                <span className="text-[#858585] text-[10px] uppercase font-bold tracking-wider block">
                   REAL-TIME HEAD-TO-HEAD DELTA ANALYSIS
                 </span>
                 <span className="text-white font-bold text-sm">
                   SCUDERIA FERRARI HP // #16 LECLERC vs #44 HAMILTON
                 </span>
               </div>
-              <span className="px-2.5 py-0.5 rounded-full bg-emerald-950 border border-emerald-800 text-emerald-400 font-bold text-[10px] uppercase">
+              <span className="px-2.5 py-0.5 border border-emerald-500/40 bg-emerald-500/15 text-emerald-400 font-bold text-[10px] uppercase rounded-none">
                 AUTHENTIC OPENF1 TELEMETRY
               </span>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               {/* Speed Delta */}
-              <div className="p-4 rounded-2xl bg-[#0C0F17] border border-white/10 flex flex-col gap-2">
-                <div className="flex items-center justify-between text-[11px] pb-2 border-b border-white/5">
-                  <span className="text-white/50 uppercase font-bold">SPEED DELTA</span>
-                  <span className={deltaSpeed && deltaSpeed >= 0 ? 'text-ferrari-red font-bold' : 'text-ferrari-yellow font-bold'}>
+              <div className="p-4 bg-[#1B1B1B] border border-[#292929] flex flex-col gap-2 rounded-none">
+                <div className="flex items-center justify-between text-[11px] pb-2 border-b border-[#292929]">
+                  <span className="text-[#858585] uppercase font-bold">SPEED DELTA</span>
+                  <span className={deltaSpeed && deltaSpeed >= 0 ? 'text-[#E10600] font-bold tabular-nums' : 'text-[#FED500] font-bold tabular-nums'}>
                     {deltaSpeed !== null ? `${deltaSpeed > 0 ? '+' : ''}${deltaSpeed} KM/H` : '---'}
                   </span>
                 </div>
                 <div className="flex justify-between items-center text-xs">
-                  <span className="text-ferrari-red font-bold">#16 LECLERC</span>
-                  <span className="font-mono text-white">{leclercPt.speed} KM/H</span>
+                  <span className="text-[#E10600] font-bold">#16 LECLERC</span>
+                  <span className="font-mono text-white tabular-nums">{leclercPt.speed} KM/H</span>
                 </div>
                 <div className="flex justify-between items-center text-xs">
-                  <span className="text-ferrari-yellow font-bold">#44 HAMILTON</span>
-                  <span className="font-mono text-white">{hamiltonPt.speed} KM/H</span>
+                  <span className="text-[#FED500] font-bold">#44 HAMILTON</span>
+                  <span className="font-mono text-white tabular-nums">{hamiltonPt.speed} KM/H</span>
                 </div>
               </div>
 
               {/* Throttle Delta */}
-              <div className="p-4 rounded-2xl bg-[#0C0F17] border border-white/10 flex flex-col gap-2">
-                <div className="flex items-center justify-between text-[11px] pb-2 border-b border-white/5">
-                  <span className="text-white/50 uppercase font-bold">THROTTLE DELTA</span>
-                  <span className={deltaThrottle && deltaThrottle >= 0 ? 'text-ferrari-red font-bold' : 'text-ferrari-yellow font-bold'}>
+              <div className="p-4 bg-[#1B1B1B] border border-[#292929] flex flex-col gap-2 rounded-none">
+                <div className="flex items-center justify-between text-[11px] pb-2 border-b border-[#292929]">
+                  <span className="text-[#858585] uppercase font-bold">THROTTLE DELTA</span>
+                  <span className={deltaThrottle && deltaThrottle >= 0 ? 'text-[#E10600] font-bold tabular-nums' : 'text-[#FED500] font-bold tabular-nums'}>
                     {deltaThrottle !== null ? `${deltaThrottle > 0 ? '+' : ''}${deltaThrottle}%` : '---'}
                   </span>
                 </div>
                 <div className="flex justify-between items-center text-xs">
-                  <span className="text-ferrari-red font-bold">#16 LECLERC</span>
-                  <span className="font-mono text-emerald-400">{leclercPt.throttle}%</span>
+                  <span className="text-[#E10600] font-bold">#16 LECLERC</span>
+                  <span className="font-mono text-emerald-400 tabular-nums">{leclercPt.throttle}%</span>
                 </div>
                 <div className="flex justify-between items-center text-xs">
-                  <span className="text-ferrari-yellow font-bold">#44 HAMILTON</span>
-                  <span className="font-mono text-emerald-400">{hamiltonPt.throttle}%</span>
+                  <span className="text-[#FED500] font-bold">#44 HAMILTON</span>
+                  <span className="font-mono text-emerald-400 tabular-nums">{hamiltonPt.throttle}%</span>
                 </div>
               </div>
 
               {/* RPM Delta */}
-              <div className="p-4 rounded-2xl bg-[#0C0F17] border border-white/10 flex flex-col gap-2">
-                <div className="flex items-center justify-between text-[11px] pb-2 border-b border-white/5">
-                  <span className="text-white/50 uppercase font-bold">ENGINE RPM DELTA</span>
-                  <span className={deltaRpm && deltaRpm >= 0 ? 'text-ferrari-red font-bold' : 'text-ferrari-yellow font-bold'}>
+              <div className="p-4 bg-[#1B1B1B] border border-[#292929] flex flex-col gap-2 rounded-none">
+                <div className="flex items-center justify-between text-[11px] pb-2 border-b border-[#292929]">
+                  <span className="text-[#858585] uppercase font-bold">ENGINE RPM DELTA</span>
+                  <span className={deltaRpm && deltaRpm >= 0 ? 'text-[#E10600] font-bold tabular-nums' : 'text-[#FED500] font-bold tabular-nums'}>
                     {deltaRpm !== null ? `${deltaRpm > 0 ? '+' : ''}${deltaRpm} RPM` : '---'}
                   </span>
                 </div>
                 <div className="flex justify-between items-center text-xs">
-                  <span className="text-ferrari-red font-bold">#16 LECLERC</span>
-                  <span className="font-mono text-ferrari-yellow">{leclercPt.rpm}</span>
+                  <span className="text-[#E10600] font-bold">#16 LECLERC</span>
+                  <span className="font-mono text-[#FED500] tabular-nums">{leclercPt.rpm}</span>
                 </div>
                 <div className="flex justify-between items-center text-xs">
-                  <span className="text-ferrari-yellow font-bold">#44 HAMILTON</span>
-                  <span className="font-mono text-ferrari-yellow">{hamiltonPt.rpm}</span>
+                  <span className="text-[#FED500] font-bold">#44 HAMILTON</span>
+                  <span className="font-mono text-[#FED500] tabular-nums">{hamiltonPt.rpm}</span>
                 </div>
               </div>
             </div>
           </div>
         ) : (
-          <div className="p-6 rounded-3xl bg-[#090B12] border border-ferrari-border/70 font-mono text-xs flex flex-col gap-4 shadow-xl">
-            <div className="flex flex-wrap items-center justify-between gap-4 pb-2 border-b border-white/10">
+          <div className="p-6 bg-[#111111] border border-[#292929] font-mono text-xs flex flex-col gap-4 rounded-none">
+            <div className="flex flex-wrap items-center justify-between gap-4 pb-2 border-b border-[#292929]">
               <div>
-                <span className="text-white/40 text-[10px] uppercase font-bold tracking-wider block">
+                <span className="text-[#858585] text-[10px] uppercase font-bold tracking-wider block">
                   HEAD-TO-HEAD FERRARI TELEMETRY DELTA
                 </span>
                 <span className="text-white font-bold text-sm">
                   SCUDERIA FERRARI HP // #16 LECLERC vs #44 HAMILTON
                 </span>
               </div>
-              <span className="px-2.5 py-0.5 rounded-full bg-amber-950/80 border border-amber-800 text-amber-300 font-bold text-[10px] uppercase">
+              <span className="px-2.5 py-0.5 border border-[#FED500]/40 bg-[#FED500]/15 text-[#FED500] font-bold text-[10px] uppercase rounded-none">
                 LIVE SENSOR DATA GATED (HTTP 401)
               </span>
             </div>
-            <p className="text-[11px] text-neutral-400 leading-relaxed">
-              Head-to-head live telemetry channels require an authenticated OpenF1 connection during active sessions. In strict accordance with our Zero Fabrication policy, synthetic or simulated sector comparisons are never manufactured. Authenticate in <a href="#admin" className="text-ferrari-yellow underline">Settings / Admin</a> to stream real-time car channels.
+            <p className="text-[11px] text-[#858585] leading-relaxed">
+              Head-to-head live telemetry channels require an authenticated OpenF1 connection during active sessions. In strict accordance with our Zero Fabrication policy, synthetic or simulated sector comparisons are never manufactured. Authenticate in <a href="#admin" className="text-[#FED500] underline">Settings / Admin</a> to stream real-time car channels.
             </p>
           </div>
         )}

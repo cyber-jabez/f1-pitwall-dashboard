@@ -8,6 +8,7 @@ import PitWallCommandView from './components/views/PitWallCommandView'
 import LiveRaceView from './components/views/LiveRaceView'
 import LiveTelemetryView from './components/views/LiveTelemetryView'
 import FerrariTelemetryCommandView from './components/views/FerrariTelemetryCommandView'
+import TelemetryCompareView from './components/views/TelemetryCompareView'
 import CalendarView from './components/views/CalendarView'
 import StandingsView from './components/views/StandingsView'
 import ResultsView from './components/views/ResultsView'
@@ -41,6 +42,7 @@ export function App() {
           'live-race',
           'live-telemetry',
           'live-telemetry-ferrari',
+          'compare',
           'calendar',
           'standings',
           'results',
@@ -125,6 +127,7 @@ export function App() {
           {/* Real-time Telemetry Workstations */}
           {currentRoute === 'live-telemetry' && <LiveTelemetryView />}
           {currentRoute === 'live-telemetry-ferrari' && <FerrariTelemetryCommandView />}
+          {currentRoute === 'compare' && <TelemetryCompareView />}
 
           {/* Core F1 Racing Information Hubs */}
           {currentRoute === 'standings' && <StandingsView />}

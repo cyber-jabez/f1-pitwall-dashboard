@@ -420,52 +420,56 @@ export const LiveRaceView: React.FC = () => {
   const isSessionLive = liveStatus?.isLive ?? false
 
   return (
-    <div className="min-h-screen bg-[#06070A] text-white pt-20 pb-16 px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-[#080808] text-[#F5F5F5] pt-20 pb-16 px-4 sm:px-6 lg:px-8 select-none">
       {/* Session Header */}
-      <div className="max-w-7xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-4 border-b border-ferrari-border/60 pb-4">
+      <div className="max-w-7xl mx-auto mb-6 flex flex-wrap items-center justify-between gap-4 border-b border-[#292929] pb-4">
         <div>
-          <div className="flex flex-wrap items-center gap-2 mb-1">
+          <div className="flex flex-wrap items-center gap-2 mb-1.5 font-mono">
             {isSessionLive || f1LiveActive ? (
-              <span className="px-2 py-0.5 rounded bg-red-600 text-white font-mono font-black text-[10px] tracking-wider animate-pulse flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
+              <span className="px-2.5 py-0.5 bg-[#E10600]/15 text-[#E10600] border border-[#E10600]/60 font-black text-[10px] tracking-wider animate-pulse flex items-center gap-1.5 rounded-none">
+                <span className="w-1.5 h-1.5 bg-[#E10600] rounded-none animate-pulse" />
                 LIVE TRACK SESSION ACTIVE
               </span>
             ) : (
-              <span className="px-2 py-0.5 rounded bg-neutral-800 text-neutral-300 border border-neutral-700 font-mono font-black text-[10px] tracking-wider">
+              <span className="px-2.5 py-0.5 bg-[#1B1B1B] text-[#858585] border border-[#292929] font-black text-[10px] tracking-wider rounded-none">
                 NO LIVE SESSION // TRACK CLEAR
               </span>
             )}
             {liveTimeRemainingDisplay !== '--:--:--' && (
-              <span className="px-2.5 py-0.5 rounded bg-gradient-to-r from-amber-950/90 to-amber-900/60 border border-amber-600/80 text-amber-300 font-mono font-bold text-[10px] tracking-wider flex items-center gap-1.5 shadow-sm">
-                <Clock className="w-3 h-3 text-amber-400" />
+              <span className="px-2.5 py-0.5 bg-[#FED500]/15 border border-[#FED500]/60 text-[#FED500] font-bold text-[10px] tracking-wider flex items-center gap-1.5 rounded-none tabular-nums">
+                <Clock className="w-3 h-3 text-[#FED500]" />
                 <span>TIME REMAINING: {sessionEnded ? '00:00:00 (SESSION ENDED)' : liveTimeRemainingDisplay}</span>
               </span>
             )}
-            <span className="font-mono text-xs text-neutral-400">
+            <span className="text-xs text-[#858585]">
               FORMULA 1 & SCUDERIA FERRARI LIVE COMMAND
             </span>
           </div>
 
-          <h1 className="font-display font-black text-2xl sm:text-3xl uppercase tracking-tight">
-            LIVE RACE WATCHING & <ShinyText text="PIT WALL COMMAND" speed={2.5} className="text-ferrari-red" />
+          <h1 className="font-display font-black text-2xl sm:text-3xl uppercase tracking-tight text-[#F5F5F5]">
+            LIVE RACE WATCHING & <ShinyText text="PIT WALL COMMAND" speed={2.5} className="text-[#E10600]" />
           </h1>
         </div>
 
         {/* Action Controls: Mode Switcher & Admin Shortcut */}
-        <div className="flex flex-wrap items-center gap-3">
-          <div className="flex rounded-xl bg-[#0E1118] p-1 border border-white/10 font-mono text-xs">
+        <div className="flex flex-wrap items-center gap-2.5">
+          <div className="flex bg-[#111111] p-0.5 border border-[#292929] font-mono text-xs rounded-none">
             <button
               onClick={() => setMode('live_check')}
-              className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
-                mode === 'live_check' ? 'bg-ferrari-red text-white' : 'text-neutral-400 hover:text-white'
+              className={`px-3 py-1 font-bold transition-colors rounded-none border ${
+                mode === 'live_check'
+                  ? 'bg-[#E10600] text-white border-[#E10600]'
+                  : 'border-transparent text-[#858585] hover:text-[#F5F5F5]'
               }`}
             >
               LIVE TRACK STATUS
             </button>
             <button
               onClick={() => setMode('historical_archive')}
-              className={`px-3 py-1.5 rounded-lg font-bold transition-all ${
-                mode === 'historical_archive' ? 'bg-ferrari-red text-white' : 'text-neutral-400 hover:text-white'
+              className={`px-3 py-1 font-bold transition-colors rounded-none border ${
+                mode === 'historical_archive'
+                  ? 'bg-[#E10600] text-white border-[#E10600]'
+                  : 'border-transparent text-[#858585] hover:text-[#F5F5F5]'
               }`}
             >
               AUTHENTIC ARCHIVE
@@ -474,15 +478,15 @@ export const LiveRaceView: React.FC = () => {
 
           <a
             href="#admin"
-            className="p-2 rounded-xl bg-[#0E1118] border border-white/10 text-neutral-400 hover:text-white transition"
+            className="p-1.5 bg-[#111111] border border-[#292929] text-[#858585] hover:text-white transition rounded-none"
             title="Configure Video Stream in Admin Dashboard"
           >
-            <Settings className="w-4 h-4 text-ferrari-yellow" />
+            <Settings className="w-4 h-4 text-[#FED500]" />
           </a>
 
           <button
             onClick={checkLiveStatus}
-            className="p-2 rounded-xl bg-[#0E1118] border border-white/10 text-neutral-400 hover:text-white transition"
+            className="p-1.5 bg-[#111111] border border-[#292929] text-[#858585] hover:text-white transition rounded-none"
             title="Refresh Live Track Status"
           >
             <RefreshCw className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} />
@@ -491,21 +495,21 @@ export const LiveRaceView: React.FC = () => {
       </div>
 
       {/* Pit Wall Dedicated Workstation CTA Banner */}
-      <div className="max-w-7xl mx-auto mb-6 p-4 rounded-2xl bg-gradient-to-r from-amber-950/40 via-[#0E1119] to-amber-950/20 border border-amber-500/40 flex flex-wrap items-center justify-between gap-4 shadow-xl">
+      <div className="max-w-7xl mx-auto mb-6 p-4 bg-[#111111] border border-[#FED500]/50 flex flex-wrap items-center justify-between gap-4 rounded-none">
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/50 flex items-center justify-center text-amber-400 shrink-0">
+          <div className="w-10 h-10 bg-[#FED500]/10 border border-[#FED500]/40 flex items-center justify-center text-[#FED500] shrink-0 rounded-none">
             <Radio className="w-5 h-5 animate-pulse" />
           </div>
           <div>
             <div className="flex items-center gap-2">
-              <span className="font-mono text-xs font-black tracking-wider text-amber-400 uppercase">
+              <span className="font-mono text-xs font-black tracking-wider text-[#FED500] uppercase">
                 DEDICATED F1 PIT WALL COCKPIT PAGE
               </span>
-              <span className="text-[10px] font-mono px-2 py-0.2 rounded-full bg-amber-500/20 text-amber-300 font-bold">
-                SEPARATED FROM FAN PAGE
+              <span className="text-[10px] font-mono px-2 py-0.5 border border-[#FED500]/40 bg-[#FED500]/15 text-[#FED500] font-bold rounded-none">
+                MISSION CONTROL
               </span>
             </div>
-            <p className="text-xs text-white/70 mt-0.5 font-sans">
+            <p className="text-xs text-[#D8D8D8] mt-0.5 font-sans">
               Looking for a pure engineering telemetry cockpit? Switch to the standalone workstation with adaptive session layouts (Race, Quali Danger Zone, Practice, Sprint), FOM audio radio, micro-sectors, and multi-view video stream.
             </p>
           </div>
@@ -513,7 +517,7 @@ export const LiveRaceView: React.FC = () => {
 
         <a
           href="#pitwall"
-          className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-black font-mono font-bold text-xs tracking-wider uppercase transition-all shadow-[0_0_20px_rgba(245,158,11,0.4)] flex items-center gap-2 shrink-0"
+          className="px-5 py-2.5 bg-[#FED500] hover:bg-[#FED500]/90 text-black font-mono font-bold text-xs tracking-wider uppercase transition-colors flex items-center gap-2 shrink-0 rounded-none border border-[#FED500]"
         >
           <span>LAUNCH PIT WALL WORKSTATION</span>
           <ExternalLink className="w-4 h-4" />
@@ -536,19 +540,19 @@ export const LiveRaceView: React.FC = () => {
 
       {/* Mode Selector for Historical Archive */}
       {mode === 'historical_archive' && (
-        <div className="max-w-7xl mx-auto mb-6 p-4 rounded-2xl bg-[#0E1119] border border-cyan-800/50 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
+        <div className="max-w-7xl mx-auto mb-6 p-4 bg-[#111111] border border-[#292929] flex flex-wrap items-center justify-between gap-4 font-mono text-xs rounded-none">
           <div className="flex items-center gap-3">
-            <span className="w-2.5 h-2.5 rounded-full bg-cyan-400" />
+            <span className="w-2 h-2 rounded-none bg-cyan-400" />
             <div>
               <span className="font-bold text-white block">HISTORICAL ARCHIVE INSPECTION</span>
-              <span className="text-[11px] text-neutral-400">
+              <span className="text-[11px] text-[#858585]">
                 Query genuine historical telemetry records from OpenF1 telemetry cluster.
               </span>
             </div>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="text-neutral-400 text-[10px] uppercase">SESSION:</span>
+            <span className="text-[#858585] text-[10px] uppercase">SESSION:</span>
             <select
               value={selectedArchiveSession.session_key}
               onChange={(e) => {
@@ -557,7 +561,7 @@ export const LiveRaceView: React.FC = () => {
                 )
                 if (s) setSelectedArchiveSession(s)
               }}
-              className="bg-[#151924] border border-white/20 rounded-xl px-3 py-1.5 text-white font-mono text-xs focus:outline-none focus:border-cyan-400 cursor-pointer"
+              className="bg-[#1B1B1B] border border-[#292929] px-3 py-1.5 text-white font-mono text-xs focus:outline-none focus:border-[#E10600] cursor-pointer rounded-none"
             >
               {VERIFIED_BENCHMARK_SESSIONS.map((sess) => (
                 <option key={sess.session_key} value={sess.session_key}>
@@ -574,30 +578,30 @@ export const LiveRaceView: React.FC = () => {
         {/* Left Column: Video Broadcast & Pit Wall (8 cols) */}
         <div className="lg:col-span-8 flex flex-col gap-4">
           {/* Live Race Telemetry Hub Status */}
-          <div className="p-4 rounded-2xl bg-gradient-to-r from-[#1A0808] via-[#0E1119] to-[#0E1119] border border-ferrari-red/60 shadow-xl font-mono text-xs flex flex-col gap-3">
-            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-white/10 pb-2.5">
+          <div className="p-4 bg-[#111111] border border-[#292929] font-mono text-xs flex flex-col gap-3 rounded-none">
+            <div className="flex flex-wrap items-center justify-between gap-2 border-b border-[#292929] pb-2.5">
               <div className="flex items-center gap-2">
-                <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping" />
-                <span className="font-display font-black text-sm uppercase tracking-wide text-white">
+                <span className="w-2 h-2 rounded-none bg-[#E10600] animate-pulse" />
+                <span className="font-display font-black text-sm uppercase tracking-wide text-[#F5F5F5]">
                   LIVE F1 RACE ENGINE // FREE REAL-TIME TELEMETRY INGESTED
                 </span>
               </div>
-              <span className="px-2.5 py-0.5 rounded-full bg-emerald-950 border border-emerald-800 text-emerald-400 font-bold text-[10px] uppercase">
+              <span className="px-2.5 py-0.5 border border-emerald-500/40 bg-emerald-500/15 text-emerald-400 font-bold text-[10px] uppercase rounded-none">
                 AUTHENTIC FEEDS CONNECTED
               </span>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-5 gap-2.5 text-[11px]">
-              <div className="p-2.5 rounded-xl bg-black/40 border border-white/5">
-                <span className="text-white/40 text-[9px] block uppercase font-bold">GRAND PRIX</span>
-                <span className="font-bold text-white block truncate">
+              <div className="p-2.5 bg-[#1B1B1B] border border-[#292929] rounded-none">
+                <span className="text-[#858585] text-[9px] block uppercase font-bold">GRAND PRIX</span>
+                <span className="font-bold text-[#F5F5F5] block truncate">
                   São Paulo Grand Prix
                 </span>
-                <span className="text-[10px] text-ferrari-yellow">Interlagos, Brazil</span>
+                <span className="text-[10px] text-[#FED500]">Interlagos, Brazil</span>
               </div>
 
-              <div className="p-2.5 rounded-xl bg-black/40 border border-white/5">
-                <span className="text-white/40 text-[9px] block uppercase font-bold">TRACK SESSION</span>
+              <div className="p-2.5 bg-[#1B1B1B] border border-[#292929] rounded-none">
+                <span className="text-[#858585] text-[9px] block uppercase font-bold">TRACK SESSION</span>
                 <span className="font-bold text-emerald-400 block truncate">
                   {isUpcomingWithinWindow
                     ? 'Qualifying (Starts at 11:30 PM IST)'
@@ -609,53 +613,53 @@ export const LiveRaceView: React.FC = () => {
               </div>
 
               {/* Official FOM Live Session Clock / Time Remaining */}
-              <div className="p-2.5 rounded-xl bg-gradient-to-br from-[#1E1105] to-[#0A0D14] border border-amber-500/50 shadow-inner flex flex-col justify-between">
+              <div className="p-2.5 bg-[#1B1B1B] border border-[#FED500]/50 flex flex-col justify-between rounded-none">
                 <div>
                   <div className="flex items-center justify-between">
-                    <span className="text-white/40 text-[9px] block uppercase font-bold flex items-center gap-1">
-                      <Clock className="w-2.5 h-2.5 text-amber-400" />
+                    <span className="text-[#858585] text-[9px] block uppercase font-bold flex items-center gap-1">
+                      <Clock className="w-2.5 h-2.5 text-[#FED500]" />
                       <span>{isUpcomingWithinWindow ? 'TO QUALIFYING' : 'TIME REMAINING'}</span>
                     </span>
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
+                    <span className="w-1.5 h-1.5 rounded-none bg-[#FED500] animate-pulse" />
                   </div>
-                  <span className={`font-mono font-black text-sm block mt-0.5 tracking-wider ${
-                    sessionEnded ? 'text-red-500' : 'text-amber-400'
+                  <span className={`font-mono font-black text-sm block mt-0.5 tracking-wider tabular-nums ${
+                    sessionEnded ? 'text-[#E10600]' : 'text-[#FED500]'
                   }`}>
                     {sessionEnded ? '00:00:00' : liveTimeRemainingDisplay}
                   </span>
                 </div>
                 <div className="flex items-center justify-between text-[9px]">
-                  <span className="text-white/50">{sessionEnded ? 'CHECKERED' : 'COUNTDOWN'}</span>
+                  <span className="text-[#858585]">{sessionEnded ? 'CHECKERED' : 'COUNTDOWN'}</span>
                   <span className="text-emerald-400 font-bold">FOM CLOCK</span>
                 </div>
               </div>
 
-              <div className="p-2.5 rounded-xl bg-black/40 border border-white/5">
-                <span className="text-white/40 text-[9px] block uppercase font-bold">TRACK WEATHER</span>
-                <span className="font-bold text-white block">
+              <div className="p-2.5 bg-[#1B1B1B] border border-[#292929] rounded-none">
+                <span className="text-[#858585] text-[9px] block uppercase font-bold">TRACK WEATHER</span>
+                <span className="font-bold text-[#F5F5F5] block tabular-nums">
                   {f1LiveWeather ? `${f1LiveWeather.AirTemp}°C Air` : weatherData ? `${weatherData.air_temperature}°C Air` : '-- Air'}
                 </span>
-                <span className="text-[10px] text-neutral-400">
+                <span className="text-[10px] text-[#858585] tabular-nums">
                   {f1LiveWeather ? `${f1LiveWeather.TrackTemp}°C Track` : weatherData ? `${weatherData.track_temperature}°C Track` : '-- Track'}
                 </span>
               </div>
 
-              <div className="p-2.5 rounded-xl bg-black/40 border border-white/5">
-                <span className="text-white/40 text-[9px] block uppercase font-bold">BROADCAST FEED</span>
+              <div className="p-2.5 bg-[#1B1B1B] border border-[#292929] rounded-none">
+                <span className="text-[#858585] text-[9px] block uppercase font-bold">BROADCAST FEED</span>
                 <span className="font-bold text-emerald-400 block">STREAM AVAILABLE</span>
-                <span className="text-[10px] text-white/50">HLS & Player Ready</span>
+                <span className="text-[10px] text-[#858585]">HLS & Player Ready</span>
               </div>
             </div>
           </div>
 
           {/* Provider Selection Ribbon */}
-          <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-2xl bg-[#0C0E15] border border-ferrari-border/70 font-mono text-xs">
+          <div className="flex flex-wrap items-center justify-between gap-3 p-3 bg-[#111111] border border-[#292929] font-mono text-xs rounded-none">
             <div className="flex items-center gap-2">
-              <span className="text-white/40 uppercase text-[10px]">ACTIVE STREAM:</span>
+              <span className="text-[#858585] uppercase text-[10px]">ACTIVE STREAM:</span>
               <select
                 value={activeProvider?.id || ''}
                 onChange={(e) => handleSelectProvider(e.target.value)}
-                className="bg-[#141824] border border-white/15 rounded-lg px-2.5 py-1 text-white text-xs font-bold focus:outline-none focus:border-ferrari-red cursor-pointer"
+                className="bg-[#1B1B1B] border border-[#292929] px-2.5 py-1 text-white text-xs font-bold focus:outline-none focus:border-[#E10600] cursor-pointer rounded-none"
               >
                 {allProviders.map((p) => (
                   <option key={p.id} value={p.id}>
@@ -669,17 +673,17 @@ export const LiveRaceView: React.FC = () => {
               {backupProvider && (
                 <button
                   onClick={handleSwitchToBackup}
-                  className="px-2.5 py-1 rounded-lg bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 text-neutral-300 transition text-[11px] flex items-center gap-1.5"
+                  className="px-2.5 py-1 bg-[#1B1B1B] hover:bg-[#292929] border border-[#292929] text-[#D8D8D8] transition text-[11px] flex items-center gap-1.5 rounded-none"
                   title="Switch to backup provider"
                 >
-                  <Layers className="w-3 h-3 text-ferrari-yellow" />
+                  <Layers className="w-3 h-3 text-[#FED500]" />
                   <span className="hidden sm:inline">Backup:</span> {backupProvider.name.split(' ')[0]}
                 </button>
               )}
 
               <a
                 href="#admin"
-                className="px-2.5 py-1 rounded-lg bg-ferrari-red/20 border border-ferrari-red/40 text-ferrari-red hover:bg-ferrari-red hover:text-white transition text-[11px] font-bold"
+                className="px-2.5 py-1 bg-[#E10600]/15 border border-[#E10600]/50 text-[#E10600] hover:bg-[#E10600] hover:text-white transition text-[11px] font-bold rounded-none"
               >
                 Admin Config
               </a>
@@ -690,24 +694,24 @@ export const LiveRaceView: React.FC = () => {
           <TelemetryDelayController className="w-full" />
 
           {/* Main Stage Display: Big Video Broadcast Stream */}
-          <div className="flex items-center justify-between p-2.5 rounded-2xl bg-[#0B0D14] border border-white/10 font-mono text-xs">
+          <div className="flex items-center justify-between p-2.5 bg-[#111111] border border-[#292929] font-mono text-xs rounded-none">
             <div className="flex items-center gap-2">
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-xl bg-red-600/20 border border-red-500/40 text-red-400 font-bold">
-                <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
+              <div className="flex items-center gap-2 px-3 py-1 bg-[#E10600]/15 border border-[#E10600]/50 text-[#E10600] font-bold rounded-none">
+                <span className="w-2 h-2 rounded-none bg-[#E10600] animate-pulse" />
                 <span>LIVE BROADCAST STREAM</span>
               </div>
-              <span className="text-[11px] text-white/50 hidden sm:inline">
+              <span className="text-[11px] text-[#858585] hidden sm:inline">
                 {activeProvider?.name || 'F1 World Feed'}
               </span>
             </div>
             <span className="text-[10px] text-emerald-400 font-bold flex items-center gap-1.5">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+              <span className="w-1.5 h-1.5 rounded-none bg-emerald-400 animate-pulse" />
               <span>LIVE SIGNALR SYNC</span>
             </span>
           </div>
 
           {/* Big Live Video Player */}
-          <div className="w-full aspect-video min-h-[460px] md:min-h-[540px] xl:min-h-[620px] rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-black relative">
+          <div className="w-full aspect-video min-h-[460px] md:min-h-[540px] xl:min-h-[620px] overflow-hidden border border-[#292929] bg-black relative rounded-none">
             <LiveRaceVideoPlayer
               activeProvider={activeProvider}
               backupProvider={backupProvider}
@@ -719,11 +723,11 @@ export const LiveRaceView: React.FC = () => {
 
           {/* Session Overview Bar with Official Session Countdown */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 font-mono text-xs">
-            <div className="p-3.5 rounded-2xl bg-[#0C0F17] border border-ferrari-border/60 flex flex-col justify-between">
+            <div className="p-3.5 bg-[#111111] border border-[#292929] flex flex-col justify-between rounded-none">
               <div>
-                <span className="text-white/40 text-[10px] block uppercase">SESSION STATUS</span>
+                <span className="text-[#858585] text-[10px] block uppercase">SESSION STATUS</span>
                 <span className="font-bold text-white text-sm block mt-0.5 flex items-center gap-1.5">
-                  <span className={`w-2 h-2 rounded-full ${isUpcomingWithinWindow ? 'bg-amber-400 animate-ping' : 'bg-emerald-400 animate-pulse'}`} />
+                  <span className={`w-2 h-2 rounded-none ${isUpcomingWithinWindow ? 'bg-[#FED500] animate-pulse' : 'bg-emerald-400 animate-pulse'}`} />
                   <span>
                     {isUpcomingWithinWindow
                       ? 'UPCOMING // QUALIFYING (STARTS AT 23:30 IST / 11:30 PM)'
@@ -740,52 +744,52 @@ export const LiveRaceView: React.FC = () => {
                     : 'Cars are currently off-track. Live telemetry will engage once cars enter the circuit.'}
                 </span>
               </div>
-              <div className="mt-2 pt-2 border-t border-white/5 text-[9px] text-white/40">
+              <div className="mt-2 pt-2 border-t border-[#292929] text-[9px] text-[#858585]">
                 FIA STATUS: ACTIVE GREEN
               </div>
             </div>
 
             {/* Dedicated Official Session Chronometer Bar */}
-            <div className="p-3.5 rounded-2xl bg-gradient-to-br from-[#1E1105] to-[#0C0F17] border-2 border-amber-500/60 shadow-lg flex flex-col justify-between">
+            <div className="p-3.5 bg-[#111111] border border-[#FED500]/60 flex flex-col justify-between rounded-none">
               <div>
                 <div className="flex items-center justify-between">
-                  <span className="text-white/40 text-[10px] uppercase font-bold flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-amber-400" />
+                  <span className="text-[#858585] text-[10px] uppercase font-bold flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-[#FED500]" />
                     <span>{isUpcomingWithinWindow ? 'COUNTDOWN TO QUALIFYING' : 'SESSION TIME REMAINING'}</span>
                   </span>
-                  <span className="text-[9px] font-bold text-amber-400 bg-amber-950/60 px-2 py-0.5 rounded border border-amber-800 flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-amber-400 animate-ping" />
+                  <span className="text-[9px] font-bold text-[#FED500] bg-[#FED500]/15 px-2 py-0.5 border border-[#FED500]/40 flex items-center gap-1 rounded-none">
+                    <span className="w-1.5 h-1.5 rounded-none bg-[#FED500] animate-pulse" />
                     <span>{isUpcomingWithinWindow ? 'STARTS AT 23:30 IST' : sessionEnded ? 'FINALIZED' : 'FOM LIVE CLOCK'}</span>
                   </span>
                 </div>
                 <div className="flex items-baseline gap-2 mt-2">
-                  <span className={`font-display font-black text-3xl tracking-widest ${
-                    sessionEnded ? 'text-red-500' : 'text-amber-400'
+                  <span className={`font-display font-black text-3xl tracking-widest tabular-nums ${
+                    sessionEnded ? 'text-[#E10600]' : 'text-[#FED500]'
                   }`}>
                     {sessionEnded ? '00:00:00' : liveTimeRemainingDisplay}
                   </span>
-                  <span className="text-[10px] text-white/50 uppercase">
+                  <span className="text-[10px] text-[#858585] uppercase">
                     {sessionEnded ? 'SESSION EXPIRED' : 'REMAINING'}
                   </span>
                 </div>
               </div>
-              <div className="mt-2 pt-2 border-t border-white/5 flex items-center justify-between text-[9px] text-neutral-400">
+              <div className="mt-2 pt-2 border-t border-[#292929] flex items-center justify-between text-[9px] text-[#858585]">
                 <span>EXTRAPOLATED FOM SIGNALR FEED</span>
                 <span className="text-emerald-400 font-bold">100% UNFABRICATED</span>
               </div>
             </div>
 
-            <div className="p-3.5 rounded-2xl bg-[#0C0F17] border border-ferrari-border/60 flex flex-col justify-between">
+            <div className="p-3.5 bg-[#111111] border border-[#292929] flex flex-col justify-between rounded-none">
               <div>
-                <span className="text-white/40 text-[10px] block uppercase">AUTHENTICITY POLICY</span>
+                <span className="text-[#858585] text-[10px] block uppercase">AUTHENTICITY POLICY</span>
                 <span className="font-bold text-emerald-400 text-sm block mt-0.5">
                   ZERO FABRICATION GUARANTEED
                 </span>
-                <span className="text-[10px] text-neutral-400 mt-1 block">
+                <span className="text-[10px] text-[#858585] mt-1 block">
                   No simulated car movements, synthetic lap times, or artificial gauges.
                 </span>
               </div>
-              <div className="mt-2 pt-2 border-t border-white/5 text-[9px] text-white/40">
+              <div className="mt-2 pt-2 border-t border-[#292929] text-[9px] text-[#858585]">
                 VERIFIED FOM LIVE FEED
               </div>
             </div>
@@ -801,114 +805,114 @@ export const LiveRaceView: React.FC = () => {
                 <div className="flex flex-col gap-3 font-mono text-xs">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {/* Leclerc #16 Card */}
-                    <div className="p-5 rounded-2xl bg-gradient-to-br from-[#1C0505] to-[#0A0B10] border-2 border-ferrari-red/60 shadow-lg flex flex-col justify-between">
+                    <div className="p-4 bg-[#111111] border-l-2 border-l-[#E10600] border border-[#292929] flex flex-col justify-between rounded-none">
                       <div>
                         <div className="flex items-center justify-between mb-3">
                           <div className="flex items-center gap-2">
-                            <span className="px-2 py-0.5 rounded bg-ferrari-red text-white font-black text-xs">#16</span>
+                            <span className="px-2 py-0.5 bg-[#E10600] text-white font-black text-xs rounded-none">#16</span>
                             <span className="font-display font-black text-base text-white">CHARLES LECLERC</span>
                           </div>
-                          <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-800 flex items-center gap-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                          <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950/60 px-2 py-0.5 border border-emerald-800 flex items-center gap-1 rounded-none">
+                            <span className="w-1.5 h-1.5 rounded-none bg-emerald-400 animate-pulse" />
                             <span>F1 SIGNALR LIVE</span>
                           </span>
                         </div>
 
-                        <div className="grid grid-cols-3 gap-2 text-center pt-2 border-t border-white/10 mb-3">
-                          <div className="bg-black/40 p-2 rounded-lg">
-                            <span className="text-white/40 text-[9px] block">POSITION</span>
-                            <span className="text-white font-black text-sm">{f1Lec?.position ? `P${f1Lec.position}` : '--'}</span>
+                        <div className="grid grid-cols-3 gap-2 text-center pt-2 border-t border-[#292929] mb-3">
+                          <div className="bg-[#1B1B1B] p-2 border border-[#292929] rounded-none">
+                            <span className="text-[#858585] text-[9px] block">POSITION</span>
+                            <span className="text-white font-black text-sm tabular-nums">{f1Lec?.position ? `P${f1Lec.position}` : '--'}</span>
                           </div>
-                          <div className="bg-black/40 p-2 rounded-lg">
-                            <span className="text-white/40 text-[9px] block">BEST LAP</span>
-                            <span className="text-ferrari-yellow font-black text-sm">{f1Lec?.best_lap_time || '--'}</span>
+                          <div className="bg-[#1B1B1B] p-2 border border-[#292929] rounded-none">
+                            <span className="text-[#858585] text-[9px] block">BEST LAP</span>
+                            <span className="text-[#FED500] font-black text-sm tabular-nums">{f1Lec?.best_lap_time || '--'}</span>
                           </div>
-                          <div className="bg-black/40 p-2 rounded-lg">
-                            <span className="text-white/40 text-[9px] block">LAPS</span>
-                            <span className="text-emerald-400 font-black text-sm">{f1Lec?.laps_completed != null ? `${f1Lec.laps_completed}L` : '--'}</span>
+                          <div className="bg-[#1B1B1B] p-2 border border-[#292929] rounded-none">
+                            <span className="text-[#858585] text-[9px] block">LAPS</span>
+                            <span className="text-emerald-400 font-black text-sm tabular-nums">{f1Lec?.laps_completed != null ? `${f1Lec.laps_completed}L` : '--'}</span>
                           </div>
                         </div>
 
                         <div className="grid grid-cols-3 gap-2 text-center">
-                          <div className="bg-black/40 p-2 rounded-lg">
-                            <span className="text-white/40 text-[9px] block">SPEED TRAP</span>
-                            <span className="text-cyan-400 font-bold text-xs">
+                          <div className="bg-[#1B1B1B] p-2 border border-[#292929] rounded-none">
+                            <span className="text-[#858585] text-[9px] block">SPEED TRAP</span>
+                            <span className="text-cyan-400 font-bold text-xs tabular-nums">
                               {f1Lec?.speed_traps?.st ? `${f1Lec.speed_traps.st} KM/H` : f1Lec?.speed_traps?.i1 ? `${f1Lec.speed_traps.i1} KM/H` : '--'}
                             </span>
                           </div>
-                          <div className="bg-black/40 p-2 rounded-lg">
-                            <span className="text-white/40 text-[9px] block">STATUS</span>
+                          <div className="bg-[#1B1B1B] p-2 border border-[#292929] rounded-none">
+                            <span className="text-[#858585] text-[9px] block">STATUS</span>
                             <span className={`font-bold text-xs ${f1Lec?.in_pit ? 'text-amber-400' : 'text-emerald-400'}`}>
                               {f1Lec?.in_pit ? 'PIT LANE' : f1Lec?.stopped ? 'STOPPED' : 'ON TRACK'}
                             </span>
                           </div>
-                          <div className="bg-black/40 p-2 rounded-lg">
-                            <span className="text-white/40 text-[9px] block">SECTOR 2 / 3</span>
-                            <span className="text-fuchsia-400 font-bold text-xs">
+                          <div className="bg-[#1B1B1B] p-2 border border-[#292929] rounded-none">
+                            <span className="text-[#858585] text-[9px] block">SECTOR 2 / 3</span>
+                            <span className="text-fuchsia-400 font-bold text-xs tabular-nums">
                               {f1Lec?.sectors?.[1]?.value ? `${f1Lec.sectors[1].value}s` : f1Lec?.sectors?.[2]?.value ? `${f1Lec.sectors[2].value}s` : '--'}
                             </span>
                           </div>
                         </div>
                       </div>
 
-                      <div className="mt-3 pt-2 border-t border-white/5 flex justify-between text-[10px] text-white/40">
+                      <div className="mt-3 pt-2 border-t border-[#292929] flex justify-between text-[10px] text-[#858585]">
                         <span>F1 LIVE TIMING FEED // SIGNALR</span>
                         <span className="text-emerald-400">SESSION: {f1LiveSessionName}</span>
                       </div>
                     </div>
 
                     {/* Hamilton #44 Card */}
-                    <div className="p-5 rounded-2xl bg-gradient-to-br from-[#1C1505] to-[#0A0B10] border-2 border-ferrari-yellow/60 shadow-lg flex flex-col justify-between">
+                    <div className="p-4 bg-[#111111] border-l-2 border-l-[#FED500] border border-[#292929] flex flex-col justify-between rounded-none">
                       <div>
                         <div className="flex items-center justify-between mb-3">
                           <div className="flex items-center gap-2">
-                            <span className="px-2 py-0.5 rounded bg-ferrari-yellow text-black font-black text-xs">#44</span>
+                            <span className="px-2 py-0.5 bg-[#FED500] text-black font-black text-xs rounded-none">#44</span>
                             <span className="font-display font-black text-base text-white">LEWIS HAMILTON</span>
                           </div>
-                          <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950/60 px-2.5 py-0.5 rounded-full border border-emerald-800 flex items-center gap-1">
-                            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                          <span className="text-[10px] font-bold text-emerald-400 bg-emerald-950/60 px-2 py-0.5 border border-emerald-800 flex items-center gap-1 rounded-none">
+                            <span className="w-1.5 h-1.5 rounded-none bg-emerald-400 animate-pulse" />
                             <span>F1 SIGNALR LIVE</span>
                           </span>
                         </div>
 
-                        <div className="grid grid-cols-3 gap-2 text-center pt-2 border-t border-white/10 mb-3">
-                          <div className="bg-black/40 p-2 rounded-lg">
-                            <span className="text-white/40 text-[9px] block">POSITION</span>
-                            <span className="text-white font-black text-sm">{f1Ham?.position ? `P${f1Ham.position}` : '--'}</span>
+                        <div className="grid grid-cols-3 gap-2 text-center pt-2 border-t border-[#292929] mb-3">
+                          <div className="bg-[#1B1B1B] p-2 border border-[#292929] rounded-none">
+                            <span className="text-[#858585] text-[9px] block">POSITION</span>
+                            <span className="text-white font-black text-sm tabular-nums">{f1Ham?.position ? `P${f1Ham.position}` : '--'}</span>
                           </div>
-                          <div className="bg-black/40 p-2 rounded-lg">
-                            <span className="text-white/40 text-[9px] block">BEST LAP</span>
-                            <span className="text-ferrari-yellow font-black text-sm">{f1Ham?.best_lap_time || '--'}</span>
+                          <div className="bg-[#1B1B1B] p-2 border border-[#292929] rounded-none">
+                            <span className="text-[#858585] text-[9px] block">BEST LAP</span>
+                            <span className="text-[#FED500] font-black text-sm tabular-nums">{f1Ham?.best_lap_time || '--'}</span>
                           </div>
-                          <div className="bg-black/40 p-2 rounded-lg">
-                            <span className="text-white/40 text-[9px] block">LAPS</span>
-                            <span className="text-emerald-400 font-black text-sm">{f1Ham?.laps_completed != null ? `${f1Ham.laps_completed}L` : '--'}</span>
+                          <div className="bg-[#1B1B1B] p-2 border border-[#292929] rounded-none">
+                            <span className="text-[#858585] text-[9px] block">LAPS</span>
+                            <span className="text-emerald-400 font-black text-sm tabular-nums">{f1Ham?.laps_completed != null ? `${f1Ham.laps_completed}L` : '--'}</span>
                           </div>
                         </div>
 
                         <div className="grid grid-cols-3 gap-2 text-center">
-                          <div className="bg-black/40 p-2 rounded-lg">
-                            <span className="text-white/40 text-[9px] block">SPEED TRAP</span>
-                            <span className="text-cyan-400 font-bold text-xs">
+                          <div className="bg-[#1B1B1B] p-2 border border-[#292929] rounded-none">
+                            <span className="text-[#858585] text-[9px] block">SPEED TRAP</span>
+                            <span className="text-cyan-400 font-bold text-xs tabular-nums">
                               {f1Ham?.speed_traps?.st ? `${f1Ham.speed_traps.st} KM/H` : f1Ham?.speed_traps?.i1 ? `${f1Ham.speed_traps.i1} KM/H` : '--'}
                             </span>
                           </div>
-                          <div className="bg-black/40 p-2 rounded-lg">
-                            <span className="text-white/40 text-[9px] block">STATUS</span>
+                          <div className="bg-[#1B1B1B] p-2 border border-[#292929] rounded-none">
+                            <span className="text-[#858585] text-[9px] block">STATUS</span>
                             <span className={`font-bold text-xs ${f1Ham?.in_pit ? 'text-amber-400' : 'text-emerald-400'}`}>
                               {f1Ham?.in_pit ? 'PIT LANE' : f1Ham?.stopped ? 'STOPPED' : 'ON TRACK'}
                             </span>
                           </div>
-                          <div className="bg-black/40 p-2 rounded-lg">
-                            <span className="text-white/40 text-[9px] block">SECTOR 2 / 3</span>
-                            <span className="text-fuchsia-400 font-bold text-xs">
+                          <div className="bg-[#1B1B1B] p-2 border border-[#292929] rounded-none">
+                            <span className="text-[#858585] text-[9px] block">SECTOR 2 / 3</span>
+                            <span className="text-fuchsia-400 font-bold text-xs tabular-nums">
                               {f1Ham?.sectors?.[1]?.value ? `${f1Ham.sectors[1].value}s` : f1Ham?.sectors?.[2]?.value ? `${f1Ham.sectors[2].value}s` : '--'}
                             </span>
                           </div>
                         </div>
                       </div>
 
-                      <div className="mt-3 pt-2 border-t border-white/5 flex justify-between text-[10px] text-white/40">
+                      <div className="mt-3 pt-2 border-t border-[#292929] flex justify-between text-[10px] text-[#858585]">
                         <span>F1 LIVE TIMING FEED // SIGNALR</span>
                         <span className="text-emerald-400">SESSION: {f1LiveSessionName}</span>
                       </div>
@@ -919,15 +923,15 @@ export const LiveRaceView: React.FC = () => {
             }
 
             return (
-              <div className="p-6 rounded-2xl bg-[#0C0E16] border border-ferrari-border/70 font-mono text-xs flex flex-col gap-4 shadow-xl">
-                <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-white/10">
+              <div className="p-5 bg-[#111111] border border-[#292929] font-mono text-xs flex flex-col gap-4 rounded-none">
+                <div className="flex flex-wrap items-center justify-between gap-2 pb-3 border-b border-[#292929]">
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse" />
+                    <span className="w-2 h-2 rounded-none bg-[#FED500] animate-pulse" />
                     <span className="text-white font-bold uppercase tracking-wider text-xs">
                       FERRARI PIT WALL // LIVE TELEMETRY RADAR
                     </span>
                   </div>
-                  <span className="px-2.5 py-0.5 rounded-full bg-amber-950/80 border border-amber-800 text-amber-300 font-bold text-[10px] uppercase">
+                  <span className="px-2.5 py-0.5 border border-[#FED500]/40 bg-[#FED500]/15 text-[#FED500] font-bold text-[10px] uppercase rounded-none">
                     STANDBY // CARS IN GARAGE
                   </span>
                 </div>
@@ -936,21 +940,21 @@ export const LiveRaceView: React.FC = () => {
           })()}
 
                 {/* Telemetry Workstation Quicklinks */}
-                <div className="flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl bg-[#0D0F17] border border-white/10 mt-1">
-                  <span className="text-[11px] text-white/60">
+                <div className="flex flex-wrap items-center justify-between gap-3 p-3 bg-[#111111] border border-[#292929] mt-1 rounded-none">
+                  <span className="text-[11px] text-[#858585]">
                     Looking for full lap traces, pedal telemetry, and RPM shift lights?
                   </span>
                   <div className="flex items-center gap-2">
                     <a
                       href="#live-telemetry"
-                      className="px-3 py-1.5 rounded-lg bg-ferrari-red text-white font-bold text-[11px] hover:bg-red-700 transition flex items-center gap-1.5"
+                      className="px-3 py-1.5 bg-[#E10600] text-white font-bold text-[11px] hover:bg-[#b00500] transition flex items-center gap-1.5 rounded-none"
                     >
                       <Gauge className="w-3.5 h-3.5" />
                       <span>TELEMETRY COCKPIT</span>
                     </a>
                     <a
                       href="#live-telemetry-ferrari"
-                      className="px-3 py-1.5 rounded-lg bg-[#141824] border border-ferrari-yellow/40 text-ferrari-yellow font-bold text-[11px] hover:bg-ferrari-yellow hover:text-black transition flex items-center gap-1.5"
+                      className="px-3 py-1.5 bg-[#1B1B1B] border border-[#FED500]/50 text-[#FED500] font-bold text-[11px] hover:bg-[#FED500] hover:text-black transition flex items-center gap-1.5 rounded-none"
                     >
                       <Flame className="w-3.5 h-3.5" />
                       <span>DUAL FERRARI COMMAND</span>
@@ -962,11 +966,11 @@ export const LiveRaceView: React.FC = () => {
         {/* Right Column: Live Timing Tower & Intelligence Tabs (4 cols) */}
         <div className="lg:col-span-4 flex flex-col gap-4 font-mono text-xs">
           {/* Tab Navigation */}
-          <div className="flex flex-wrap rounded-2xl bg-[#0D0F17] p-1 border border-ferrari-border/70 text-[11px]">
+          <div className="flex flex-wrap bg-[#111111] p-0.5 border border-[#292929] text-[11px] rounded-none">
             <button
               onClick={() => setActiveTab('track_map')}
-              className={`flex-1 min-w-[55px] py-2 rounded-xl font-bold transition-all flex items-center justify-center gap-1 ${
-                activeTab === 'track_map' ? 'bg-ferrari-red text-white shadow-lg' : 'text-white/60 hover:text-white'
+              className={`flex-1 min-w-[55px] py-1.5 font-bold transition-colors flex items-center justify-center gap-1 rounded-none border ${
+                activeTab === 'track_map' ? 'bg-[#E10600] text-white border-[#E10600]' : 'border-transparent text-[#858585] hover:text-[#F5F5F5]'
               }`}
             >
               <MapPin className="w-3 h-3" />
@@ -974,8 +978,8 @@ export const LiveRaceView: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab('sectors')}
-              className={`flex-1 min-w-[55px] py-2 rounded-xl font-bold transition-all flex items-center justify-center gap-1 ${
-                activeTab === 'sectors' ? 'bg-ferrari-red text-white shadow-lg' : 'text-white/60 hover:text-white'
+              className={`flex-1 min-w-[55px] py-1.5 font-bold transition-colors flex items-center justify-center gap-1 rounded-none border ${
+                activeTab === 'sectors' ? 'bg-[#E10600] text-white border-[#E10600]' : 'border-transparent text-[#858585] hover:text-[#F5F5F5]'
               }`}
             >
               <Timer className="w-3 h-3" />
@@ -983,8 +987,8 @@ export const LiveRaceView: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab('leaderboard')}
-              className={`flex-1 min-w-[55px] py-2 rounded-xl font-bold transition-all flex items-center justify-center gap-1 ${
-                activeTab === 'leaderboard' ? 'bg-ferrari-red text-white shadow-lg' : 'text-white/60 hover:text-white'
+              className={`flex-1 min-w-[55px] py-1.5 font-bold transition-colors flex items-center justify-center gap-1 rounded-none border ${
+                activeTab === 'leaderboard' ? 'bg-[#E10600] text-white border-[#E10600]' : 'border-transparent text-[#858585] hover:text-[#F5F5F5]'
               }`}
             >
               <Layers className="w-3 h-3" />
@@ -992,8 +996,8 @@ export const LiveRaceView: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab('tyres')}
-              className={`flex-1 min-w-[55px] py-2 rounded-xl font-bold transition-all flex items-center justify-center gap-1 ${
-                activeTab === 'tyres' ? 'bg-ferrari-red text-white shadow-lg' : 'text-white/60 hover:text-white'
+              className={`flex-1 min-w-[55px] py-1.5 font-bold transition-colors flex items-center justify-center gap-1 rounded-none border ${
+                activeTab === 'tyres' ? 'bg-[#E10600] text-white border-[#E10600]' : 'border-transparent text-[#858585] hover:text-[#F5F5F5]'
               }`}
             >
               <Flame className="w-3 h-3" />
@@ -1001,8 +1005,8 @@ export const LiveRaceView: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab('weather')}
-              className={`flex-1 min-w-[55px] py-2 rounded-xl font-bold transition-all flex items-center justify-center gap-1 ${
-                activeTab === 'weather' ? 'bg-ferrari-red text-white shadow-lg' : 'text-white/60 hover:text-white'
+              className={`flex-1 min-w-[55px] py-1.5 font-bold transition-colors flex items-center justify-center gap-1 rounded-none border ${
+                activeTab === 'weather' ? 'bg-[#E10600] text-white border-[#E10600]' : 'border-transparent text-[#858585] hover:text-[#F5F5F5]'
               }`}
             >
               <Activity className="w-3 h-3" />
@@ -1010,8 +1014,8 @@ export const LiveRaceView: React.FC = () => {
             </button>
             <button
               onClick={() => setActiveTab('incidents')}
-              className={`flex-1 min-w-[55px] py-2 rounded-xl font-bold transition-all flex items-center justify-center gap-1 ${
-                activeTab === 'incidents' ? 'bg-ferrari-red text-white shadow-lg' : 'text-white/60 hover:text-white'
+              className={`flex-1 min-w-[55px] py-1.5 font-bold transition-colors flex items-center justify-center gap-1 rounded-none border ${
+                activeTab === 'incidents' ? 'bg-[#E10600] text-white border-[#E10600]' : 'border-transparent text-[#858585] hover:text-[#F5F5F5]'
               }`}
             >
               <Flag className="w-3 h-3" />
@@ -1060,11 +1064,11 @@ export const LiveRaceView: React.FC = () => {
 
           {/* Timing Tower / Standings Tab */}
           {activeTab === 'leaderboard' && (
-            <div className="rounded-2xl bg-[#0A0C12] border border-ferrari-border/70 p-4 shadow-xl flex flex-col gap-3 font-mono text-xs">
-              <div className="flex items-center justify-between pb-2 border-b border-white/10 uppercase">
+            <div className="bg-[#111111] border border-[#292929] p-4 flex flex-col gap-3 font-mono text-xs rounded-none">
+              <div className="flex items-center justify-between pb-2 border-b border-[#292929] uppercase">
                 <div className="flex items-center gap-1.5">
-                  <Layers className="w-3.5 h-3.5 text-ferrari-yellow" />
-                  <span className="text-[10px] text-white/70 font-bold">
+                  <Layers className="w-3.5 h-3.5 text-[#FED500]" />
+                  <span className="text-[10px] text-[#858585] font-bold">
                     {f1LiveTiming.length > 0
                       ? `LIVE TIMING TOWER // ${f1LiveSessionName}`
                       : timingData.length > 0
@@ -1074,12 +1078,12 @@ export const LiveRaceView: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2">
                   {liveTimeRemainingDisplay !== '--:--:--' && (
-                    <span className="text-amber-400 font-mono font-bold text-[10px] px-2 py-0.5 rounded bg-amber-950/60 border border-amber-800">
+                    <span className="text-[#FED500] font-mono font-bold text-[10px] px-2 py-0.5 bg-[#FED500]/15 border border-[#FED500]/40 rounded-none tabular-nums">
                       {sessionEnded ? 'ENDED' : liveTimeRemainingDisplay}
                     </span>
                   )}
-                  <span className="text-[9px] text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800 font-bold flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+                  <span className="text-[9px] text-emerald-400 bg-emerald-950/60 px-2 py-0.5 border border-emerald-800 font-bold flex items-center gap-1 rounded-none">
+                    <span className="w-1.5 h-1.5 rounded-none bg-emerald-400 animate-pulse" />
                     AUTHENTIC DATA
                   </span>
                 </div>
@@ -1093,43 +1097,43 @@ export const LiveRaceView: React.FC = () => {
                     return (
                       <div
                         key={row.driver_number}
-                        className={`flex items-center justify-between p-2.5 rounded-xl border transition ${
+                        className={`flex items-center justify-between p-2.5 border transition rounded-none ${
                           isFerrari
-                            ? 'bg-gradient-to-r from-red-600/35 via-red-950/20 to-transparent border-l-4 border-l-ferrari-red border-ferrari-red/60 shadow-[0_0_15px_rgba(239,26,45,0.3)]'
-                            : 'bg-[#0E1119] border-white/5'
+                            ? 'bg-gradient-to-r from-[#E10600]/20 via-[#E10600]/5 to-transparent border-l-2 border-l-[#E10600] border-[#E10600]/50'
+                            : 'bg-[#1B1B1B] border-[#292929]'
                         }`}
                       >
                         <div className="flex items-center gap-2.5">
-                          <span className="font-display font-black text-sm w-5 text-white/90">
+                          <span className="font-display font-black text-sm w-5 text-white/90 tabular-nums">
                             P{row.position || '--'}
                           </span>
                           <span
-                            className="w-1.5 h-6 rounded-full"
+                            className="w-1 h-5 rounded-none"
                             style={{ backgroundColor: row.team_colour ? `#${row.team_colour}` : '#666' }}
                           />
                           <div>
                             <div className="flex items-center gap-1.5">
                               <span className="font-bold text-white text-xs block">{row.name || row.acronym}</span>
                               {isFerrari && (
-                                <span className="px-1.5 py-0.2 rounded bg-ferrari-red text-white text-[8px] font-black">
+                                <span className="px-1.5 py-0.2 bg-[#E10600] text-white text-[8px] font-black tracking-wider rounded-none">
                                   FERRARI
                                 </span>
                               )}
                             </div>
-                            <span className="text-[10px] text-white/40">
+                            <span className="text-[10px] text-[#858585] tabular-nums">
                               #{row.driver_number} • {row.team || 'Constructor'}
                             </span>
                           </div>
                         </div>
 
                         <div className="text-right flex flex-col items-end">
-                          <span className="font-bold text-white text-xs">
+                          <span className="font-bold text-white text-xs tabular-nums">
                             {row.gap_to_leader || row.interval ? `+${row.interval || row.gap_to_leader}` : 'LEADER'}
                           </span>
                           <div className="flex items-center gap-2 text-[10px]">
-                            <span className="text-ferrari-yellow font-mono">{row.best_lap_time || '--'}</span>
+                            <span className="text-[#FED500] font-mono tabular-nums">{row.best_lap_time || '--'}</span>
                             {row.in_pit ? (
-                              <span className="px-1.5 py-0.2 rounded bg-amber-950/80 text-amber-300 border border-amber-800 text-[8px] font-bold">
+                              <span className="px-1.5 py-0.2 bg-amber-950/80 text-amber-300 border border-amber-800 text-[8px] font-bold rounded-none">
                                 IN PIT
                               </span>
                             ) : (
@@ -1146,19 +1150,19 @@ export const LiveRaceView: React.FC = () => {
                   {timingData.map((row) => (
                     <div
                       key={row.driverNumber}
-                      className="flex items-center justify-between p-2.5 rounded-xl bg-[#0E1119] border border-white/5"
+                      className="flex items-center justify-between p-2.5 bg-[#1B1B1B] border border-[#292929] rounded-none"
                     >
                       <div className="flex items-center gap-2.5">
-                        <span className="font-display font-black text-sm w-4">P{row.position}</span>
-                        <span className="w-1.5 h-6 rounded-full" style={{ backgroundColor: row.teamColor }} />
+                        <span className="font-display font-black text-sm w-4 tabular-nums">P{row.position}</span>
+                        <span className="w-1 h-5 rounded-none" style={{ backgroundColor: row.teamColor }} />
                         <div>
                           <span className="font-bold text-white block">{row.driverName}</span>
-                          <span className="text-[10px] text-white/40">#{row.driverNumber} • {row.team}</span>
+                          <span className="text-[10px] text-[#858585] tabular-nums">#{row.driverNumber} • {row.team}</span>
                         </div>
                       </div>
                       <div className="text-right">
-                        <span className="font-bold text-white block">{row.gapToLeader}</span>
-                        <span className="text-[10px] text-ferrari-yellow">{row.tyreCompound} ({row.tyreLaps}L)</span>
+                        <span className="font-bold text-white block tabular-nums">{row.gapToLeader}</span>
+                        <span className="text-[10px] text-[#FED500] tabular-nums">{row.tyreCompound} ({row.tyreLaps}L)</span>
                       </div>
                     </div>
                   ))}
@@ -1172,21 +1176,21 @@ export const LiveRaceView: React.FC = () => {
                     return (
                       <div
                         key={row.position}
-                        className={`flex items-center justify-between p-2.5 rounded-xl border transition ${
+                        className={`flex items-center justify-between p-2.5 border transition rounded-none ${
                           isFerrari
-                            ? 'bg-ferrari-red/10 border-ferrari-red/50 shadow-[0_0_10px_rgba(255,40,0,0.15)]'
-                            : 'bg-[#0E1119] border-white/5'
+                            ? 'bg-[#E10600]/10 border-l-2 border-l-[#E10600] border-[#E10600]/50'
+                            : 'bg-[#1B1B1B] border-[#292929]'
                         }`}
                       >
                         <div className="flex items-center gap-2.5">
-                          <span className="font-display font-black text-sm w-5 text-neutral-300">
+                          <span className="font-display font-black text-sm w-5 text-neutral-300 tabular-nums">
                             P{row.position}
                           </span>
                           <span
-                            className="w-1.5 h-6 rounded-full"
+                            className="w-1 h-5 rounded-none"
                             style={{
                               backgroundColor: isFerrari
-                                ? '#EF1A2D'
+                                ? '#E10600'
                                 : row.position === '1'
                                 ? '#3671C6'
                                 : '#6B7280',
@@ -1196,25 +1200,25 @@ export const LiveRaceView: React.FC = () => {
                             <span className="font-bold text-white block text-xs">
                               {row.Driver.givenName} {row.Driver.familyName}
                             </span>
-                            <span className="text-[10px] text-white/40">
+                            <span className="text-[10px] text-[#858585] tabular-nums">
                               #{row.Driver.permanentNumber || row.Driver.code || '---'} •{' '}
                               {row.Constructors[0]?.name || 'Constructor'}
                             </span>
                           </div>
                         </div>
                         <div className="text-right">
-                          <span className="font-bold text-white block">{row.points} PTS</span>
-                          <span className="text-[10px] text-ferrari-yellow">{row.wins} WINS</span>
+                          <span className="font-bold text-white block tabular-nums">{row.points} PTS</span>
+                          <span className="text-[10px] text-[#FED500] tabular-nums">{row.wins} WINS</span>
                         </div>
                       </div>
                     )
                   })}
                 </div>
               ) : (
-                <div className="py-12 text-center text-neutral-400 space-y-2">
-                  <Activity className="w-8 h-8 text-neutral-600 mx-auto" />
+                <div className="py-12 text-center text-[#858585] space-y-2">
+                  <Activity className="w-8 h-8 text-[#858585]/40 mx-auto" />
                   <p className="font-bold text-white text-xs">NO LIVE TIMING DATA AVAILABLE</p>
-                  <p className="text-[11px] text-neutral-500 max-w-xs mx-auto">
+                  <p className="text-[11px] text-[#858585] max-w-xs mx-auto">
                     Cars are currently off-track. Live timing and gaps will activate when an official track session is in progress.
                   </p>
                 </div>
@@ -1224,12 +1228,12 @@ export const LiveRaceView: React.FC = () => {
 
           {/* Race Control Tab */}
           {activeTab === 'incidents' && (
-            <div className="rounded-2xl bg-[#0A0C12] border border-ferrari-border/70 p-4 shadow-xl">
-              <div className="flex items-center justify-between pb-2 border-b border-white/10 uppercase mb-3">
-                <span className="text-[10px] text-white/50 font-bold">
+            <div className="bg-[#111111] border border-[#292929] p-4 rounded-none">
+              <div className="flex items-center justify-between pb-2 border-b border-[#292929] uppercase mb-3">
+                <span className="text-[10px] text-[#858585] font-bold">
                   OFFICIAL FIA RACE CONTROL LOG
                 </span>
-                <span className="text-[9px] text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800 font-bold">
+                <span className="text-[9px] text-emerald-400 bg-emerald-950/60 px-2 py-0.5 border border-emerald-800 font-bold rounded-none">
                   SIGNALR & OPENF1
                 </span>
               </div>
@@ -1237,32 +1241,32 @@ export const LiveRaceView: React.FC = () => {
               {f1LiveRaceControl.length > 0 ? (
                 <div className="flex flex-col gap-2 max-h-[500px] overflow-y-auto">
                   {f1LiveRaceControl.slice(0, 15).map((msg, idx) => (
-                    <div key={idx} className="p-2.5 rounded-xl bg-neutral-900 border border-neutral-800">
-                      <div className="flex items-center justify-between text-[10px] text-neutral-400 mb-1">
+                    <div key={idx} className="p-2.5 bg-[#1B1B1B] border border-[#292929] rounded-none">
+                      <div className="flex items-center justify-between text-[10px] text-[#858585] mb-1 tabular-nums">
                         <span>{msg.time ? new Date(msg.time).toLocaleTimeString() : 'RECENT'}</span>
-                        <span className="font-bold text-amber-400 uppercase">{msg.category || 'NOTICE'}</span>
+                        <span className="font-bold text-[#FED500] uppercase">{msg.category || 'NOTICE'}</span>
                       </div>
-                      <p className="text-white text-xs">{msg.message}</p>
+                      <p className="text-[#F5F5F5] text-xs">{msg.message}</p>
                     </div>
                   ))}
                 </div>
               ) : raceControlLogs.length > 0 ? (
                 <div className="flex flex-col gap-2 max-h-[500px] overflow-y-auto">
                   {raceControlLogs.slice(0, 10).map((msg, idx) => (
-                    <div key={idx} className="p-2.5 rounded-xl bg-neutral-900 border border-neutral-800">
-                      <div className="flex items-center justify-between text-[10px] text-neutral-400 mb-1">
+                    <div key={idx} className="p-2.5 bg-[#1B1B1B] border border-[#292929] rounded-none">
+                      <div className="flex items-center justify-between text-[10px] text-[#858585] mb-1 tabular-nums">
                         <span>{new Date(msg.date).toLocaleTimeString()}</span>
-                        <span className="font-bold text-amber-400 uppercase">{msg.category}</span>
+                        <span className="font-bold text-[#FED500] uppercase">{msg.category}</span>
                       </div>
-                      <p className="text-white text-xs">{msg.message}</p>
+                      <p className="text-[#F5F5F5] text-xs">{msg.message}</p>
                     </div>
                   ))}
                 </div>
               ) : (
-                <div className="py-12 text-center text-neutral-400 space-y-2">
-                  <Flag className="w-8 h-8 text-neutral-600 mx-auto" />
+                <div className="py-12 text-center text-[#858585] space-y-2">
+                  <Flag className="w-8 h-8 text-[#858585]/40 mx-auto" />
                   <p className="font-bold text-white text-xs">TRACK STATUS: ALL CLEAR (GREEN FLAG)</p>
-                  <p className="text-[11px] text-neutral-500">
+                  <p className="text-[11px] text-[#858585]">
                     No safety cars, yellow flags, or investigation notices actively logged by the FIA Race Director.
                   </p>
                 </div>
@@ -1272,15 +1276,15 @@ export const LiveRaceView: React.FC = () => {
 
           {/* Weather Tab */}
           {activeTab === 'weather' && (
-            <div className="rounded-2xl bg-[#0A0C12] border border-ferrari-border/70 p-4 shadow-xl font-mono text-xs">
-              <div className="flex items-center justify-between pb-2 border-b border-white/10 uppercase mb-4">
+            <div className="bg-[#111111] border border-[#292929] p-4 font-mono text-xs rounded-none">
+              <div className="flex items-center justify-between pb-2 border-b border-[#292929] uppercase mb-4">
                 <div className="flex items-center gap-1.5">
                   <Activity className="w-3.5 h-3.5 text-cyan-400" />
-                  <span className="text-[10px] text-white/70 font-bold">
+                  <span className="text-[10px] text-[#858585] font-bold">
                     OFFICIAL F1 TRACK METEOROLOGICAL TELEMETRY
                   </span>
                 </div>
-                <span className="text-[9px] text-emerald-400 bg-emerald-950 px-2 py-0.5 rounded border border-emerald-800 font-bold">
+                <span className="text-[9px] text-emerald-400 bg-emerald-950/60 px-2 py-0.5 border border-emerald-800 font-bold rounded-none">
                   {f1LiveWeather ? 'F1 SIGNALR LIVE' : weatherData ? 'OPENF1' : 'OFFLINE'}
                 </span>
               </div>
@@ -1288,34 +1292,34 @@ export const LiveRaceView: React.FC = () => {
               {f1LiveWeather ? (
                 <div className="flex flex-col gap-4">
                   <div className="grid grid-cols-2 gap-3">
-                    <div className="bg-[#121622] p-3 rounded-xl border border-white/5">
-                      <span className="text-white/40 text-[10px] block">AIR TEMPERATURE</span>
-                      <span className="text-white font-bold text-base">{f1LiveWeather.AirTemp}°C</span>
+                    <div className="bg-[#1B1B1B] p-3 border border-[#292929] rounded-none">
+                      <span className="text-[#858585] text-[10px] block">AIR TEMPERATURE</span>
+                      <span className="text-white font-bold text-base tabular-nums">{f1LiveWeather.AirTemp}°C</span>
                     </div>
-                    <div className="bg-[#121622] p-3 rounded-xl border border-white/5">
-                      <span className="text-white/40 text-[10px] block">TRACK TEMPERATURE</span>
-                      <span className="text-ferrari-yellow font-bold text-base">{f1LiveWeather.TrackTemp}°C</span>
+                    <div className="bg-[#1B1B1B] p-3 border border-[#292929] rounded-none">
+                      <span className="text-[#858585] text-[10px] block">TRACK TEMPERATURE</span>
+                      <span className="text-[#FED500] font-bold text-base tabular-nums">{f1LiveWeather.TrackTemp}°C</span>
                     </div>
-                    <div className="bg-[#121622] p-3 rounded-xl border border-white/5">
-                      <span className="text-white/40 text-[10px] block">HUMIDITY</span>
-                      <span className="text-white font-bold text-base">{f1LiveWeather.Humidity}%</span>
+                    <div className="bg-[#1B1B1B] p-3 border border-[#292929] rounded-none">
+                      <span className="text-[#858585] text-[10px] block">HUMIDITY</span>
+                      <span className="text-white font-bold text-base tabular-nums">{f1LiveWeather.Humidity}%</span>
                     </div>
-                    <div className="bg-[#121622] p-3 rounded-xl border border-white/5">
-                      <span className="text-white/40 text-[10px] block">ATMOSPHERIC PRESSURE</span>
-                      <span className="text-white font-bold text-base">{f1LiveWeather.Pressure} hPa</span>
+                    <div className="bg-[#1B1B1B] p-3 border border-[#292929] rounded-none">
+                      <span className="text-[#858585] text-[10px] block">ATMOSPHERIC PRESSURE</span>
+                      <span className="text-white font-bold text-base tabular-nums">{f1LiveWeather.Pressure} hPa</span>
                     </div>
-                    <div className="bg-[#121622] p-3 rounded-xl border border-white/5">
-                      <span className="text-white/40 text-[10px] block">WIND SPEED & HEADING</span>
-                      <span className="text-white font-bold text-base">
+                    <div className="bg-[#1B1B1B] p-3 border border-[#292929] rounded-none">
+                      <span className="text-[#858585] text-[10px] block">WIND SPEED & HEADING</span>
+                      <span className="text-white font-bold text-base tabular-nums">
                         {f1LiveWeather.WindSpeed} m/s{' '}
-                        <span className="text-xs text-white/50">({f1LiveWeather.WindDirection}°)</span>
+                        <span className="text-xs text-[#858585]">({f1LiveWeather.WindDirection}°)</span>
                       </span>
                     </div>
-                    <div className="bg-[#121622] p-3 rounded-xl border border-white/5">
-                      <span className="text-white/40 text-[10px] block">PRECIPITATION / RAIN</span>
+                    <div className="bg-[#1B1B1B] p-3 border border-[#292929] rounded-none">
+                      <span className="text-[#858585] text-[10px] block">PRECIPITATION / RAIN</span>
                       <span
                         className={`font-bold text-base ${
-                          f1LiveWeather.Rainfall !== '0' ? 'text-amber-400' : 'text-emerald-400'
+                          f1LiveWeather.Rainfall !== '0' ? 'text-[#FED500]' : 'text-emerald-400'
                         }`}
                       >
                         {f1LiveWeather.Rainfall !== '0' ? 'WET // RAIN DETECTED' : 'DRY TRACK'}
@@ -1323,45 +1327,45 @@ export const LiveRaceView: React.FC = () => {
                     </div>
                   </div>
 
-                  <div className="pt-2 border-t border-white/5 flex items-center justify-between text-[9px] text-neutral-400 font-mono">
+                  <div className="pt-2 border-t border-[#292929] flex items-center justify-between text-[9px] text-[#858585] font-mono">
                     <span>SOURCE: livetiming.formula1.com/signalrcore</span>
                     <span className="text-emerald-400 font-bold">100% AUTHENTIC TRACK SENSORS</span>
                   </div>
                 </div>
               ) : weatherData ? (
                 <div className="grid grid-cols-2 gap-3">
-                  <div className="bg-[#121622] p-3 rounded-xl border border-white/5">
-                    <span className="text-white/40 text-[10px] block">AIR TEMP</span>
-                    <span className="text-white font-bold text-base">{weatherData.air_temperature}°C</span>
+                  <div className="bg-[#1B1B1B] p-3 border border-[#292929] rounded-none">
+                    <span className="text-[#858585] text-[10px] block">AIR TEMP</span>
+                    <span className="text-white font-bold text-base tabular-nums">{weatherData.air_temperature}°C</span>
                   </div>
-                  <div className="bg-[#121622] p-3 rounded-xl border border-white/5">
-                    <span className="text-white/40 text-[10px] block">TRACK TEMP</span>
-                    <span className="text-ferrari-yellow font-bold text-base">{weatherData.track_temperature}°C</span>
+                  <div className="bg-[#1B1B1B] p-3 border border-[#292929] rounded-none">
+                    <span className="text-[#858585] text-[10px] block">TRACK TEMP</span>
+                    <span className="text-[#FED500] font-bold text-base tabular-nums">{weatherData.track_temperature}°C</span>
                   </div>
-                  <div className="bg-[#121622] p-3 rounded-xl border border-white/5">
-                    <span className="text-white/40 text-[10px] block">HUMIDITY</span>
-                    <span className="text-white font-bold text-base">{weatherData.humidity}%</span>
+                  <div className="bg-[#1B1B1B] p-3 border border-[#292929] rounded-none">
+                    <span className="text-[#858585] text-[10px] block">HUMIDITY</span>
+                    <span className="text-white font-bold text-base tabular-nums">{weatherData.humidity}%</span>
                   </div>
-                  <div className="bg-[#121622] p-3 rounded-xl border border-white/5">
-                    <span className="text-white/40 text-[10px] block">PRESSURE</span>
-                    <span className="text-white font-bold text-base">{weatherData.pressure} hPa</span>
+                  <div className="bg-[#1B1B1B] p-3 border border-[#292929] rounded-none">
+                    <span className="text-[#858585] text-[10px] block">PRESSURE</span>
+                    <span className="text-white font-bold text-base tabular-nums">{weatherData.pressure} hPa</span>
                   </div>
-                  <div className="bg-[#121622] p-3 rounded-xl border border-white/5">
-                    <span className="text-white/40 text-[10px] block">WIND SPEED</span>
-                    <span className="text-white font-bold text-base">{weatherData.wind_speed} m/s</span>
+                  <div className="bg-[#1B1B1B] p-3 border border-[#292929] rounded-none">
+                    <span className="text-[#858585] text-[10px] block">WIND SPEED</span>
+                    <span className="text-white font-bold text-base tabular-nums">{weatherData.wind_speed} m/s</span>
                   </div>
-                  <div className="bg-[#121622] p-3 rounded-xl border border-white/5">
-                    <span className="text-white/40 text-[10px] block">RAINFALL</span>
+                  <div className="bg-[#1B1B1B] p-3 border border-[#292929] rounded-none">
+                    <span className="text-[#858585] text-[10px] block">RAINFALL</span>
                     <span className="text-emerald-400 font-bold text-base">
                       {weatherData.rainfall ? 'DETECTED' : 'DRY'}
                     </span>
                   </div>
                 </div>
               ) : (
-                <div className="py-12 text-center text-neutral-400 space-y-2">
-                  <Activity className="w-8 h-8 text-neutral-600 mx-auto" />
+                <div className="py-12 text-center text-[#858585] space-y-2">
+                  <Activity className="w-8 h-8 text-[#858585]/40 mx-auto" />
                   <p className="font-bold text-white text-xs">WEATHER TELEMETRY OFFLINE</p>
-                  <p className="text-[11px] text-neutral-500">
+                  <p className="text-[11px] text-[#858585]">
                     Track temperature and meteorological telemetry channels are idle between sessions.
                   </p>
                 </div>

@@ -16,9 +16,11 @@ import {
   Sliders,
   Settings,
   Zap,
+  Flag,
+  Gauge,
+  Compass,
+  FileText,
 } from 'lucide-react'
-import ShinyText from '../reactbits/ShinyText'
-import Magnet from '../reactbits/Magnet'
 
 interface NavbarProps {
   currentRoute: string
@@ -37,12 +39,13 @@ export const Navbar: React.FC<NavbarProps> = ({
 }) => {
   const [scrolled, setScrolled] = useState(false)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
-  const [telemetryDropdownOpen, setTelemetryDropdownOpen] = useState(false)
-  const [moreDropdownOpen, setMoreDropdownOpen] = useState(false)
+  const [opsDropdownOpen, setOpsDropdownOpen] = useState(false)
+  const [champDropdownOpen, setChampDropdownOpen] = useState(false)
+  const [intelDropdownOpen, setIntelDropdownOpen] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30)
+      setScrolled(window.scrollY > 20)
     }
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
@@ -51,27 +54,33 @@ export const Navbar: React.FC<NavbarProps> = ({
   const handleNav = (route: string) => {
     onNavigate(route)
     setMobileMenuOpen(false)
-    setTelemetryDropdownOpen(false)
-    setMoreDropdownOpen(false)
+    setOpsDropdownOpen(false)
+    setChampDropdownOpen(false)
+    setIntelDropdownOpen(false)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
 
+  const isOpsActive = ['home', 'pitwall', 'live-race', 'live-telemetry', 'live-telemetry-ferrari', 'compare'].includes(currentRoute)
+  const isChampActive = ['standings', 'results', 'calendar', 'drivers', 'teams'].includes(currentRoute)
+  const isIntelActive = ['news', 'circuits', 'ferrari-hub'].includes(currentRoute)
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-150 ${
         scrolled
-          ? 'bg-[#07080C]/95 backdrop-blur-2xl border-b border-ferrari-border/70 py-2.5 shadow-2xl'
-          : 'bg-[#07080C]/80 backdrop-blur-xl border-b border-white/5 py-3'
+          ? 'bg-[#080808]/95 backdrop-blur-md border-b border-[#292929] py-2 shadow-2xl'
+          : 'bg-[#080808]/90 backdrop-blur-sm border-b border-[#1E2230] py-2.5'
       }`}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
-        {/* Ferrari Cavallino Rampante Crest & Scuderia Branding */}
+      <div className="max-w-[1920px] mx-auto px-4 sm:px-6 flex items-center justify-between">
+        {/* Brand & Crest */}
         <div
           onClick={() => handleNav('home')}
-          className="flex items-center gap-3 cursor-pointer group select-none"
+          className="flex items-center gap-3 cursor-pointer select-none group border-r border-[#292929] pr-6"
         >
-          <div className="relative w-8 h-10 transition-transform duration-300 group-hover:scale-105">
-            <svg viewBox="0 0 100 125" className="w-full h-full drop-shadow-[0_0_12px_rgba(254,213,0,0.4)]">
+          {/* Square technical crest container */}
+          <div className="w-8 h-10 border border-[#292929] bg-[#111111] p-0.5 flex items-center justify-center transition-colors group-hover:border-[#E10600]">
+            <svg viewBox="0 0 100 125" className="w-full h-full">
               <path
                 d="M 50 5 L 92 18 C 92 75 50 115 50 115 C 50 115 8 75 8 18 Z"
                 fill="#FED500"
@@ -95,181 +104,284 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           <div className="flex flex-col">
-            <span className="font-display font-black tracking-widest text-white text-sm sm:text-base uppercase leading-none flex items-center gap-1.5">
-              SCUDERIA <span className="text-ferrari-red">FERRARI</span>
+            <span className="font-display font-black tracking-wider text-white text-base sm:text-lg uppercase leading-none">
+              SCUDERIA <span className="text-[#E10600]">FERRARI</span>
             </span>
-            <span className="text-[9px] font-mono tracking-widest text-ferrari-yellow/90 uppercase mt-0.5">
-              F1 COMMAND CENTRE // 2026
+            <span className="text-[10px] font-mono tracking-widest text-[#D8D8D8]/70 uppercase mt-0.5">
+              PIT WALL MISSION CONTROL // 2026
             </span>
           </div>
         </div>
 
-        {/* Primary Desktop Navigation Bar */}
-        <div className="hidden xl:flex items-center gap-1 text-[11px] font-mono tracking-wider">
-          <button
-            onClick={() => handleNav('home')}
-            className={`px-2.5 py-1.5 rounded-lg transition-colors ${
-              currentRoute === 'home' ? 'text-ferrari-yellow font-bold bg-white/5' : 'text-white/70 hover:text-white'
-            }`}
-          >
-            HOME
-          </button>
-
-          {/* Dedicated Pit Wall Command Cockpit Link */}
-          <button
-            onClick={() => handleNav('pitwall')}
-            className={`px-3 py-1.5 rounded-lg transition-all flex items-center gap-1.5 ${
-              currentRoute === 'pitwall'
-                ? 'text-white font-bold bg-amber-500/90 shadow-[0_0_15px_rgba(245,158,11,0.6)]'
-                : 'text-amber-300 hover:text-white bg-amber-500/15 border border-amber-500/40 hover:bg-amber-500/25'
-            }`}
-          >
-            <Radio className="w-3.5 h-3.5 text-amber-300 animate-pulse" />
-            <span>PIT WALL</span>
-          </button>
-
-          {/* Live Race Watch Page Link (With live indicator) */}
-          <button
-            onClick={() => handleNav('live-race')}
-            className={`px-2.5 py-1.5 rounded-lg transition-colors flex items-center gap-1.5 ${
-              currentRoute === 'live-race'
-                ? 'text-white font-bold bg-ferrari-red shadow-[0_0_15px_rgba(255,40,0,0.5)]'
-                : 'text-white/90 hover:text-white bg-ferrari-red/20 border border-ferrari-red/40'
-            }`}
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-white animate-ping" />
-            <span>LIVE RACE</span>
-          </button>
-
-          {/* Telemetry Dropdown */}
+        {/* Grouped Professional Navigation */}
+        <div className="hidden xl:flex items-center gap-1 font-mono text-xs tracking-wider">
+          {/* Section: RACE OPERATIONS */}
           <div className="relative">
             <button
               onClick={() => {
-                setTelemetryDropdownOpen(!telemetryDropdownOpen)
-                setMoreDropdownOpen(false)
+                setOpsDropdownOpen(!opsDropdownOpen)
+                setChampDropdownOpen(false)
+                setIntelDropdownOpen(false)
               }}
-              className={`px-2.5 py-1.5 rounded-lg transition-colors flex items-center gap-1 ${
-                currentRoute.includes('telemetry')
-                  ? 'text-ferrari-yellow font-bold bg-white/5'
-                  : 'text-white/70 hover:text-white'
+              className={`px-3 py-2 border flex items-center gap-1.5 transition-all ${
+                isOpsActive
+                  ? 'border-[#E10600] text-white bg-[#1B1B1B] font-bold'
+                  : 'border-transparent text-[#D8D8D8] hover:text-white hover:bg-[#161616]'
               }`}
             >
-              <span>TELEMETRY</span>
-              <ChevronDown className="w-3 h-3" />
+              <Radio className="w-3.5 h-3.5 text-[#E10600]" />
+              <span className="font-bold">RACE OPERATIONS</span>
+              <ChevronDown className="w-3 h-3 text-[#858585]" />
             </button>
 
-            {telemetryDropdownOpen && (
-              <div className="absolute top-full left-0 mt-2 w-56 rounded-2xl bg-[#0E1119] border border-ferrari-border/80 shadow-2xl p-2 flex flex-col gap-1 z-50">
+            {opsDropdownOpen && (
+              <div className="absolute top-full left-0 mt-1 w-64 bg-[#0E1017] border border-[#292929] shadow-2xl p-1 flex flex-col gap-0.5 z-50">
+                <div className="px-3 py-1.5 text-[9px] font-mono uppercase text-[#858585] tracking-widest border-b border-[#1E2230]">
+                  TELEMETRY & COMMAND
+                </div>
                 <button
                   onClick={() => handleNav('pitwall')}
-                  className="w-full text-left px-3 py-2 rounded-xl text-amber-300 hover:bg-amber-500/20 transition-colors flex items-center gap-2 font-bold"
+                  className={`w-full text-left px-3 py-2 border transition-all flex items-center justify-between text-xs ${
+                    currentRoute === 'pitwall' || currentRoute === 'home'
+                      ? 'border-[#E10600] bg-[#1B1B1B] text-[#E10600] font-bold'
+                      : 'border-transparent text-[#D8D8D8] hover:bg-[#181B24] hover:text-white'
+                  }`}
                 >
-                  <Radio className="w-3.5 h-3.5 text-amber-400" />
-                  <span>PIT WALL COMMAND</span>
+                  <span className="flex items-center gap-2">
+                    <Radio className="w-3.5 h-3.5 text-[#E10600]" />
+                    <span>PIT WALL COMMAND</span>
+                  </span>
+                  <span className="text-[10px] px-1 bg-[#292929] text-white">#01</span>
+                </button>
+                <button
+                  onClick={() => handleNav('live-race')}
+                  className={`w-full text-left px-3 py-2 border transition-all flex items-center justify-between text-xs ${
+                    currentRoute === 'live-race'
+                      ? 'border-[#E10600] bg-[#1B1B1B] text-[#E10600] font-bold'
+                      : 'border-transparent text-[#D8D8D8] hover:bg-[#181B24] hover:text-white'
+                  }`}
+                >
+                  <span className="flex items-center gap-2">
+                    <Tv className="w-3.5 h-3.5 text-[#FED500]" />
+                    <span>LIVE RACE VIEW</span>
+                  </span>
+                  <span className="text-[10px] px-1 bg-[#292929] text-white">BROADCAST</span>
                 </button>
                 <button
                   onClick={() => handleNav('live-telemetry')}
-                  className="w-full text-left px-3 py-2 rounded-xl text-white hover:bg-white/10 transition-colors flex items-center gap-2"
+                  className={`w-full text-left px-3 py-2 border transition-all flex items-center justify-between text-xs ${
+                    currentRoute === 'live-telemetry'
+                      ? 'border-[#E10600] bg-[#1B1B1B] text-[#E10600] font-bold'
+                      : 'border-transparent text-[#D8D8D8] hover:bg-[#181B24] hover:text-white'
+                  }`}
                 >
-                  <Activity className="w-3.5 h-3.5 text-emerald-400" />
-                  <span>OPENF1 WORKSTATION</span>
+                  <span className="flex items-center gap-2">
+                    <Activity className="w-3.5 h-3.5 text-emerald-400" />
+                    <span>GRID TELEMETRY</span>
+                  </span>
+                  <span className="text-[10px] px-1 bg-[#292929] text-white">20 CARS</span>
                 </button>
                 <button
                   onClick={() => handleNav('live-telemetry-ferrari')}
-                  className="w-full text-left px-3 py-2 rounded-xl text-white hover:bg-ferrari-red/20 transition-colors flex items-center gap-2 font-bold text-ferrari-red"
+                  className={`w-full text-left px-3 py-2 border transition-all flex items-center justify-between text-xs ${
+                    currentRoute === 'live-telemetry-ferrari'
+                      ? 'border-[#E10600] bg-[#1B1B1B] text-[#E10600] font-bold'
+                      : 'border-transparent text-[#D8D8D8] hover:bg-[#181B24] hover:text-white'
+                  }`}
                 >
-                  <Shield className="w-3.5 h-3.5 text-ferrari-red" />
-                  <span>FERRARI DUAL COMMAND</span>
+                  <span className="flex items-center gap-2">
+                    <Shield className="w-3.5 h-3.5 text-[#E10600]" />
+                    <span>FERRARI DUAL COMMAND</span>
+                  </span>
+                  <span className="text-[10px] px-1 bg-[#E10600] text-white">#16 & #44</span>
                 </button>
                 <button
-                  onClick={() => handleNav('telemetry-compare')}
-                  className="w-full text-left px-3 py-2 rounded-xl text-white hover:bg-white/10 transition-colors flex items-center gap-2"
+                  onClick={() => handleNav('compare')}
+                  className={`w-full text-left px-3 py-2 border transition-all flex items-center justify-between text-xs ${
+                    currentRoute === 'compare'
+                      ? 'border-[#E10600] bg-[#1B1B1B] text-[#E10600] font-bold'
+                      : 'border-transparent text-[#D8D8D8] hover:bg-[#181B24] hover:text-white'
+                  }`}
                 >
-                  <Sliders className="w-3.5 h-3.5 text-ferrari-yellow" />
-                  <span>DRIVER COMPARATOR</span>
-                </button>
-                <button
-                  onClick={() => handleNav('telemetry-replay')}
-                  className="w-full text-left px-3 py-2 rounded-xl text-white hover:bg-white/10 transition-colors flex items-center gap-2"
-                >
-                  <Tv className="w-3.5 h-3.5 text-sky-400" />
-                  <span>HISTORICAL REPLAY</span>
+                  <span className="flex items-center gap-2">
+                    <Sliders className="w-3.5 h-3.5 text-[#FED500]" />
+                    <span>DRIVER COMPARATOR</span>
+                  </span>
+                  <span className="text-[10px] px-1 bg-[#292929] text-white">VER VS HAM</span>
                 </button>
               </div>
             )}
           </div>
 
-          <button
-            onClick={() => handleNav('calendar')}
-            className={`px-2.5 py-1.5 rounded-lg transition-colors ${
-              currentRoute === 'calendar' ? 'text-ferrari-yellow font-bold bg-white/5' : 'text-white/70 hover:text-white'
-            }`}
-          >
-            CALENDAR
-          </button>
+          {/* Section: CHAMPIONSHIP */}
+          <div className="relative">
+            <button
+              onClick={() => {
+                setChampDropdownOpen(!champDropdownOpen)
+                setOpsDropdownOpen(false)
+                setIntelDropdownOpen(false)
+              }}
+              className={`px-3 py-2 border flex items-center gap-1.5 transition-all ${
+                isChampActive
+                  ? 'border-[#E10600] text-white bg-[#1B1B1B] font-bold'
+                  : 'border-transparent text-[#D8D8D8] hover:text-white hover:bg-[#161616]'
+              }`}
+            >
+              <Trophy className="w-3.5 h-3.5 text-[#FED500]" />
+              <span className="font-bold">CHAMPIONSHIP</span>
+              <ChevronDown className="w-3 h-3 text-[#858585]" />
+            </button>
 
-          <button
-            onClick={() => handleNav('standings')}
-            className={`px-2.5 py-1.5 rounded-lg transition-colors ${
-              currentRoute === 'standings' ? 'text-ferrari-yellow font-bold bg-white/5' : 'text-white/70 hover:text-white'
-            }`}
-          >
-            STANDINGS
-          </button>
+            {champDropdownOpen && (
+              <div className="absolute top-full left-0 mt-1 w-56 bg-[#0E1017] border border-[#292929] shadow-2xl p-1 flex flex-col gap-0.5 z-50">
+                <div className="px-3 py-1.5 text-[9px] font-mono uppercase text-[#858585] tracking-widest border-b border-[#1E2230]">
+                  FIA WORLD CHAMPIONSHIP
+                </div>
+                <button
+                  onClick={() => handleNav('standings')}
+                  className={`w-full text-left px-3 py-2 border transition-all flex items-center gap-2 text-xs ${
+                    currentRoute === 'standings'
+                      ? 'border-[#E10600] bg-[#1B1B1B] text-white font-bold'
+                      : 'border-transparent text-[#D8D8D8] hover:bg-[#181B24] hover:text-white'
+                  }`}
+                >
+                  <Trophy className="w-3.5 h-3.5 text-[#FED500]" />
+                  <span>STANDINGS</span>
+                </button>
+                <button
+                  onClick={() => handleNav('results')}
+                  className={`w-full text-left px-3 py-2 border transition-all flex items-center gap-2 text-xs ${
+                    currentRoute === 'results'
+                      ? 'border-[#E10600] bg-[#1B1B1B] text-white font-bold'
+                      : 'border-transparent text-[#D8D8D8] hover:bg-[#181B24] hover:text-white'
+                  }`}
+                >
+                  <Flag className="w-3.5 h-3.5 text-white" />
+                  <span>RACE RESULTS</span>
+                </button>
+                <button
+                  onClick={() => handleNav('calendar')}
+                  className={`w-full text-left px-3 py-2 border transition-all flex items-center gap-2 text-xs ${
+                    currentRoute === 'calendar'
+                      ? 'border-[#E10600] bg-[#1B1B1B] text-white font-bold'
+                      : 'border-transparent text-[#D8D8D8] hover:bg-[#181B24] hover:text-white'
+                  }`}
+                >
+                  <Calendar className="w-3.5 h-3.5 text-cyan-400" />
+                  <span>2026 CALENDAR</span>
+                </button>
+                <button
+                  onClick={() => handleNav('drivers')}
+                  className={`w-full text-left px-3 py-2 border transition-all flex items-center gap-2 text-xs ${
+                    currentRoute === 'drivers'
+                      ? 'border-[#E10600] bg-[#1B1B1B] text-white font-bold'
+                      : 'border-transparent text-[#D8D8D8] hover:bg-[#181B24] hover:text-white'
+                  }`}
+                >
+                  <Users className="w-3.5 h-3.5 text-white" />
+                  <span>DRIVERS GRID</span>
+                </button>
+                <button
+                  onClick={() => handleNav('teams')}
+                  className={`w-full text-left px-3 py-2 border transition-all flex items-center gap-2 text-xs ${
+                    currentRoute === 'teams'
+                      ? 'border-[#E10600] bg-[#1B1B1B] text-white font-bold'
+                      : 'border-transparent text-[#D8D8D8] hover:bg-[#181B24] hover:text-white'
+                  }`}
+                >
+                  <Shield className="w-3.5 h-3.5 text-white" />
+                  <span>CONSTRUCTORS</span>
+                </button>
+              </div>
+            )}
+          </div>
 
-          <button
-            onClick={() => handleNav('circuits')}
-            className={`px-2.5 py-1.5 rounded-lg transition-colors ${
-              currentRoute === 'circuits' ? 'text-ferrari-yellow font-bold bg-white/5' : 'text-white/70 hover:text-white'
-            }`}
-          >
-            CIRCUITS
-          </button>
+          {/* Section: INTELLIGENCE */}
+          <div className="relative">
+            <button
+              onClick={() => {
+                setIntelDropdownOpen(!intelDropdownOpen)
+                setOpsDropdownOpen(false)
+                setChampDropdownOpen(false)
+              }}
+              className={`px-3 py-2 border flex items-center gap-1.5 transition-all ${
+                isIntelActive
+                  ? 'border-[#E10600] text-white bg-[#1B1B1B] font-bold'
+                  : 'border-transparent text-[#D8D8D8] hover:text-white hover:bg-[#161616]'
+              }`}
+            >
+              <FileText className="w-3.5 h-3.5 text-cyan-400" />
+              <span className="font-bold">INTELLIGENCE</span>
+              <ChevronDown className="w-3 h-3 text-[#858585]" />
+            </button>
 
-          <button
-            onClick={() => handleNav('news')}
-            className={`px-2.5 py-1.5 rounded-lg transition-colors ${
-              currentRoute === 'news' ? 'text-ferrari-yellow font-bold bg-white/5' : 'text-white/70 hover:text-white'
-            }`}
-          >
-            NEWS
-          </button>
+            {intelDropdownOpen && (
+              <div className="absolute top-full left-0 mt-1 w-56 bg-[#0E1017] border border-[#292929] shadow-2xl p-1 flex flex-col gap-0.5 z-50">
+                <div className="px-3 py-1.5 text-[9px] font-mono uppercase text-[#858585] tracking-widest border-b border-[#1E2230]">
+                  ANALYSIS & DISPATCHES
+                </div>
+                <button
+                  onClick={() => handleNav('news')}
+                  className={`w-full text-left px-3 py-2 border transition-all flex items-center gap-2 text-xs ${
+                    currentRoute === 'news'
+                      ? 'border-[#E10600] bg-[#1B1B1B] text-white font-bold'
+                      : 'border-transparent text-[#D8D8D8] hover:bg-[#181B24] hover:text-white'
+                  }`}
+                >
+                  <FileText className="w-3.5 h-3.5 text-white" />
+                  <span>PADDOCK NEWS</span>
+                </button>
+                <button
+                  onClick={() => handleNav('circuits')}
+                  className={`w-full text-left px-3 py-2 border transition-all flex items-center gap-2 text-xs ${
+                    currentRoute === 'circuits'
+                      ? 'border-[#E10600] bg-[#1B1B1B] text-white font-bold'
+                      : 'border-transparent text-[#D8D8D8] hover:bg-[#181B24] hover:text-white'
+                  }`}
+                >
+                  <Compass className="w-3.5 h-3.5 text-white" />
+                  <span>CIRCUITS ATLAS</span>
+                </button>
+                <button
+                  onClick={() => handleNav('ferrari-hub')}
+                  className={`w-full text-left px-3 py-2 border transition-all flex items-center gap-2 text-xs font-bold text-[#E10600] ${
+                    currentRoute === 'ferrari-hub'
+                      ? 'border-[#E10600] bg-[#1B1B1B]'
+                      : 'border-transparent hover:bg-[#181B24]'
+                  }`}
+                >
+                  <Shield className="w-3.5 h-3.5 text-[#E10600]" />
+                  <span>FERRARI HUB (#16 / #44)</span>
+                </button>
+              </div>
+            )}
+          </div>
 
-          {/* Ferrari Hub Highlight */}
+          {/* Quick Direct Link: Standalone Pit Wall */}
           <button
-            onClick={() => handleNav('ferrari-hub')}
-            className={`px-3 py-1.5 rounded-lg transition-colors font-bold flex items-center gap-1.5 ${
-              currentRoute === 'ferrari-hub'
-                ? 'text-white bg-ferrari-red shadow-[0_0_12px_rgba(239,26,45,0.6)]'
-                : 'text-ferrari-yellow hover:text-white bg-ferrari-yellow/10 border border-ferrari-yellow/30'
+            onClick={() => handleNav('pitwall')}
+            className={`px-3 py-2 border transition-all flex items-center gap-1.5 font-bold ${
+              currentRoute === 'pitwall'
+                ? 'border-[#E10600] bg-[#E10600] text-white'
+                : 'border-[#292929] bg-[#111111] text-[#FED500] hover:border-[#FED500] hover:text-white'
             }`}
           >
-            <Shield className="w-3.5 h-3.5 text-ferrari-red fill-ferrari-red" />
-            <span>FERRARI HUB (#16 & #44)</span>
-          </button>
-
-          <button
-            onClick={() => handleNav('admin')}
-            className={`p-2 rounded-xl transition-colors text-white/50 hover:text-white ${
-              currentRoute === 'admin' ? 'text-ferrari-yellow bg-white/10' : ''
-            }`}
-            title="Stream & Dashboard Settings"
-          >
-            <Settings className="w-4 h-4 text-ferrari-yellow" />
+            <Radio className="w-3.5 h-3.5 animate-pulse" />
+            <span>PIT WALL HUD</span>
           </button>
         </div>
 
-        {/* Right Tools HUD: Search, Sound Toggle, Launch Control, Mobile Menu */}
+        {/* Right Tools HUD: Search, Sound Toggle, Admin, Mobile Toggle */}
         <div className="flex items-center gap-2">
           {/* Global Search Button */}
           <button
             onClick={onOpenSearch}
-            className="flex items-center gap-2 px-2.5 py-1.5 rounded-full bg-[#121520] border border-white/15 text-white/70 hover:text-white hover:border-ferrari-red transition-all text-xs font-mono"
+            className="flex items-center gap-2 px-3 py-2 border border-[#292929] bg-[#111111] hover:border-[#E10600] text-[#D8D8D8] hover:text-white transition-all text-xs font-mono"
             title="Global Search (Ctrl + K)"
           >
-            <Search className="w-3.5 h-3.5 text-ferrari-red" />
-            <span className="hidden sm:inline">SEARCH</span>
-            <kbd className="hidden md:inline px-1.5 py-0.5 rounded bg-black/60 text-[9px] text-white/50 border border-white/10">
+            <Search className="w-3.5 h-3.5 text-[#E10600]" />
+            <span className="hidden sm:inline font-bold">SEARCH</span>
+            <kbd className="hidden md:inline px-1 py-0.2 bg-[#1B1B1B] text-[9px] text-[#858585] border border-[#292929]">
               ⌘K
             </kbd>
           </button>
@@ -277,20 +389,33 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Sound Toggle */}
           <button
             onClick={onToggleSound}
-            className={`p-2 rounded-full border transition-all ${
+            className={`p-2 border transition-all ${
               !isMuted
-                ? 'bg-ferrari-red/20 border-ferrari-red text-ferrari-red shadow-[0_0_15px_rgba(255,40,0,0.4)]'
-                : 'bg-ferrari-card border-white/15 text-white/60 hover:text-white'
+                ? 'bg-[#E10600] border-[#E10600] text-white'
+                : 'bg-[#111111] border-[#292929] text-[#858585] hover:text-white hover:border-[#858585]'
             }`}
-            title={!isMuted ? 'Mute V12 Engine Sound' : 'Enable Ferrari V12 Sound Engine'}
+            title={!isMuted ? 'Mute Ferrari V6 Sound Engine' : 'Enable Ferrari V6 Sound Engine'}
           >
             {!isMuted ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}
           </button>
 
-          {/* Mobile Hamburger Toggle */}
+          {/* Admin / Stream Configuration */}
+          <button
+            onClick={() => handleNav('admin')}
+            className={`p-2 border transition-all ${
+              currentRoute === 'admin'
+                ? 'bg-[#1B1B1B] border-[#E10600] text-[#FED500]'
+                : 'bg-[#111111] border-[#292929] text-[#858585] hover:text-white hover:border-[#858585]'
+            }`}
+            title="Telemetry Stream & Dashboard Administration"
+          >
+            <Settings className="w-4 h-4" />
+          </button>
+
+          {/* Mobile Menu Toggle */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="xl:hidden p-2 rounded-xl bg-[#141824] border border-white/15 text-white"
+            className="xl:hidden p-2 border border-[#292929] bg-[#111111] text-white"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <ChevronDown className="w-5 h-5" />}
           </button>
@@ -299,91 +424,106 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Navigation Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden bg-[#07080C] border-b border-ferrari-border p-6 flex flex-col gap-3 font-mono text-xs max-h-[80vh] overflow-y-auto animate-in slide-in-from-top duration-200">
-          <button
-            onClick={() => handleNav('home')}
-            className="text-left py-2 px-3 rounded-lg text-white hover:bg-white/10 font-bold"
-          >
-            HOME
-          </button>
+        <div className="xl:hidden bg-[#080808] border-b border-[#292929] p-4 flex flex-col gap-1 font-mono text-xs max-h-[85vh] overflow-y-auto animate-in slide-in-from-top duration-150">
+          <div className="px-2 py-1 text-[10px] text-[#858585] uppercase tracking-widest border-b border-[#1E2230] mb-1">
+            RACE OPERATIONS
+          </div>
           <button
             onClick={() => handleNav('pitwall')}
-            className="text-left py-2 px-3 rounded-lg bg-amber-500/20 text-amber-300 border border-amber-500/40 font-bold flex items-center justify-between"
+            className="text-left py-2.5 px-3 border border-[#E10600] bg-[#1B1B1B] text-[#E10600] font-bold flex items-center justify-between"
           >
             <span className="flex items-center gap-2">
-              <Radio className="w-3.5 h-3.5 text-amber-400" />
+              <Radio className="w-3.5 h-3.5 text-[#E10600]" />
               <span>PIT WALL WORKSTATION</span>
             </span>
-            <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+            <span className="w-2 h-2 bg-[#E10600]" />
           </button>
           <button
             onClick={() => handleNav('live-race')}
-            className="text-left py-2 px-3 rounded-lg bg-ferrari-red text-white font-bold flex items-center justify-between"
+            className="text-left py-2.5 px-3 border border-[#292929] bg-[#111111] text-white font-bold flex items-center justify-between"
           >
-            <span>LIVE RACE (AD-FREE WATCH)</span>
-            <span className="w-2 h-2 rounded-full bg-white animate-ping" />
+            <span>LIVE RACE VIDEO & TELEMETRY</span>
+            <span className="w-2 h-2 bg-[#FED500]" />
           </button>
           <button
             onClick={() => handleNav('live-telemetry')}
-            className="text-left py-2 px-3 rounded-lg text-white hover:bg-white/10"
+            className="text-left py-2 px-3 border border-[#1E2230] text-[#D8D8D8] hover:bg-[#161616]"
           >
-            OPENF1 TELEMETRY WORKSTATION
+            GRID TELEMETRY (20 CARS)
           </button>
           <button
             onClick={() => handleNav('live-telemetry-ferrari')}
-            className="text-left py-2 px-3 rounded-lg text-ferrari-yellow hover:bg-white/10 font-bold"
+            className="text-left py-2 px-3 border border-[#1E2230] text-[#E10600] font-bold hover:bg-[#161616]"
           >
-            FERRARI DUAL COMMAND CENTRE
+            FERRARI DUAL COMMAND (#16 & #44)
           </button>
           <button
-            onClick={() => handleNav('telemetry-compare')}
-            className="text-left py-2 px-3 rounded-lg text-white hover:bg-white/10"
+            onClick={() => handleNav('compare')}
+            className="text-left py-2 px-3 border border-[#1E2230] text-[#FED500] hover:bg-[#161616]"
           >
-            DRIVER TELEMETRY COMPARE
+            DRIVER COMPARISON (VER VS HAM)
+          </button>
+
+          <div className="px-2 py-1 text-[10px] text-[#858585] uppercase tracking-widest border-b border-[#1E2230] mt-3 mb-1">
+            CHAMPIONSHIP
+          </div>
+          <button
+            onClick={() => handleNav('standings')}
+            className="text-left py-2 px-3 border border-[#1E2230] text-[#D8D8D8] hover:bg-[#161616]"
+          >
+            STANDINGS (DRIVERS & CONSTRUCTORS)
           </button>
           <button
-            onClick={() => handleNav('telemetry-replay')}
-            className="text-left py-2 px-3 rounded-lg text-white hover:bg-white/10"
+            onClick={() => handleNav('results')}
+            className="text-left py-2 px-3 border border-[#1E2230] text-[#D8D8D8] hover:bg-[#161616]"
           >
-            HISTORICAL TELEMETRY REPLAY
+            RACE RESULTS
           </button>
           <button
             onClick={() => handleNav('calendar')}
-            className="text-left py-2 px-3 rounded-lg text-white hover:bg-white/10"
+            className="text-left py-2 px-3 border border-[#1E2230] text-[#D8D8D8] hover:bg-[#161616]"
           >
-            RACE CALENDAR (24 GRANDS PRIX)
+            2026 RACE CALENDAR
           </button>
           <button
-            onClick={() => handleNav('standings')}
-            className="text-left py-2 px-3 rounded-lg text-white hover:bg-white/10"
+            onClick={() => handleNav('drivers')}
+            className="text-left py-2 px-3 border border-[#1E2230] text-[#D8D8D8] hover:bg-[#161616]"
           >
-            CHAMPIONSHIP STANDINGS (DRIVERS & CONSTRUCTORS)
+            DRIVERS GRID
+          </button>
+          <button
+            onClick={() => handleNav('teams')}
+            className="text-left py-2 px-3 border border-[#1E2230] text-[#D8D8D8] hover:bg-[#161616]"
+          >
+            CONSTRUCTORS TEAMS
+          </button>
+
+          <div className="px-2 py-1 text-[10px] text-[#858585] uppercase tracking-widest border-b border-[#1E2230] mt-3 mb-1">
+            INTELLIGENCE & SYSTEM
+          </div>
+          <button
+            onClick={() => handleNav('news')}
+            className="text-left py-2 px-3 border border-[#1E2230] text-[#D8D8D8] hover:bg-[#161616]"
+          >
+            PADDOCK NEWS & PRESS
           </button>
           <button
             onClick={() => handleNav('circuits')}
-            className="text-left py-2 px-3 rounded-lg text-white hover:bg-white/10"
+            className="text-left py-2 px-3 border border-[#1E2230] text-[#D8D8D8] hover:bg-[#161616]"
           >
-            CIRCUITS ATLAS & MAPS
-          </button>
-          <button
-            onClick={() => handleNav('news')}
-            className="text-left py-2 px-3 rounded-lg text-white hover:bg-white/10"
-          >
-            LATEST F1 & SCUDERIA NEWS
+            CIRCUITS ATLAS
           </button>
           <button
             onClick={() => handleNav('ferrari-hub')}
-            className="text-left py-2 px-3 rounded-lg bg-ferrari-red text-white font-bold flex items-center justify-between"
+            className="text-left py-2 px-3 border border-[#E10600] bg-[#111111] text-white font-bold"
           >
-            <span>SCUDERIA FERRARI (#16 & #44)</span>
-            <Shield className="w-3.5 h-3.5 text-white" />
+            SCUDERIA FERRARI SANCTUARY (#16 & #44)
           </button>
           <button
             onClick={() => handleNav('admin')}
-            className="text-left py-2 px-3 rounded-lg text-ferrari-yellow font-bold hover:bg-white/10 border-t border-white/10 pt-3 flex items-center justify-between"
+            className="text-left py-2 px-3 border border-[#292929] bg-[#161616] text-[#FED500] font-bold mt-2"
           >
-            <span>STREAM SETTINGS & ADMIN</span>
-            <Settings className="w-3.5 h-3.5" />
+            SYSTEM ADMINISTRATION & STREAM SETTINGS
           </button>
         </div>
       )}
@@ -392,7 +532,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="absolute bottom-0 left-0 right-0 h-[2px] flex">
         <div className="w-1/3 bg-[#008C45]" />
         <div className="w-1/3 bg-[#F4F5F0]" />
-        <div className="w-1/3 bg-[#CD212A]" />
+        <div className="w-1/3 bg-[#E10600]" />
       </div>
     </nav>
   )

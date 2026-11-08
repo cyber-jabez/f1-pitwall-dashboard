@@ -57,12 +57,12 @@ export const WeatherRadarCard: React.FC<WeatherRadarCardProps> = ({
 
   return (
     <div
-      className={`rounded-2xl border border-white/10 bg-[#0B0F19] p-3 flex flex-col gap-3 font-mono text-xs overflow-hidden shadow-xl ${className}`}
+      className={`border border-[#292929] bg-[#0B0D13] p-3 flex flex-col gap-3 font-mono text-xs overflow-hidden rounded-none select-none ${className}`}
     >
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-white/10">
+      <div className="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-[#292929]">
         <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-cyan-400 animate-ping" />
+          <div className="w-2 h-2 rounded-none bg-cyan-400 animate-pulse" />
           <svg className="w-4 h-4 text-cyan-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M20 16.58A5 5 0 0 0 18 7h-1.26A8 8 0 1 0 4 15.25" />
             <path d="M8 19v2" />
@@ -72,10 +72,10 @@ export const WeatherRadarCard: React.FC<WeatherRadarCardProps> = ({
             <path d="M12 21v2" />
             <path d="M12 15v2" />
           </svg>
-          <h3 className="font-mono text-xs font-black tracking-wider uppercase text-white">
+          <h3 className="font-mono text-xs font-black tracking-wider uppercase text-[#F5F5F5]">
             FIA DOPPLER WEATHER RADAR
           </h3>
-          <span className="text-[9px] px-1.5 py-0.5 rounded bg-cyan-950/80 border border-cyan-800 text-cyan-300 font-bold hidden sm:inline">
+          <span className="text-[9px] px-1.5 py-0.5 bg-cyan-950/80 border border-cyan-800 text-cyan-300 font-bold hidden sm:inline rounded-none">
             METEOROLOGICAL TELEMETRY
           </span>
         </div>
@@ -83,7 +83,7 @@ export const WeatherRadarCard: React.FC<WeatherRadarCardProps> = ({
         {/* Rain Risk Pill */}
         <div className="flex items-center gap-2">
           <span
-            className={`px-2 py-0.5 rounded-full text-[10px] font-bold border flex items-center gap-1.5 ${
+            className={`px-2 py-0.5 rounded-none text-[10px] font-bold border flex items-center gap-1.5 tabular-nums ${
               isRaining
                 ? 'bg-blue-950 border-blue-500 text-blue-300 animate-pulse'
                 : rainRiskPercent > 30
@@ -149,11 +149,11 @@ export const WeatherRadarCard: React.FC<WeatherRadarCardProps> = ({
               <path
                 d="M 20 40 C 15 35 15 20 30 18 C 45 15 65 22 75 15 C 85 8 92 18 85 35 C 80 45 70 52 50 48 C 35 45 28 48 20 40 Z"
                 fill="none"
-                stroke="#EF1A2D"
+                stroke="#E10600"
                 strokeWidth="4"
               />
             </svg>
-            <span className="text-[7px] font-black text-ferrari-yellow tracking-widest block uppercase mt-0.5">
+            <span className="text-[7px] font-black text-[#FED500] tracking-widest block uppercase mt-0.5">
               TRACK
             </span>
           </div>
@@ -189,13 +189,13 @@ export const WeatherRadarCard: React.FC<WeatherRadarCardProps> = ({
           {/* Main Tarmac vs Air Temp Split */}
           <div className="grid grid-cols-2 gap-2">
             {/* Track Tarmac Temperature */}
-            <div className="p-2.5 rounded-xl bg-gradient-to-br from-[#1A0B0B] to-[#0A0D15] border border-ferrari-red/40 flex flex-col justify-between shadow-inner">
-              <div className="flex items-center justify-between text-[9px] text-white/50">
+            <div className="p-2.5 bg-[#1B1B1B] border-l-2 border-l-[#E10600] border border-[#292929] flex flex-col justify-between rounded-none">
+              <div className="flex items-center justify-between text-[9px] text-[#858585]">
                 <span className="uppercase font-bold">TRACK SURFACE</span>
-                <Flame className="w-3.5 h-3.5 text-ferrari-red" />
+                <Flame className="w-3.5 h-3.5 text-[#E10600]" />
               </div>
               <div className="my-0.5">
-                <span className="font-display font-black text-2xl text-ferrari-yellow tracking-tight">
+                <span className="font-display font-black text-2xl text-[#FED500] tracking-tight tabular-nums">
                   {trackTemp.toFixed(1)}°C
                 </span>
               </div>
@@ -205,17 +205,17 @@ export const WeatherRadarCard: React.FC<WeatherRadarCardProps> = ({
             </div>
 
             {/* Ambient Air Temperature */}
-            <div className="p-2.5 rounded-xl bg-[#080B13] border border-white/10 flex flex-col justify-between">
-              <div className="flex items-center justify-between text-[9px] text-white/50">
+            <div className="p-2.5 bg-[#1B1B1B] border border-[#292929] flex flex-col justify-between rounded-none">
+              <div className="flex items-center justify-between text-[9px] text-[#858585]">
                 <span className="uppercase font-bold">AMBIENT AIR</span>
                 <Activity className="w-3.5 h-3.5 text-cyan-400" />
               </div>
               <div className="my-0.5">
-                <span className="font-display font-black text-2xl text-white tracking-tight">
+                <span className="font-display font-black text-2xl text-white tracking-tight tabular-nums">
                   {airTemp.toFixed(1)}°C
                 </span>
               </div>
-              <span className="text-[8px] text-white/40">
+              <span className="text-[8px] text-[#858585] tabular-nums">
                 Δ {(trackTemp - airTemp).toFixed(1)}°C TARMAC DELTA
               </span>
             </div>
@@ -224,8 +224,8 @@ export const WeatherRadarCard: React.FC<WeatherRadarCardProps> = ({
           {/* 4 Sensor Micro Gauges: Wind, Humidity, Pressure, Track Grip */}
           <div className="grid grid-cols-3 gap-1.5 text-center">
             {/* Wind Vector */}
-            <div className="p-1.5 rounded-lg bg-black/50 border border-white/5 flex flex-col items-center">
-              <span className="text-[8px] text-white/40 uppercase">WIND</span>
+            <div className="p-1.5 bg-[#111111] border border-[#292929] flex flex-col items-center rounded-none">
+              <span className="text-[8px] text-[#858585] uppercase">WIND</span>
               <div className="flex items-center gap-1 my-0.5">
                 {/* Wind Compass Arrow */}
                 <div
@@ -234,29 +234,29 @@ export const WeatherRadarCard: React.FC<WeatherRadarCardProps> = ({
                 >
                   <Wind className="w-3 h-3 text-emerald-400" />
                 </div>
-                <span className="font-bold text-white text-xs">{windSpeed.toFixed(1)}</span>
+                <span className="font-bold text-white text-xs tabular-nums">{windSpeed.toFixed(1)}</span>
               </div>
-              <span className="text-[7px] text-white/40">{windDir.toFixed(0)}° KM/H</span>
+              <span className="text-[7px] text-[#858585] tabular-nums">{windDir.toFixed(0)}° KM/H</span>
             </div>
 
             {/* Relative Humidity */}
-            <div className="p-1.5 rounded-lg bg-black/50 border border-white/5 flex flex-col items-center">
-              <span className="text-[8px] text-white/40 uppercase">HUMIDITY</span>
-              <span className="font-bold text-cyan-300 text-xs my-0.5">{humidity.toFixed(0)}%</span>
-              <span className="text-[7px] text-white/40">RH AIR</span>
+            <div className="p-1.5 bg-[#111111] border border-[#292929] flex flex-col items-center rounded-none">
+              <span className="text-[8px] text-[#858585] uppercase">HUMIDITY</span>
+              <span className="font-bold text-cyan-300 text-xs my-0.5 tabular-nums">{humidity.toFixed(0)}%</span>
+              <span className="text-[7px] text-[#858585]">RH AIR</span>
             </div>
 
             {/* Atmospheric Barometric Pressure */}
-            <div className="p-1.5 rounded-lg bg-black/50 border border-white/5 flex flex-col items-center">
-              <span className="text-[8px] text-white/40 uppercase">PRESSURE</span>
-              <span className="font-bold text-amber-300 text-xs my-0.5">{pressure.toFixed(0)}</span>
-              <span className="text-[7px] text-white/40">MBAR / HPA</span>
+            <div className="p-1.5 bg-[#111111] border border-[#292929] flex flex-col items-center rounded-none">
+              <span className="text-[8px] text-[#858585] uppercase">PRESSURE</span>
+              <span className="font-bold text-[#FED500] text-xs my-0.5 tabular-nums">{pressure.toFixed(0)}</span>
+              <span className="text-[7px] text-[#858585]">MBAR / HPA</span>
             </div>
           </div>
 
           {/* Track Condition & Strategy Grip Banner */}
-          <div className="p-2 rounded-xl bg-black/40 border border-white/5 flex items-center justify-between text-[10px]">
-            <span className="text-white/40 uppercase">ESTIMATED GRIP:</span>
+          <div className="p-2 bg-[#1B1B1B] border border-[#292929] flex items-center justify-between text-[10px] rounded-none">
+            <span className="text-[#858585] uppercase">ESTIMATED GRIP:</span>
             <span className="font-bold text-emerald-400 tracking-wider">
               {gripState}
             </span>
@@ -265,17 +265,17 @@ export const WeatherRadarCard: React.FC<WeatherRadarCardProps> = ({
       </div>
 
       {/* Footer Radar Range Toggles & Provenance Note */}
-      <div className="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-white/5 text-[9px]">
+      <div className="flex flex-wrap items-center justify-between gap-2 pt-1 border-t border-[#292929] text-[9px]">
         <div className="flex items-center gap-1">
-          <span className="text-white/40 uppercase mr-1">RANGE:</span>
+          <span className="text-[#858585] uppercase mr-1">RANGE:</span>
           {(['5km', '15km', '30km'] as const).map((r) => (
             <button
               key={r}
               onClick={() => setRadarZoom(r)}
-              className={`px-1.5 py-0.5 rounded font-bold transition ${
+              className={`px-1.5 py-0.5 font-bold transition-colors border rounded-none ${
                 radarZoom === r
-                  ? 'bg-cyan-600 text-white'
-                  : 'bg-black/40 text-white/50 hover:text-white'
+                  ? 'bg-cyan-600 text-white border-cyan-600'
+                  : 'bg-[#1B1B1B] text-[#858585] hover:text-white border-[#292929]'
               }`}
             >
               {r}
@@ -283,8 +283,8 @@ export const WeatherRadarCard: React.FC<WeatherRadarCardProps> = ({
           ))}
         </div>
 
-        <div className="flex items-center gap-1 text-white/40">
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+        <div className="flex items-center gap-1 text-[#858585]">
+          <span className="w-1.5 h-1.5 rounded-none bg-emerald-400" />
           <span>OFFICIAL FIA FOM WEATHER STATION</span>
         </div>
       </div>

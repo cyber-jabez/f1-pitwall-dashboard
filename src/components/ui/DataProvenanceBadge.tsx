@@ -21,7 +21,7 @@ export const DataProvenanceBadge: React.FC<DataProvenanceBadgeProps> = ({
       case 'PROVIDER_SUPPLIED':
         return 'text-cyan-400 bg-cyan-950/40 border-cyan-500/40'
       case 'HISTORICAL_ARCHIVE':
-        return 'text-yellow-400 bg-yellow-950/40 border-yellow-500/40'
+        return 'text-[#FED500] bg-amber-950/40 border-amber-500/40'
       case 'UNAVAILABLE':
       default:
         return 'text-rose-400 bg-rose-950/40 border-rose-500/40'
@@ -31,9 +31,9 @@ export const DataProvenanceBadge: React.FC<DataProvenanceBadgeProps> = ({
   const getFreshnessColor = (status: ProvenanceMetadata['freshnessStatus']) => {
     switch (status) {
       case 'LIVE':
-        return 'text-red-400 bg-red-950/50 border-red-500/40 animate-pulse'
+        return 'text-white bg-[#E10600] border-[#E10600] animate-pulse font-black'
       case 'HISTORICAL':
-        return 'text-neutral-300 bg-neutral-900 border-neutral-700'
+        return 'text-[#D8D8D8] bg-[#111111] border-[#292929]'
       case 'STALE':
         return 'text-amber-400 bg-amber-950/40 border-amber-500/40'
       case 'DEMO':
@@ -42,14 +42,14 @@ export const DataProvenanceBadge: React.FC<DataProvenanceBadgeProps> = ({
         return 'text-sky-400 bg-sky-950/40 border-sky-500/40 animate-pulse'
       case 'UNAVAILABLE':
       default:
-        return 'text-neutral-500 bg-neutral-950 border-neutral-800'
+        return 'text-[#858585] bg-[#0A0A0A] border-[#222222]'
     }
   }
 
   return (
     <div
-      className={`border rounded-lg p-3 bg-neutral-950/90 backdrop-blur-sm transition-all ${className} ${
-        provenance.freshnessStatus === 'LIVE' ? 'border-red-900/50' : 'border-neutral-800'
+      className={`border rounded-none p-3 bg-[#0B0D14] transition-colors font-mono ${className} ${
+        provenance.freshnessStatus === 'LIVE' ? 'border-[#E10600]/80' : 'border-[#292929]'
       }`}
     >
       <div className="flex items-center justify-between gap-3 flex-wrap">
@@ -57,21 +57,21 @@ export const DataProvenanceBadge: React.FC<DataProvenanceBadgeProps> = ({
           <span className="flex h-2 w-2 relative">
             {provenance.freshnessStatus === 'LIVE' ? (
               <>
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-none bg-[#E10600] opacity-75"></span>
+                <span className="relative inline-flex rounded-none h-2 w-2 bg-[#E10600]"></span>
               </>
             ) : (
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-neutral-500"></span>
+              <span className="relative inline-flex rounded-none h-2 w-2 bg-[#555555]"></span>
             )}
           </span>
-          <span className="text-xs font-mono uppercase tracking-widest text-neutral-400 font-semibold">
+          <span className="text-xs font-mono uppercase tracking-widest text-[#858585] font-semibold">
             {title}
           </span>
         </div>
 
         <div className="flex items-center gap-2 flex-wrap">
           <span
-            className={`text-[10px] font-mono font-bold px-2 py-0.5 rounded border uppercase ${getVerificationColor(
+            className={`text-[9px] font-mono font-bold px-2 py-0.5 rounded-none border uppercase ${getVerificationColor(
               provenance.verificationStatus
             )}`}
           >
@@ -79,7 +79,7 @@ export const DataProvenanceBadge: React.FC<DataProvenanceBadgeProps> = ({
           </span>
 
           <span
-            className={`text-[10px] font-mono px-2 py-0.5 rounded border uppercase ${getFreshnessColor(
+            className={`text-[9px] font-mono px-2 py-0.5 rounded-none border uppercase ${getFreshnessColor(
               provenance.freshnessStatus
             )}`}
           >
@@ -88,7 +88,7 @@ export const DataProvenanceBadge: React.FC<DataProvenanceBadgeProps> = ({
 
           <button
             onClick={() => setExpanded(!expanded)}
-            className="text-[11px] font-mono text-neutral-400 hover:text-white px-2 py-0.5 rounded bg-neutral-900 hover:bg-neutral-800 border border-neutral-700 transition"
+            className="text-[10px] font-mono text-[#858585] hover:text-white px-2 py-0.5 rounded-none bg-[#111111] hover:bg-[#1A1A1A] border border-[#292929] hover:border-[#E10600] transition uppercase"
           >
             {expanded ? 'Hide Source' : 'Audit Trace'}
           </button>
@@ -96,24 +96,24 @@ export const DataProvenanceBadge: React.FC<DataProvenanceBadgeProps> = ({
       </div>
 
       {expanded && (
-        <div className="mt-3 pt-2 border-t border-neutral-800/80 text-[11px] font-mono space-y-1 text-neutral-400">
+        <div className="mt-3 pt-2.5 border-t border-[#222222] text-[10px] font-mono space-y-1 text-[#858585]">
           <div className="flex flex-wrap gap-x-4">
             <span>
-              <strong className="text-neutral-200">Provider:</strong> {provenance.provider}
+              <strong className="text-white">Provider:</strong> {provenance.provider}
             </span>
             {provenance.sessionKey && (
               <span>
-                <strong className="text-neutral-200">Session Key:</strong> {provenance.sessionKey}
+                <strong className="text-white">Session Key:</strong> {provenance.sessionKey}
               </span>
             )}
             <span>
-              <strong className="text-neutral-200">Retrieved:</strong>{' '}
+              <strong className="text-white">Retrieved:</strong>{' '}
               {new Date(provenance.retrievedAt).toLocaleTimeString()} (UTC {new Date(provenance.retrievedAt).toLocaleDateString()})
             </span>
           </div>
 
           <div className="truncate">
-            <strong className="text-neutral-200">API Endpoint:</strong>{' '}
+            <strong className="text-white">API Endpoint:</strong>{' '}
             <a
               href={provenance.endpoint}
               target="_blank"
@@ -124,7 +124,7 @@ export const DataProvenanceBadge: React.FC<DataProvenanceBadgeProps> = ({
             </a>
           </div>
 
-          <p className="text-[10px] text-neutral-500 pt-1">
+          <p className="text-[9px] text-[#666666] pt-1 uppercase">
             * 100% Authentic Policy: Telemetry & statistics are sourced strictly from genuine API endpoints. No synthetic jitter or placeholder numbers are generated.
           </p>
         </div>
@@ -133,3 +133,4 @@ export const DataProvenanceBadge: React.FC<DataProvenanceBadgeProps> = ({
   )
 }
 
+export default DataProvenanceBadge

@@ -3,18 +3,34 @@
 @tailwind utilities;
 
 @layer base {
+  :root {
+    --racing-red: #E10600;
+    --deep-black: #080808;
+    --carbon-black: #111111;
+    --graphite: #1B1B1B;
+    --dark-steel: #292929;
+    --light-grey: #D8D8D8;
+    --pure-white: #F5F5F5;
+    --muted-grey: #858585;
+  }
+
+  * {
+    border-radius: 0px !important;
+  }
+
   html {
     scroll-behavior: smooth;
     font-family: 'Inter', system-ui, sans-serif;
-    background-color: #07080C;
-    color: #F4F5F0;
+    background-color: #080808;
+    color: #F5F5F5;
   }
 
   body {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
-    background-color: #07080C;
+    background-color: #080808;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
   }
 
   #root {
@@ -23,19 +39,43 @@
     display: flex;
     flex-direction: column;
   }
+
+  /* Precision tabular numerical alignment */
+  table, .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
 }
 
-/* Custom Red & Yellow Scrollbars */
+/* Sharp Technical Motorsport Scrollbar */
 ::-webkit-scrollbar {
-  width: 7px;
+  width: 5px;
+  height: 5px;
 }
 ::-webkit-scrollbar-track {
-  background: #07080C;
+  background: #080808;
 }
 ::-webkit-scrollbar-thumb {
-  background: #222533;
-  border-radius: 4px;
+  background: #292929;
+  border-radius: 0px !important;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #FF2800;
+  background: #E10600;
+}
+
+/* Technical grid divider utility */
+.technical-border {
+  border: 1px solid #232736;
+}
+
+.technical-border-t {
+  border-top: 1px solid #232736;
+}
+
+.technical-border-b {
+  border-bottom: 1px solid #232736;
+}
+
+.technical-panel {
+  background-color: #0E1017;
+  border: 1px solid #1E2230;
 }
