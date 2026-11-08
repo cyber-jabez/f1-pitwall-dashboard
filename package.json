@@ -4,6 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "start": "start-dashboard.bat",
     "dev": "vite",
     "api": "cd f1-live-api && node src/index.js",
     "build": "tsc -b && vite build",
