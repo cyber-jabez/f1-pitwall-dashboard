@@ -470,9 +470,31 @@ export const PitWallCommandView: React.FC = () => {
         <div className="max-w-[1920px] mx-auto flex flex-wrap items-center justify-between gap-3">
           {/* Left: Branding & Session Name */}
           <div className="flex items-center gap-3">
-            <div className="flex items-center gap-2 px-2.5 py-1 rounded-lg bg-red-600/20 border border-red-500/40 text-red-400 font-mono text-xs font-bold tracking-widest">
-              <span className="w-2 h-2 rounded-full bg-red-500 animate-ping" />
-              <span>LIVE PIT WALL</span>
+            <div
+              className={`flex items-center gap-2 px-2.5 py-1 rounded-lg font-mono text-xs font-bold tracking-widest border ${
+                status?.live
+                  ? 'bg-red-600/20 border-red-500/40 text-red-400'
+                  : isUpcomingWithinWindow
+                  ? 'bg-amber-500/20 border-amber-500/40 text-amber-300'
+                  : 'bg-neutral-800/40 border-neutral-700/60 text-neutral-300'
+              }`}
+            >
+              <span
+                className={`w-2 h-2 rounded-full ${
+                  status?.live
+                    ? 'bg-red-500 animate-ping'
+                    : isUpcomingWithinWindow
+                    ? 'bg-amber-400 animate-pulse'
+                    : 'bg-neutral-400'
+                }`}
+              />
+              <span>
+                {status?.live
+                  ? 'LIVE PIT WALL'
+                  : isUpcomingWithinWindow
+                  ? 'PRE-SESSION'
+                  : 'HISTORICAL ARCHIVE'}
+              </span>
             </div>
 
             <div>
@@ -694,7 +716,7 @@ export const PitWallCommandView: React.FC = () => {
                 createProvenance(
                   'livetiming.formula1.com',
                   'https://livetiming.formula1.com/signalrcore (f1-live-api)',
-                  'LIVE',
+                  'HISTORICAL',
                   'OFFICIALLY_VERIFIED'
                 )
               }

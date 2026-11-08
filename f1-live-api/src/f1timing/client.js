@@ -172,6 +172,19 @@ function handleFrames(raw) {
 async function connect() {
   if (stopped) return;
 
+  // Clean up any stale WebSocket and keepalive timer before new attempt
+  if (ws) {
+    try {
+      ws.removeAllListeners();
+      ws.terminate();
+    } catch (_) {}
+    ws = null;
+  }
+  if (pingTimer) {
+    clearInterval(pingTimer);
+    pingTimer = null;
+  }
+
   let negotiation;
   try {
     console.log('[F1] Negotiating (SignalR Core)...');
@@ -317,7 +330,10 @@ function stop() {
   stopped = true;
   if (reconnectTimer) { clearTimeout(reconnectTimer); reconnectTimer = null; }
   if (pingTimer)      { clearInterval(pingTimer);     pingTimer = null; }
-  if (ws)             { ws.terminate(); ws = null; }
+  if (ws)             {
+    try { ws.removeAllListeners(); ws.terminate(); } catch (_) {}
+    ws = null;
+  }
   state.connected = false;
 }
 

@@ -36,6 +36,10 @@ export const DataProvenanceBadge: React.FC<DataProvenanceBadgeProps> = ({
         return 'text-neutral-300 bg-neutral-900 border-neutral-700'
       case 'STALE':
         return 'text-amber-400 bg-amber-950/40 border-amber-500/40'
+      case 'DEMO':
+        return 'text-purple-400 bg-purple-950/40 border-purple-500/40 font-bold'
+      case 'CONNECTING':
+        return 'text-sky-400 bg-sky-950/40 border-sky-500/40 animate-pulse'
       case 'UNAVAILABLE':
       default:
         return 'text-neutral-500 bg-neutral-950 border-neutral-800'

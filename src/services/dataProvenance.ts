@@ -11,7 +11,9 @@ export type FreshnessStatus =
   | 'LIVE'         // Actively streaming live from track session
   | 'HISTORICAL'   // Completed session archive
   | 'STALE'        // No new data received within timeout threshold
+  | 'DEMO'         // Synthetic demonstration or benchmark playback
   | 'UNAVAILABLE'  // Currently unavailable or no session active
+  | 'CONNECTING'   // Establishing live connection to provider
 
 export interface ProvenanceMetadata {
   provider:

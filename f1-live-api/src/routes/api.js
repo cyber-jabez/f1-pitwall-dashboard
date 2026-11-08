@@ -226,13 +226,35 @@ router.get('/drivers', (req, res) => {
 
 /** GET /car/:number — telemetry for one driver */
 router.get('/car/:number', (req, res) => {
-  const driver = buildTimingView().find(d => d.driver_number == req.params.number);
-  if (!driver) return res.status(404).json({ error: 'Driver not found' });
-  res.json({
-    driver_number: driver.driver_number,
-    name:          driver.name,
-    telemetry:     driver.telemetry,
-  });
+  const num = String(req.params.number);
+  const driver = buildTimingView().find(d => d.driver_number == num);
+  if (driver) {
+    return res.json({
+      driver_number: driver.driver_number,
+      name:          driver.name,
+      telemetry:     driver.telemetry,
+    });
+  }
+  const d = state.driverList?.[num];
+  if (d) {
+    const entries = state.carData?.Entries;
+    const arr = Array.isArray(entries) ? entries : Object.values(entries || {});
+    const latest = arr.length > 0 ? arr[arr.length - 1] : null;
+    const ch = latest?.Cars?.[num]?.Channels || {};
+    return res.json({
+      driver_number: num,
+      name:          d.FullName || `Driver #${num}`,
+      telemetry: {
+        rpm:      ch[0]  ?? null,
+        speed:    ch[2]  ?? null,
+        gear:     ch[3]  ?? null,
+        throttle: ch[4]  ?? null,
+        brake:    ch[5]  ?? null,
+        drs:      ch[45] ?? null,
+      },
+    });
+  }
+  return res.status(404).json({ error: 'Driver not found' });
 });
 
 /** GET /snapshot — raw dump of all 15 F1 timing topics */

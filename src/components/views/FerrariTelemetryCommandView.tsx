@@ -101,7 +101,7 @@ export const FerrariTelemetryCommandView: React.FC = () => {
             onChange={(e) => setSelectedSessionKey(Number(e.target.value))}
             className="bg-[#0E1118] border border-white/20 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-ferrari-red cursor-pointer"
           >
-            <option value={11407}>🔴 LIVE: SÃO PAULO GP 2026 (#11407)</option>
+            <option value={11407}>SÃO PAULO GP (#11407) - QUALIFYING ARCHIVE</option>
             <option value={9590}>MONZA GP 2024 (#9590) - VICTORY LAP</option>
             <option value={9472}>SAKHIR GP 2024 (#9472) - OPENF1 CLUSTER</option>
             <option value={9523}>MONACO GP 2024 (#9523) - MONACO WIN</option>

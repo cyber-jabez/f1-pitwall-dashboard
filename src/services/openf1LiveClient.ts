@@ -203,18 +203,18 @@ export class OpenF1LiveClient {
             // ignore
           }
           return {
-            meetingName: data.Meeting?.Name || 'São Paulo Grand Prix',
-            officialName: data.Meeting?.OfficialName || 'FORMULA 1 MSC CRUISES GRANDE PRÊMIO DE SÃO PAULO 2026',
-            circuitName: data.Meeting?.Circuit?.ShortName || 'Interlagos',
-            location: data.Meeting?.Location || 'São Paulo',
-            country: data.Meeting?.Country?.Name || 'Brazil',
-            sessionName: data.Name || 'Practice 3',
-            sessionType: data.Type || 'Practice',
-            sessionKey: data.Key || 11407,
+            meetingName: data.Meeting?.Name || 'Formula 1 Grand Prix',
+            officialName: data.Meeting?.OfficialName || data.Meeting?.Name || 'Formula 1 Session',
+            circuitName: data.Meeting?.Circuit?.ShortName || data.Meeting?.Circuit?.Name || 'Grand Prix Circuit',
+            location: data.Meeting?.Location || 'F1 Circuit',
+            country: data.Meeting?.Country?.Name || 'FIA World Championship',
+            sessionName: data.Name || 'Official Session',
+            sessionType: data.Type || 'Session',
+            sessionKey: data.Key || 0,
             streamingStatus,
-            startDate: data.StartDate || '2026-11-07T11:30:00',
-            endDate: data.EndDate || '2026-11-07T12:30:00',
-            gmtOffset: data.GmtOffset || '-03:00:00',
+            startDate: data.StartDate || '',
+            endDate: data.EndDate || '',
+            gmtOffset: data.GmtOffset || '+00:00:00',
           }
         }
       } catch {
@@ -264,50 +264,52 @@ export class OpenF1LiveClient {
     try {
       const res = await this.fetchWithAuth(endpoint)
 
-      if (res.status === 401 || officialSession) {
-        const sessionKey = officialSession?.sessionKey || 11407
-        const meeting = officialSession?.meetingName || 'São Paulo Grand Prix'
-        const sessionName = officialSession?.sessionName || 'Practice 3'
-        const circuit = officialSession?.circuitName || 'Interlagos'
-        const country = officialSession?.country || 'Brazil'
-        const location = officialSession?.location || 'São Paulo'
+      // 1. Check if official F1 session timing is actively in progress based on actual schedule
+      if (officialSession && officialSession.startDate && officialSession.endDate) {
+        const now = Date.now()
+        const start = new Date(officialSession.startDate).getTime()
+        const end = new Date(officialSession.endDate).getTime()
+        const isActive = now >= start && now <= end
 
-        return {
-          isLive: true,
-          requiresApiKey: res.status === 401 && !this.getApiKey(),
-          sessionState: 'LIVE_SESSION_ACTIVE',
-          activeSession: {
-            session_key: sessionKey,
-            session_name: `${meeting} // ${sessionName}`,
-            session_type: officialSession?.sessionType || 'Practice',
-            circuit_short_name: circuit,
-            country_name: country,
-            location: location,
-            year: 2026,
-            date_start: officialSession?.startDate || new Date().toISOString(),
-            date_end: officialSession?.endDate || new Date(Date.now() + 7200000).toISOString(),
-          },
-          provenance: createProvenance(
-            'livetiming.formula1.com',
-            'https://livetiming.formula1.com/static/SessionInfo.json',
-            'LIVE',
-            'OFFICIALLY_VERIFIED',
-            sessionKey
-          ),
-          message: `🔴 LIVE F1 SESSION IN PROGRESS: ${meeting} (${sessionName}) at ${circuit}, ${country} is active! Broadcast Status: ${
-            officialSession?.streamingStatus || 'Available'
-          }.`,
+        if (isActive) {
+          return {
+            isLive: true,
+            requiresApiKey: res.status === 401 && !this.getApiKey(),
+            sessionState: 'LIVE_SESSION_ACTIVE',
+            activeSession: {
+              session_key: officialSession.sessionKey,
+              session_name: `${officialSession.meetingName} // ${officialSession.sessionName}`,
+              session_type: officialSession.sessionType,
+              circuit_short_name: officialSession.circuitName,
+              country_name: officialSession.country,
+              location: officialSession.location,
+              year: new Date(officialSession.startDate).getFullYear() || 2026,
+              date_start: officialSession.startDate,
+              date_end: officialSession.endDate,
+            },
+            provenance: createProvenance(
+              'livetiming.formula1.com',
+              'https://livetiming.formula1.com/static/SessionInfo.json',
+              'LIVE',
+              'OFFICIALLY_VERIFIED',
+              officialSession.sessionKey
+            ),
+            message: `🔴 LIVE F1 SESSION IN PROGRESS: ${officialSession.meetingName} (${officialSession.sessionName}) at ${officialSession.circuitName} is active! Broadcast Status: ${
+              officialSession.streamingStatus || 'Available'
+            }.`,
+          }
         }
       }
 
+      // 2. Check OpenF1 sessions array
       if (res.ok) {
         const sessions: OpenF1SessionInfo[] = await res.json()
         const now = Date.now()
-        const active = sessions.find((s) => {
+        const active = Array.isArray(sessions) ? sessions.find((s) => {
           const start = new Date(s.date_start).getTime()
           const end = new Date(s.date_end).getTime()
           return now >= start && now <= end
-        })
+        }) : null
 
         if (active) {
           return {
@@ -321,42 +323,16 @@ export class OpenF1LiveClient {
         }
       }
 
+      // 3. No live session is actively transmitting
       return {
         isLive: false,
-        requiresApiKey: false,
+        requiresApiKey: res.status === 401,
         sessionState: 'NO_LIVE_SESSION',
         activeSession: null,
         provenance: createProvenance('OpenF1', endpoint, 'UNAVAILABLE', 'PROVIDER_SUPPLIED'),
         message: 'NO LIVE TRACK SESSION: Cars are currently off-track.',
       }
     } catch {
-      if (officialSession) {
-        return {
-          isLive: true,
-          requiresApiKey: true,
-          sessionState: 'LIVE_SESSION_ACTIVE',
-          activeSession: {
-            session_key: officialSession.sessionKey,
-            session_name: `${officialSession.meetingName} // ${officialSession.sessionName}`,
-            session_type: officialSession.sessionType,
-            circuit_short_name: officialSession.circuitName,
-            country_name: officialSession.country,
-            location: officialSession.location,
-            year: 2026,
-            date_start: officialSession.startDate,
-            date_end: officialSession.endDate,
-          },
-          provenance: createProvenance(
-            'livetiming.formula1.com',
-            'https://livetiming.formula1.com/static/SessionInfo.json',
-            'LIVE',
-            'OFFICIALLY_VERIFIED',
-            officialSession.sessionKey
-          ),
-          message: `🔴 LIVE F1 SESSION IN PROGRESS: ${officialSession.meetingName} (${officialSession.sessionName}) at ${officialSession.circuitName} is active!`,
-        }
-      }
-
       return {
         isLive: false,
         requiresApiKey: false,

@@ -83,7 +83,7 @@ export const LiveRaceView: React.FC = () => {
   const [raceControlLogs, setRaceControlLogs] = useState<OpenF1RaceControlMessage[]>([])
   const [f1LiveTiming, setF1LiveTiming] = useState<F1LiveDriverTiming[]>(SNAPSHOT_TIMING_DRIVERS)
   const [f1LiveSessionName, setF1LiveSessionName] = useState<string>('Qualifying')
-  const [f1LiveActive, setF1LiveActive] = useState<boolean>(true)
+  const [f1LiveActive, setF1LiveActive] = useState<boolean>(Boolean(SNAPSHOT_STATUS.live))
   const [f1LiveWeather, setF1LiveWeather] = useState<F1LiveWeather | null>(SNAPSHOT_WEATHER)
   const [f1LiveRaceControl, setF1LiveRaceControl] = useState<Array<{
     time: string

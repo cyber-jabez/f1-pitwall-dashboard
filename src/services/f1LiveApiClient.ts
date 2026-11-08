@@ -154,11 +154,22 @@ export class F1LiveApiClient {
       if (res.ok) {
         const data = await res.json()
         if (data && (data.connected !== undefined || data.session)) {
+          const isLive = Boolean(data.live)
+          const isStale = Boolean(data.stale)
+          const isConnected = Boolean(data.connected)
+          const freshness = isLive && !isStale
+            ? 'LIVE'
+            : isStale
+            ? 'STALE'
+            : isConnected
+            ? 'HISTORICAL'
+            : 'UNAVAILABLE'
+
           return {
-            connected: Boolean(data.connected),
-            live: Boolean(data.live),
+            connected: isConnected,
+            live: isLive,
             last_update: data.last_update || new Date().toISOString(),
-            stale: Boolean(data.stale),
+            stale: isStale,
             stale_reason: data.stale_reason || null,
             clock: data.clock
               ? {
@@ -189,8 +200,9 @@ export class F1LiveApiClient {
             provenance: createProvenance(
               'livetiming.formula1.com',
               'https://livetiming.formula1.com/signalrcore (f1-live-api /status)',
-              'LIVE',
-              'OFFICIALLY_VERIFIED'
+              freshness,
+              'OFFICIALLY_VERIFIED',
+              data.session?.Key
             ),
           }
         }
@@ -198,7 +210,7 @@ export class F1LiveApiClient {
     } catch (e) {
       console.warn('[F1LiveApiClient] getStatus failed, falling back to authentic snapshot:', e)
     }
-    // Fall back to authentic snapshot
+    // Fall back to authentic snapshot (Strictly marked HISTORICAL with live: false)
     return SNAPSHOT_STATUS
   }
 
@@ -209,17 +221,20 @@ export class F1LiveApiClient {
       if (res.ok) {
         const data = await res.json()
         if (data && Array.isArray(data.drivers) && data.drivers.length > 0) {
+          const isLive = Boolean(data.live)
+          const isStale = Boolean(data.stale)
+          const freshness = isLive && !isStale ? 'LIVE' : isStale ? 'STALE' : 'HISTORICAL'
           return {
             timestamp: data.timestamp || new Date().toISOString(),
             session: data.session || 'Qualifying',
-            live: Boolean(data.live),
-            stale: Boolean(data.stale),
+            live: isLive,
+            stale: isStale,
             stale_reason: data.stale_reason || null,
             drivers: data.drivers,
             provenance: createProvenance(
               'livetiming.formula1.com',
               'https://livetiming.formula1.com/signalrcore (f1-live-api /timing)',
-              'LIVE',
+              freshness,
               'OFFICIALLY_VERIFIED'
             ),
           }
@@ -229,13 +244,13 @@ export class F1LiveApiClient {
       console.warn('[F1LiveApiClient] getTiming failed, falling back to authentic snapshot:', e)
     }
 
-    // Fall back to authentic snapshot
+    // Fall back to authentic snapshot (Strict: Historical snapshots must NEVER return live: true)
     return {
-      timestamp: new Date().toISOString(),
+      timestamp: '2026-11-07T18:57:20.093Z',
       session: 'Qualifying',
-      live: true,
-      stale: false,
-      stale_reason: null,
+      live: false,
+      stale: true,
+      stale_reason: 'Live timing feed offline — displaying verified historical session snapshot',
       drivers: SNAPSHOT_TIMING_DRIVERS,
       provenance: createProvenance(
         'livetiming.formula1.com',
@@ -315,24 +330,33 @@ export class F1LiveApiClient {
       console.warn(`[F1LiveApiClient] getCarTelemetry(${driverNumber}) failed:`, e)
     }
 
-    // Fallback: look up in snapshot
+    // Fallback: look up in authentic snapshot
     const d = SNAPSHOT_TIMING_DRIVERS.find(x => x.driver_number === String(driverNumber))
+    if (d) {
+      return {
+        driver_number: String(driverNumber),
+        name: d.name,
+        telemetry: d.telemetry || null,
+        provenance: createProvenance(
+          'livetiming.formula1.com',
+          `https://livetiming.formula1.com/signalrcore (FOM SECU Channel Snapshot / #${driverNumber})`,
+          'HISTORICAL',
+          'OFFICIALLY_VERIFIED',
+          11408
+        ),
+      }
+    }
+
+    // Zero Fabrication Policy: Return honest null if driver is not in snapshot
     return {
       driver_number: String(driverNumber),
-      name: d?.name || (String(driverNumber) === '16' ? 'Charles LECLERC' : 'Lewis HAMILTON'),
-      telemetry: d?.telemetry || {
-        rpm: 11850,
-        speed: 316,
-        gear: 7,
-        throttle: 98,
-        brake: 0,
-        drs: 10,
-      },
+      name: `Driver #${driverNumber}`,
+      telemetry: null,
       provenance: createProvenance(
         'livetiming.formula1.com',
-        `https://livetiming.formula1.com/signalrcore (FOM SECU Channel Snapshot / #${driverNumber})`,
-        'HISTORICAL',
-        'OFFICIALLY_VERIFIED',
+        `https://livetiming.formula1.com/signalrcore (Unavailable #${driverNumber})`,
+        'UNAVAILABLE',
+        'UNAVAILABLE',
         11408
       ),
     }

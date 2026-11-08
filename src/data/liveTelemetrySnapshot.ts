@@ -24,11 +24,11 @@ export const SNAPSHOT_WEATHER: F1LiveWeather = {
 }
 
 export const SNAPSHOT_STATUS: F1LiveStatus = {
-  connected: true,
-  live: true,
+  connected: false,
+  live: false,
   last_update: '2026-11-07T18:57:20.093Z',
-  stale: false,
-  stale_reason: null,
+  stale: true,
+  stale_reason: 'Archived historical session snapshot (Brazilian GP Qualifying)',
   session: {
     key: 11408,
     name: 'Qualifying',

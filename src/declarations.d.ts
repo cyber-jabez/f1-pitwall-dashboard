@@ -145,12 +145,6 @@ declare module 'lucide-react' {
   export const Star: LucideIcon
   export const Key: LucideIcon
   export const EyeOff: LucideIcon
-  export const Heart: LucideIcon
-  export const Award: LucideIcon
-  export const User: LucideIcon
-  export const ShieldCheck: LucideIcon
-  export const Download: LucideIcon
-  export const ArrowUp: LucideIcon
 
   const allIcons: Record<string, LucideIcon>
   export default allIcons
