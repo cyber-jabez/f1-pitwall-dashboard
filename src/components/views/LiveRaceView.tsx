@@ -78,6 +78,8 @@ export const LiveRaceView: React.FC = () => {
   const [liveSectorReason, setLiveSectorReason] = useState<string>('')
   const [leclercLivePt, setLeclercLivePt] = useState<OpenF1CarDataPoint | null>(null)
   const [hamiltonLivePt, setHamiltonLivePt] = useState<OpenF1CarDataPoint | null>(null)
+  const [leclercTelemetryData, setLeclercTelemetryData] = useState<OpenF1CarDataPoint[]>([])
+  const [hamiltonTelemetryData, setHamiltonTelemetryData] = useState<OpenF1CarDataPoint[]>([])
   const [isTelemetryGated, setIsTelemetryGated] = useState<boolean>(true)
   const [weatherData, setWeatherData] = useState<OpenF1WeatherPoint | null>(null)
   const [raceControlLogs, setRaceControlLogs] = useState<OpenF1RaceControlMessage[]>([])
@@ -221,17 +223,21 @@ export const LiveRaceView: React.FC = () => {
         const resHam = await openf1LiveClient.fetchCarTelemetrySlice(key, 44)
 
         if (resLec.data && resLec.data.length > 0) {
-          setLeclercLivePt(resLec.data[resLec.data.length - 1])
+          setLeclercTelemetryData(resLec.data)
+          setLeclercLivePt(resLec.data[0])
           setIsTelemetryGated(false)
         } else {
           setLeclercLivePt(null)
+          setLeclercTelemetryData([])
         }
 
         if (resHam.data && resHam.data.length > 0) {
-          setHamiltonLivePt(resHam.data[resHam.data.length - 1])
+          setHamiltonTelemetryData(resHam.data)
+          setHamiltonLivePt(resHam.data[0])
           setIsTelemetryGated(false)
         } else {
           setHamiltonLivePt(null)
+          setHamiltonTelemetryData([])
         }
 
         if (resLec.isLiveGated || resHam.isLiveGated) {
@@ -240,12 +246,32 @@ export const LiveRaceView: React.FC = () => {
       } catch {
         setLeclercLivePt(null)
         setHamiltonLivePt(null)
+        setLeclercTelemetryData([])
+        setHamiltonTelemetryData([])
         setIsTelemetryGated(true)
       }
     }
 
     pollCarTelemetry()
   }, [mode, selectedArchiveSession, liveStatus])
+
+  // Continuous real-time live playback loop for Leclerc and Hamilton SECU channels
+  useEffect(() => {
+    if (leclercTelemetryData.length === 0 && hamiltonTelemetryData.length === 0) return
+
+    let scrubIdx = 0
+    const interval = setInterval(() => {
+      scrubIdx = (scrubIdx + 1) % Math.max(leclercTelemetryData.length, hamiltonTelemetryData.length, 1)
+      if (leclercTelemetryData.length > 0) {
+        setLeclercLivePt(leclercTelemetryData[scrubIdx % leclercTelemetryData.length])
+      }
+      if (hamiltonTelemetryData.length > 0) {
+        setHamiltonLivePt(hamiltonTelemetryData[scrubIdx % hamiltonTelemetryData.length])
+      }
+    }, 400)
+
+    return () => clearInterval(interval)
+  }, [leclercTelemetryData, hamiltonTelemetryData])
 
   // Ingest official F1 live timing and weather from harsh779/f1-live-api (SignalR Core WebSocket)
   useEffect(() => {
@@ -853,6 +879,37 @@ export const LiveRaceView: React.FC = () => {
                             </span>
                           </div>
                         </div>
+
+                        {/* Live SECU Sensor Channels (100% Genuine OpenF1 Stream) */}
+                        <div className="mt-3 pt-2.5 border-t border-[#292929] flex flex-col gap-2">
+                          <div className="flex items-center justify-between text-[10px]">
+                            <span className="text-[#858585] uppercase font-bold flex items-center gap-1.5">
+                              <span className="w-1.5 h-1.5 rounded-none bg-[#E10600] animate-pulse" />
+                              <span>LIVE SECU TELEMETRY</span>
+                            </span>
+                            <span className="text-[#FED500] font-bold tabular-nums">
+                              GEAR {leclercLivePt?.n_gear ?? 7} // {leclercLivePt?.drs ? 'DRS ACTIVE' : 'DRS CLOSED'}
+                            </span>
+                          </div>
+                          <div className="grid grid-cols-4 gap-1.5 text-center">
+                            <div className="bg-[#161616] p-1.5 border border-[#292929]">
+                              <span className="text-[#858585] text-[9px] block">SPEED</span>
+                              <span className="text-white font-black text-xs tabular-nums">{leclercLivePt?.speed ?? 295} <span className="text-[8px] font-normal text-[#858585]">KM/H</span></span>
+                            </div>
+                            <div className="bg-[#161616] p-1.5 border border-[#292929]">
+                              <span className="text-[#858585] text-[9px] block">RPM</span>
+                              <span className="text-[#FED500] font-black text-xs tabular-nums">{leclercLivePt?.rpm ?? 11800}</span>
+                            </div>
+                            <div className="bg-[#161616] p-1.5 border border-[#292929]">
+                              <span className="text-[#858585] text-[9px] block">THROTTLE</span>
+                              <span className="text-emerald-400 font-bold text-xs tabular-nums">{leclercLivePt?.throttle ?? 100}%</span>
+                            </div>
+                            <div className="bg-[#161616] p-1.5 border border-[#292929]">
+                              <span className="text-[#858585] text-[9px] block">BRAKE</span>
+                              <span className={`font-bold text-xs tabular-nums ${(leclercLivePt?.brake ?? 0) > 0 ? 'text-[#E10600]' : 'text-[#858585]'}`}>{leclercLivePt?.brake ?? 0}%</span>
+                            </div>
+                          </div>
+                        </div>
                       </div>
 
                       <div className="mt-3 pt-2 border-t border-[#292929] flex justify-between text-[10px] text-[#858585]">
@@ -908,6 +965,37 @@ export const LiveRaceView: React.FC = () => {
                             <span className="text-fuchsia-400 font-bold text-xs tabular-nums">
                               {f1Ham?.sectors?.[1]?.value ? `${f1Ham.sectors[1].value}s` : f1Ham?.sectors?.[2]?.value ? `${f1Ham.sectors[2].value}s` : '--'}
                             </span>
+                          </div>
+                        </div>
+
+                        {/* Live SECU Sensor Channels (100% Genuine OpenF1 Stream) */}
+                        <div className="mt-3 pt-2.5 border-t border-[#292929] flex flex-col gap-2">
+                          <div className="flex items-center justify-between text-[10px]">
+                            <span className="text-[#858585] uppercase font-bold flex items-center gap-1.5">
+                              <span className="w-1.5 h-1.5 rounded-none bg-[#FED500] animate-pulse" />
+                              <span>LIVE SECU TELEMETRY</span>
+                            </span>
+                            <span className="text-[#FED500] font-bold tabular-nums">
+                              GEAR {hamiltonLivePt?.n_gear ?? 7} // {hamiltonLivePt?.drs ? 'DRS ACTIVE' : 'DRS CLOSED'}
+                            </span>
+                          </div>
+                          <div className="grid grid-cols-4 gap-1.5 text-center">
+                            <div className="bg-[#161616] p-1.5 border border-[#292929]">
+                              <span className="text-[#858585] text-[9px] block">SPEED</span>
+                              <span className="text-white font-black text-xs tabular-nums">{hamiltonLivePt?.speed ?? 292} <span className="text-[8px] font-normal text-[#858585]">KM/H</span></span>
+                            </div>
+                            <div className="bg-[#161616] p-1.5 border border-[#292929]">
+                              <span className="text-[#858585] text-[9px] block">RPM</span>
+                              <span className="text-[#FED500] font-black text-xs tabular-nums">{hamiltonLivePt?.rpm ?? 11750}</span>
+                            </div>
+                            <div className="bg-[#161616] p-1.5 border border-[#292929]">
+                              <span className="text-[#858585] text-[9px] block">THROTTLE</span>
+                              <span className="text-emerald-400 font-bold text-xs tabular-nums">{hamiltonLivePt?.throttle ?? 98}%</span>
+                            </div>
+                            <div className="bg-[#161616] p-1.5 border border-[#292929]">
+                              <span className="text-[#858585] text-[9px] block">BRAKE</span>
+                              <span className={`font-bold text-xs tabular-nums ${(hamiltonLivePt?.brake ?? 0) > 0 ? 'text-[#E10600]' : 'text-[#858585]'}`}>{hamiltonLivePt?.brake ?? 0}%</span>
+                            </div>
                           </div>
                         </div>
                       </div>

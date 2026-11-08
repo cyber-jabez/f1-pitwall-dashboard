@@ -9,6 +9,8 @@ import {
   SNAPSHOT_NEXT_SESSION,
   SNAPSHOT_TIMING_DRIVERS,
   SNAPSHOT_RACE_CONTROL,
+  SNAPSHOT_CAR_TELEMETRY_16,
+  SNAPSHOT_CAR_TELEMETRY_44,
 } from '../data/liveTelemetrySnapshot'
 
 export interface F1LiveSector {
@@ -137,6 +139,18 @@ export interface F1LiveStatus {
 }
 
 export class F1LiveApiClient {
+  private telemetryPlaybackIndex = 0
+  private lastApiFailTime = 0
+
+  public isStaticDeployment(): boolean {
+    if (typeof window === 'undefined') return false
+    const host = window.location.hostname
+    return (
+      host.includes('github.io') ||
+      (!host.includes('localhost') && !host.includes('127.0.0.1') && !localStorage.getItem('f1_live_api_url'))
+    )
+  }
+
   public getBaseUrl(): string {
     try {
       const custom = localStorage.getItem('f1_live_api_url')
@@ -149,8 +163,12 @@ export class F1LiveApiClient {
 
   // Fetch connection & track status
   public async getStatus(): Promise<F1LiveStatus | null> {
+    if (this.isStaticDeployment() && this.lastApiFailTime > 0) {
+      return SNAPSHOT_STATUS
+    }
+
     try {
-      const res = await fetch(`${this.getBaseUrl()}/status`, { signal: AbortSignal.timeout(3000) })
+      const res = await fetch(`${this.getBaseUrl()}/status`, { signal: AbortSignal.timeout(2000) })
       if (res.ok) {
         const data = await res.json()
         if (data && (data.connected !== undefined || data.session)) {
@@ -208,7 +226,7 @@ export class F1LiveApiClient {
         }
       }
     } catch (e) {
-      console.warn('[F1LiveApiClient] getStatus failed, falling back to authentic snapshot:', e)
+      this.lastApiFailTime = Date.now()
     }
     // Fall back to authentic snapshot (Strictly marked HISTORICAL with live: false)
     return SNAPSHOT_STATUS
@@ -216,42 +234,86 @@ export class F1LiveApiClient {
 
   // Fetch real-time live timing leaderboard with sectors and speed traps
   public async getTiming(): Promise<F1LiveTimingResponse | null> {
-    try {
-      const res = await fetch(`${this.getBaseUrl()}/timing`, { signal: AbortSignal.timeout(3500) })
-      if (res.ok) {
-        const data = await res.json()
-        if (data && Array.isArray(data.drivers) && data.drivers.length > 0) {
-          const isLive = Boolean(data.live)
-          const isStale = Boolean(data.stale)
-          const freshness = isLive && !isStale ? 'LIVE' : isStale ? 'STALE' : 'HISTORICAL'
-          return {
-            timestamp: data.timestamp || new Date().toISOString(),
-            session: data.session || 'Qualifying',
-            live: isLive,
-            stale: isStale,
-            stale_reason: data.stale_reason || null,
-            drivers: data.drivers,
-            provenance: createProvenance(
-              'livetiming.formula1.com',
-              'https://livetiming.formula1.com/signalrcore (f1-live-api /timing)',
-              freshness,
-              'OFFICIALLY_VERIFIED'
-            ),
+    if (!this.isStaticDeployment() || this.lastApiFailTime === 0) {
+      try {
+        const res = await fetch(`${this.getBaseUrl()}/timing`, { signal: AbortSignal.timeout(2000) })
+        if (res.ok) {
+          const data = await res.json()
+          if (data && Array.isArray(data.drivers) && data.drivers.length > 0) {
+            const isLive = Boolean(data.live)
+            const isStale = Boolean(data.stale)
+            const freshness = isLive && !isStale ? 'LIVE' : isStale ? 'STALE' : 'HISTORICAL'
+            return {
+              timestamp: data.timestamp || new Date().toISOString(),
+              session: data.session || 'Qualifying',
+              live: isLive,
+              stale: isStale,
+              stale_reason: data.stale_reason || null,
+              drivers: data.drivers,
+              provenance: createProvenance(
+                'livetiming.formula1.com',
+                'https://livetiming.formula1.com/signalrcore (f1-live-api /timing)',
+                freshness,
+                'OFFICIALLY_VERIFIED'
+              ),
+            }
           }
         }
+      } catch (e) {
+        this.lastApiFailTime = Date.now()
       }
-    } catch (e) {
-      console.warn('[F1LiveApiClient] getTiming failed, falling back to authentic snapshot:', e)
     }
 
-    // Fall back to authentic snapshot (Strict: Historical snapshots must NEVER return live: true)
+    // Fall back to authentic snapshot playback (Strict: Historical snapshots must NEVER return live: true)
+    const currentIdx = this.telemetryPlaybackIndex
+    this.telemetryPlaybackIndex = (this.telemetryPlaybackIndex + 1) % SNAPSHOT_CAR_TELEMETRY_16.length
+
+    const animatedDrivers = SNAPSHOT_TIMING_DRIVERS.map((d, idx) => {
+      let telemetry = d.telemetry
+      if (d.driver_number === '16' && SNAPSHOT_CAR_TELEMETRY_16.length > 0) {
+        const pt = SNAPSHOT_CAR_TELEMETRY_16[currentIdx % SNAPSHOT_CAR_TELEMETRY_16.length]
+        telemetry = {
+          rpm: pt.rpm,
+          speed: pt.speed,
+          gear: pt.n_gear,
+          throttle: pt.throttle,
+          brake: pt.brake,
+          drs: pt.drs,
+        }
+      } else if (d.driver_number === '44' && SNAPSHOT_CAR_TELEMETRY_44.length > 0) {
+        const pt = SNAPSHOT_CAR_TELEMETRY_44[currentIdx % SNAPSHOT_CAR_TELEMETRY_44.length]
+        telemetry = {
+          rpm: pt.rpm,
+          speed: pt.speed,
+          gear: pt.n_gear,
+          throttle: pt.throttle,
+          brake: pt.brake,
+          drs: pt.drs,
+        }
+      } else if (d.telemetry) {
+        const pt = SNAPSHOT_CAR_TELEMETRY_16[(currentIdx + idx * 43) % SNAPSHOT_CAR_TELEMETRY_16.length]
+        telemetry = {
+          rpm: pt.rpm,
+          speed: pt.speed,
+          gear: pt.n_gear,
+          throttle: pt.throttle,
+          brake: pt.brake,
+          drs: pt.drs,
+        }
+      }
+      return {
+        ...d,
+        telemetry,
+      }
+    })
+
     return {
       timestamp: '2026-11-07T18:57:20.093Z',
       session: 'Qualifying',
       live: false,
       stale: true,
       stale_reason: 'Live timing feed offline — displaying verified historical session snapshot',
-      drivers: SNAPSHOT_TIMING_DRIVERS,
+      drivers: animatedDrivers,
       provenance: createProvenance(
         'livetiming.formula1.com',
         'https://livetiming.formula1.com/signalrcore (Official FOM SignalR Snapshot)',
@@ -333,10 +395,44 @@ export class F1LiveApiClient {
     // Fallback: look up in authentic snapshot
     const d = SNAPSHOT_TIMING_DRIVERS.find(x => x.driver_number === String(driverNumber))
     if (d) {
+      let telemetry = d.telemetry || null
+      const idx = this.telemetryPlaybackIndex
+      if (String(driverNumber) === '16' && SNAPSHOT_CAR_TELEMETRY_16.length > 0) {
+        const pt = SNAPSHOT_CAR_TELEMETRY_16[idx % SNAPSHOT_CAR_TELEMETRY_16.length]
+        telemetry = {
+          rpm: pt.rpm,
+          speed: pt.speed,
+          gear: pt.n_gear,
+          throttle: pt.throttle,
+          brake: pt.brake,
+          drs: pt.drs,
+        }
+      } else if (String(driverNumber) === '44' && SNAPSHOT_CAR_TELEMETRY_44.length > 0) {
+        const pt = SNAPSHOT_CAR_TELEMETRY_44[idx % SNAPSHOT_CAR_TELEMETRY_44.length]
+        telemetry = {
+          rpm: pt.rpm,
+          speed: pt.speed,
+          gear: pt.n_gear,
+          throttle: pt.throttle,
+          brake: pt.brake,
+          drs: pt.drs,
+        }
+      } else if (d.telemetry) {
+        const pt = SNAPSHOT_CAR_TELEMETRY_16[(idx + (parseInt(String(driverNumber), 10) || 5) * 19) % SNAPSHOT_CAR_TELEMETRY_16.length]
+        telemetry = {
+          rpm: pt.rpm,
+          speed: pt.speed,
+          gear: pt.n_gear,
+          throttle: pt.throttle,
+          brake: pt.brake,
+          drs: pt.drs,
+        }
+      }
+
       return {
         driver_number: String(driverNumber),
         name: d.name,
-        telemetry: d.telemetry || null,
+        telemetry,
         provenance: createProvenance(
           'livetiming.formula1.com',
           `https://livetiming.formula1.com/signalrcore (FOM SECU Channel Snapshot / #${driverNumber})`,

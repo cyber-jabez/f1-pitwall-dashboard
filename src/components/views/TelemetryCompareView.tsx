@@ -100,8 +100,10 @@ export const TelemetryCompareView: React.FC = () => {
     }
 
     loadTelemetry()
+    const interval = setInterval(loadTelemetry, 800)
     return () => {
       mounted = false
+      clearInterval(interval)
     }
   }, [driverAId, driverBId])
 

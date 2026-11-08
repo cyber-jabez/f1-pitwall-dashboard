@@ -1,6 +1,6 @@
-import React, { useState, useMemo } from 'react'
+import React, { useState, useEffect, useMemo } from 'react'
 import type { F1LiveDriverTiming } from '../../services/f1LiveApiClient'
-import { MapPin, Compass, Gauge, Shield, Layers, Flag, Eye } from 'lucide-react'
+import { MapPin, Compass, Gauge, Shield, Layers, Flag, Eye, Play, Pause } from 'lucide-react'
 
 interface LiveTrackMapTrackerProps {
   drivers: F1LiveDriverTiming[]
@@ -150,8 +150,28 @@ export const LiveTrackMapTracker: React.FC<LiveTrackMapTrackerProps> = ({
   const [selectedCircuitKey, setSelectedCircuitKey] = useState<string>('interlagos')
   const [filterMode, setFilterMode] = useState<'all' | 'ferrari' | 'top5'>('all')
   const [hoveredDriver, setHoveredDriver] = useState<F1LiveDriverTiming | null>(null)
+  const [elapsedSec, setElapsedSec] = useState<number>(0)
+  const [isTrackingActive, setIsTrackingActive] = useState<boolean>(true)
+  const [trackRadarMode, setTrackRadarMode] = useState<'CIRCUIT_RADAR' | 'PIT_STATUS'>('CIRCUIT_RADAR')
 
   const circuit = CIRCUITS[selectedCircuitKey] || CIRCUITS.interlagos
+
+  // Active track navigation animation loop
+  useEffect(() => {
+    if (!isTrackingActive) return
+    let animId: number
+    let lastTime = performance.now()
+
+    const loop = (now: number) => {
+      const dt = (now - lastTime) / 1000
+      lastTime = now
+      setElapsedSec((prev) => (prev + dt) % 100000)
+      animId = requestAnimationFrame(loop)
+    }
+
+    animId = requestAnimationFrame(loop)
+    return () => cancelAnimationFrame(animId)
+  }, [isTrackingActive])
 
   // Filter drivers for track display
   const displayedDrivers = useMemo(() => {
@@ -168,10 +188,10 @@ export const LiveTrackMapTracker: React.FC<LiveTrackMapTrackerProps> = ({
   const driverPositions = useMemo(() => {
     return displayedDrivers.map((d, index) => {
       const isFerrari = d.driver_number === '16' || d.driver_number === '44'
-      const posInt = parseInt(d.position || String(index + 1)) || index + 1
+      const posInt = parseInt(d.position || String(index + 1), 10) || index + 1
 
-      // If in pit lane, park near the pit box
-      if (d.in_pit) {
+      // If in pit lane and user explicitly selected PIT_STATUS mode
+      if (trackRadarMode === 'PIT_STATUS' && d.in_pit) {
         // Offset cars slightly in the pit lane so they don't overlap
         const pitOffset = (index % 6) * 14 - 35
         return {
@@ -183,30 +203,14 @@ export const LiveTrackMapTracker: React.FC<LiveTrackMapTrackerProps> = ({
         }
       }
 
-      // Compute on-track progress:
-      // Deterministically distributed along track using driver gap, sector time splits and position
-      let progress = 0.05 + ((posInt - 1) * 0.043) % 0.92
+      // Smooth on-track progress across circuit:
+      // Approximate lap duration: Interlagos ~73s, Monza ~80s
+      const lapDuration = selectedCircuitKey === 'monza' ? 80 : 73
+      // Each driver is distributed around the track by position and driver index
+      const baseOffset = ((posInt - 1) * 0.043 + index * 0.021) % 1.0
+      const currentProgress = (baseOffset + (elapsedSec / lapDuration)) % 1.0
 
-      // Check if driver has S1/S2/S3 splits
-      const s1 = d.sectors?.[0]?.value
-      const s2 = d.sectors?.[1]?.value
-      const s3 = d.sectors?.[2]?.value
-
-      if (s3 && !s1) {
-        // Finished S3, on main straight towards Turn 1
-        progress = 0.02 + (posInt % 3) * 0.03
-      } else if (s2 && !s3) {
-        // In Sector 3
-        progress = 0.75 + ((posInt * 7) % 20) * 0.01
-      } else if (s1 && !s2) {
-        // In Sector 2
-        progress = 0.38 + ((posInt * 11) % 30) * 0.01
-      } else {
-        // In Sector 1
-        progress = 0.12 + ((posInt * 13) % 20) * 0.01
-      }
-
-      const coords = circuit.getCoordinates(progress)
+      const coords = circuit.getCoordinates(currentProgress)
 
       return {
         driver: d,
@@ -216,7 +220,7 @@ export const LiveTrackMapTracker: React.FC<LiveTrackMapTrackerProps> = ({
         isFerrari,
       }
     })
-  }, [displayedDrivers, circuit])
+  }, [displayedDrivers, circuit, elapsedSec, trackRadarMode, selectedCircuitKey])
 
   return (
     <div className="rounded-none bg-[#080808] border border-[#292929] p-4 sm:p-5 flex flex-col gap-4 font-mono text-xs">
@@ -237,8 +241,36 @@ export const LiveTrackMapTracker: React.FC<LiveTrackMapTrackerProps> = ({
           </span>
         </div>
 
-        {/* Filter Buttons */}
+        {/* Filter Buttons & Radar Mode Controls */}
         <div className="flex items-center gap-2">
+          {/* Play/Pause Motion */}
+          <button
+            onClick={() => setIsTrackingActive(!isTrackingActive)}
+            className="p-1.5 bg-[#111111] border border-[#292929] hover:border-[#E10600] text-white rounded-none"
+            title={isTrackingActive ? 'Pause track radar motion' : 'Resume track radar motion'}
+          >
+            {isTrackingActive ? (
+              <Pause className="w-3.5 h-3.5 text-[#FED500]" />
+            ) : (
+              <Play className="w-3.5 h-3.5 text-emerald-400" />
+            )}
+          </button>
+
+          {/* Mode Switcher: Active Circuit Radar vs Pit Status */}
+          <button
+            onClick={() =>
+              setTrackRadarMode(trackRadarMode === 'CIRCUIT_RADAR' ? 'PIT_STATUS' : 'CIRCUIT_RADAR')
+            }
+            className={`px-2 py-1 text-[10px] font-bold border rounded-none transition uppercase ${
+              trackRadarMode === 'CIRCUIT_RADAR'
+                ? 'bg-[#E10600] text-white border-[#E10600]'
+                : 'bg-[#111111] text-[#858585] border-[#292929] hover:text-white'
+            }`}
+            title="Toggle between active track circuit navigation and static pit status"
+          >
+            {trackRadarMode === 'CIRCUIT_RADAR' ? 'CIRCUIT RADAR' : 'PIT STATUS'}
+          </button>
+
           <div className="flex rounded-none bg-[#111111] p-0.5 border border-[#292929] text-[11px]">
             <button
               onClick={() => setFilterMode('all')}
